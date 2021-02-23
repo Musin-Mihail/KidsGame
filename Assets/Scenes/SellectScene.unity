@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 16346698}
   - component: {fileID: 16346701}
   m_Layer: 5
-  m_Name: TurtleBtn
+  m_Name: Turtle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,7 +156,7 @@ RectTransform:
   m_Children:
   - {fileID: 854065097}
   m_Father: {fileID: 802015668}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.22631691, y: 0.63100004}
   m_AnchorMax: {x: 0.3467676, y: 0.7528127}
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 265414631}
   - component: {fileID: 265414635}
   m_Layer: 5
-  m_Name: ShellBtn
+  m_Name: Shell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -298,7 +298,7 @@ RectTransform:
   m_Children:
   - {fileID: 1881195905}
   m_Father: {fileID: 802015668}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.727162, y: 0.04225002}
   m_AnchorMax: {x: 0.80988026, y: 0.21712503}
@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GetNameScene: ShadowScene
+  NameScene: 4
 --- !u!114 &265414632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,11 +528,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1686986821}
-  - {fileID: 1684229603}
   - {fileID: 945464816}
-  - {fileID: 16346697}
+  - {fileID: 1684229603}
   - {fileID: 265414630}
   - {fileID: 1395780237}
+  - {fileID: 16346697}
   - {fileID: 1478234345}
   - {fileID: 1818001257}
   - {fileID: 1356958629}
@@ -886,7 +886,7 @@ GameObject:
   - component: {fileID: 945464820}
   - component: {fileID: 945464822}
   m_Layer: 5
-  m_Name: ChestBtn
+  m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -905,7 +905,7 @@ RectTransform:
   m_Children:
   - {fileID: 1668631713}
   m_Father: {fileID: 802015668}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.22631691, y: 0.054750014}
   m_AnchorMax: {x: 0.3467676, y: 0.24056248}
@@ -1018,7 +1018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GetNameScene: ChestScene
+  NameScene: 2
 --- !u!95 &945464822
 Animator:
   serializedVersion: 3
@@ -1355,7 +1355,7 @@ GameObject:
   - component: {fileID: 1395780238}
   - component: {fileID: 1395780243}
   m_Layer: 5
-  m_Name: ShipBtn
+  m_Name: Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1374,7 +1374,7 @@ RectTransform:
   m_Children:
   - {fileID: 909405475}
   m_Father: {fileID: 802015668}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6303592, y: 0.534375}
   m_AnchorMax: {x: 0.80988026, y: 0.80587506}
@@ -1393,7 +1393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GetNameScene: ShipScene
+  NameScene: 5
 --- !u!114 &1395780239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1957,7 +1957,7 @@ GameObject:
   - component: {fileID: 1684229604}
   - component: {fileID: 1684229608}
   m_Layer: 5
-  m_Name: HourseBtn
+  m_Name: Hourse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1976,7 +1976,7 @@ RectTransform:
   m_Children:
   - {fileID: 1051406508}
   m_Father: {fileID: 802015668}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.101822846, y: 0.28811568}
   m_AnchorMax: {x: 0.18183158, y: 0.51505655}
@@ -1995,7 +1995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GetNameScene: ShapesScene
+  NameScene: 4
 --- !u!114 &1684229605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2123,7 +2123,7 @@ GameObject:
   - component: {fileID: 1686986822}
   - component: {fileID: 1686986825}
   m_Layer: 5
-  m_Name: MenuBtn
+  m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2254,7 +2254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GetNameScene: MainMenu
+  NameScene: 1
 --- !u!850595691 &1769299702
 LightingSettings:
   m_ObjectHideFlags: 0
