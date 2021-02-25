@@ -4,21 +4,18 @@ using UnityEngine;
 
 public class Level6Global : MonoBehaviour
 {
-    public static int Victory = 15;
     public List<GameObject>  AllStars = new List<GameObject>();
     public static List<GameObject>  AllCollectedStars = new List<GameObject>();
     public static List<GameObject>  AllStarsStatic = new List<GameObject>();
-    public List<Sprite> SpriteBubble = new List<Sprite>();
-    public static List<Sprite> SpriteBubbleStatic = new List<Sprite>();
     public List<GameObject>  AllChest = new List<GameObject>();
     public GameObject Finger;
     public static int WaitHint = 0;
     public int WaitHintPublic;
     int HintTime =0;
-    
+    int Stop = 0;
     void Awake()
     {
-        Victory = 15;
+        WinBobbles.Victory = AllStars.Count;
         for (int i = 0; i < AllStars.Count; i++)
         {
             int chance = Random.Range(0,11);
@@ -27,42 +24,26 @@ public class Level6Global : MonoBehaviour
             AllStars[chance] = item;
         }
         AllStarsStatic = AllStars;
-        SpriteBubbleStatic = SpriteBubble;
         AllCollectedStars = new List<GameObject>();
     }
     void Start() 
     {
-        // StartCoroutine(Win());
-        // StartCoroutine(Hint());
         StartCoroutine(StartHint());
     }
     void Update()
     {
         WaitHintPublic = WaitHint;
-        if (Victory == 0)
+        if (WinBobbles.Victory == 0 && Stop == 0)
         {
-            Victory++;
-            StartCoroutine(Win());
+            Stop = 1;
             StartCoroutine(Win2());
-        }
-    }
-    IEnumerator Win()
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            var NewVector = new Vector3(Random.Range(-6.0f,6.0f), -8.0f, 0);
-            var GO = Instantiate(Resources.Load<GameObject>("Bubble"),NewVector, Quaternion.identity);
-            float NewRandom = Random.Range(0.3f,0.6f);
-            var NewScale = new Vector3(NewRandom, NewRandom, 1);
-            GO.transform.localScale = NewScale;
-            yield return new WaitForSeconds(Random.Range(0.0f, 1.0f));
         }
     }
     IEnumerator Win2()
     {
         foreach (var item in AllCollectedStars)
         {
-            StartCoroutine(item.GetComponent<Level6WinStar>().Win());
+            StartCoroutine(item.GetComponent<WinUp>().Win());
             yield return new WaitForSeconds(0.05f);
         }
     }
@@ -98,7 +79,7 @@ public class Level6Global : MonoBehaviour
 
         foreach (var item in GetComponent<Level6Spawn>().SpawnPosition)
         {
-            if(item!= null && item.transform.position == item.GetComponent<Level6StarMove>().StartPosition)
+            if(item!= null && item.transform.position == item.GetComponent<MoveItem>().StartPosition)
             {
                 Tag = item.tag;
                 Start = item.transform.position;

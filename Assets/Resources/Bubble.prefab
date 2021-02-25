@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4912721534522409086}
   - component: {fileID: 8151633826721219358}
   - component: {fileID: 6501852854191138204}
-  - component: {fileID: -6333543675060588853}
   - component: {fileID: 9155635246415191193}
+  - component: {fileID: -4926746111507578311}
   m_Layer: 0
   m_Name: Bubble
   m_TagString: Untagged
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1740764275
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -7042500509614532956, guid: 4d108cf69bf10264c97e7ebc4c151762,
     type: 3}
@@ -124,18 +124,6 @@ CircleCollider2D:
   m_Offset: {x: -0.0667448, y: 0.1335318}
   serializedVersion: 2
   m_Radius: 2.5
---- !u!114 &-6333543675060588853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4912721534522409081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73c28af89b5ce61428551b693d3d550b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &9155635246415191193
 AudioSource:
   m_ObjectHideFlags: 0
@@ -232,3 +220,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-4926746111507578311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4912721534522409081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d680efe67c5e9274db059dd43c8bb29a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteBubble:
+  - {fileID: 553928572981610576, guid: 4d108cf69bf10264c97e7ebc4c151762, type: 3}
+  - {fileID: 402997456433099941, guid: 4d108cf69bf10264c97e7ebc4c151762, type: 3}
+  - {fileID: 7358965505205293577, guid: 4d108cf69bf10264c97e7ebc4c151762, type: 3}

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2724857642572350338}
   - component: {fileID: 7809595168662792023}
   - component: {fileID: -8075294382112791574}
-  - component: {fileID: -8888798651954136714}
-  m_Layer: 0
+  - component: {fileID: -2414842056748044142}
+  m_Layer: 7
   m_Name: Star3Blue
   m_TagString: Blue
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Position: {x: 0, y: 0, z: 0}
---- !u!114 &-8888798651954136714
+--- !u!114 &-2414842056748044142
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,7 +124,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2724857642572350336}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fb7d89f6b42af04aac0cda3483cd2a9, type: 3}
+  m_Script: {fileID: 11500000, guid: f2c8084546038d94fb6310bec24aa96d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  StartPosition: {x: 0, y: 0, z: 0}

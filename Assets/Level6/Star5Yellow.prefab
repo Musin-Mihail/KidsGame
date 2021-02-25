@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7409043834928603950}
   - component: {fileID: 7867881546065664321}
   - component: {fileID: 8208456314291878134}
-  - component: {fileID: 4607066021322170319}
-  m_Layer: 0
+  - component: {fileID: -6256216161930338268}
+  m_Layer: 7
   m_Name: Star5Yellow
   m_TagString: Yellow
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Position: {x: 0, y: 0, z: 0}
---- !u!114 &4607066021322170319
+--- !u!114 &-6256216161930338268
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,7 +124,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7409043834928603948}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fb7d89f6b42af04aac0cda3483cd2a9, type: 3}
+  m_Script: {fileID: 11500000, guid: f2c8084546038d94fb6310bec24aa96d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  StartPosition: {x: 0, y: 0, z: 0}

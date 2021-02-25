@@ -10,6 +10,8 @@ TagManager:
   - Red
   - Yellow
   - Game
+  - Water
+  - Land
   layers:
   - Default
   - TransparentFX
@@ -18,10 +20,10 @@ TagManager:
   - Water
   - UI
   - Chest
-  - 
+  - Star
   - Obj
   - Target
-  - 
+  - Level4Tag
   - 
   - 
   - 
@@ -56,9 +58,9 @@ TagManager:
   - name: Object
     uniqueID: 63912513
     locked: 0
-  - name: Handler
-    uniqueID: 756416963
-    locked: 0
   - name: Winner
     uniqueID: 1740764275
+    locked: 0
+  - name: Reset
+    uniqueID: 756416963
     locked: 0

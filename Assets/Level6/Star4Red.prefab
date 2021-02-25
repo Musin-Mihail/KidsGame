@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1831012474719730328}
   - component: {fileID: 6104472090037852133}
   - component: {fileID: -2857128621487647567}
-  - component: {fileID: -200517487294984531}
-  m_Layer: 0
+  - component: {fileID: 8127365733316263661}
+  m_Layer: 7
   m_Name: Star4Red
   m_TagString: Red
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Position: {x: 0, y: 0, z: 0}
---- !u!114 &-200517487294984531
+--- !u!114 &8127365733316263661
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,7 +124,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1831012474719730326}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fb7d89f6b42af04aac0cda3483cd2a9, type: 3}
+  m_Script: {fileID: 11500000, guid: f2c8084546038d94fb6310bec24aa96d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  StartPosition: {x: 0, y: 0, z: 0}
