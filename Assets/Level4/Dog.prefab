@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3724969161698581991}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.083, y: -0.02, z: 0}
+  m_LocalPosition: {x: -0.72, y: -0.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7958081755292129492}
@@ -71,12 +71,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 958c8eb2f61234e4ea4ecaee46fb1144, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fb0d52e330af3b24081c0b0552b396ec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.5, y: 4.5}
+  m_Size: {x: 4.59, y: 4.59}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -93,7 +93,6 @@ GameObject:
   - component: {fileID: 7958081755292129492}
   - component: {fileID: 1310382281580176286}
   - component: {fileID: 7547282802031887378}
-  - component: {fileID: 7547282802031887379}
   - component: {fileID: 2144498432431323900}
   - component: {fileID: 2827344038057881930}
   - component: {fileID: 446006512527375001}
@@ -159,12 +158,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 88469f16a8dab1d43a2d8f3aa8c654ac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 45fac51247607014b94da288ffe14a85, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.5, y: 4.5}
+  m_Size: {x: 4.59, y: 4.59}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -182,25 +181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25ec547517aef5498381da5b4e92caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &7547282802031887379
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7547282802031887376}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b50482db2d278dd4cb0ebb243a1a6d3b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &2144498432431323900
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -218,8 +198,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.5, y: 4.5}
-    newSize: {x: 4.5, y: 4.5}
+    oldSize: {x: 4.59, y: 4.59}
+    newSize: {x: 4.59, y: 4.59}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

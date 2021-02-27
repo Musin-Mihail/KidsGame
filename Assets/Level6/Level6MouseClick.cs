@@ -39,12 +39,14 @@ public class Level6MouseClick : MonoBehaviour
             }
             else
             {
+                gameObject.GetComponent<MoveItem>().State = 1;
                 transform.position = Position;
                 MouseMove.MoveFigures = null;
             }
         }
         else
         {
+            gameObject.GetComponent<MoveItem>().State = 1;
             transform.position = Position;
             MouseMove.MoveFigures = null;
         }

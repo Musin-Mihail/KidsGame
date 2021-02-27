@@ -24,8 +24,6 @@ public class WinBobbles : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Direction.BGBlackStatic.SetActive(true);
-        GameObject Black = new GameObject();
-        Black.AddComponent<SpriteRenderer>();
         for (int i = 0; i < 30; i++)
         {
             var NewVector = new Vector3(Random.Range(-6.0f,6.0f), -8.0f, 0);

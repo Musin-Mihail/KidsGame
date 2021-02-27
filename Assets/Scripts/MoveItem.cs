@@ -25,17 +25,15 @@ public class MoveItem : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position,StartPosition, 0.1f);
             yield return new WaitForSeconds(0.04f);
         }
-        // yield return new WaitForSeconds(0.05f);
-        // StartCoroutine(StartMove());
     }
     IEnumerator Rotation()
     {
-        while(true)
+        while(State == 1)
         {
             transform.rotation *= Quaternion.Euler(0, 0, 5);
             yield return new WaitForSeconds(0.05f);
         }
-        // yield return new WaitForSeconds(0.05f);
-        // StartCoroutine(Rotation());
+        yield return new WaitForSeconds(0.05f);
+        StartCoroutine(Rotation());
     }
 }
