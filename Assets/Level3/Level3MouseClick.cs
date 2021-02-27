@@ -12,7 +12,7 @@ public class Level3MouseClick : MonoBehaviour
     void OnMouseDown()
     {
         Position = GetComponent<MoveItem>().StartPosition;
-        Level2Global.WaitHint = 1;
+        Level3Global.WaitHint = 1;
         gameObject.GetComponent<MoveItem>().State = 0;
     }
     void OnMouseUp()
