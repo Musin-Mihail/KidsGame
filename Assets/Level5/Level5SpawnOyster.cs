@@ -24,15 +24,15 @@ public class Level5SpawnOyster : MonoBehaviour
     {
         Stage = 2;
         _SpriteRenderer.sprite = Level5Global.NewStageOyster[1];
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         Stage = 1;
         _SpriteRenderer.sprite = Level5Global.NewStageOyster[0];
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.4f);
         if(Level5Global.NewColarFigures.Count > 0)
         {
             Stage = 2;
             _SpriteRenderer.sprite = Level5Global.NewStageOyster[1];
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.4f);
             _SpriteRenderer.sprite = Level5Global.NewStageOyster[2];
             Vector3 newVector3 = new Vector3(transform.position.x, transform.position.y,-0.25f);
             var instFirure = Instantiate(Level5Global.NewColarFigures[0], newVector3, Level5Global.NewColarFigures[0].transform.rotation);
@@ -45,10 +45,10 @@ public class Level5SpawnOyster : MonoBehaviour
     }
     IEnumerator StartStage()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.4f);
         Stage = 2;
         _SpriteRenderer.sprite = Level5Global.NewStageOyster[1];
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         _SpriteRenderer.sprite = Level5Global.NewStageOyster[2];
         Vector3 newVector3 = new Vector3(transform.position.x, transform.position.y,-0.25f);
         var instFirure = Instantiate(Level5Global.NewColarFigures[0], newVector3, Level5Global.NewColarFigures[0].transform.rotation);

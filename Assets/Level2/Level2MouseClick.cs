@@ -6,14 +6,23 @@ public class Level2MouseClick : MonoBehaviour
 {
     public Vector3 Position;
     public static GameObject MoveFigures;
+    public Vector3 NormalScale;
+    public Vector3 BigScale;
 
     int layerMask = 1 << 9;
+    void Start() 
+    {
+        NormalScale = transform.localScale;
+        BigScale = NormalScale + new Vector3(0.4f,0.4f,0);
+        transform.localScale = BigScale;
+    }
 
     void OnMouseDown()
     {
         Position = GetComponent<MoveItem>().StartPosition;
         Level2Global.WaitHint = 1;
         gameObject.GetComponent<MoveItem>().State = 0;
+        transform.localScale = NormalScale;
     }
     void OnMouseUp()
     {
@@ -39,12 +48,13 @@ public class Level2MouseClick : MonoBehaviour
             }
             else
             {
+                transform.localScale = BigScale;
                 transform.position = Position;
             }
         }
         else
         {
-            Debug.Log(transform.position);
+            transform.localScale = BigScale;
             transform.position = Position;
         }
     }

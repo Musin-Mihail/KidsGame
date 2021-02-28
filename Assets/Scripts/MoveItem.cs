@@ -22,8 +22,8 @@ public class MoveItem : MonoBehaviour
     {
         while(transform.position != StartPosition && State == 1)
         {
-            transform.position = Vector2.MoveTowards(transform.position,StartPosition, 0.1f);
-            yield return new WaitForSeconds(0.04f);
+            transform.position = Vector2.MoveTowards(transform.position,StartPosition, 0.02f);
+            yield return new WaitForSeconds(0.01f);
         }
     }
     IEnumerator Rotation()

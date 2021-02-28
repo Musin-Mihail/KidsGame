@@ -29,7 +29,7 @@ public class Level3Global : MonoBehaviour
     {
         ThreeFiguresComplete = -1;
         Center = new Vector3(0,0,3);
-        EndTarget = new Vector3(12,0,3);
+        EndTarget = new Vector3(15,0,3);
 //Перемешивания списка.
         WinBobbles.Victory = 1;
         for (int i = 0; i < AllAnimals.Count; i++)

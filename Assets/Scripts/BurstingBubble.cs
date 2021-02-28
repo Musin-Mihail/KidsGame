@@ -23,11 +23,11 @@ public class BurstingBubble : MonoBehaviour
     {
         _AudioSource.Play();
         _SpriteRenderer.sprite = SpriteBubble[0];
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         _SpriteRenderer.sprite = SpriteBubble[1];
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         _SpriteRenderer.sprite = SpriteBubble[2];
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         Destroy(gameObject);
     }
     IEnumerator DestroyBubble()

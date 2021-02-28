@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AtlasLevel3Animals
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 2
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 2
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: d6e8ba3945b908447bf32b15d3dd7934, type: 3}
+    - {fileID: 2800000, guid: 32a4277d1f1d00c41aa3632c465e7da6, type: 3}
+    - {fileID: 2800000, guid: ac875869248ff4549b90c369589b47a3, type: 3}
+    - {fileID: 2800000, guid: 2783bc59c33b2fc44b96f1f1ab5b4582, type: 3}
+    - {fileID: 2800000, guid: ae0f981c9aacacf45a76ef1de9146f9e, type: 3}
+    - {fileID: 2800000, guid: a1e51c71014c9ab47af53d215f95d0be, type: 3}
+    - {fileID: 2800000, guid: 22d5ace0efa0aa746b567f2690258746, type: 3}
+    - {fileID: 2800000, guid: 7f0bc3e58e25e0b42addc92db003c47a, type: 3}
+    - {fileID: 2800000, guid: 14212b3a9d2da1f47bf9db11ad32d7a4, type: 3}
+    - {fileID: 2800000, guid: a35ff3c131489744dba5ce63ba8bfa1a, type: 3}
+    - {fileID: 2800000, guid: ab330a3846fb5b145bae09adf3e15434, type: 3}
+    - {fileID: 2800000, guid: 10844ffe21994204998a43ca5cd13f9c, type: 3}
+    - {fileID: 2800000, guid: 0fb8f9303f8e1424f8a6f38bbb36dfa6, type: 3}
+    totalSpriteSurfaceArea: 3792258
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 0fb8f9303f8e1424f8a6f38bbb36dfa6, type: 3}
+  - {fileID: 21300000, guid: 22d5ace0efa0aa746b567f2690258746, type: 3}
+  - {fileID: 21300000, guid: a1e51c71014c9ab47af53d215f95d0be, type: 3}
+  - {fileID: 21300000, guid: a35ff3c131489744dba5ce63ba8bfa1a, type: 3}
+  - {fileID: 21300000, guid: 7f0bc3e58e25e0b42addc92db003c47a, type: 3}
+  - {fileID: 21300000, guid: ab330a3846fb5b145bae09adf3e15434, type: 3}
+  - {fileID: 21300000, guid: d6e8ba3945b908447bf32b15d3dd7934, type: 3}
+  - {fileID: 21300000, guid: 2783bc59c33b2fc44b96f1f1ab5b4582, type: 3}
+  - {fileID: 21300000, guid: ac875869248ff4549b90c369589b47a3, type: 3}
+  - {fileID: 21300000, guid: 14212b3a9d2da1f47bf9db11ad32d7a4, type: 3}
+  - {fileID: 21300000, guid: ae0f981c9aacacf45a76ef1de9146f9e, type: 3}
+  - {fileID: 21300000, guid: 32a4277d1f1d00c41aa3632c465e7da6, type: 3}
+  - {fileID: 21300000, guid: 10844ffe21994204998a43ca5cd13f9c, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - whale (5)
+  - turtle (5)
+  - turtle (4)
+  - whale (2)
+  - turtle (6)
+  - whale (3)
+  - crab-05-05
+  - turtle (2)
+  - turtle (1)
+  - whale (1)
+  - turtle (3)
+  - crab-05
+  - whale (4)
+  m_RenderDataMap: {}
+  m_Tag: AtlasLevel3Animals
+  m_IsVariant: 0

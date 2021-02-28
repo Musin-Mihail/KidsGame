@@ -24,7 +24,7 @@ public class Level1MouseClick : MonoBehaviour
             {
                 var newVector3 = hitColliders.transform.position;
                 newVector3.z += 0.5f;
-                Instantiate(Resources.Load<ParticleSystem>("Bubbles"), newVector3, Quaternion.Euler(-90,-40,0));
+                Instantiate(Resources.Load<ParticleSystem>("BubblesLevel1"), newVector3, Quaternion.Euler(-90,-40,0));
                 hitColliders.GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
                 hitColliders.GetComponent<SoundClickItem>().Play();
                 
