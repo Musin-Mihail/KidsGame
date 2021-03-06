@@ -12,6 +12,19 @@ TagManager:
   - Game
   - Water
   - Land
+  - circle
+  - oval1
+  - oval2
+  - rectangle1
+  - rectangle2
+  - square1
+  - square2
+  - star
+  - triangle1
+  - triangle2
+  - Target1
+  - Target2
+  - Target3
   layers:
   - Default
   - TransparentFX
