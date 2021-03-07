@@ -5,23 +5,15 @@ using System;
 
 public class Level8MoveItem : MonoBehaviour
 {
-    // void Start()
-    // {
-    //     StartCoroutine(Move());
-    // }
-    public IEnumerator Move()
+    public IEnumerator Move(int count)
     {
-        int number = Int32.Parse(gameObject.name);
-        Debug.Log("1");
-        Vector3 target = Level8Spawn.SpawnPosition3Static[number].transform.position;
-        Debug.Log("2");
-        GetComponent<Level8MauseClick>().Position = Level8Spawn.SpawnPosition3Static[number].transform.position;
-        Debug.Log("3");
+        Vector3 target = transform.parent.gameObject.GetComponent<Level8>().AllSpawn[count].transform.position;
+        GetComponent<Level8MauseClick>().Position = target;
+        gameObject.name = transform.parent.gameObject.GetComponent<Level8>().AllPlace[count].name;
         while(transform.position != target)
         {
             transform.position = Vector3.MoveTowards(transform.position, target, 0.05f);
             yield return new WaitForSeconds(0.01f);
         }
-        Debug.Log("End");
     }
 }

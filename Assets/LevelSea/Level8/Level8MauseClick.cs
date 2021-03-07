@@ -10,7 +10,8 @@ public class Level8MauseClick : MonoBehaviour
 
     void OnMouseDown()
     {
-        Level8Global.WaitHint = 1;
+        // Level8Global.WaitHint = 1;
+        GetComponent<SpriteRenderer>().sortingOrder = 3;
         // gameObject.GetComponent<MoveItem>().State = 0;
     }
     void OnMouseUp()
@@ -20,22 +21,26 @@ public class Level8MauseClick : MonoBehaviour
         {
             if(hitColliders.name == gameObject.name)
             {
-                // hitColliders.GetComponent<SoundClickItem>().Play();
+                hitColliders.GetComponent<SoundClickItem>().Play();
+                GetComponent<BoxCollider2D>().enabled = false;
+                GetComponent<SpriteRenderer>().sortingOrder = 1;
                 transform.position = hitColliders.transform.position;
-                Level8Spawn.Count --;
-                if(Level8Spawn.Count == 0)
+                transform.parent.gameObject.GetComponent<Level8>().CountItem --;
+                if(transform.parent.gameObject.GetComponent<Level8>().CountItem == 0)
                 {
-                    Level8Spawn.AllPuzzleStatic[0].GetComponent<Level8MoveAnimal>().end = 1;
+                    transform.parent.gameObject.GetComponent<Level8>().end = 1;
                 }
             }
             else
             {
                 transform.position = Position;
+                GetComponent<SpriteRenderer>().sortingOrder = 2;
             }
         }
         else
         {
             transform.position = Position;
+            GetComponent<SpriteRenderer>().sortingOrder = 2;
         }
     }
     void OnMouseDrag()

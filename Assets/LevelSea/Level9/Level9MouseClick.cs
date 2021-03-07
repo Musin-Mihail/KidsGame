@@ -10,7 +10,7 @@ public class Level9MouseClick : MonoBehaviour
     void OnMouseDown()
     {
         Position = GetComponent<MoveItem>().StartPosition;
-        Level8Global.WaitHint = 1;
+        Level9Global.WaitHint = 1;
         gameObject.GetComponent<MoveItem>().State = 0;
     }
     void OnMouseUp()
