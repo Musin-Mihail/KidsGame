@@ -11,9 +11,16 @@ public class Level8 : MonoBehaviour
     public int CountItem;
     public Sprite BaseSprite;
     public GameObject NextAnimal;
+    int HintTime = 0;
+    public GameObject Finger;
+    public int WaitHint = 0;
+    Vector3 StartPosition;
+    Vector3 EndPosition;
+    private IEnumerator _startHint;
     
     void Start()
     {
+        _startHint = StartHint();
         WinBobbles.Victory = 1; // Чтобы уровень не завершился
         StartCoroutine(Move());
     }
@@ -41,6 +48,8 @@ public class Level8 : MonoBehaviour
         {
             StartCoroutine(AllItem[i].GetComponent<Level8MoveItem>().Move(i));
         }
+
+        StartCoroutine(_startHint);
         while(end != 1)
         {
             yield return new WaitForSeconds(0.5f);
@@ -64,6 +73,69 @@ public class Level8 : MonoBehaviour
         {
             StartCoroutine(WinBobbles.Win());
         }
+        StopCoroutine(_startHint);
+        // Destroy(GetComponent<Level8>());
         // gameObject.SetActive(false);
+    }
+    public IEnumerator StartHint()
+    {
+        while(true)
+        {
+            while(HintTime < 5)
+            {
+                yield return new WaitForSeconds(1.0f);
+                if(WaitHint == 1)
+                {
+                    HintTime = 0;
+                    WaitHint = 0;
+                    break;
+                }
+                HintTime++;
+            }
+            if(HintTime >= 5)
+            {
+                StartCoroutine(Hint());
+            }
+            HintTime = 0;
+            yield return new WaitForSeconds(1.0f);
+        }
+    }
+    public IEnumerator Hint()
+    {
+        string _name = "";
+        if(WinBobbles.Victory > 0)
+        {
+            foreach (var item in AllItem)
+            {
+                if (item.GetComponent<BoxCollider2D>().enabled == true)
+                {
+                    StartPosition = item.transform.position;
+                    _name  = item.name;
+                    break;
+                }  
+            }
+            foreach (var item in AllPlace)
+            {
+                if(item.name == _name)
+                {
+                    EndPosition = item.transform.position;
+                    break;
+                }
+            }
+            // StartPosition.z = -1;
+            // EndPosition.z = -1;
+            Finger.transform.position = StartPosition;
+            while(Finger.transform.position != EndPosition)
+            {
+                Finger.transform.position = Vector3.MoveTowards(Finger.transform.position, EndPosition, 0.1f);
+                if(WaitHint == 1)
+                {
+                    Finger.transform.position = new Vector3 (0,10,0);
+                    break;
+                }
+                yield return new WaitForSeconds(0.02f);
+            }
+            Finger.transform.position = new Vector3 (0,10,0);
+        }
     }
 }

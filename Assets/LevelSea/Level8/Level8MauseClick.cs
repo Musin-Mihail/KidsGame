@@ -10,9 +10,8 @@ public class Level8MauseClick : MonoBehaviour
 
     void OnMouseDown()
     {
-        // Level8Global.WaitHint = 1;
+        transform.parent.gameObject.GetComponent<Level8>().WaitHint = 1;
         GetComponent<SpriteRenderer>().sortingOrder = 3;
-        // gameObject.GetComponent<MoveItem>().State = 0;
     }
     void OnMouseUp()
     {

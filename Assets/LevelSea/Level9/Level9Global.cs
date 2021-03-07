@@ -38,7 +38,7 @@ public class Level9Global : MonoBehaviour
     }
     void Start() 
     {
-        // StartCoroutine(StartHint());
+        StartCoroutine(StartHint());
         // StartCoroutine(ChangeTasks());
     }
     void Update()
@@ -49,27 +49,7 @@ public class Level9Global : MonoBehaviour
             Debug.Log("Победа");
             // StartCoroutine(Win2());
         }
-        // if(NextFigure == 1)
-        // {
-        //     NextFigure = 0;
-        //     FigureChange();
-        // }
     }
-    // IEnumerator ChangeTasks() 
-    // {
-    //     for (int i = 0; i < 5; i++)
-    //     {
-    //         RandomItem();
-    //         while(NextFigure != 1)
-    //         {
-    //             yield return new WaitForSeconds(0.5f);
-    //         }
-    //         yield return new WaitForSeconds(2.0f);
-    //         NextFigure = 0;
-    //     }
-    //     GetComponent<Level8Spawn>().DestroyAll();
-    //     WinBobbles.Victory = 0;
-    // }
     void RandomItem()
     {
         for (int i = 0; i < AllItem.Count; i++)
@@ -117,17 +97,16 @@ public class Level9Global : MonoBehaviour
     {
         if(WinBobbles.Victory > 0)
         {
-            // foreach (var item in GetComponent<Level8Spawn>().SpawnPosition)
-            // {
-            //     if (item.name == _Name)
-            //     {
-            //         StartPosition = item.transform.position;
-            //         break;
-            //     } 
-            // }
-            
-            StartPosition.z = -1;
-            EndPosition.z = -1;
+            StartPosition = GetComponent<Level9Spawn>().SpawnPosition[0].transform.position;
+            string _tag = GetComponent<Level9Spawn>().SpawnPosition[0].tag;
+            foreach (var item in AllEmpty)
+            {
+                if(item.tag == _tag)
+                {
+                    EndPosition = item.transform.position;
+                    break;
+                }
+            }
             Finger.transform.position = StartPosition;
             while(Finger.transform.position != EndPosition)
             {

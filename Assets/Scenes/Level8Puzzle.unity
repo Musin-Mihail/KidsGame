@@ -775,6 +775,8 @@ MonoBehaviour:
   CountItem: 4
   BaseSprite: {fileID: 21300000, guid: a2f75e4bf9e983a4da45ddecb612e25a, type: 3}
   NextAnimal: {fileID: 1758744036}
+  Finger: {fileID: 1470343624}
+  WaitHint: 0
 --- !u!1 &169373508
 GameObject:
   m_ObjectHideFlags: 0
@@ -3691,7 +3693,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300040, guid: e3d7e6b4162cd004689be75381807e11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4746,6 +4748,8 @@ MonoBehaviour:
   CountItem: 6
   BaseSprite: {fileID: 21300000, guid: 4542404adec7cef429d79f0ee5f637eb, type: 3}
   NextAnimal: {fileID: 1929244069}
+  Finger: {fileID: 1470343624}
+  WaitHint: 0
 --- !u!1 &1762156726
 GameObject:
   m_ObjectHideFlags: 0
@@ -5223,6 +5227,8 @@ MonoBehaviour:
   CountItem: 6
   BaseSprite: {fileID: 21300000, guid: 7f46baea671be344e94d57298a35a35d, type: 3}
   NextAnimal: {fileID: 0}
+  Finger: {fileID: 1470343624}
+  WaitHint: 0
 --- !u!212 &1929244071
 SpriteRenderer:
   m_ObjectHideFlags: 0

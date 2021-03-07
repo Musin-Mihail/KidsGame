@@ -5,8 +5,17 @@ using UnityEngine;
 public class Level9Spawn : MonoBehaviour
 {
     public List<GameObject> SpawnPositionVector = new List<GameObject>(); // Места спавна
-    public List<GameObject> SpawnPosition = new List<GameObject>(); // Появившиеся предметы на сцене
+    public List<GameObject> SpawnPosition= new List<GameObject>(); // Появившиеся предметы на сцене
     public static int Next = 1;
+    void Start() 
+    {
+        Next = 1;
+        // SpawnPosition = new List<GameObject>();
+        // for (int i = 0; i < 3; i++)
+        // {
+        //     SpawnPosition.Add(null);
+        // }
+    }
     private void Update() 
     {
         if(Next == 1)
