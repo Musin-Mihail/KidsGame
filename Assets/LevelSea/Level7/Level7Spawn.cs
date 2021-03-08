@@ -45,6 +45,7 @@ public class Level7Spawn : MonoBehaviour
         TargetPosition[3].GetComponent<SpriteRenderer>().sprite = SpawnPosition[2].GetComponent<SpriteRenderer>().sprite;
         TargetPosition[3].transform.localScale = SpawnPosition[2].transform.localScale;
         TargetPosition[4].name = SpawnPosition[1].name;
+        Level7Global.WaitHint = 1;
     }
     public void DestroyAll()
     {
