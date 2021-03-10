@@ -7,12 +7,18 @@ public class Level11 : MonoBehaviour
 {
     public List<GameObject>  AllItem = new List<GameObject>();
     public List<GameObject>  AllSpawn = new List<GameObject>();
+    public List<GameObject>  AllTarget = new List<GameObject>();
+    public static List<GameObject>  AllTargetStatic = new List<GameObject>();
+    public static List<GameObject>  Delete = new List<GameObject>();
     public GameObject EmptyChest;
     public GameObject FishChest;
     public GameObject TargetDistans;
+    public static int count = 0;
     void Start()
     {
-        WinBobbles.Victory = 1;
+        count = 0;
+        AllTargetStatic = AllTarget;
+        WinBobbles.Victory = 8;
         for (int i = 0; i < 8; i++)
         {
             AllItem.Add(FishChest);
@@ -38,6 +44,10 @@ public class Level11 : MonoBehaviour
         {
             var chest = Instantiate (AllItem[i],AllSpawn[i].transform.position, Quaternion.identity);
             chest.name = AllItem[i].name;
+            if(chest.name == "EmptyChest")
+            {
+                Delete.Add(chest);
+            }
             yield return new WaitForSeconds(0.01f);
         }
     }

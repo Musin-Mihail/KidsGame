@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Level9MouseClick : MonoBehaviour
 {
@@ -46,11 +47,12 @@ public class Level9MouseClick : MonoBehaviour
             _newVector2.z = 0;
             transform.position = _newVector2;
         }
-        else if(Input.touchCount > 0)
-        {
-            var _newVector2 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            _newVector2.z = 0;
-            transform.position = _newVector2;
-        }
+
+        // if(Input.touchCount > 0)
+        // {
+        //     var _newVector2 = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+        //     _newVector2.z = 0;
+        //     transform.position = _newVector2;
+        // }
     }
 }

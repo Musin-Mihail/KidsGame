@@ -9,6 +9,7 @@ public class Level9Global : MonoBehaviour
     public List<GameObject>  AllEmpty = new List<GameObject>(); // Хранятся список игровых фигур
     public static List<GameObject>  AllCollected = new List<GameObject>(); // Хранятся список угаданных игровых фигру
     public GameObject Finger;
+    public static int touch = 0;
     public static int WaitHint = 0;
     Vector3 Center; // Середина
     Vector3 EndTarget; // Точка после набора нужных фигур
@@ -22,6 +23,7 @@ public class Level9Global : MonoBehaviour
     
     void Awake()
     {
+        touch = 0;
         for (int i = 0; i < AllItem.Count; i++)
         {
             int chance = Random.Range(0,AllItem.Count);

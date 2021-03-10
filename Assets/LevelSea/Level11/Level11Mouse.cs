@@ -22,6 +22,8 @@ public class Level11Mouse : MonoBehaviour
             stars.transform.position = gameObject.transform.position;
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<SoundClickItem>().Play();
+            StartCoroutine(Move(Level11.count));
+            Level11.count ++;
         }
         else
         {
@@ -29,54 +31,25 @@ public class Level11Mouse : MonoBehaviour
             stars.transform.position = gameObject.transform.position;
             Destroy(gameObject);
         }
-        // Position = transform.position;
-        // Level10.WaitHint = 1;
-        // gameObject.GetComponent<MoveItem>().State = 0;
     }
-    // void OnMouseUp()
-    // {
-    //     Collider2D hitColliders = Physics2D.OverlapCircle(transform.position, 0.1f, layerMask);
-    //     if(hitColliders != null)
-    //     {
-    //         if(hitColliders.transform.localScale.x == gameObject.transform.localScale.x)
-    //         {
-    //             hitColliders.GetComponent<SoundClickItem>().Play();
-    //             Transform[] allChildren = hitColliders.GetComponentsInChildren<Transform>();
-    //             foreach (var item in allChildren)
-    //             {
-    //                 if(item.name == gameObject.name)
-    //                 {
-    //                     item.GetComponent<SpriteRenderer>().enabled = true;
-    //                     Level10.AllBusyPlace.Add(item.gameObject);
-    //                     break;
-    //                 }
-    //             }
-    //             Level10.next --;
-    //             Destroy(gameObject);
-    //         }
-    //         else
-    //         {
-    //             transform.position = Position;
-    //         }
-    //     }
-    //     else
-    //     {
-    //         transform.position = Position;
-    //     }
-    // }
-    // void OnMouseDrag()
-    // {
-    //     if(Input.GetMouseButton(0))
-    //     {
-    //         var _newVector2 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    //         _newVector2.z = 0;
-    //         transform.position = _newVector2;
-    //     }
-    //     else if(Input.touchCount > 0)
-    //     {
-    //         var _newVector2 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    //         _newVector2.z = 0;
-    //         transform.position = _newVector2;
-    //     }
-    // }
+    IEnumerator Move(int count)
+    {
+        GetComponent<SpriteRenderer>().sortingOrder = 3;
+        var target = Level11.AllTargetStatic[count].transform.position;
+        while(transform.position != target)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target, 0.1f);
+            yield return new WaitForSeconds(0.005f);
+        }
+        Level11.AllTargetStatic[count].GetComponent<SpriteRenderer>().sprite = null;
+        WinBobbles.Victory --;
+        if(WinBobbles.Victory == 0)
+        {
+            foreach (var item in Level11.Delete)
+            {
+                Destroy(item);
+                yield return new WaitForSeconds(0.02f);
+            }
+        }
+    }
 }
