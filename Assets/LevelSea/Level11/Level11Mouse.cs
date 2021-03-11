@@ -64,6 +64,5 @@ public class Level11Mouse : MonoBehaviour
         {
             WinBobbles.Victory --;
         }
-        Debug.Log(WinBobbles.Victory);
     }
 }

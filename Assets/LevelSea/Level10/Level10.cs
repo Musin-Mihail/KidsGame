@@ -22,6 +22,7 @@ public class Level10 : MonoBehaviour
 
     void Start()
     {
+        AllBusyPlace.Clear();
         _startHint = StartHint();
         next = 3;
         for (int i = 0; i < AllItem.Count; i++)
@@ -74,7 +75,7 @@ public class Level10 : MonoBehaviour
             StartCoroutine(item.GetComponent<WinUp>().Win());
             yield return new WaitForSeconds(0.1f);
         }
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(0.5f);
         StartCoroutine(WinBobbles.Win());
     }
     public IEnumerator StartHint()
