@@ -11,7 +11,6 @@ public class Level4MouseClick : MonoBehaviour
     void OnMouseDown()
     {
         Position = GetComponent<MoveItem>().StartPosition;
-        MouseMove.MoveFigures = gameObject;
         Level4Global.WaitHint = 1;
         gameObject.GetComponent<MoveItem>().State = 0;
     }
@@ -28,7 +27,6 @@ public class Level4MouseClick : MonoBehaviour
                     if(item.name == gameObject.name)
                     {
                         GetComponent<BoxCollider2D>().enabled = false;
-                        MouseMove.MoveFigures = null;
                         StartCoroutine(Move(item));
                         break;
                     }
@@ -37,13 +35,11 @@ public class Level4MouseClick : MonoBehaviour
             else
             {
                 transform.position = Position;
-                MouseMove.MoveFigures = null;
             }
         }
         else
         {
             transform.position = Position;
-            MouseMove.MoveFigures = null;
         }
     }
     void OnMouseDrag()

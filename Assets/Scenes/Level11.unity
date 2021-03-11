@@ -1448,7 +1448,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790335858}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalPosition: {x: 0, y: -6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2822,11 +2822,13 @@ MonoBehaviour:
   - {fileID: 2118019356}
   - {fileID: 790203185}
   - {fileID: 1253813254}
+  AllFishChest: []
   EmptyChest: {fileID: 8876277722733943821, guid: e7d166b9f2fb9424ab0f1d70214a6eff,
     type: 3}
   FishChest: {fileID: 5325823693771768380, guid: 47ddcc0e7a8deb94188cb2e86bccc18b,
     type: 3}
   TargetDistans: {fileID: 1535374044}
+  Finger: {fileID: 790335858}
 --- !u!114 &1731143646
 MonoBehaviour:
   m_ObjectHideFlags: 0

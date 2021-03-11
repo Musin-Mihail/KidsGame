@@ -8,14 +8,22 @@ public class Level11 : MonoBehaviour
     public List<GameObject>  AllItem = new List<GameObject>();
     public List<GameObject>  AllSpawn = new List<GameObject>();
     public List<GameObject>  AllTarget = new List<GameObject>();
+    public List<GameObject>  AllFishChest = new List<GameObject>();
+    public static List<GameObject>  AllFishChestStatic = new List<GameObject>();
     public static List<GameObject>  AllTargetStatic = new List<GameObject>();
     public static List<GameObject>  Delete = new List<GameObject>();
     public GameObject EmptyChest;
     public GameObject FishChest;
     public GameObject TargetDistans;
     public static int count = 0;
+    int HintTime;
+    public static int WaitHint;
+    Vector3 StartPosition;
+    Vector3 EndPosition;
+    public GameObject Finger;
     void Start()
     {
+        AllFishChestStatic.Clear();
         count = 0;
         AllTargetStatic = AllTarget;
         WinBobbles.Victory = 8;
@@ -36,6 +44,7 @@ public class Level11 : MonoBehaviour
         }
         AllSpawn = AllSpawn.OrderBy(x => Vector2.Distance(TargetDistans.transform.position,x.transform.position)).ToList();
         StartCoroutine(StartGame());
+        StartCoroutine(StartHint());
     }
     IEnumerator StartGame()
     {
@@ -48,13 +57,55 @@ public class Level11 : MonoBehaviour
             {
                 Delete.Add(chest);
             }
+            else
+            {
+                AllFishChest.Add(chest);
+            }
             yield return new WaitForSeconds(0.01f);
         }
     }
-
-    // Update is called once per frame
-    void Update()
+    public IEnumerator StartHint()
     {
-        
+        yield return new WaitForSeconds(4.0f);
+        while(true)
+        {
+            while(HintTime < 4)
+            {
+                yield return new WaitForSeconds(1.0f);
+                if(WaitHint == 1)
+                {
+                    HintTime = 0;
+                    WaitHint = 0;
+                    break;
+                }
+                HintTime++;
+            }
+            if(HintTime >= 4)
+            {
+                StartCoroutine(Hint());
+            }
+            HintTime = 0;
+            yield return new WaitForSeconds(1.0f);
+        }
+    }
+    public IEnumerator Hint()
+    {
+        if(WinBobbles.Victory > 0)
+        {
+
+            List<GameObject> newlist = AllFishChest.Where(x => x.name == "FishChest").OrderBy(x => Vector3.Distance(Finger.transform.position, x.transform.position)).ToList();
+            EndPosition = newlist[0].transform.position;
+            while(Finger.transform.position != EndPosition)
+            {
+                Finger.transform.position = Vector3.MoveTowards(Finger.transform.position, EndPosition, 0.1f);
+                if(WaitHint == 1)
+                {
+                    Finger.transform.position = new Vector3 (0,-6,0);
+                    break;
+                }
+                yield return new WaitForSeconds(0.01f);
+            }
+            Finger.transform.position = new Vector3 (0,-6,0);
+        }
     }
 }

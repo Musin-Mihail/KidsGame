@@ -5,8 +5,6 @@ using UnityEngine;
 public class Level11Mouse : MonoBehaviour
 {
     public Sprite sprite;
-    // Vector3 Position;
-    // int layerMask = 1 << 9;
     IEnumerator Start()
     {
         yield return new WaitForSeconds(5);
@@ -16,19 +14,25 @@ public class Level11Mouse : MonoBehaviour
     {
         if(gameObject.name == "FishChest")
         {
-            GetComponent<Animator>().enabled = false;
-            GetComponent<SpriteRenderer>().sprite = sprite;
+            Level11.AllFishChestStatic.Add(gameObject);
+            // GetComponent<Animator>().enabled = false;
+            GetComponent<Animator>().Play("Fish");
+            // GetComponent<SpriteRenderer>().sprite = sprite;
             var stars = Instantiate(Resources.Load<ParticleSystem>("ParticleSrarsLevel11"));
             stars.transform.position = gameObject.transform.position;
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<SoundClickItem>().Play();
             StartCoroutine(Move(Level11.count));
             Level11.count ++;
+            Level11.WaitHint = 1;
+            gameObject.name = "guessed";
+            
         }
         else
         {
             var stars = Instantiate(Resources.Load<ParticleSystem>("BubblesLevel1"));
             stars.transform.position = gameObject.transform.position;
+            Level11.WaitHint = 1;
             Destroy(gameObject);
         }
     }
@@ -42,14 +46,24 @@ public class Level11Mouse : MonoBehaviour
             yield return new WaitForSeconds(0.005f);
         }
         Level11.AllTargetStatic[count].GetComponent<SpriteRenderer>().sprite = null;
-        WinBobbles.Victory --;
-        if(WinBobbles.Victory == 0)
+        if(WinBobbles.Victory == 1)
         {
             foreach (var item in Level11.Delete)
             {
                 Destroy(item);
                 yield return new WaitForSeconds(0.02f);
             }
+            foreach (var item in Level11.AllFishChestStatic)
+            {
+                item.GetComponent<Animator>().Play("Scale");
+                yield return new WaitForSeconds(0.02f);
+            }
+            WinBobbles.Victory --;
         }
+        else
+        {
+            WinBobbles.Victory --;
+        }
+        Debug.Log(WinBobbles.Victory);
     }
 }

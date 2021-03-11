@@ -9,7 +9,6 @@ public class Level6MouseClick : MonoBehaviour
     void OnMouseDown()
     {
         Position = GetComponent<MoveItem>().StartPosition;
-        MouseMove.MoveFigures = gameObject;
         Level6Global.WaitHint = 1;
         gameObject.GetComponent<MoveItem>().State = 0;
     }
@@ -41,14 +40,27 @@ public class Level6MouseClick : MonoBehaviour
             {
                 gameObject.GetComponent<MoveItem>().State = 1;
                 transform.position = Position;
-                MouseMove.MoveFigures = null;
             }
         }
         else
         {
             gameObject.GetComponent<MoveItem>().State = 1;
             transform.position = Position;
-            MouseMove.MoveFigures = null;
         }
+    }
+    void OnMouseDrag()
+    {
+        if(Input.GetMouseButton(0))
+        {
+            var _newVector2 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            _newVector2.z = 0;
+            transform.position = _newVector2;
+        }
+        // if(Input.touchCount > 0)
+        // {
+        //     var _newVector2 = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+        //     _newVector2.z = 0;
+        //     transform.position = _newVector2;
+        // }
     }
 }

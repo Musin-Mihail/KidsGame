@@ -12,7 +12,6 @@ public class Level5MouseClick : MonoBehaviour
     }
     void OnMouseDown()
     {
-        MouseMove.MoveFigures = gameObject;
         Level5Global.WaitHint = 1;
     }
     void OnMouseUp()
@@ -36,13 +35,26 @@ public class Level5MouseClick : MonoBehaviour
             else
             {
                 transform.position = StartPosition;
-                MouseMove.MoveFigures = null;
             }
         }
         else
         {
             transform.position = StartPosition;
-            MouseMove.MoveFigures = null;
         }
+    }
+    void OnMouseDrag()
+    {
+        if(Input.GetMouseButton(0))
+        {
+            var _newVector2 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            _newVector2.z = 0;
+            transform.position = _newVector2;
+        }
+        // if(Input.touchCount > 0)
+        // {
+        //     var _newVector2 = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+        //     _newVector2.z = 0;
+        //     transform.position = _newVector2;
+        // }
     }
 }

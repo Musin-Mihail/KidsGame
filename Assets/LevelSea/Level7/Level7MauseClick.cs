@@ -47,11 +47,11 @@ public class Level7MauseClick : MonoBehaviour
             _newVector2.z = 0;
             transform.position = _newVector2;
         }
-        else if(Input.touchCount > 0)
-        {
-            var _newVector2 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            _newVector2.z = 0;
-            transform.position = _newVector2;
-        }
+        // if(Input.touchCount > 0)
+        // {
+        //     var _newVector2 = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+        //     _newVector2.z = 0;
+        //     transform.position = _newVector2;
+        // }
     }
 }

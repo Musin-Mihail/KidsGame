@@ -41,7 +41,6 @@ public class Level1Global : MonoBehaviour
             // StartCoroutine(Win2());
         }
     }
-
     // IEnumerator Win2()
     // {
     //     foreach (var item in AllCollected)
