@@ -41,18 +41,18 @@ public class Level1MouseClick : MonoBehaviour
     }
     void OnMouseDrag()
     {
-        if(Input.GetMouseButton(0))
-        {
-            var _newVector2 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            _newVector2.z = 0;
-            transform.position = _newVector2;
-        }
-        
-        // if(Input.touchCount > 0)
+        // if(Input.GetMouseButton(0))
         // {
-        //     var _newVector2 = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+        //     var _newVector2 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //     _newVector2.z = 0;
         //     transform.position = _newVector2;
         // }
+        
+        if(Input.touchCount > 0)
+        {
+            var _newVector2 = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+            _newVector2.z = 0;
+            transform.position = _newVector2;
+        }
     }
 }

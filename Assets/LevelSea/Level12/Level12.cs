@@ -82,8 +82,6 @@ public class Level12 : MonoBehaviour
                     break;
                 }
             }
-            // List<GameObject> newlist = AllItem.Where(x => x.name == "Item").OrderBy(x => Vector3.Distance(Finger.transform.position, x.transform.position)).ToList();
-            // EndPosition = AllTargetStatic[count].transform.position;
             while(Finger.transform.position != EndPosition)
             {
                 Finger.transform.position = Vector3.MoveTowards(Finger.transform.position, EndPosition, 0.1f);

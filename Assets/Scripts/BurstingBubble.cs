@@ -28,11 +28,13 @@ public class BurstingBubble : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         _SpriteRenderer.sprite = SpriteBubble[2];
         yield return new WaitForSeconds(0.1f);
+        WinBobbles.Count --;
         Destroy(gameObject);
     }
     IEnumerator DestroyBubble()
     {
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(10);
+        WinBobbles.Count --;
         Destroy(gameObject);
     }
 }

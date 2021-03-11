@@ -12,6 +12,6 @@ public class SoundClickItem : MonoBehaviour
     }
     public void Play()
     {
-        _AudioSource.PlayOneShot(Direction.SoundStatic, 0.7F);
+        _AudioSource.PlayOneShot(Direction.SoundStatic, 0.3F);
     }
 }

@@ -1,16 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinBobbles : MonoBehaviour
 {
     public static int Victory;
     int Stop = 0;
-
-    // void Start()
-    // {
-    //     StartCoroutine(Win());
-    // }
+    static public int Count = 30;
     void Update()
     {
         if (Victory == 0 && Stop == 0)
@@ -18,13 +15,17 @@ public class WinBobbles : MonoBehaviour
             Stop = 1;
             StartCoroutine(WinBobbles.Win());
         }
+        if (Count == 0)
+        {
+            Count = 30;
+            Invoke("LoadScene", 2.0f);
+        }
     }
-    
     static public IEnumerator Win()
     {
         yield return new WaitForSeconds(1);
         Direction.BGBlackStatic.SetActive(true);
-        for (int i = 0; i < 30; i++)
+        for (int i = 0; i < 31; i++)
         {
             var NewVector = new Vector3(Random.Range(-6.0f,6.0f), -8.0f, 0);
             var GO = Instantiate(Resources.Load<GameObject>("Bubble"),NewVector, Quaternion.identity);
@@ -34,5 +35,9 @@ public class WinBobbles : MonoBehaviour
             // GO.transform.parent = Direction.CanvasBubblesStatic.transform;
             yield return new WaitForSeconds(Random.Range(0.0f, 0.5f));
         }
+    }
+    void LoadScene()
+    {
+        SceneManager.LoadScene("SellectScene");
     }
 }
