@@ -18,9 +18,7 @@ public class Level5Global : MonoBehaviour
     int Test = 0;//Ограничитель. Чтобы победа была только дин раз
     public GameObject Finger; // Палец для подсказки
     public static int WaitHint = 0; // Отключение подсказки. Получается из MouseClick
-    // public int WaitHintPublic;
     int HintTime = 0; // Время до подсказки.
-
     void Awake()
     {
         ReadyEmptyFigures = new List<GameObject>();
@@ -29,7 +27,6 @@ public class Level5Global : MonoBehaviour
         NewStageOyster = StageOyster;
         Delete = GameObject.Find("Delete");
     }
-
     void Start()
     {
         for (int i = 0; i < ColarFigures.Count; i++)
@@ -54,7 +51,6 @@ public class Level5Global : MonoBehaviour
         }
         NewColarFigures = ColarFigures;
         StartCoroutine(StartHint());
-        // StartCoroutine(DestroyAll());
     }
 
     void Update()
@@ -67,35 +63,17 @@ public class Level5Global : MonoBehaviour
     }
     IEnumerator DestroyAll()
     {
-        // yield return new WaitForSeconds(1.0f);
         Transform[] allChildren = Level5Global.Delete.GetComponentsInChildren<Transform>();
         for (int i = 1; i < allChildren.Length; i++)
         {
             allChildren[i].GetComponent<SpriteRenderer>().enabled = false;
-            // Destroy(allChildren[i].gameObject);
             yield return new WaitForSeconds(0.05f);
         }
         Chest.GetComponent<Animator>().enabled = true;
         yield return new WaitForSeconds(1.5f);
         Chest.SetActive(false);
         OpenChest.SetActive(true);
-        // StartCoroutine(Movechest());
     }
-    // IEnumerator Movechest()
-    // {
-    //     Vector3 NewVector3 = new Vector3(0,-0.89f,-0.2f);
-    //     Vector3 NewScale = new Vector3(0.006f,0.006f,0);
-    //     while(Chest.transform.position != NewVector3)
-    //     {
-    //         Chest.transform.position = Vector3.MoveTowards(Chest.transform.position, NewVector3, 0.05f);
-    //         if(Chest.transform.localScale.x > 0.8f)
-    //         {
-    //             Chest.transform.localScale -= NewScale;
-    //         }
-    //         // Chest.transform.localScale -= NewScale;
-    //         yield return new WaitForSeconds(0.01f);
-    //     }
-    // }
     public IEnumerator StartHint()
     {
         while(true)

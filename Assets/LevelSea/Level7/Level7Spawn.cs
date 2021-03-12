@@ -13,7 +13,6 @@ public class Level7Spawn : MonoBehaviour
     {
         Circle = TargetPosition[4].GetComponent<SpriteRenderer>().sprite;
         StartScale = TargetPosition[4].transform.localScale;
-
     }
     public void StartGame()
     {

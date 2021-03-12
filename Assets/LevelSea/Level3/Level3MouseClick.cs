@@ -5,8 +5,6 @@ using UnityEngine;
 public class Level3MouseClick : MonoBehaviour
 {
     public Vector3 Position;
-    public static GameObject MoveFigures;
-
     int layerMask = 1 << 9;
 
     void OnMouseDown()

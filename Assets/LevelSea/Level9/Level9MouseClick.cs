@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 public class Level9MouseClick : MonoBehaviour
 {
     Vector3 Position;
-    // public static GameObject MoveFigures;
     int layerMask = 1 << 9;
     void OnMouseDown()
     {
@@ -22,12 +21,9 @@ public class Level9MouseClick : MonoBehaviour
             if(hitColliders.tag == gameObject.tag)
             {
                 hitColliders.GetComponent<SoundClickItem>().Play();
-                // hitColliders.GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
-                // hitColliders.transform.localScale = transform.localScale;
                 Destroy(gameObject);
                 Level9Spawn.Next = 1;
                 WinBobbles.Victory --;
-                // Level8Global.ThreeFiguresComplete ++;
             }
             else
             {

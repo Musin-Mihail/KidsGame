@@ -5,7 +5,6 @@ using UnityEngine;
 public class Level1MouseClick : MonoBehaviour
 {
     public Vector3 Position;
-    public static GameObject MoveFigures;
     int layerMask = 1 << 9;
     void OnMouseDown()
     {
@@ -25,7 +24,6 @@ public class Level1MouseClick : MonoBehaviour
                 Instantiate(Resources.Load<ParticleSystem>("BubblesLevel1"), newVector3, Quaternion.Euler(-90,-40,0));
                 hitColliders.GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
                 hitColliders.GetComponent<SoundClickItem>().Play();
-                
                 Destroy(gameObject);
                 WinBobbles.Victory --; 
             }

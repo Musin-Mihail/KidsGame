@@ -5,7 +5,6 @@ using UnityEngine;
 public class Level2MouseClick : MonoBehaviour
 {
     public Vector3 Position;
-    public static GameObject MoveFigures;
     public Vector3 NormalScale;
     public Vector3 BigScale;
 
@@ -33,7 +32,6 @@ public class Level2MouseClick : MonoBehaviour
             {
                 var newVector3 = hitColliders.transform.position;
                 newVector3.z += 0.5f;
-                // Instantiate(Resources.Load<ParticleSystem>("Bubbles"), newVector3, Quaternion.Euler(-90,-40,0));
                 if (hitColliders.name == "Flag")
                 {
                     hitColliders.GetComponent<Animator>().enabled = true;

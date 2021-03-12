@@ -20,8 +20,4 @@ public class Direction : MonoBehaviour
         BGBlackStatic = BGBlack;
         CanvasBubblesStatic = CanvasBubbles;
     }
-    // void Start()
-    // {
-        
-    // }
 }

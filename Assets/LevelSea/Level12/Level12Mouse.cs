@@ -4,23 +4,16 @@ using UnityEngine;
 
 public class Level12Mouse : MonoBehaviour
 {
-    // private void Start() 
-    // {
-    //     gameObject.name = "Item";
-    // }
     void OnMouseDown()
     {
         if(Level12.AllTargetStatic.Count > 0 && gameObject.name == Level12.AllTargetStatic[Level12.count].name)
         {
-            // gameObject.name = "ItemOld";
             Level12.WaitHint = 1;
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<SpriteRenderer>().sortingOrder = 12;
-            // GetComponent<Animator>().enabled = true;
             GetComponent<Animator>().Play("Move");
             Invoke("Particle", 0.0f);
             StartCoroutine(Particle2(Level12.count));
-            
             Level12.nextFigure();
         }
     }

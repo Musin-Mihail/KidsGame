@@ -13,7 +13,6 @@ public class Level12 : MonoBehaviour
     public GameObject Target;
     int HintTime;
     public static int WaitHint;
-    Vector3 StartPosition;
     Vector3 EndPosition;
     public GameObject Finger;
     void Start()

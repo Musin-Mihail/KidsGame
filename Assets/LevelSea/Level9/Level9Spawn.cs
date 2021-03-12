@@ -10,18 +10,12 @@ public class Level9Spawn : MonoBehaviour
     void Start() 
     {
         Next = 1;
-        // SpawnPosition = new List<GameObject>();
-        // for (int i = 0; i < 3; i++)
-        // {
-        //     SpawnPosition.Add(null);
-        // }
     }
     private void Update() 
     {
         if(Next == 1)
         {
             Next = 0;
-            // StartGame();
             Invoke("StartGame", 0.1f);
         }
     }
@@ -32,7 +26,6 @@ public class Level9Spawn : MonoBehaviour
             if(Level9Global.AllItemStatic.Count > 0 && SpawnPosition[i] == null)
             {
                 var animal = Instantiate (Level9Global.AllItemStatic[0], SpawnPositionVector[i].transform.position, Quaternion.identity);
-                // animal.name = Level9Global.AllItemStatic[i].name;
                 SpawnPosition[i] = animal;
                 Level9Global.AllItemStatic.RemoveAt(0);       
             } 

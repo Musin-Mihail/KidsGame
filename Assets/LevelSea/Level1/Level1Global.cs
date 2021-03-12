@@ -8,11 +8,11 @@ public class Level1Global : MonoBehaviour
     public List<GameObject>  AllEmpty = new List<GameObject>(); // Хранятся список игровых фигру
     public static List<GameObject>  AllAimalsStatic = new List<GameObject>(); // Хранятся список статических  игровых фигру
     public static List<GameObject>  AllCollected = new List<GameObject>(); // Хранятся список угаданных игровых фигру
-    public List<GameObject>  AllZone = new List<GameObject>();
     public GameObject Finger;
     public static int WaitHint = 0;
     int HintTime =0;
     int Stop = 0;
+    int check = 0;
     
     void Awake()
     {
@@ -37,23 +37,13 @@ public class Level1Global : MonoBehaviour
         if (WinBobbles.Victory == 0 && Stop == 0)
         {
             Stop = 1;
-            Debug.Log("Победа");
-            // StartCoroutine(Win2());
         }
     }
-    // IEnumerator Win2()
-    // {
-    //     foreach (var item in AllCollected)
-    //     {
-    //         StartCoroutine(item.GetComponent<WinUp>().Win());
-    //         yield return new WaitForSeconds(0.05f);
-    //     }
-    // }
     public IEnumerator StartHint()
     {
         while(true)
         {
-            while(HintTime < 5)
+            while(HintTime < 5 && check == 0)
             {
                 yield return new WaitForSeconds(1.0f);
                 if(WaitHint == 1)
@@ -76,12 +66,11 @@ public class Level1Global : MonoBehaviour
     {
         Vector3 Start = new Vector3(0,10,0);
         Vector3 End = new Vector3(0,10,0);
-        int check = 0;
+        check = 0;
         string Tag = "";
 
         foreach (var item in GetComponent<Level1Spawn>().SpawnPosition)
         {
-            // if(item!= null && item.transform.position == item.GetComponent<MoveItem>().StartPosition)
             if(item != null)
             {
                 Tag = item.name;
@@ -114,9 +103,10 @@ public class Level1Global : MonoBehaviour
                     Finger.transform.position = new Vector3 (0,10,0);
                     break;
                 }
-                yield return new WaitForSeconds(0.02f);
+                yield return new WaitForSeconds(0.01f);
             }
         }
+        check = 0;
         Finger.transform.position = new Vector3 (0,10,0);
     }
 }

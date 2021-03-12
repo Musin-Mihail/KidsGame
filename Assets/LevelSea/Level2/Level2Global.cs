@@ -39,7 +39,6 @@ public class Level2Global : MonoBehaviour
         if (WinBobbles.Victory == 0 && Stop == 0)
         {
             Stop = 1;
-            Debug.Log("Победа");
             StartCoroutine(Win2());
         }
     }
@@ -83,7 +82,6 @@ public class Level2Global : MonoBehaviour
 
         foreach (var item in GetComponent<Level2Spawn>().SpawnPosition)
         {
-            // if(item!= null && item.transform.position == item.GetComponent<MoveItem>().StartPosition)
             if(item != null)
             {
                 Tag = item.name;

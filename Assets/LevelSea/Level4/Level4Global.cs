@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Level4Global : MonoBehaviour
 {
-    public static int Victory;
     public List<GameObject>  AllAnimals = new List<GameObject>();
     public static List<GameObject>  AllCollected = new List<GameObject>();
     public static List<GameObject>  AllAimalsStatic = new List<GameObject>();
@@ -13,7 +12,6 @@ public class Level4Global : MonoBehaviour
     public static int WaitHint = 0;
     int HintTime =0;
     int Stop = 0;
-    
     void Awake()
     {
         WinBobbles.Victory = AllAnimals.Count;
@@ -36,11 +34,9 @@ public class Level4Global : MonoBehaviour
         if (WinBobbles.Victory == 0 && Stop == 0)
         {
             Stop = 1;
-            Debug.Log("Победа");
             StartCoroutine(Win2());
         }
     }
-
     IEnumerator Win2()
     {
         foreach (var item in AllCollected)
@@ -81,7 +77,6 @@ public class Level4Global : MonoBehaviour
 
         foreach (var item in GetComponent<Level4Spawn>().SpawnPosition)
         {
-            // if(item!= null && item.transform.position == item.GetComponent<MoveItem>().StartPosition)
             if(item != null)
             {
                 Tag = item.tag;

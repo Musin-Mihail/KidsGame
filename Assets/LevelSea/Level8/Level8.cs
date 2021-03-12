@@ -17,7 +17,6 @@ public class Level8 : MonoBehaviour
     Vector3 StartPosition;
     Vector3 EndPosition;
     private IEnumerator _startHint;
-    
     void Start()
     {
         _startHint = StartHint();
@@ -48,7 +47,6 @@ public class Level8 : MonoBehaviour
         {
             StartCoroutine(AllItem[i].GetComponent<Level8MoveItem>().Move(i));
         }
-
         StartCoroutine(_startHint);
         while(end != 1)
         {
@@ -74,8 +72,6 @@ public class Level8 : MonoBehaviour
             StartCoroutine(WinBobbles.Win());
         }
         StopCoroutine(_startHint);
-        // Destroy(GetComponent<Level8>());
-        // gameObject.SetActive(false);
     }
     public IEnumerator StartHint()
     {
@@ -122,8 +118,6 @@ public class Level8 : MonoBehaviour
                     break;
                 }
             }
-            // StartPosition.z = -1;
-            // EndPosition.z = -1;
             Finger.transform.position = StartPosition;
             while(Finger.transform.position != EndPosition)
             {

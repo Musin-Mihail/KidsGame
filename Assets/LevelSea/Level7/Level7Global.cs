@@ -17,13 +17,11 @@ public class Level7Global : MonoBehaviour
     int HintTime = 0;
     int Stop = 0;
     static public int ThreeFiguresComplete;
-    public GameObject Task;
     public GameObject Figure;//Задание от животного в центре
     public GameObject Animal;//Текущее животное в центре.
     static public int NextFigure = 0;
     Vector3 StartPosition;
     Vector3 EndPosition;
-    
     void Awake()
     {
         ThreeFiguresComplete = -1;
@@ -45,14 +43,7 @@ public class Level7Global : MonoBehaviour
         if (WinBobbles.Victory == 0 && Stop == 0)
         {
             Stop = 1;
-            Debug.Log("Победа");
-            // StartCoroutine(Win2());
         }
-        // if(NextFigure == 1)
-        // {
-        //     NextFigure = 0;
-        //     FigureChange();
-        // }
     }
     IEnumerator ChangeTasks() 
     {
@@ -107,15 +98,6 @@ public class Level7Global : MonoBehaviour
             StageMove = 1;
         }
     }
-
-    // IEnumerator Win2()
-    // {
-    //     foreach (var item in AllCollected)
-    //     {
-    //         StartCoroutine(item.GetComponent<WinUp>().Win());
-    //         yield return new WaitForSeconds(0.05f);
-    //     }
-    // }
     public IEnumerator StartHint()
     {
         while(true)
@@ -152,7 +134,6 @@ public class Level7Global : MonoBehaviour
                     break;
                 } 
             }
-            
             StartPosition.z = -1;
             EndPosition.z = -1;
             Finger.transform.position = StartPosition;

@@ -8,7 +8,6 @@ public class Level3Global : MonoBehaviour
     public List<GameObject>  AllAnimals = new List<GameObject>(); // Хранятся список всех животных на уровне
     public List<GameObject>  AllItem = new List<GameObject>(); // Хранятся список игровых фигур
     public static List<GameObject>  AllItemStatic = new List<GameObject>(); // Хранятся список статических  игровых фигур
-    public List<GameObject>  AllEmpty = new List<GameObject>(); // Хранятся список игровых фигур
     public static List<GameObject>  AllCollected = new List<GameObject>(); // Хранятся список угаданных игровых фигру
     public GameObject Finger;
     public static int WaitHint = 0;
@@ -53,8 +52,6 @@ public class Level3Global : MonoBehaviour
         if (WinBobbles.Victory == 0 && Stop == 0)
         {
             Stop = 1;
-            Debug.Log("Победа");
-            // StartCoroutine(Win2());
         }
         if(NextFigure == 1)
         {
@@ -104,7 +101,6 @@ public class Level3Global : MonoBehaviour
             }
             ThreeFiguresComplete = -1;
             StageMove = 0;
-            
         }
         WinBobbles.Victory = 0;
     }
@@ -146,15 +142,6 @@ public class Level3Global : MonoBehaviour
             StageMove = 1;
         }
     }
-
-    // IEnumerator Win2()
-    // {
-    //     foreach (var item in AllCollected)
-    //     {
-    //         StartCoroutine(item.GetComponent<WinUp>().Win());
-    //         yield return new WaitForSeconds(0.05f);
-    //     }
-    // }
     public IEnumerator StartHint()
     {
         while(true)

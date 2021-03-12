@@ -5,10 +5,7 @@ using UnityEngine;
 public class Level7MauseClick : MonoBehaviour
 {
     public Vector3 Position;
-    public static GameObject MoveFigures;
-
     int layerMask = 1 << 9;
-
     void OnMouseDown()
     {
         Position = GetComponent<MoveItem>().StartPosition;
@@ -27,7 +24,6 @@ public class Level7MauseClick : MonoBehaviour
                 hitColliders.transform.localScale = transform.localScale;
                 Destroy(gameObject);
                 Level7Global.NextFigure = 1;
-                // Level7Global.ThreeFiguresComplete ++;
             }
             else
             {

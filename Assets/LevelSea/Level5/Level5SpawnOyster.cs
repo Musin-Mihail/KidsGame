@@ -36,7 +36,6 @@ public class Level5SpawnOyster : MonoBehaviour
             _SpriteRenderer.sprite = Level5Global.NewStageOyster[2];
             Vector3 newVector3 = new Vector3(transform.position.x, transform.position.y,-0.25f);
             var instFirure = Instantiate(Level5Global.NewColarFigures[0], newVector3, Level5Global.NewColarFigures[0].transform.rotation);
-            // instFirure.name = Level5Global.NewColarFigures[0].name;
             Level5Global.ReadyFigures.Add(instFirure);
             ReadyFigure = instFirure;
             Level5Global.NewColarFigures.RemoveAt(0);
@@ -52,7 +51,6 @@ public class Level5SpawnOyster : MonoBehaviour
         _SpriteRenderer.sprite = Level5Global.NewStageOyster[2];
         Vector3 newVector3 = new Vector3(transform.position.x, transform.position.y,-0.25f);
         var instFirure = Instantiate(Level5Global.NewColarFigures[0], newVector3, Level5Global.NewColarFigures[0].transform.rotation);
-        // instFirure.name = Level5Global.NewColarFigures[0].name;
         ReadyFigure = instFirure;
         Level5Global.ReadyFigures.Add(instFirure);
         Level5Global.NewColarFigures.RemoveAt(0);

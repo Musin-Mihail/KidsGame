@@ -1167,7 +1167,6 @@ GameObject:
   - component: {fileID: 543491940}
   - component: {fileID: 543491939}
   - component: {fileID: 543491938}
-  - component: {fileID: 543491937}
   - component: {fileID: 543491936}
   m_Layer: 5
   m_Name: Sound
@@ -1207,19 +1206,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 486984033f838784b9fff25058d0c675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &543491937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 543491934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NameScene: 0
+  _sprite1: {fileID: -8408631236075615568, guid: 618dad5dfb021ec408c8c2072b595e57,
+    type: 3}
+  _sprite2: {fileID: 4580977451200931424, guid: 618dad5dfb021ec408c8c2072b595e57,
+    type: 3}
 --- !u!114 &543491938
 MonoBehaviour:
   m_ObjectHideFlags: 0

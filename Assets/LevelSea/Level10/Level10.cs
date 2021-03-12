@@ -113,7 +113,6 @@ public class Level10 : MonoBehaviour
                 break;
             }
         }
-        
         foreach (var item in AllTarget)
         {
             if(item.transform.localScale.x == scale)

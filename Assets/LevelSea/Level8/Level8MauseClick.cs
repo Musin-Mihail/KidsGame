@@ -5,9 +5,7 @@ using UnityEngine;
 public class Level8MauseClick : MonoBehaviour
 {
     public Vector3 Position;
-    public static GameObject MoveFigures;
     int layerMask = 1 << 9;
-
     void OnMouseDown()
     {
         transform.parent.gameObject.GetComponent<Level8>().WaitHint = 1;

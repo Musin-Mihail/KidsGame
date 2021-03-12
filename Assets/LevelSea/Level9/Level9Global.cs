@@ -13,14 +13,10 @@ public class Level9Global : MonoBehaviour
     public static int WaitHint = 0;
     Vector3 Center; // Середина
     Vector3 EndTarget; // Точка после набора нужных фигур
-    // public int StageMove = 0;
     int HintTime = 0;
     int Stop = 0;
-    // static public int ThreeFiguresComplete;
-    // static public int NextFigure = 0;
     Vector3 StartPosition;
     Vector3 EndPosition;
-    
     void Awake()
     {
         touch = 0;
@@ -32,7 +28,6 @@ public class Level9Global : MonoBehaviour
             AllItem[chance] = item;
         }
         AllItemStatic = AllItem;
-        // ThreeFiguresComplete = -1;
         Center = new Vector3(0,0,3);
         EndTarget = new Vector3(15,0,3);
         WinBobbles.Victory = AllItem.Count;
@@ -41,15 +36,12 @@ public class Level9Global : MonoBehaviour
     void Start() 
     {
         StartCoroutine(StartHint());
-        // StartCoroutine(ChangeTasks());
     }
     void Update()
     {
         if (WinBobbles.Victory == 0 && Stop == 0)
         {
             Stop = 1;
-            Debug.Log("Победа");
-            // StartCoroutine(Win2());
         }
     }
     void RandomItem()
@@ -63,15 +55,6 @@ public class Level9Global : MonoBehaviour
         }
         GetComponent<Level9Spawn>().StartGame();
     }
-
-    // IEnumerator Win2()
-    // {
-    //     foreach (var item in AllCollected)
-    //     {
-    //         StartCoroutine(item.GetComponent<WinUp>().Win());
-    //         yield return new WaitForSeconds(0.05f);
-    //     }
-    // }
     public IEnumerator StartHint()
     {
         while(true)

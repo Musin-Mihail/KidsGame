@@ -18,7 +18,6 @@ public class Level11 : MonoBehaviour
     public static int count = 0;
     int HintTime;
     public static int WaitHint;
-    Vector3 StartPosition;
     Vector3 EndPosition;
     public GameObject Finger;
     void Start()
@@ -92,7 +91,6 @@ public class Level11 : MonoBehaviour
     {
         if(WinBobbles.Victory > 0)
         {
-
             List<GameObject> newlist = AllFishChest.Where(x => x.name == "FishChest").OrderBy(x => Vector3.Distance(Finger.transform.position, x.transform.position)).ToList();
             EndPosition = newlist[0].transform.position;
             while(Finger.transform.position != EndPosition)

@@ -229,7 +229,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 89fffdc8cc952654b8838c377ddc8c5e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 822fd52b4d300a24fa70772bcfd59e10, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1155,7 +1155,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1039780533}
   - component: {fileID: 1039780532}
-  - component: {fileID: 1039780531}
   - component: {fileID: 1039780530}
   - component: {fileID: 1039780529}
   - component: {fileID: 1039780528}
@@ -1217,7 +1216,6 @@ MonoBehaviour:
   - {fileID: 2204837985928029228}
   - {fileID: 6228682583709797977}
   - {fileID: 8742033185849898486}
-  AllZone: []
   Finger: {fileID: 409574969}
 --- !u!114 &1039780529
 MonoBehaviour:
@@ -1245,18 +1243,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4d899a1bacec684a85055bd616c746e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1039780531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1039780526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea970cfc514607f41b63db5c8cc62b40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!82 &1039780532

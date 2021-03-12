@@ -5,9 +5,7 @@ using UnityEngine;
 public class Level4MouseClick : MonoBehaviour
 {
     public Vector3 Position;
-
     int layerMask = 1 << 10;
-
     void OnMouseDown()
     {
         Position = GetComponent<MoveItem>().StartPosition;
@@ -81,7 +79,6 @@ public class Level4MouseClick : MonoBehaviour
              }
         }
         item.GetComponent<SpriteRenderer>().enabled = true;
-        // yield return new WaitForSeconds(1);
         Destroy(gameObject);
         WinBobbles.Victory --; 
     }

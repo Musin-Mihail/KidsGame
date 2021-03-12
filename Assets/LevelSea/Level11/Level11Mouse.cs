@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Level11Mouse : MonoBehaviour
 {
-    public Sprite sprite;
     IEnumerator Start()
     {
         yield return new WaitForSeconds(5);
@@ -15,9 +14,7 @@ public class Level11Mouse : MonoBehaviour
         if(gameObject.name == "FishChest")
         {
             Level11.AllFishChestStatic.Add(gameObject);
-            // GetComponent<Animator>().enabled = false;
             GetComponent<Animator>().Play("Fish");
-            // GetComponent<SpriteRenderer>().sprite = sprite;
             var stars = Instantiate(Resources.Load<ParticleSystem>("ParticleSrarsLevel11"));
             stars.transform.position = gameObject.transform.position;
             GetComponent<BoxCollider2D>().enabled = false;
