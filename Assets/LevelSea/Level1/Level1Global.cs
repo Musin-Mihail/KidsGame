@@ -43,7 +43,7 @@ public class Level1Global : MonoBehaviour
     {
         while(true)
         {
-            while(HintTime < 5 && check == 0)
+            while(HintTime < 4 && check == 0)
             {
                 yield return new WaitForSeconds(1.0f);
                 if(WaitHint == 1)
@@ -54,7 +54,7 @@ public class Level1Global : MonoBehaviour
                 }
                 HintTime++;
             }
-            if(HintTime >= 5)
+            if(HintTime >= 4)
             {
                 StartCoroutine(Hint());
             }

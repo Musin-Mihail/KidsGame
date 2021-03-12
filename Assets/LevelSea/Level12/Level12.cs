@@ -89,7 +89,7 @@ public class Level12 : MonoBehaviour
                     Finger.transform.position = new Vector3 (0,-6,0);
                     break;
                 }
-                yield return new WaitForSeconds(0.02f);
+                yield return new WaitForSeconds(0.01f);
             }
             Finger.transform.position = new Vector3 (0,-6,0);
         }

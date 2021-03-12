@@ -78,7 +78,7 @@ public class Level5Global : MonoBehaviour
     {
         while(true)
         {
-            while(HintTime < 5)
+            while(HintTime < 4)
             {
                 yield return new WaitForSeconds(1.0f);
                 if(WaitHint == 1)
@@ -89,7 +89,7 @@ public class Level5Global : MonoBehaviour
                 }
                 HintTime++;
             }
-            if(HintTime >= 5)
+            if(HintTime >= 4)
             {
                 StartCoroutine(Hint());
             }
@@ -140,7 +140,7 @@ public class Level5Global : MonoBehaviour
                     Finger.transform.position = new Vector3 (0,10,0);
                     break;
                 }
-                yield return new WaitForSeconds(0.02f);
+                yield return new WaitForSeconds(0.01f);
             }
         }
         Finger.transform.position = new Vector3 (0,10,0);

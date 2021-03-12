@@ -59,7 +59,7 @@ public class Level9Global : MonoBehaviour
     {
         while(true)
         {
-            while(HintTime < 5)
+            while(HintTime < 4)
             {
                 yield return new WaitForSeconds(1.0f);
                 if(WaitHint == 1)
@@ -70,7 +70,7 @@ public class Level9Global : MonoBehaviour
                 }
                 HintTime++;
             }
-            if(HintTime >= 5)
+            if(HintTime >= 4)
             {
                 StartCoroutine(Hint());
             }
@@ -82,8 +82,16 @@ public class Level9Global : MonoBehaviour
     {
         if(WinBobbles.Victory > 0)
         {
-            StartPosition = GetComponent<Level9Spawn>().SpawnPosition[0].transform.position;
-            string _tag = GetComponent<Level9Spawn>().SpawnPosition[0].tag;
+            string _tag = " ";
+            foreach (var item in GetComponent<Level9Spawn>().SpawnPosition)
+            {
+                if (item != null)
+                {
+                    StartPosition = item.transform.position;
+                    _tag = item.tag;
+                    break;
+                }
+            }     
             foreach (var item in AllEmpty)
             {
                 if(item.tag == _tag)
@@ -101,7 +109,7 @@ public class Level9Global : MonoBehaviour
                     Finger.transform.position = new Vector3 (0,10,0);
                     break;
                 }
-                yield return new WaitForSeconds(0.02f);
+                yield return new WaitForSeconds(0.01f);
             }
             Finger.transform.position = new Vector3 (0,10,0);
         }
