@@ -5,6 +5,8 @@ using UnityEngine;
 public class MenuMouse : MonoBehaviour
 {
     Vector3 Position;
+    public GameObject _protection;
+
     int layerMask = 1 << 9;
     void OnMouseDown()
     {
@@ -19,6 +21,7 @@ public class MenuMouse : MonoBehaviour
             {
                 transform.position = Position;
                 GetComponent<Protection>().Exit();
+                _protection.GetComponent<Protection>().Payment();
                 // открываем оплату;
                 Debug.Log("Оплата");
             }
