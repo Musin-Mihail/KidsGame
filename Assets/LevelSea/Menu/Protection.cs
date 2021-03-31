@@ -6,6 +6,7 @@ public class Protection : MonoBehaviour
 {
     public GameObject _question;
     public GameObject _protection;
+    public GameObject _purchaseManager;
     public GameObject _payment;
     public GameObject Eng;
     public GameObject Rus;
@@ -52,7 +53,7 @@ public class Protection : MonoBehaviour
     }
     public void Payment()
     {
-        _payment.SetActive(true);
+        _purchaseManager.GetComponent<PurchaseManager>().BuyProductID("open.all1");
     }
     public void ExitPayment()
     {
