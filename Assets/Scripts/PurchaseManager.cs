@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Purchasing;
 using UnityEngine.UI;
+using System.IO;
 public class PurchaseManager : MonoBehaviour, IStoreListener
 {
     private static IStoreController m_StoreController;
@@ -25,6 +26,7 @@ public class PurchaseManager : MonoBehaviour, IStoreListener
         {
             InitializePurchasing();
         }
+        TestFile();
     }
 
     public void InitializePurchasing()
@@ -36,15 +38,36 @@ public class PurchaseManager : MonoBehaviour, IStoreListener
         var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
         builder.AddProduct(open, ProductType.NonConsumable, new IDs() { { openAppStore, AppleAppStore.Name }, { openGooglePlay, GooglePlay.Name } });
         UnityPurchasing.Initialize(this, builder);
-        if(m_StoreController.products.WithID("open.all1").hasReceipt)
+    }
+    void TestFile()
+    {
+        Pay.text += "Начало \n";
+        string filePath = Application.persistentDataPath  + @"/open.all1";
+        if(!File.Exists(filePath))
         {
-            OpenLevel();
-            Pay.text += "Уровни уже куплены \n";
+            if(m_StoreController.products.WithID("open.all1").hasReceipt)
+            {
+                Pay.text += "Уровни уже куплены \n";
+                FileInfo fi = new FileInfo(filePath);
+                fi.Create();
+                Pay.text += "Файл создан \n";
+                Pay.text += filePath + "\n";
+                Pay.text += "Открытие уровней \n";
+                OpenLevel();
+            }
+            else
+            {
+               Pay.text += "Уровни не куплены \n";
+            }
         }
         else
         {
-           Pay.text += "Уровни не куплены \n";
+            Pay.text += "Файл уже есть \n";
+            Pay.text += filePath + "\n";
+            Pay.text += "Открытие уровней \n";
+            OpenLevel();
         }
+        Pay.text += "Конец \n";
     }
 
     private bool IsInitialized()

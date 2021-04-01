@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class Protection : MonoBehaviour
 {
@@ -62,6 +63,9 @@ public class Protection : MonoBehaviour
     public void SuccessfulPayment()
     {
         _payment.SetActive(false);
+        string filePath = Application.persistentDataPath  + @"/open.all1";
+        FileInfo fi = new FileInfo(filePath);
+        fi.Create();
         foreach (var item in _lockList)
         {
             item.SetActive(false);
