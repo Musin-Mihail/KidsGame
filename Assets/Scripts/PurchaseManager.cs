@@ -8,18 +8,11 @@ public class PurchaseManager : MonoBehaviour, IStoreListener
 {
     private static IStoreController m_StoreController;
     private static IExtensionProvider m_StoreExtensionProvider;
-
-    // public const string pMoney80 = "money_80";
     public const string open = "open.all1";
-
-    // public const string pMoney80AppStore = "app_money_80";
     public const string openAppStore = "open.all1";
-
-    // public const string pMoney80GooglePlay = "gp_money_80";
     public const string openGooglePlay = "open.all1";
     public List<GameObject> _lockList;
     public Text Pay;
-
     void Start()
     {
         if (m_StoreController == null)
@@ -41,33 +34,35 @@ public class PurchaseManager : MonoBehaviour, IStoreListener
     }
     void TestFile()
     {
-        Pay.text += "Начало \n";
+        // Pay.text += "Начало \n";
         string filePath = Application.persistentDataPath  + @"/open.all1";
         if(!File.Exists(filePath))
         {
             if(m_StoreController.products.WithID("open.all1").hasReceipt)
             {
-                Pay.text += "Уровни уже куплены \n";
+                // Pay.text += m_StoreController.products.WithID("open.all1").hasReceipt + "\n";
+                // Pay.text += "Уровни уже куплены \n";
                 FileInfo fi = new FileInfo(filePath);
                 fi.Create();
-                Pay.text += "Файл создан \n";
-                Pay.text += filePath + "\n";
-                Pay.text += "Открытие уровней \n";
+                // Pay.text += "Файл создан \n";
+                // Pay.text += filePath + "\n";
+                // Pay.text += "Открытие уровней \n";
                 OpenLevel();
             }
-            else
-            {
-               Pay.text += "Уровни не куплены \n";
-            }
+            // else
+            // {
+                // Pay.text += m_StoreController.products.WithID("open.all1").hasReceipt + "\n";
+                // Pay.text += "Уровни не куплены \n";
+            // }
         }
         else
         {
-            Pay.text += "Файл уже есть \n";
-            Pay.text += filePath + "\n";
-            Pay.text += "Открытие уровней \n";
+            // Pay.text += "Файл уже есть \n";
+            // Pay.text += filePath + "\n";
+            // Pay.text += "Открытие уровней \n";
             OpenLevel();
         }
-        Pay.text += "Конец \n";
+        // Pay.text += "Конец \n";
     }
 
     private bool IsInitialized()
@@ -131,7 +126,7 @@ public class PurchaseManager : MonoBehaviour, IStoreListener
     public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
     {
         Debug.Log("OnInitialized: Completed!");
-        Pay.text += "OnInitialized: Completed! \n";
+        // Pay.text += "OnInitialized: Completed! \n";
 
         m_StoreController = controller;
         m_StoreExtensionProvider = extensions;
@@ -140,7 +135,7 @@ public class PurchaseManager : MonoBehaviour, IStoreListener
     public void OnInitializeFailed(InitializationFailureReason error)
     {
         Debug.Log("OnInitializeFailed InitializationFailureReason:" + error);
-        Pay.text += "OnInitializeFailed InitializationFailureReason:" + error + "\n";
+        // Pay.text += "OnInitializeFailed InitializationFailureReason:" + error + "\n";
     }
 
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
@@ -148,6 +143,7 @@ public class PurchaseManager : MonoBehaviour, IStoreListener
         Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
         if (String.Equals(args.purchasedProduct.definition.id, open, StringComparison.Ordinal))
         {
+            // Pay.text += "Игра куплена \n";
             OpenLevel();
         }
         return PurchaseProcessingResult.Complete;
