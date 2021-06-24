@@ -2835,7 +2835,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audiomixer: {fileID: 24100000, guid: 39f36542ac352db4e815d41c3de127b9, type: 2}
-  musicoff: 1
   _sprite1: {fileID: -8408631236075615568, guid: 618dad5dfb021ec408c8c2072b595e57,
     type: 3}
   _sprite2: {fileID: 4580977451200931424, guid: 618dad5dfb021ec408c8c2072b595e57,
