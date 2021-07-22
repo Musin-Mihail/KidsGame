@@ -8,6 +8,12 @@ public class WinBobbles : MonoBehaviour
     public static int Victory;
     int Stop = 0;
     static public int Count = 30;
+    int count;
+    void Start()
+    {
+        count = 0;
+        // StartCoroutine(Screenshot2());
+    }
     void Update()
     {
         if (Victory == 0 && Stop == 0)
@@ -19,6 +25,11 @@ public class WinBobbles : MonoBehaviour
         {
             Count = 30;
             Invoke("LoadScene", 2.0f);
+        }
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            ScreenCapture.CaptureScreenshot(SceneManager.GetActiveScene().name + "_" + Screen.width + "x"+  Screen.height + ".png", 1);
+            Debug.Log("Скриншот");
         }
     }
     static public IEnumerator Win()
@@ -39,5 +50,15 @@ public class WinBobbles : MonoBehaviour
     void LoadScene()
     {
         SceneManager.LoadScene("SellectScene");
+    }
+    IEnumerator Screenshot2()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(1);
+            count++;
+            ScreenCapture.CaptureScreenshot(SceneManager.GetActiveScene().name + "_" + Screen.width + "x"+  Screen.height + "_" + count + ".png", 1);
+            Debug.Log("Скриншот" + count);
+        }
     }
 }

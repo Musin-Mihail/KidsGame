@@ -7,10 +7,11 @@ public class Level2MouseClick : MonoBehaviour
     public Vector3 Position;
     public Vector3 NormalScale;
     public Vector3 BigScale;
-
+    public Transform _scale;
     int layerMask = 1 << 9;
     void Start() 
     {
+        Debug.Log(gameObject.name);
         NormalScale = transform.localScale;
         BigScale = NormalScale + new Vector3(0.4f,0.4f,0);
         transform.localScale = BigScale;
@@ -58,12 +59,14 @@ public class Level2MouseClick : MonoBehaviour
     }
     void OnMouseDrag()
     {
-        // if(Input.GetMouseButton(0))
-        // {
-        //     var _newVector2 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //     _newVector2.z = 0;
-        //     transform.position = _newVector2;
-        // }
+        #if UNITY_EDITOR
+        if(Input.GetMouseButton(0))
+        {
+            var _newVector2 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            _newVector2.z = 0;
+            transform.position = _newVector2;
+        }
+        #endif
         if(Input.touchCount > 0)
         {
             var _newVector2 = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);

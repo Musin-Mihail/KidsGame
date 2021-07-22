@@ -6,6 +6,7 @@ public class Level2Spawn : MonoBehaviour
 {
     public List<GameObject> SpawnPositionVector = new List<GameObject>();
     public List<GameObject> SpawnPosition = new List<GameObject>();
+    public Transform _scale;
     void Update()
     {
         for (int i = 0; i < SpawnPosition.Count; i++)
@@ -13,6 +14,7 @@ public class Level2Spawn : MonoBehaviour
             if(SpawnPosition[i] == null && Level2Global.AllItemStatic.Count > 0)
             {
                 var animal = Instantiate (Level2Global.AllItemStatic[0], SpawnPositionVector[i].transform.position, Quaternion.identity);
+                animal.transform.localScale = _scale.transform.lossyScale;
                 animal.name = Level2Global.AllItemStatic[0].name;
                 SpawnPosition[i] = animal;
                 Level2Global.AllItemStatic.RemoveAt(0);

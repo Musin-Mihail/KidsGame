@@ -13,6 +13,8 @@ public class Level1Global : MonoBehaviour
     int HintTime =0;
     int Stop = 0;
     int check = 0;
+    public static GameObject Level1Spawn;
+    // GameObject _hintTarget;
     
     void Awake()
     {
@@ -30,7 +32,7 @@ public class Level1Global : MonoBehaviour
     }
     void Start() 
     {
-        StartCoroutine(StartHint());
+        // StartCoroutine(StartHint());
     }
     void Update()
     {
@@ -69,16 +71,16 @@ public class Level1Global : MonoBehaviour
         check = 0;
         string Tag = "";
 
-        foreach (var item in GetComponent<Level1Spawn>().SpawnPosition)
-        {
-            if(item != null)
-            {
-                Tag = item.name;
-                Start = item.transform.position;
-                check = 1;
-                break;
-            }
-        }
+        // foreach (var item in GetComponent<Level1Spawn>().SpawnPosition)
+        // {
+        //     if(item != null)
+        //     {
+        //         Tag = item.name;
+        //         Start = item.transform.position;
+        //         check = 1;
+        //         break;
+        //     }
+        // }
         if(check == 1)
         {
             foreach (var item in AllEmpty)
