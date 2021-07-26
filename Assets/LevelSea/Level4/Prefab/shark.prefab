@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7381551292563187779}
   - component: {fileID: 4675277885229154257}
-  - component: {fileID: 2003223294634750877}
   - component: {fileID: -1898405308860119375}
   - component: {fileID: 705405683701786094}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: shark
   m_TagString: Water
   m_Icon: {fileID: 0}
@@ -73,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 2d76eab87d19b4646a629703ea617fae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -85,19 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2003223294634750877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6079516619482936741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 122d6f4d2fb037d4ab0844fed492e27e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Position: {x: 0, y: 0, z: 0}
 --- !u!61 &-1898405308860119375
 BoxCollider2D:
   m_ObjectHideFlags: 0

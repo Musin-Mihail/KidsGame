@@ -10,8 +10,9 @@ public class Level4Global : MonoBehaviour
     public List<GameObject>  AllZone = new List<GameObject>();
     public GameObject Finger;
     public static int WaitHint = 0;
-    int HintTime =0;
+    int HintTime = 0;
     int Stop = 0;
+    public static GameObject _level4Spawn; 
     void Awake()
     {
         WinBobbles.Victory = AllAnimals.Count;
@@ -47,7 +48,7 @@ public class Level4Global : MonoBehaviour
     }
     public IEnumerator StartHint()
     {
-        while(true)
+        while(WinBobbles.Victory != 0)
         {
             while(HintTime < 4)
             {
