@@ -19,6 +19,7 @@ public class Level5Global : MonoBehaviour
     public GameObject Finger; // Палец для подсказки
     public static int WaitHint = 0; // Отключение подсказки. Получается из MouseClick
     int HintTime = 0; // Время до подсказки.
+    public Transform _scale;
     void Awake()
     {
         ReadyEmptyFigures = new List<GameObject>();
@@ -45,9 +46,9 @@ public class Level5Global : MonoBehaviour
         }
         for (int i = 0; i < EmptyFiguresVector2.Count; i++)
         {
-           var Empty =  Instantiate(EmptyFigures[i], EmptyFiguresVector2[i].transform.position, EmptyFigures[i].transform.rotation);
+           var Empty = Instantiate(EmptyFigures[i], EmptyFiguresVector2[i].transform.position, EmptyFigures[i].transform.rotation, Level5Global.Delete.transform);
            ReadyEmptyFigures.Add(Empty);
-           Empty.transform.parent = Level5Global.Delete.transform;
+           Empty.transform.localScale = _scale.localScale;
         }
         NewColarFigures = ColarFigures;
         StartCoroutine(StartHint());

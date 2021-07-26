@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8953575991342119592}
   - component: {fileID: 2277465871165912027}
-  - component: {fileID: -793720347264336126}
   - component: {fileID: -7682529973899088959}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: triangle2
   m_TagString: triangle2
   m_Icon: {fileID: 0}
@@ -28,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7627809159532374131}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -4.1, y: 3.44, z: 0}
-  m_LocalScale: {x: 1.7, y: 1.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -7133393979038148447, guid: 6ffd18f94b5fd6445887261b03590b49,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -85,19 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-793720347264336126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7627809159532374131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b703ae62fc382074d8ec23ff14d7b0d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartPosition: {x: 0, y: 0, z: 0}
 --- !u!58 &-7682529973899088959
 CircleCollider2D:
   m_ObjectHideFlags: 0
