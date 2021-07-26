@@ -13,6 +13,7 @@ public class Level6Global : MonoBehaviour
     public int WaitHintPublic;
     int HintTime =0;
     int Stop = 0;
+    public static GameObject _level6Spawn;
     void Awake()
     {
         WinBobbles.Victory = AllStars.Count;

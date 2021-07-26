@@ -39,9 +39,8 @@ public class Level5Mouse : MonoBehaviour
                     newVector3.z += 0.5f;
                     Instantiate(Resources.Load<ParticleSystem>("Bubbles"), newVector3, Quaternion.Euler(-90,-40,0));
                     _gameObject.SetActive(false);
-                    var test = _gameObject.transform.parent.gameObject;
-                    StartCoroutine(test.GetComponent<Level5SpawnOyster>().ChangeStage());
-                    // Destroy(gameObject);
+                    var parentOyster = _gameObject.transform.parent.gameObject;
+                    StartCoroutine(parentOyster.GetComponent<Level5SpawnOyster>().ChangeStage());
                     hitColliders.GetComponent<SpriteRenderer>().sprite = _gameObject.GetComponent<SpriteRenderer>().sprite;
                     hitColliders.tag = "Untagged";
                     WinBobbles.Victory --;
