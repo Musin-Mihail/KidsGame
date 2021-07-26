@@ -11,10 +11,8 @@ public class Level1Global : MonoBehaviour
     public GameObject Finger;
     public static int WaitHint = 0;
     int HintTime =0;
-    int Stop = 0;
     int check = 0;
     public static GameObject Level1Spawn;
-    // GameObject _hintTarget;
     
     void Awake()
     {
@@ -32,18 +30,11 @@ public class Level1Global : MonoBehaviour
     }
     void Start() 
     {
-        // StartCoroutine(StartHint());
-    }
-    void Update()
-    {
-        if (WinBobbles.Victory == 0 && Stop == 0)
-        {
-            Stop = 1;
-        }
+        StartCoroutine(StartHint());
     }
     public IEnumerator StartHint()
     {
-        while(true)
+        while(WinBobbles.Victory != 0)
         {
             while(HintTime < 4 && check == 0)
             {
@@ -71,16 +62,16 @@ public class Level1Global : MonoBehaviour
         check = 0;
         string Tag = "";
 
-        // foreach (var item in GetComponent<Level1Spawn>().SpawnPosition)
-        // {
-        //     if(item != null)
-        //     {
-        //         Tag = item.name;
-        //         Start = item.transform.position;
-        //         check = 1;
-        //         break;
-        //     }
-        // }
+        foreach (var item in GetComponent<Level1Spawn>().SpawnPosition)
+        {
+            if(item != null)
+            {
+                Tag = item.name;
+                Start = item.transform.position;
+                check = 1;
+                break;
+            }
+        }
         if(check == 1)
         {
             foreach (var item in AllEmpty)

@@ -14,6 +14,7 @@ public class Level2Global : MonoBehaviour
     public static int WaitHint = 0;
     int HintTime =0;
     int Stop = 0;
+    // public static GameObject Level2Spawn;
     
     void Awake()
     {
@@ -52,7 +53,7 @@ public class Level2Global : MonoBehaviour
     }
     public IEnumerator StartHint()
     {
-        while(true)
+        while(WinBobbles.Victory != 0)
         {
             while(HintTime < 4)
             {

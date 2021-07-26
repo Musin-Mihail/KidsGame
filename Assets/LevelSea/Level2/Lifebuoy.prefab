@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 6731668627744262081}
   - component: {fileID: 6731668627744262080}
   - component: {fileID: 6731668627744262083}
-  - component: {fileID: 4779376388121734104}
   - component: {fileID: 6747582570887538852}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Lifebuoy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,18 +122,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17a205086a3d88f46bc6ce9bab46e087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4779376388121734104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6731668627744262077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24ec853f264bfa6409eb68c9b07274f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6747582570887538852
