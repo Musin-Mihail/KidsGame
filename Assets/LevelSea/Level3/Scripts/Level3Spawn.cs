@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Level3Spawn : MonoBehaviour
 {
-    public List<GameObject> SpawnPositionVector = new List<GameObject>();
-    public List<GameObject> SpawnPosition = new List<GameObject>();
+    public List<GameObject> SpawnPositionVector;
+    public List<GameObject> SpawnPosition;
     public void StartGame()
     {
-        for (int i = 0; i < SpawnPosition.Count; i++)
+        SpawnPosition = new List<GameObject>();
+        for (int i = 0; i < 5; i++)
         {
             var animal = Instantiate (Level3Global.AllItemStatic[i], SpawnPositionVector[i].transform.position, Quaternion.identity);
             animal.name = Level3Global.AllItemStatic[i].name;
-            SpawnPosition[i] = animal;
+            SpawnPosition.Add(animal);
         }
     }
 }

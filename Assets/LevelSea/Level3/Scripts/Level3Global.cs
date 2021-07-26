@@ -19,7 +19,7 @@ public class Level3Global : MonoBehaviour
     static public int ThreeFiguresComplete;
     public GameObject Task;
     public GameObject Figure;//Задание от животного в центре
-    public GameObject Animal;//Текущее животное в центре.
+    public GameObject AnimalCenter;//Текущее животное в центре.
     static public int NextFigure = 0;
     Vector3 StartPosition;
     Vector3 EndPosition;
@@ -63,14 +63,14 @@ public class Level3Global : MonoBehaviour
     {
         foreach (var item in AllAnimals)
         {
+            WaitHint = 1;
+            RandomItem();
             while(item.transform.position != Center)
             {
                 item.transform.position = Vector3.MoveTowards(item.transform.position, Center, 0.1f);
                 yield return new WaitForSeconds(0.01f);
             }
-            WaitHint = 1;
-            RandomItem();
-            Animal = item;
+            AnimalCenter = item;
             FigureChange();
             Figure.GetComponent<SpriteRenderer>().enabled = true;
             Task.GetComponent<SpriteRenderer>().enabled = true;
@@ -82,12 +82,7 @@ public class Level3Global : MonoBehaviour
             Task.GetComponent<SpriteRenderer>().enabled = false;
             foreach (var item2 in GetComponent<Level3Spawn>().SpawnPosition)
             {
-                Destroy(item2);
-            }
-            GetComponent<Level3Spawn>().SpawnPosition = new List<GameObject>(5);
-            for(int i = 0; i < 5; i++)
-            {
-                GetComponent<Level3Spawn>().SpawnPosition.Add(null);
+                item2.SetActive(false);
             }
             WaitHint = 1;
             while(item.transform.position != EndTarget)
@@ -106,12 +101,12 @@ public class Level3Global : MonoBehaviour
     }
     void RandomItem()
     {
-        for (int i = 0; i < AllItem.Count; i++)
+        for (int i = 0; i < AllItemStatic.Count; i++)
         {
-            int chance = Random.Range(0,AllItem.Count-1);
-            var item = AllItem[i];
-            AllItem[i] = AllItem[chance];
-            AllItem[chance] = item;
+            int chance = Random.Range(0,AllItemStatic.Count-1);
+            var item = AllItemStatic[i];
+            AllItemStatic[i] = AllItemStatic[chance];
+            AllItemStatic[chance] = item;
         }
         GetComponent<Level3Spawn>().StartGame();
     }
@@ -132,7 +127,7 @@ public class Level3Global : MonoBehaviour
             else
             {
                 Figure.GetComponent<SpriteRenderer>().sprite = GetComponent<Level3Spawn>().SpawnPosition[NewRandom].GetComponent<SpriteRenderer>().sprite;
-                Animal.name = GetComponent<Level3Spawn>().SpawnPosition[NewRandom].name;
+                AnimalCenter.name = GetComponent<Level3Spawn>().SpawnPosition[NewRandom].name;
                 StartPosition = GetComponent<Level3Spawn>().SpawnPosition[NewRandom].transform.position;
                 GetComponent<Level3Spawn>().SpawnPosition.RemoveAt(NewRandom);
             }
@@ -144,7 +139,7 @@ public class Level3Global : MonoBehaviour
     }
     public IEnumerator StartHint()
     {
-        while(true)
+        while(WinBobbles.Victory != 0)
         {
             while(HintTime < 4)
             {
