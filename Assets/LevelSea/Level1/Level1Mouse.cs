@@ -47,12 +47,11 @@ public class Level1Mouse : MonoBehaviour
                         {
                             if(_level1Spawn.SpawnPosition[i].name == _gameObject.name)
                             {
-                                _level1Spawn.SpawnPosition[i] = null;
+                                _level1Spawn.SpawnAnimal(i);
                             }
                         }
                     }
-                    Destroy(_gameObject);
-                    _level1Spawn.SpawnItem();
+                    _gameObject.SetActive(false);
                     WinBobbles.Victory --;
                 }
                 else
