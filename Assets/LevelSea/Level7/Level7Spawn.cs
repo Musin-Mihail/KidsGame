@@ -36,13 +36,13 @@ public class Level7Spawn : MonoBehaviour
             SpawnPosition[chance] = item;
         }
         TargetPosition[0].GetComponent<SpriteRenderer>().sprite = SpawnPosition[1].GetComponent<SpriteRenderer>().sprite;
-        TargetPosition[0].transform.localScale = SpawnPosition[1].transform.localScale;
+        TargetPosition[0].transform.localScale = SpawnPosition[1].transform.localScale*100;
         TargetPosition[1].GetComponent<SpriteRenderer>().sprite = SpawnPosition[2].GetComponent<SpriteRenderer>().sprite;
-        TargetPosition[1].transform.localScale = SpawnPosition[2].transform.localScale;
+        TargetPosition[1].transform.localScale = SpawnPosition[2].transform.localScale*100;
         TargetPosition[2].GetComponent<SpriteRenderer>().sprite = SpawnPosition[1].GetComponent<SpriteRenderer>().sprite;
-        TargetPosition[2].transform.localScale = SpawnPosition[1].transform.localScale;
+        TargetPosition[2].transform.localScale = SpawnPosition[1].transform.localScale*100;
         TargetPosition[3].GetComponent<SpriteRenderer>().sprite = SpawnPosition[2].GetComponent<SpriteRenderer>().sprite;
-        TargetPosition[3].transform.localScale = SpawnPosition[2].transform.localScale;
+        TargetPosition[3].transform.localScale = SpawnPosition[2].transform.localScale*100;
         TargetPosition[4].name = SpawnPosition[1].name;
         Level7Global.WaitHint = 1;
     }
@@ -50,7 +50,8 @@ public class Level7Spawn : MonoBehaviour
     {
         for (int i = 0; i < SpawnPosition.Count; i++)
         {
-            Destroy(SpawnPosition[i].gameObject);
+            SpawnPosition[i].gameObject.SetActive(false);
+            // Destroy(SpawnPosition[i].gameObject);
         }
     }
 }
