@@ -36,7 +36,7 @@ public class WinBobbles : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Direction.BGBlackStatic.SetActive(true);
-        float _y = -8.0f;
+        float _y = -7.0f;
         var _bubble = Resources.Load<GameObject>("Bubble");
         for (int i = 0; i < 31; i++)
         {

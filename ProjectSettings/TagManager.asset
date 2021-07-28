@@ -25,6 +25,9 @@ TagManager:
   - Target1
   - Target2
   - Target3
+  - Big
+  - Medium
+  - Small
   layers:
   - Default
   - TransparentFX

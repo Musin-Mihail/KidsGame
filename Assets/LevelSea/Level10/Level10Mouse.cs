@@ -4,58 +4,70 @@ using UnityEngine;
 
 public class Level10Mouse : MonoBehaviour
 {
-    Vector3 Position;
-    int layerMask = 1 << 9;
-    void OnMouseDown()
+    Camera _camera;
+    GameObject _gameObject;
+    public Vector3 Position;
+    int layerMask = 1 << 13;
+    int layerMask2 = 1 << 9;
+    float _z;
+    void Start()
     {
-        Position = transform.position;
-        Level10.WaitHint = 1;
-        gameObject.GetComponent<MoveItem>().State = 0;
+        _camera = Camera.main;
     }
-    void OnMouseUp()
+    void Update()
     {
-        Collider2D hitColliders = Physics2D.OverlapCircle(transform.position, 0.1f, layerMask);
-        if(hitColliders != null)
+        if(Input.GetMouseButtonDown(0))
         {
-            if(hitColliders.transform.localScale.x == gameObject.transform.localScale.x)
+            RaycastHit2D hit = Physics2D.Raycast(_camera.ScreenToWorldPoint(Input.mousePosition), _camera.transform.forward, Mathf.Infinity, layerMask);
+            if (hit.collider != null)
             {
-                hitColliders.GetComponent<SoundClickItem>().Play();
-                Transform[] allChildren = hitColliders.GetComponentsInChildren<Transform>();
-                foreach (var item in allChildren)
+                _z = hit.collider.transform.position.z;
+                _gameObject = hit.collider.gameObject;
+                Position = _gameObject.transform.position;
+                Level10Global.WaitHint = 1;
+                _gameObject.GetComponent<MoveItem>().State = 0;
+            }
+        }
+
+        if(Input.GetMouseButtonUp(0) && _gameObject != null)
+        {
+            Collider2D hitCollider = Physics2D.OverlapCircle(_gameObject.transform.position, 0.1f, layerMask2);
+            if(hitCollider != null)
+            {
+                if(hitCollider.tag == _gameObject.tag)
                 {
-                    if(item.name == gameObject.name)
+                    hitCollider.GetComponent<SoundClickItem>().Play();
+                    Transform[] allChildren = hitCollider.GetComponentsInChildren<Transform>();
+                    foreach (var item in allChildren)
                     {
-                        item.GetComponent<SpriteRenderer>().enabled = true;
-                        Level10.AllBusyPlace.Add(item.gameObject);
-                        break;
+                        if(item.name == _gameObject.name)
+                        {
+                            item.GetComponent<SpriteRenderer>().enabled = true;
+                            Level10Global.AllBusyPlace.Add(item.gameObject);
+                            break;
+                        }
                     }
+                    Level10Global.next --;
+                    _gameObject.SetActive(false);
                 }
-                Level10.next --;
-                Destroy(gameObject);
+                else
+                {
+                    _gameObject.transform.position = Position;
+                    _gameObject = null;
+                }
             }
             else
             {
-                transform.position = Position;
+                _gameObject.transform.position = Position;
+                _gameObject = null;
             }
         }
-        else
+
+        if(Input.GetMouseButton(0) && _gameObject != null)
         {
-            transform.position = Position;
-        }
-    }
-    void OnMouseDrag()
-    {
-        // if(Input.GetMouseButton(0))
-        // {
-        //     var _newVector2 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //     _newVector2.z = 0;
-        //     transform.position = _newVector2;
-        // }
-        if(Input.touchCount > 0)
-        {
-            var _newVector2 = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-            _newVector2.z = 0;
-            transform.position = _newVector2;
-        }
+            var vector = _camera.ScreenToWorldPoint(Input.mousePosition);
+            vector.z = _z;
+            _gameObject.transform.position = vector;
+        } 
     }
 }

@@ -4,14 +4,15 @@ using UnityEngine;
 using System.Linq;
 // using System;
 
-public class Level10 : MonoBehaviour
+public class Level10Global : MonoBehaviour
 {
     public List<GameObject>  AllItem = new List<GameObject>(); // Прифабы
     public List<GameObject>  AllTarget = new List<GameObject>(); // Корзины
     public List<GameObject>  AllSpawn = new List<GameObject>(); // Точки для спавна
     public List<GameObject>  AllPlace; // Количество занятых мест
     public static List<GameObject> AllBusyPlace = new List<GameObject>(); // Точки для спавна
-    public List<float>  AllScale = new List<float>();
+    public List<float> AllScale;
+    public List<string> AllSize;
     public static int next = 3;
     int HintTime = 0;
     public GameObject Finger;
@@ -45,8 +46,11 @@ public class Level10 : MonoBehaviour
             {
                 int chance = Random.Range(0,AllScale.Count-1);
                 float scale = AllScale[i];
+                string tag = AllSize[i];
                 AllScale[i] = AllScale[chance];
+                AllSize[i] = AllSize[chance];
                 AllScale[chance] = scale;
+                AllSize[chance] = tag;
             }
             for (int i = 0; i < 3; i++)
             {
@@ -54,6 +58,7 @@ public class Level10 : MonoBehaviour
                 _item.name = AllItem[item].name;
                 AllPlace.Add(_item);
                 _item.transform.localScale = new Vector3(AllScale[i],AllScale[i],1);
+                _item.transform.tag = AllSize[i];
             }
             while(next != 0)
             {
@@ -61,10 +66,6 @@ public class Level10 : MonoBehaviour
             }
             next = 3;
             yield return new WaitForSeconds(1.0f);
-            foreach (var _item in AllPlace)
-            {
-                Destroy(_item);
-            }
             AllPlace.Clear();
             WaitHint = 1;
         }
