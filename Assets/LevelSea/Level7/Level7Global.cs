@@ -71,33 +71,6 @@ public class Level7Global : MonoBehaviour
         }
         GetComponent<Level7Spawn>().StartGame();
     }
-    void FigureChange()
-    {
-        if(ThreeFiguresComplete >= 0)
-        {
-            ThreeFigures[ThreeFiguresComplete].GetComponent<SpriteRenderer>().enabled = true;
-            ThreeFigures[ThreeFiguresComplete].GetComponent<SpriteRenderer>().sprite = Figure.GetComponent<SpriteRenderer>().sprite;
-        }
-        if(GetComponent<Level3Spawn>().SpawnPosition.Count > 2)
-        {
-            int NewRandom = Random.Range(0, GetComponent<Level3Spawn>().SpawnPosition.Count);
-            if(GetComponent<Level3Spawn>().SpawnPosition[NewRandom] == null)
-            {
-                FigureChange();
-            }
-            else
-            {
-                Figure.GetComponent<SpriteRenderer>().sprite = GetComponent<Level3Spawn>().SpawnPosition[NewRandom].GetComponent<SpriteRenderer>().sprite;
-                Animal.name = GetComponent<Level3Spawn>().SpawnPosition[NewRandom].name;
-                StartPosition = GetComponent<Level3Spawn>().SpawnPosition[NewRandom].transform.position;
-                GetComponent<Level3Spawn>().SpawnPosition.RemoveAt(NewRandom);
-            }
-        }
-        else
-        {
-            StageMove = 1;
-        }
-    }
     public IEnumerator StartHint()
     {
         while(true)

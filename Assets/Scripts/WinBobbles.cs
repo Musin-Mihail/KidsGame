@@ -11,8 +11,8 @@ public class WinBobbles : MonoBehaviour
     // int count;
     // void Start()
     // {
-        // count = 0;
-        // StartCoroutine(Screenshot2());
+    //     count = 0;
+    //     StartCoroutine(Screenshot2());
     // }
     void Update()
     {

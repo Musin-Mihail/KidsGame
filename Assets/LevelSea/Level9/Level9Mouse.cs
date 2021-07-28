@@ -39,6 +39,7 @@ public class Level9Mouse : MonoBehaviour
                     _gameObject.SetActive(false);
                     Level9Global._level9Spawn.GetComponent<Level9Spawn>().SearchFreePlace();
                     WinBobbles.Victory --;
+                    _gameObject = null;
                 }
                 else
                 {

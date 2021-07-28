@@ -61,6 +61,7 @@ public class Level3Global : MonoBehaviour
     }
     IEnumerator MoveAnimals() 
     {
+        yield return new WaitForSeconds(1.0f);
         foreach (var item in AllAnimals)
         {
             WaitHint = 1;

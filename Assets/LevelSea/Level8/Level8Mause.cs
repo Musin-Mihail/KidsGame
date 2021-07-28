@@ -21,8 +21,10 @@ public class Level8Mause : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(_camera.ScreenToWorldPoint(Input.mousePosition), _camera.transform.forward, Mathf.Infinity, layerMask);
             if (hit.collider != null)
             {
+                
                 _z = hit.collider.transform.position.z;
                 _gameObject = hit.collider.gameObject;
+                Position = _gameObject.transform.position;
                 _gameObject.transform.parent.gameObject.GetComponent<Level8>().WaitHint = 1;
                 _gameObject.GetComponent<SpriteRenderer>().sortingOrder = 3;
             }
@@ -43,6 +45,7 @@ public class Level8Mause : MonoBehaviour
                     {
                         _gameObject.transform.parent.gameObject.GetComponent<Level8>().end = 1;
                     }
+                    _gameObject = null;
                 }
                 else
                 {
