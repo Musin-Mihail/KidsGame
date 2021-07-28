@@ -5,10 +5,11 @@ using System;
 
 public class Level8MoveItem : MonoBehaviour
 {
+    public GameObject _game;
     public IEnumerator Move(int count)
     {
         Vector3 target = transform.parent.gameObject.GetComponent<Level8>().AllSpawn[count].transform.position;
-        GetComponent<Level8MauseClick>().Position = target;
+        _game.GetComponent<Level8Mause>().Position = target;
         gameObject.name = transform.parent.gameObject.GetComponent<Level8>().AllPlace[count].name;
         while(transform.position != target)
         {
