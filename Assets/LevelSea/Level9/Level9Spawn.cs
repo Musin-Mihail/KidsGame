@@ -7,35 +7,39 @@ public class Level9Spawn : MonoBehaviour
     public List<GameObject> SpawnPositionVector = new List<GameObject>(); // Места спавна
     public List<GameObject> SpawnPosition= new List<GameObject>(); // Появившиеся предметы на сцене
     public static int Next = 1;
+    public Transform _scale;
+    void Awake()
+    {
+        Level9Global._level9Spawn = gameObject;
+    }
     void Start() 
-    {
-        Next = 1;
-    }
-    private void Update() 
-    {
-        if(Next == 1)
-        {
-            Next = 0;
-            Invoke("StartGame", 0.1f);
-        }
-    }
-    public void StartGame()
     {
         for (int i = 0; i < SpawnPosition.Count; i++)
         {
             if(Level9Global.AllItemStatic.Count > 0 && SpawnPosition[i] == null)
             {
-                var animal = Instantiate (Level9Global.AllItemStatic[0], SpawnPositionVector[i].transform.position, Quaternion.identity);
-                SpawnPosition[i] = animal;
-                Level9Global.AllItemStatic.RemoveAt(0);       
+                SpawnItem(i);     
             } 
         }
     }
-    public void DestroyAll()
+    void SpawnItem(int number)
     {
-        for (int i = 0; i < SpawnPosition.Count; i++)
+        if(Level9Global.AllItemStatic.Count > 0)
         {
-            Destroy(SpawnPosition[i].gameObject);
+            var animal = Instantiate (Level9Global.AllItemStatic[0], SpawnPositionVector[number].transform.position, Quaternion.identity);
+            animal.transform.localScale = _scale.lossyScale;
+            SpawnPosition[number] = animal;
+            Level9Global.AllItemStatic.RemoveAt(0); 
+        }
+    }
+    public void SearchFreePlace()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if(SpawnPosition[i].activeSelf == false)
+            {
+                SpawnItem(i);
+            }
         }
     }
 }

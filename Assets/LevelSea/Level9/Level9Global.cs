@@ -17,6 +17,7 @@ public class Level9Global : MonoBehaviour
     int Stop = 0;
     Vector3 StartPosition;
     Vector3 EndPosition;
+    public static GameObject _level9Spawn;
     void Awake()
     {
         touch = 0;
@@ -43,17 +44,6 @@ public class Level9Global : MonoBehaviour
         {
             Stop = 1;
         }
-    }
-    void RandomItem()
-    {
-        for (int i = 0; i < AllItem.Count; i++)
-        {
-            int chance = Random.Range(0,AllItem.Count-1);
-            var item = AllItem[i];
-            AllItem[i] = AllItem[chance];
-            AllItem[chance] = item;
-        }
-        GetComponent<Level9Spawn>().StartGame();
     }
     public IEnumerator StartHint()
     {
