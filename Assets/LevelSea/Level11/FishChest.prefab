@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -7147461916065305176}
   - component: {fileID: -7870860558957486280}
   - component: {fileID: -6118455019812855265}
+  - component: {fileID: 7560821782680658141}
   m_Layer: 11
   m_Name: FishChest
   m_TagString: Untagged
@@ -117,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293d77272218b824eb9cf25d827ecfa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 495837a71cfe7c74ba07a68c260aa6fa, type: 3}
+  _fish: {fileID: 21300000, guid: 495837a71cfe7c74ba07a68c260aa6fa, type: 3}
 --- !u!61 &-7870860558957486280
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -154,5 +155,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17a205086a3d88f46bc6ce9bab46e087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7560821782680658141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5325823693771768380}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e707748c9d746554aa4f395863a03d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

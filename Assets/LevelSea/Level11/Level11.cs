@@ -20,8 +20,11 @@ public class Level11 : MonoBehaviour
     public static int WaitHint;
     Vector3 EndPosition;
     public GameObject Finger;
+    public static Transform _scaleStatic;
+    public Transform _scale;
     void Start()
     {
+        _scaleStatic = _scale;
         AllFishChestStatic.Clear();
         count = 0;
         AllTargetStatic = AllTarget;
@@ -52,6 +55,7 @@ public class Level11 : MonoBehaviour
         {
             var chest = Instantiate (AllItem[i],AllSpawn[i].transform.position, Quaternion.identity);
             chest.name = AllItem[i].name;
+            chest.transform.localScale = _scale.lossyScale;
             if(chest.name == "EmptyChest")
             {
                 Delete.Add(chest);

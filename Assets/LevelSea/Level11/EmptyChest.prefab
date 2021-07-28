@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7907444842332031296}
   - component: {fileID: 2271831871290990353}
   - component: {fileID: 7793787293037795987}
+  - component: {fileID: 914647018880769297}
   m_Layer: 11
   m_Name: EmptyChest
   m_TagString: Untagged
@@ -116,7 +117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293d77272218b824eb9cf25d827ecfa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 495837a71cfe7c74ba07a68c260aa6fa, type: 3}
 --- !u!61 &7793787293037795987
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -143,3 +143,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.86, y: 3.65}
   m_EdgeRadius: 0
+--- !u!114 &914647018880769297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8876277722733943821}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e707748c9d746554aa4f395863a03d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
