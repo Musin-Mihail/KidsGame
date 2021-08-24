@@ -36,6 +36,7 @@ public class PurchaseManager : MonoBehaviour, IStoreListener
     {
         // Pay.text += "Начало \n";
         string filePath = Application.persistentDataPath  + @"/open.all1";
+        // Pay.text += filePath + "\n";
         if(!File.Exists(filePath))
         {
             if(m_StoreController.products.WithID("open.all1").hasReceipt)
