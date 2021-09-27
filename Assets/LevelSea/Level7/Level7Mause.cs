@@ -24,7 +24,7 @@ public class Level7Mause : MonoBehaviour
                 _z = hit.collider.transform.position.z;
                 _gameObject = hit.collider.gameObject;
                 Position = _gameObject.GetComponent<MoveItem>().StartPosition;
-                Level6Global.WaitHint = 1;
+                Level7Global.WaitHint = 1;
                 _gameObject.GetComponent<MoveItem>().State = 0;
             }
         }
@@ -44,14 +44,13 @@ public class Level7Mause : MonoBehaviour
                 else
                 {
                     _gameObject.transform.position = Position;
-                    _gameObject = null;
                 }
             }
             else
             {
                 _gameObject.transform.position = Position;
-                _gameObject = null;
             }
+            _gameObject = null;
         }
         // if(Input.GetMouseButton(0) && _gameObject != null)
         // {
@@ -59,7 +58,7 @@ public class Level7Mause : MonoBehaviour
         //     vector.z = _z;
         //     _gameObject.transform.position = vector;
         // } 
-        if(Input.touchCount > 0)
+        if(Input.touchCount > 0 && _gameObject != null)
         {
             var vector = _camera.ScreenToWorldPoint(Input.GetTouch(0).position);
             vector.z = _z;

@@ -75,7 +75,7 @@ public class Level9Global : MonoBehaviour
             string _tag = " ";
             foreach (var item in GetComponent<Level9Spawn>().SpawnPosition)
             {
-                if (item != null)
+                if (item.activeSelf)
                 {
                     StartPosition = item.transform.position;
                     _tag = item.tag;

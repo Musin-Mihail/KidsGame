@@ -68,15 +68,14 @@ public class Level2Mouse : MonoBehaviour
                 {
                     _gameObject.transform.position = Position;
                     _gameObject.transform.localScale = _bigScale;
-                    _gameObject = null;
                 }
             }
             else
             {
                 _gameObject.transform.position = Position;
                 _gameObject.transform.localScale = _bigScale;
-                _gameObject = null;
             }
+            _gameObject = null;
         }
         // if(Input.GetMouseButton(0) && _gameObject != null)
         // {
@@ -84,7 +83,7 @@ public class Level2Mouse : MonoBehaviour
         //     vector.z = _z;
         //     _gameObject.transform.position = vector;
         // }
-        if(Input.touchCount > 0)
+        if(Input.touchCount > 0 && _gameObject != null)
         {
             var vector = _camera.ScreenToWorldPoint(Input.GetTouch(0).position);
             vector.z = _z;

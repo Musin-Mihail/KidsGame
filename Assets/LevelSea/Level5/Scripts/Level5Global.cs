@@ -107,7 +107,7 @@ public class Level5Global : MonoBehaviour
 
         foreach (var item in ReadyFigures)
         {
-            if(item != null)
+            if(item.activeSelf)
             {
                 Tag = item.tag;
                 Start = item.transform.position;

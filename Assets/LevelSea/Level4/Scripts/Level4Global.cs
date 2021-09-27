@@ -78,7 +78,7 @@ public class Level4Global : MonoBehaviour
 
         foreach (var item in GetComponent<Level4Spawn>().SpawnPosition)
         {
-            if(item != null)
+            if(item.activeSelf)
             {
                 Tag = item.tag;
                 Start = item.transform.position;

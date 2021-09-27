@@ -107,7 +107,7 @@ public class Level10Global : MonoBehaviour
         float scale = 0.0f;
         foreach (var item in AllPlace)
         {
-            if(item != null)
+            if(item.activeSelf)
             {
                 StartPosition = item.transform.position;
                 scale = item.transform.localScale.x;
@@ -116,7 +116,7 @@ public class Level10Global : MonoBehaviour
         }
         foreach (var item in AllTarget)
         {
-            if(item.transform.localScale.x == scale)
+            if(item.transform.lossyScale.x == scale)
             {
                 EndPosition = item.transform.position;
                 break;
