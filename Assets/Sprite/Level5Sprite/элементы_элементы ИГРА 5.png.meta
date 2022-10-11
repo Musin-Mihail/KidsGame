@@ -84,7 +84,7 @@ TextureImporter:
       213: 1357462512406422323
     second: Leve5_27
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -105,6 +105,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -113,9 +114,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -143,6 +144,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -170,6 +172,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -760,6 +786,34 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Leve5_7: -4833263257508002869
+      Leve5_17: 3052961931156774933
+      Leve5_18: 3748940354359358212
+      Leve5_11: 8251033377893619017
+      Leve5_4: 5849722702710286823
+      Leve5_25: 4039524767104596964
+      Leve5_14: 5507779234485905986
+      Leve5_26: -3947824268640956461
+      Leve5_9: -4099568139782606739
+      Leve5_23: 1739696286826462958
+      Leve5_20: 1170551024886080813
+      Leve5_1: -722748677901087574
+      Leve5_2: -2250866381848289240
+      Leve5_21: 1768024654799964839
+      Leve5_3: 2622625323482627610
+      Leve5_12: 5404780652841828694
+      Leve5_8: -7146576583268415873
+      Leve5_27: 1357462512406422323
+      Leve5_10: 659580351494984647
+      Leve5_19: -3557598217942436907
+      Leve5_22: -7133393979038148447
+      Leve5_5: 6090799124734739591
+      Leve5_16: -5748606684811256764
+      Leve5_24: -9207524838030655995
+      Leve5_6: -3088457214937324497
+      Leve5_13: -6455218973314430303
+      Leve5_15: -5242023997849670934
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

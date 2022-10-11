@@ -123,7 +123,7 @@ TextureImporter:
       213: 21300078
     second: "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_39"
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -144,6 +144,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -152,9 +153,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -182,6 +183,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -221,6 +223,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1084,6 +1110,47 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_24": 21300048
+      algae1: 21300010
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_39": 21300078
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_7": 21300014
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_32": 21300064
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_14": 21300028
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_27": 21300054
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_8": 21300016
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_9": 21300018
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_16": 21300032
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_31": 21300062
+      algae4: 21300058
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_3": 21300006
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_20": 21300040
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_28": 21300056
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_15": 21300030
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_6": 21300012
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_22": 21300044
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_23": 21300046
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_19": 21300038
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_2": 21300004
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_33": 21300066
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_35": 21300070
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_18": 21300036
+      algae2: 21300026
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_26": 21300052
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_10": 21300020
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_4": 21300008
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_17": 21300034
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_0": 21300000
+      algae3: 21300042
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_30": 21300060
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_34": 21300068
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_11": 21300022
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_38": 21300076
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_12": 21300024
+      algae5: 21300074
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_25": 21300050
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_36": 21300072
+      "\u044D\u043B\u0435\u043C\u0435\u043D\u0442\u044B-11_1": 21300002
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

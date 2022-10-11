@@ -72,7 +72,7 @@ TextureImporter:
       213: 1482811410919766730
     second: Leve3_23
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -93,6 +93,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -101,9 +102,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -131,6 +132,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -158,6 +160,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -664,6 +690,30 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Leve3_5: 1490445074870028513
+      Leve3_1: 4979459918577279243
+      Leve3_4: -6391897665440822537
+      Leve3_19: -1217558356977957325
+      Leve3_21: 4204312053138330096
+      Leve3_17: -8805002527557113884
+      Leve3_14: 4571447087326708244
+      Leve3_6: -5694653847721716386
+      Leve3_15: 1395929957058860610
+      Leve3_13: -6485793691288717263
+      Leve3_2: 39814650369639655
+      Leve3_11: 6608522474498995621
+      Leve3_18: -7584024196209177210
+      Leve3_10: 6350511961051469870
+      Leve3_16: -8959330297837432064
+      Leve3_3: 1035496649435748528
+      Leve3_20: 514770414365008826
+      Leve3_7: 7512602757263215373
+      Leve3_8: 9203975565260096141
+      Leve3_22: -1058753387818600804
+      Leve3_23: 1482811410919766730
+      Leve3_9: 9203787907691131237
+      Leve3_12: -6555771632504466082
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
