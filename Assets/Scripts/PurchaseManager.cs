@@ -139,6 +139,11 @@ public class PurchaseManager : MonoBehaviour, IStoreListener
         // Pay.text += "OnInitializeFailed InitializationFailureReason:" + error + "\n";
     }
 
+    public void OnInitializeFailed(InitializationFailureReason error, string message)
+    {
+        throw new NotImplementedException();
+    }
+
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
     {
         Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
