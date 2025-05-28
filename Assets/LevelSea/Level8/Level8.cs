@@ -4,132 +4,148 @@ using UnityEngine;
 
 public class Level8 : MonoBehaviour
 {
-    public List<GameObject> AllItem = new List<GameObject>(); // Хранятся куски пазла
-    public List<GameObject> AllPlace = new List<GameObject>(); // Хранятся правильные места пазла
-    public List<GameObject> AllSpawn = new List<GameObject>(); // Хранятся места для кусков вне пазла.
+    public List<GameObject> allItem = new(); // Хранятся куски пазла
+    public List<GameObject> allPlace = new(); // Хранятся правильные места пазла
+    public List<GameObject> allSpawn = new(); // Хранятся места для кусков вне пазла.
     public int end = 0;
-    public int CountItem;
-    public Sprite BaseSprite;
-    public GameObject NextAnimal;
-    int HintTime = 0;
-    public GameObject Finger;
-    public int WaitHint = 0;
-    Vector3 StartPosition;
-    Vector3 EndPosition;
+    public int countItem;
+    public Sprite baseSprite;
+    public GameObject nextAnimal;
+    private int _hintTime = 0;
+    public GameObject finger;
+    public int waitHint = 0;
+    private Vector3 _startPosition;
+    private Vector3 _endPosition;
     private IEnumerator _startHint;
-    void Start()
+
+    private void Start()
     {
         _startHint = StartHint();
         WinBobbles.Victory = 1; // Чтобы уровень не завершился
         StartCoroutine(Move());
     }
-    IEnumerator Move()
+
+    private IEnumerator Move()
     {
-        Vector3 Center = new Vector3(0,0,0);
-        Vector3 EndVector = new Vector3(-18,0,0);
+        var center = new Vector3(0, 0, 0);
+        var endVector = new Vector3(-18, 0, 0);
         GetComponent<Animator>().enabled = true;
-        while(transform.position != Center)
+        while (transform.position != center)
         {
-            transform.position = Vector3.MoveTowards(transform.position, Center, 0.1f);
+            transform.position = Vector3.MoveTowards(transform.position, center, 0.1f);
             yield return new WaitForSeconds(0.01f);
         }
+
         yield return new WaitForSeconds(0.5f);
         GetComponent<Animator>().enabled = false;
-        Transform[] allChildren = GetComponentsInChildren<Transform>();
-        foreach (var item in AllItem)
+        foreach (var item in allItem)
         {
             item.GetComponent<SpriteRenderer>().enabled = true;
         }
-        GetComponent<SpriteRenderer>().sprite = BaseSprite;
+
+        GetComponent<SpriteRenderer>().sprite = baseSprite;
         yield return new WaitForSeconds(0.5f);
-        GetComponent<SpriteRenderer>().color = new Color32 (255,255,255,120);
-        for (int i = 0; i < AllItem.Count; i++)
+        GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 120);
+        for (var i = 0; i < allItem.Count; i++)
         {
-            StartCoroutine(AllItem[i].GetComponent<Level8MoveItem>().Move(i));
+            StartCoroutine(allItem[i].GetComponent<Level8MoveItem>().Move(i));
         }
+
         StartCoroutine(_startHint);
-        while(end != 1)
+        while (end != 1)
         {
             yield return new WaitForSeconds(0.5f);
         }
-        foreach (var item in AllItem)
+
+        foreach (var item in allItem)
         {
             item.GetComponent<SpriteRenderer>().enabled = false;
         }
-        GetComponent<SpriteRenderer>().color = new Color32 (255,255,255,255);
+
+        GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
         GetComponent<Animator>().enabled = true;
-        while(transform.position != EndVector)
+        StopCoroutine(_startHint);
+        while (transform.position != endVector)
         {
-            transform.position = Vector3.MoveTowards(transform.position, EndVector, 0.1f);
+            transform.position = Vector3.MoveTowards(transform.position, endVector, 0.1f);
             yield return new WaitForSeconds(0.01f);
         }
-        if(NextAnimal != null)
+
+        if (nextAnimal)
         {
-            NextAnimal.SetActive(true);
+            nextAnimal.SetActive(true);
         }
         else
         {
             StartCoroutine(WinBobbles.Win());
         }
-        StopCoroutine(_startHint);
     }
-    public IEnumerator StartHint()
+
+    private IEnumerator StartHint()
     {
-        while(true)
+        while (true)
         {
-            while(HintTime < 4)
+            while (_hintTime < 4)
             {
                 yield return new WaitForSeconds(1.0f);
-                if(WaitHint == 1)
+                if (waitHint == 1)
                 {
-                    HintTime = 0;
-                    WaitHint = 0;
+                    _hintTime = 0;
+                    waitHint = 0;
                     break;
                 }
-                HintTime++;
+
+                _hintTime++;
             }
-            if(HintTime >= 4)
+
+            if (_hintTime >= 4)
             {
                 StartCoroutine(Hint());
             }
-            HintTime = 0;
+
+            _hintTime = 0;
             yield return new WaitForSeconds(1.0f);
         }
     }
-    public IEnumerator Hint()
+
+    private IEnumerator Hint()
     {
-        string _name = "";
-        if(WinBobbles.Victory > 0)
+        var newName = "";
+        if (WinBobbles.Victory > 0)
         {
-            foreach (var item in AllItem)
+            foreach (var item in allItem)
             {
                 if (item.GetComponent<BoxCollider2D>().enabled == true)
                 {
-                    StartPosition = item.transform.position;
-                    _name  = item.name;
-                    break;
-                }  
-            }
-            foreach (var item in AllPlace)
-            {
-                if(item.name == _name)
-                {
-                    EndPosition = item.transform.position;
+                    _startPosition = item.transform.position;
+                    newName = item.name;
                     break;
                 }
             }
-            Finger.transform.position = StartPosition;
-            while(Finger.transform.position != EndPosition)
+
+            foreach (var item in allPlace)
             {
-                Finger.transform.position = Vector3.MoveTowards(Finger.transform.position, EndPosition, 0.1f);
-                if(WaitHint == 1)
+                if (item.name == newName)
                 {
-                    Finger.transform.position = new Vector3 (0,10,0);
+                    _endPosition = item.transform.position;
                     break;
                 }
+            }
+
+            finger.transform.position = _startPosition;
+            while (finger.transform.position != _endPosition)
+            {
+                finger.transform.position = Vector3.MoveTowards(finger.transform.position, _endPosition, 0.1f);
+                if (waitHint == 1)
+                {
+                    finger.transform.position = new Vector3(0, 10, 0);
+                    break;
+                }
+
                 yield return new WaitForSeconds(0.01f);
             }
-            Finger.transform.position = new Vector3 (0,10,0);
+
+            finger.transform.position = new Vector3(0, 10, 0);
         }
     }
 }
