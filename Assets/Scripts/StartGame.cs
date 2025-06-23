@@ -1,16 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour
 {
-    void Start()
+    private void Start()
     {
         Invoke("Game", 5.0f);
     }
-    void Game()
+
+    private void Game()
     {
-        SceneManager.LoadScene("SellectScene");
+        SceneManager.LoadScene("SelectScene");
     }
 }
