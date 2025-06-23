@@ -6,16 +6,16 @@ namespace Level8
 {
     public class Level8 : MonoBehaviour
     {
-        public List<GameObject> allItem = new(); // Хранятся куски пазла
-        public List<GameObject> allPlace = new(); // Хранятся правильные места пазла
-        public List<GameObject> allSpawn = new(); // Хранятся места для кусков вне пазла.
-        public int end = 0;
+        public List<GameObject> allItem = new();
+        public List<GameObject> allPlace = new();
+        public List<GameObject> allSpawn = new();
+        public int end;
         public int countItem;
         public Sprite baseSprite;
         public GameObject nextAnimal;
-        private int _hintTime = 0;
+        private int _hintTime;
         public GameObject finger;
-        public int waitHint = 0;
+        public int waitHint;
         private Vector3 _startPosition;
         private Vector3 _endPosition;
         private IEnumerator _startHint;
@@ -23,7 +23,7 @@ namespace Level8
         private void Start()
         {
             _startHint = StartHint();
-            WinBobbles.Victory = 1; // Чтобы уровень не завершился
+            WinBobbles.Victory = 1;
             StartCoroutine(Move());
         }
 

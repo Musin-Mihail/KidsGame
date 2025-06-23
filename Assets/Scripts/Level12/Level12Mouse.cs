@@ -5,7 +5,7 @@ namespace Level12
 {
     public class Level12Mouse : MonoBehaviour
     {
-        void OnMouseDown()
+        private void OnMouseDown()
         {
             if (Level12.AllTargetStatic.Count > 0 && gameObject.name == Level12.AllTargetStatic[Level12.count].name)
             {
@@ -15,21 +15,17 @@ namespace Level12
                 Particle();
                 StartCoroutine(MoveItem(gameObject, Level12.AllTargetStatic[Level12.count]));
                 StartCoroutine(ScaleItem(gameObject, Level12.AllTargetStatic[Level12.count]));
-
-                // GetComponent<Animator>().Play("Move");
-                // Invoke("Particle", 0.0f);
             }
         }
 
-        void Particle()
+        private void Particle()
         {
             GetComponent<SoundClickItem>().Play();
             Instantiate(Resources.Load<ParticleSystem>("ParticleSrarsLevel11"), transform.position, Quaternion.Euler(-90, 0, 0));
         }
 
-        IEnumerator Particle2(int count)
+        private IEnumerator Particle2(int count)
         {
-            // yield return new WaitForSeconds(1.5f);
             Instantiate(Resources.Load<ParticleSystem>("ParticleSrarsLevel11"), transform.position, Quaternion.Euler(-90, 0, 0));
             Level12.AllTargetStatic[count].GetComponent<SpriteRenderer>().enabled = false;
             if (WinBobbles.Victory == 1)
@@ -49,7 +45,7 @@ namespace Level12
             }
         }
 
-        IEnumerator MoveItem(GameObject item, GameObject target)
+        private IEnumerator MoveItem(GameObject item, GameObject target)
         {
             target.GetComponent<Animator>().enabled = false;
             target.transform.localScale = target.GetComponent<Level12Item>()._scale;
@@ -60,10 +56,10 @@ namespace Level12
             }
 
             StartCoroutine(Particle2(Level12.count));
-            Level12.nextFigure();
+            Level12.NextFigure();
         }
 
-        IEnumerator ScaleItem(GameObject item, GameObject target)
+        private IEnumerator ScaleItem(GameObject item, GameObject target)
         {
             while (item.transform.localScale != target.transform.localScale)
             {
@@ -72,7 +68,7 @@ namespace Level12
             }
         }
 
-        IEnumerator Win(GameObject item)
+        private IEnumerator Win(GameObject item)
         {
             var normalScale = item.transform.localScale;
             var bigScale = item.transform.localScale * 1.5f;

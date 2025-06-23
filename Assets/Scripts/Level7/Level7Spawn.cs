@@ -5,25 +5,25 @@ namespace Level7
 {
     public class Level7Spawn : MonoBehaviour
     {
-        public List<GameObject> SpawnPositionVector = new List<GameObject>(); // Места спавна
-        public List<GameObject> SpawnPosition = new List<GameObject>(); // Появившиеся предметы на сцене
-        public List<GameObject> TargetPosition = new List<GameObject>(); // Места на доске с заданием
-        Sprite Circle;
-        Vector3 StartScale;
+        public List<GameObject> SpawnPositionVector = new();
+        public List<GameObject> SpawnPosition = new();
+        public List<GameObject> TargetPosition = new();
+        private Sprite _circle;
+        private Vector3 _startScale;
 
-        void Start()
+        private void Start()
         {
-            Circle = TargetPosition[4].GetComponent<SpriteRenderer>().sprite;
-            StartScale = TargetPosition[4].transform.localScale;
+            _circle = TargetPosition[4].GetComponent<SpriteRenderer>().sprite;
+            _startScale = TargetPosition[4].transform.localScale;
         }
 
         public void StartGame()
         {
-            TargetPosition[4].GetComponent<SpriteRenderer>().sprite = Circle;
-            TargetPosition[4].transform.localScale = StartScale;
-            for (int i = 0; i < SpawnPosition.Count; i++)
+            TargetPosition[4].GetComponent<SpriteRenderer>().sprite = _circle;
+            TargetPosition[4].transform.localScale = _startScale;
+            for (var i = 0; i < SpawnPosition.Count; i++)
             {
-                if (SpawnPosition[i] != null)
+                if (SpawnPosition[i])
                 {
                     Destroy(SpawnPosition[i].gameObject);
                 }
@@ -33,9 +33,9 @@ namespace Level7
                 SpawnPosition[i] = animal;
             }
 
-            for (int i = 0; i < SpawnPosition.Count; i++)
+            for (var i = 0; i < SpawnPosition.Count; i++)
             {
-                int chance = Random.Range(0, SpawnPosition.Count - 1);
+                var chance = Random.Range(0, SpawnPosition.Count - 1);
                 var item = SpawnPosition[i];
                 SpawnPosition[i] = SpawnPosition[chance];
                 SpawnPosition[chance] = item;
@@ -55,10 +55,9 @@ namespace Level7
 
         public void DestroyAll()
         {
-            for (int i = 0; i < SpawnPosition.Count; i++)
+            for (var i = 0; i < SpawnPosition.Count; i++)
             {
                 SpawnPosition[i].gameObject.SetActive(false);
-                // Destroy(SpawnPosition[i].gameObject);
             }
         }
     }

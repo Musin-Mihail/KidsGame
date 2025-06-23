@@ -7,19 +7,17 @@ namespace Level11
     {
         public Sprite _fish;
 
-        IEnumerator Start()
+        private IEnumerator Start()
         {
             yield return new WaitForSeconds(5);
             GetComponent<BoxCollider2D>().enabled = true;
         }
 
-        void OnMouseDown()
+        private void OnMouseDown()
         {
             if (gameObject.name == "FishChest")
             {
                 Level11.AllFishChestStatic.Add(gameObject);
-                // GetComponent<Animator>().enabled = true;
-                // GetComponent<Animator>().Play("Fish");
                 GetComponent<SpriteRenderer>().sprite = _fish;
                 var stars = Instantiate(Resources.Load<ParticleSystem>("ParticleSrarsLevel11"));
                 stars.transform.position = gameObject.transform.position;
@@ -39,7 +37,7 @@ namespace Level11
             }
         }
 
-        IEnumerator Move(int count)
+        private IEnumerator Move(int count)
         {
             GetComponent<SpriteRenderer>().sortingOrder = 3;
             var target = Level11.AllTargetStatic[count].transform.position;

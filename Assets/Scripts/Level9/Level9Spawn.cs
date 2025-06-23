@@ -5,19 +5,18 @@ namespace Level9
 {
     public class Level9Spawn : MonoBehaviour
     {
-        public List<GameObject> SpawnPositionVector = new List<GameObject>(); // Места спавна
-        public List<GameObject> SpawnPosition = new List<GameObject>(); // Появившиеся предметы на сцене
-        public static int Next = 1;
+        public List<GameObject> SpawnPositionVector = new();
+        public List<GameObject> SpawnPosition = new();
         public Transform _scale;
 
-        void Awake()
+        private void Awake()
         {
             Level9Global._level9Spawn = gameObject;
         }
 
-        void Start()
+        private void Start()
         {
-            for (int i = 0; i < SpawnPosition.Count; i++)
+            for (var i = 0; i < SpawnPosition.Count; i++)
             {
                 if (Level9Global.AllItemStatic.Count > 0 && SpawnPosition[i] == null)
                 {
@@ -26,7 +25,7 @@ namespace Level9
             }
         }
 
-        void SpawnItem(int number)
+        private void SpawnItem(int number)
         {
             if (Level9Global.AllItemStatic.Count > 0)
             {
@@ -39,7 +38,7 @@ namespace Level9
 
         public void SearchFreePlace()
         {
-            for (int i = 0; i < 3; i++)
+            for (var i = 0; i < 3; i++)
             {
                 if (SpawnPosition[i].activeSelf == false)
                 {

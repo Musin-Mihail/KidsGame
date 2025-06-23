@@ -6,19 +6,18 @@ namespace Level2
 {
     public class Level2Global : MonoBehaviour
     {
-        public List<GameObject> AllItem = new(); // Хранятся список игровых фигур
-        public static List<GameObject> AllItemStatic = new(); // Хранятся список статических  игровых фигур
-        public List<GameObject> AllEmpty = new(); // Хранятся список игровых фигур
+        public List<GameObject> AllItem = new();
+        public static List<GameObject> AllItemStatic = new();
+        public List<GameObject> AllEmpty = new();
         public GameObject Finger;
         public GameObject Boat;
         public Vector3 TargetBoat;
-        public static int WaitHint = 0;
-        int HintTime = 0;
-        int Stop = 0;
+        public static int WaitHint;
+        private int _hintTime;
+        private int _stop;
 
         private void Awake()
         {
-//Перемешивания списка.
             WinBobbles.Victory = AllItem.Count;
             for (var i = 0; i < AllItem.Count; i++)
             {
@@ -37,9 +36,9 @@ namespace Level2
 
         private void Update()
         {
-            if (WinBobbles.Victory == 0 && Stop == 0)
+            if (WinBobbles.Victory == 0 && _stop == 0)
             {
-                Stop = 1;
+                _stop = 1;
                 StartCoroutine(Win2());
             }
         }
@@ -57,43 +56,43 @@ namespace Level2
         {
             while (WinBobbles.Victory != 0)
             {
-                while (HintTime < 4)
+                while (_hintTime < 4)
                 {
                     yield return new WaitForSeconds(1.0f);
                     if (WaitHint == 1)
                     {
-                        HintTime = 0;
+                        _hintTime = 0;
                         WaitHint = 0;
                         break;
                     }
 
-                    HintTime++;
+                    _hintTime++;
                 }
 
-                if (HintTime >= 4)
+                if (_hintTime >= 4)
                 {
                     StartCoroutine(Hint());
                 }
 
-                HintTime = 0;
+                _hintTime = 0;
                 yield return new WaitForSeconds(1.0f);
             }
         }
 
         private IEnumerator Hint()
         {
-            var Start = new Vector3(0, 10, 0);
-            var End = new Vector3(0, 10, 0);
+            var start = new Vector3(0, 10, 0);
+            var end = new Vector3(0, 10, 0);
             var check = 0;
-            var Tag = "";
+            var itemName = "";
 
             foreach (var item in GetComponent<Level2Spawn>().spawnPosition)
             {
                 if (item.activeSelf)
                 {
-                    Tag = item.name;
-                    Start = item.transform.position;
-                    Start.z += -1;
+                    itemName = item.name;
+                    start = item.transform.position;
+                    start.z += -1;
                     check = 1;
                     break;
                 }
@@ -103,23 +102,23 @@ namespace Level2
             {
                 foreach (var item in AllEmpty)
                 {
-                    if (Tag == item.name)
+                    if (itemName == item.name)
                     {
                         check = 2;
-                        End = item.transform.position;
-                        End.z += -1;
+                        end = item.transform.position;
+                        end.z += -1;
                         break;
                     }
                 }
             }
 
-            Start.z = -1;
-            Finger.transform.position = Start;
+            start.z = -1;
+            Finger.transform.position = start;
             if (check == 2)
             {
-                while (Finger.transform.position != End)
+                while (Finger.transform.position != end)
                 {
-                    Finger.transform.position = Vector3.MoveTowards(Finger.transform.position, End, 0.1f);
+                    Finger.transform.position = Vector3.MoveTowards(Finger.transform.position, end, 0.1f);
                     if (WaitHint == 1)
                     {
                         Finger.transform.position = new Vector3(0, 10, 0);

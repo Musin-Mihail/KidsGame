@@ -6,23 +6,23 @@ namespace Level6
 {
     public class Level6Global : MonoBehaviour
     {
-        public List<GameObject> AllStars = new List<GameObject>();
-        public static List<GameObject> AllCollectedStars = new List<GameObject>();
-        public static List<GameObject> AllStarsStatic = new List<GameObject>();
-        public List<GameObject> AllChest = new List<GameObject>();
+        public List<GameObject> AllStars = new();
+        public static List<GameObject> AllCollectedStars = new();
+        public static List<GameObject> AllStarsStatic = new();
+        public List<GameObject> AllChest = new();
         public GameObject Finger;
-        public static int WaitHint = 0;
+        public static int WaitHint;
         public int WaitHintPublic;
-        int HintTime = 0;
-        int Stop = 0;
         public static GameObject _level6Spawn;
+        private int _hintTime = 0;
+        private int _stop = 0;
 
-        void Awake()
+        private void Awake()
         {
             WinBobbles.Victory = AllStars.Count;
-            for (int i = 0; i < AllStars.Count; i++)
+            for (var i = 0; i < AllStars.Count; i++)
             {
-                int chance = Random.Range(0, 11);
+                var chance = Random.Range(0, 11);
                 var item = AllStars[i];
                 AllStars[i] = AllStars[chance];
                 AllStars[chance] = item;
@@ -37,17 +37,17 @@ namespace Level6
             StartCoroutine(StartHint());
         }
 
-        void Update()
+        private void Update()
         {
             WaitHintPublic = WaitHint;
-            if (WinBobbles.Victory == 0 && Stop == 0)
+            if (WinBobbles.Victory == 0 && _stop == 0)
             {
-                Stop = 1;
+                _stop = 1;
                 StartCoroutine(Win2());
             }
         }
 
-        IEnumerator Win2()
+        private IEnumerator Win2()
         {
             foreach (var item in AllCollectedStars)
             {
@@ -56,46 +56,46 @@ namespace Level6
             }
         }
 
-        public IEnumerator StartHint()
+        private IEnumerator StartHint()
         {
             while (true)
             {
-                while (HintTime < 4)
+                while (_hintTime < 4)
                 {
                     yield return new WaitForSeconds(1.0f);
                     if (WaitHint == 1)
                     {
-                        HintTime = 0;
+                        _hintTime = 0;
                         WaitHint = 0;
                         break;
                     }
 
-                    HintTime++;
+                    _hintTime++;
                 }
 
-                if (HintTime >= 4)
+                if (_hintTime >= 4)
                 {
                     StartCoroutine(Hint());
                 }
 
-                HintTime = 0;
+                _hintTime = 0;
                 yield return new WaitForSeconds(1.0f);
             }
         }
 
-        public IEnumerator Hint()
+        private IEnumerator Hint()
         {
-            Vector3 Start = new Vector3(0, 10, 0);
-            Vector3 End = new Vector3(0, 10, 0);
-            int check = 0;
-            string Tag = "";
+            var start = new Vector3(0, 10, 0);
+            var end = new Vector3(0, 10, 0);
+            var check = 0;
+            var itemTag = "";
 
             foreach (var item in GetComponent<Level6Spawn>().SpawnPosition)
             {
-                if (item != null && item.transform.position == item.GetComponent<MoveItem>().StartPosition)
+                if (item && item.transform.position == item.GetComponent<MoveItem>().StartPosition)
                 {
-                    Tag = item.tag;
-                    Start = item.transform.position;
+                    itemTag = item.tag;
+                    start = item.transform.position;
                     check = 1;
                     break;
                 }
@@ -105,21 +105,21 @@ namespace Level6
             {
                 foreach (var item in AllChest)
                 {
-                    if (Start != null && Tag == item.tag)
+                    if (itemTag == item.tag)
                     {
-                        End = item.transform.position;
+                        end = item.transform.position;
                         break;
                     }
                 }
             }
 
-            Start.z = -1;
-            Finger.transform.position = Start;
+            start.z = -1;
+            Finger.transform.position = start;
             if (WaitHint != 2)
             {
-                while (Finger.transform.position != End)
+                while (Finger.transform.position != end)
                 {
-                    Finger.transform.position = Vector3.MoveTowards(Finger.transform.position, End, 0.1f);
+                    Finger.transform.position = Vector3.MoveTowards(Finger.transform.position, end, 0.1f);
                     if (WaitHint == 1)
                     {
                         Finger.transform.position = new Vector3(0, 10, 0);

@@ -4,24 +4,25 @@ namespace Level6
 {
     public class Level6Mouse : MonoBehaviour
     {
-        Camera _camera;
-        GameObject _gameObject;
         public Vector3 Position;
-        int layerMask = 1 << 7;
-        int layerMask2 = 1 << 6;
-        float _z;
 
-        void Start()
+        private Camera _camera;
+        private GameObject _gameObject;
+        private const int LayerMask = 1 << 7;
+        private const int LayerMask2 = 1 << 6;
+        private float _z;
+
+        private void Start()
         {
             _camera = Camera.main;
         }
 
-        void Update()
+        private void Update()
         {
             if (Input.GetMouseButtonDown(0))
             {
-                RaycastHit2D hit = Physics2D.Raycast(_camera.ScreenToWorldPoint(Input.mousePosition), _camera.transform.forward, Mathf.Infinity, layerMask);
-                if (hit.collider != null)
+                var hit = Physics2D.Raycast(_camera.ScreenToWorldPoint(Input.mousePosition), _camera.transform.forward, Mathf.Infinity, LayerMask);
+                if (hit.collider)
                 {
                     _z = hit.collider.transform.position.z;
                     _gameObject = hit.collider.gameObject;
@@ -31,24 +32,24 @@ namespace Level6
                 }
             }
 
-            if (Input.GetMouseButtonUp(0) && _gameObject != null)
+            if (Input.GetMouseButtonUp(0) && _gameObject)
             {
-                Collider2D hitCollider = Physics2D.OverlapCircle(_gameObject.transform.position, 0.1f, layerMask2);
-                if (hitCollider != null)
+                var hitCollider = Physics2D.OverlapCircle(_gameObject.transform.position, 0.1f, LayerMask2);
+                if (hitCollider)
                 {
                     if (hitCollider.tag == _gameObject.tag)
                     {
                         hitCollider.GetComponent<SoundClickItem>().Play();
                         var place = hitCollider.GetComponent<Level6Chest>().BusyPlaces;
-                        var GO = new GameObject();
-                        GO.transform.parent = hitCollider.transform;
-                        GO.transform.localPosition = hitCollider.GetComponent<Level6Chest>().CollectedThings[place];
-                        GO.transform.localScale = new Vector3(0.75f, 0.75f, 1);
-                        GO.AddComponent<SpriteRenderer>();
-                        GO.GetComponent<SpriteRenderer>().sprite = _gameObject.GetComponent<SpriteRenderer>().sprite;
-                        GO.AddComponent<WinUp>();
-                        Level6Global.AllCollectedStars.Add(GO);
-                        var newVector3 = GO.transform.position;
+                        var go = new GameObject();
+                        go.transform.parent = hitCollider.transform;
+                        go.transform.localPosition = hitCollider.GetComponent<Level6Chest>().CollectedThings[place];
+                        go.transform.localScale = new Vector3(0.75f, 0.75f, 1);
+                        go.AddComponent<SpriteRenderer>();
+                        go.GetComponent<SpriteRenderer>().sprite = _gameObject.GetComponent<SpriteRenderer>().sprite;
+                        go.AddComponent<WinUp>();
+                        Level6Global.AllCollectedStars.Add(go);
+                        var newVector3 = go.transform.position;
                         newVector3.z = 2.5f;
                         Instantiate(Resources.Load<ParticleSystem>("Bubbles"), newVector3, Quaternion.Euler(-90, -40, 0));
                         hitCollider.GetComponent<Level6Chest>().BusyPlaces++;
@@ -71,18 +72,22 @@ namespace Level6
                 _gameObject = null;
             }
 
-            // if(Input.GetMouseButton(0) && _gameObject != null)
-            // {
-            //     var vector = _camera.ScreenToWorldPoint(Input.mousePosition);
-            //     vector.z = _z;
-            //     _gameObject.transform.position = vector;
-            // } 
-            if (Input.touchCount > 0 && _gameObject != null)
+#if UNITY_EDITOR
+            if (Input.GetMouseButton(0) && _gameObject)
+            {
+                var vector = _camera.ScreenToWorldPoint(Input.mousePosition);
+                vector.z = _z;
+                _gameObject.transform.position = vector;
+            }
+
+#else
+            if (Input.touchCount > 0 && _gameObject)
             {
                 var vector = _camera.ScreenToWorldPoint(Input.GetTouch(0).position);
                 vector.z = _z;
                 _gameObject.transform.position = vector;
             }
+#endif
         }
     }
 }

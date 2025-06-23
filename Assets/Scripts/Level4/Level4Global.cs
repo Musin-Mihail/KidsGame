@@ -6,22 +6,22 @@ namespace Level4
 {
     public class Level4Global : MonoBehaviour
     {
-        public List<GameObject> AllAnimals = new List<GameObject>();
-        public static List<GameObject> AllCollected = new List<GameObject>();
-        public static List<GameObject> AllAimalsStatic = new List<GameObject>();
-        public List<GameObject> AllZone = new List<GameObject>();
+        public List<GameObject> AllAnimals = new();
+        public static List<GameObject> AllCollected = new();
+        public static List<GameObject> AllAimalsStatic = new();
+        public List<GameObject> AllZone = new();
         public GameObject Finger;
-        public static int WaitHint = 0;
-        int HintTime = 0;
-        int Stop = 0;
+        public static int WaitHint;
         public static GameObject _level4Spawn;
+        private int _hintTime;
+        private int _stop;
 
-        void Awake()
+        private void Awake()
         {
             WinBobbles.Victory = AllAnimals.Count;
-            for (int i = 0; i < AllAnimals.Count; i++)
+            for (var i = 0; i < AllAnimals.Count; i++)
             {
-                int chance = Random.Range(0, 9);
+                var chance = Random.Range(0, 9);
                 var item = AllAnimals[i];
                 AllAnimals[i] = AllAnimals[chance];
                 AllAnimals[chance] = item;
@@ -31,21 +31,21 @@ namespace Level4
             AllCollected = new List<GameObject>();
         }
 
-        void Start()
+        private void Start()
         {
             StartCoroutine(StartHint());
         }
 
-        void Update()
+        private void Update()
         {
-            if (WinBobbles.Victory == 0 && Stop == 0)
+            if (WinBobbles.Victory == 0 && _stop == 0)
             {
-                Stop = 1;
+                _stop = 1;
                 StartCoroutine(Win2());
             }
         }
 
-        IEnumerator Win2()
+        private IEnumerator Win2()
         {
             foreach (var item in AllCollected)
             {
@@ -54,46 +54,46 @@ namespace Level4
             }
         }
 
-        public IEnumerator StartHint()
+        private IEnumerator StartHint()
         {
             while (WinBobbles.Victory != 0)
             {
-                while (HintTime < 4)
+                while (_hintTime < 4)
                 {
                     yield return new WaitForSeconds(1.0f);
                     if (WaitHint == 1)
                     {
-                        HintTime = 0;
+                        _hintTime = 0;
                         WaitHint = 0;
                         break;
                     }
 
-                    HintTime++;
+                    _hintTime++;
                 }
 
-                if (HintTime >= 4)
+                if (_hintTime >= 4)
                 {
                     StartCoroutine(Hint());
                 }
 
-                HintTime = 0;
+                _hintTime = 0;
                 yield return new WaitForSeconds(1.0f);
             }
         }
 
-        public IEnumerator Hint()
+        private IEnumerator Hint()
         {
-            Vector3 Start = new Vector3(0, 10, 0);
-            Vector3 End = new Vector3(0, 10, 0);
-            int check = 0;
-            string Tag = "";
+            var start = new Vector3(0, 10, 0);
+            var end = new Vector3(0, 10, 0);
+            var check = 0;
+            var itemTag = "";
 
             foreach (var item in GetComponent<Level4Spawn>().SpawnPosition)
             {
                 if (item.activeSelf)
                 {
-                    Tag = item.tag;
-                    Start = item.transform.position;
+                    itemTag = item.tag;
+                    start = item.transform.position;
                     check = 1;
                     break;
                 }
@@ -103,22 +103,22 @@ namespace Level4
             {
                 foreach (var item in AllZone)
                 {
-                    if (Tag == item.tag)
+                    if (itemTag == item.tag)
                     {
                         check = 2;
-                        End = item.transform.position;
+                        end = item.transform.position;
                         break;
                     }
                 }
             }
 
-            Start.z = -1;
-            Finger.transform.position = Start;
+            start.z = -1;
+            Finger.transform.position = start;
             if (check == 2)
             {
-                while (Finger.transform.position != End)
+                while (Finger.transform.position != end)
                 {
-                    Finger.transform.position = Vector3.MoveTowards(Finger.transform.position, End, 0.1f);
+                    Finger.transform.position = Vector3.MoveTowards(Finger.transform.position, end, 0.1f);
                     if (WaitHint == 1)
                     {
                         Finger.transform.position = new Vector3(0, 10, 0);

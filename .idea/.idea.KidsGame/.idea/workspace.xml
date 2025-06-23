@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7313cf86-6b92-4f5e-b60f-6a57ae13d2c3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.KidsGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KidsGame/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Global.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Mouse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Spawn.cs" afterDir="false" />
@@ -19,7 +19,6 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12Mouse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Global.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Mouse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Spawn.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Global.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Mouse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Spawn.cs" afterDir="false" />
@@ -34,15 +33,16 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level6/Level6Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level6/Level6Mouse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level6/Level6Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level6/Level6Spawn.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Global.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Mause.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Mause.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Mouse.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Mouse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Spawn.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level8/Level8.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level8/Level8.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level8/Level8Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level8/Level8Mouse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level8/Level8MoveItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level8/Level8MoveItem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level9/Level9Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level9/Level9Global.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level9/Level9Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level9/Level9Mouse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level9/Level9Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level9/Level9Spawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/MenuMouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/MenuMouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/Protection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/Protection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/Sound.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/Sound.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +164,7 @@
       <workItem from="1736505837087" duration="832000" />
       <workItem from="1748451667614" duration="6101000" />
       <workItem from="1748723167953" duration="34000" />
-      <workItem from="1750683299481" duration="5536000" />
+      <workItem from="1750683299481" duration="8143000" />
     </task>
     <servers />
   </component>

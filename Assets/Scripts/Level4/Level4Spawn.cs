@@ -9,20 +9,20 @@ namespace Level4
         public List<GameObject> SpawnPosition;
         public Transform _scale;
 
-        void Awake()
+        private void Awake()
         {
             Level4Global._level4Spawn = gameObject;
         }
 
-        void Start()
+        private void Start()
         {
-            for (int i = 0; i < 3; i++)
+            for (var i = 0; i < 3; i++)
             {
                 SpawnAnimal(i);
             }
         }
 
-        public void SpawnAnimal(int number)
+        private void SpawnAnimal(int number)
         {
             if (Level4Global.AllAimalsStatic.Count > 0)
             {
@@ -36,7 +36,7 @@ namespace Level4
 
         public void SearchFreeSpace(string nameAnimal)
         {
-            for (int i = 0; i < 3; i++)
+            for (var i = 0; i < 3; i++)
             {
                 if (nameAnimal == SpawnPosition[i].name)
                 {

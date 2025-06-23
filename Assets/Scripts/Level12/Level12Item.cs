@@ -6,7 +6,7 @@ namespace Level12
     {
         public Vector2 _scale;
 
-        void Start()
+        private void Start()
         {
             _scale = transform.localScale;
         }

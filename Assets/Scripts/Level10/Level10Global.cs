@@ -8,29 +8,29 @@ namespace Level10
 {
     public class Level10Global : MonoBehaviour
     {
-        public List<GameObject> AllItem = new List<GameObject>(); // Прифабы
-        public List<GameObject> AllTarget = new List<GameObject>(); // Корзины
-        public List<GameObject> AllSpawn = new List<GameObject>(); // Точки для спавна
-        public List<GameObject> AllPlace; // Количество занятых мест
-        public static List<GameObject> AllBusyPlace = new List<GameObject>(); // Точки для спавна
+        public List<GameObject> AllItem = new();
+        public List<GameObject> AllTarget = new();
+        public List<GameObject> AllSpawn = new();
+        public List<GameObject> AllPlace;
+        public static List<GameObject> AllBusyPlace = new();
         public List<float> AllScale;
         public List<string> AllSize;
         public static int next = 3;
-        int HintTime = 0;
         public GameObject Finger;
-        public static int WaitHint = 0;
-        Vector3 StartPosition;
-        Vector3 EndPosition;
+        public static int WaitHint;
+        private int _hintTime;
+        private Vector3 _startPosition;
+        private Vector3 _endPosition;
         private IEnumerator _startHint;
 
-        void Start()
+        private void Start()
         {
             AllBusyPlace.Clear();
             _startHint = StartHint();
             next = 3;
-            for (int i = 0; i < AllItem.Count; i++)
+            for (var i = 0; i < AllItem.Count; i++)
             {
-                int chance = Random.Range(0, AllItem.Count - 1);
+                var chance = Random.Range(0, AllItem.Count - 1);
                 var item = AllItem[i];
                 AllItem[i] = AllItem[chance];
                 AllItem[chance] = item;
@@ -42,28 +42,28 @@ namespace Level10
             StartCoroutine(_startHint);
         }
 
-        public IEnumerator StartGame()
+        private IEnumerator StartGame()
         {
-            for (int item = 0; item < AllItem.Count; item++)
+            for (var item = 0; item < AllItem.Count; item++)
             {
-                for (int i = 0; i < AllScale.Count; i++)
+                for (var i = 0; i < AllScale.Count; i++)
                 {
-                    int chance = Random.Range(0, AllScale.Count - 1);
-                    float scale = AllScale[i];
-                    string tag = AllSize[i];
+                    var chance = Random.Range(0, AllScale.Count - 1);
+                    var scale = AllScale[i];
+                    var nameSize = AllSize[i];
                     AllScale[i] = AllScale[chance];
                     AllSize[i] = AllSize[chance];
                     AllScale[chance] = scale;
-                    AllSize[chance] = tag;
+                    AllSize[chance] = nameSize;
                 }
 
                 for (int i = 0; i < 3; i++)
                 {
-                    var _item = Instantiate(AllItem[item], AllSpawn[i].transform.position, Quaternion.identity);
-                    _item.name = AllItem[item].name;
-                    AllPlace.Add(_item);
-                    _item.transform.localScale = new Vector3(AllScale[i], AllScale[i], 1);
-                    _item.transform.tag = AllSize[i];
+                    var go = Instantiate(AllItem[item], AllSpawn[i].transform.position, Quaternion.identity);
+                    go.name = AllItem[item].name;
+                    AllPlace.Add(go);
+                    go.transform.localScale = new Vector3(AllScale[i], AllScale[i], 1);
+                    go.transform.tag = AllSize[i];
                 }
 
                 while (next != 0)
@@ -89,41 +89,41 @@ namespace Level10
             StartCoroutine(WinBobbles.Win());
         }
 
-        public IEnumerator StartHint()
+        private IEnumerator StartHint()
         {
             while (true)
             {
-                while (HintTime < 4)
+                while (_hintTime < 4)
                 {
                     yield return new WaitForSeconds(1.0f);
                     if (WaitHint == 1)
                     {
-                        HintTime = 0;
+                        _hintTime = 0;
                         WaitHint = 0;
                         break;
                     }
 
-                    HintTime++;
+                    _hintTime++;
                 }
 
-                if (HintTime >= 4)
+                if (_hintTime >= 4)
                 {
                     StartCoroutine(Hint());
                 }
 
-                HintTime = 0;
+                _hintTime = 0;
                 yield return new WaitForSeconds(1.0f);
             }
         }
 
-        public IEnumerator Hint()
+        private IEnumerator Hint()
         {
-            float scale = 0.0f;
+            var scale = 0.0f;
             foreach (var item in AllPlace)
             {
                 if (item.activeSelf)
                 {
-                    StartPosition = item.transform.position;
+                    _startPosition = item.transform.position;
                     scale = item.transform.localScale.x;
                     break;
                 }
@@ -133,15 +133,15 @@ namespace Level10
             {
                 if (item.transform.lossyScale.x == scale)
                 {
-                    EndPosition = item.transform.position;
+                    _endPosition = item.transform.position;
                     break;
                 }
             }
 
-            Finger.transform.position = StartPosition;
-            while (Finger.transform.position != EndPosition)
+            Finger.transform.position = _startPosition;
+            while (Finger.transform.position != _endPosition)
             {
-                Finger.transform.position = Vector3.MoveTowards(Finger.transform.position, EndPosition, 0.1f);
+                Finger.transform.position = Vector3.MoveTowards(Finger.transform.position, _endPosition, 0.1f);
                 if (WaitHint == 1)
                 {
                     Finger.transform.position = new Vector3(0, 10, 0);

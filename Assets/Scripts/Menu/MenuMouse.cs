@@ -1,26 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuMouse : MonoBehaviour
+namespace Menu
 {
-    public GameObject _protection;
-    void OnMouseDown()
+    public class MenuMouse : MonoBehaviour
     {
-        if( gameObject.name == "Answer")
+        public GameObject _protection;
+
+        private void OnMouseDown()
         {
-            _protection.GetComponent<Protection>().Payment();
-            Debug.Log("Оплата");
+            if (gameObject.name == "Answer")
+            {
+                _protection.GetComponent<Protection>().Payment();
+                Debug.Log("Оплата");
+            }
+            else
+            {
+                Debug.Log("Не угадал");
+            }
+
             Invoke("Exit", 0.5f);
         }
-        else
+
+        private void Exit()
         {
-            Debug.Log("Не угадал");
-            Invoke("Exit", 0.5f);
+            GetComponent<Protection>().Exit();
         }
-    }
-    void Exit()
-    {
-        GetComponent<Protection>().Exit();
     }
 }

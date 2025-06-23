@@ -4,9 +4,9 @@ namespace Level8
 {
     public class Level8Mouse : MonoBehaviour
     {
+        public Vector3 position;
         private Camera _camera;
         private GameObject _gameObject;
-        public Vector3 position;
         private const int LayerMask = 1 << 13;
         private const int LayerMask2 = 1 << 9;
         private float _z;
@@ -71,13 +71,14 @@ namespace Level8
                 vector.z = _z;
                 _gameObject.transform.position = vector;
             }
+
 #else
-        if (Input.touchCount > 0 && _gameObject != null)
-        {
-            var vector = _camera.ScreenToWorldPoint(Input.GetTouch(0).position);
-            vector.z = _z;
-            _gameObject.transform.position = vector;
-        }
+            if (Input.touchCount > 0 && _gameObject)
+            {
+                var vector = _camera.ScreenToWorldPoint(Input.GetTouch(0).position);
+                vector.z = _z;
+                _gameObject.transform.position = vector;
+            }
 #endif
         }
     }

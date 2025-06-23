@@ -6,107 +6,100 @@ namespace Level9
 {
     public class Level9Global : MonoBehaviour
     {
-        public List<GameObject> AllItem = new List<GameObject>(); // Хранятся список 
-        public static List<GameObject> AllItemStatic = new List<GameObject>(); // Хранятся список статических  игровых фигур
-        public List<GameObject> AllEmpty = new List<GameObject>(); // Хранятся список игровых фигур
-        public static List<GameObject> AllCollected = new List<GameObject>(); // Хранятся список угаданных игровых фигру
+        public List<GameObject> AllItem = new();
+        public static List<GameObject> AllItemStatic = new();
+        public List<GameObject> AllEmpty = new();
         public GameObject Finger;
-        public static int touch = 0;
-        public static int WaitHint = 0;
-        Vector3 Center; // Середина
-        Vector3 EndTarget; // Точка после набора нужных фигур
-        int HintTime = 0;
-        int Stop = 0;
-        Vector3 StartPosition;
-        Vector3 EndPosition;
+        public static int WaitHint;
         public static GameObject _level9Spawn;
 
-        void Awake()
+        private int _hintTime;
+        private int _stop;
+        private Vector3 _startPosition;
+        private Vector3 _endPosition;
+
+        private void Awake()
         {
-            touch = 0;
-            for (int i = 0; i < AllItem.Count; i++)
+            for (var i = 0; i < AllItem.Count; i++)
             {
-                int chance = Random.Range(0, AllItem.Count);
+                var chance = Random.Range(0, AllItem.Count);
                 var item = AllItem[i];
                 AllItem[i] = AllItem[chance];
                 AllItem[chance] = item;
             }
 
             AllItemStatic = AllItem;
-            Center = new Vector3(0, 0, 3);
-            EndTarget = new Vector3(15, 0, 3);
             WinBobbles.Victory = AllItem.Count;
-            AllCollected = new List<GameObject>();
         }
 
-        void Start()
+        private void Start()
         {
             StartCoroutine(StartHint());
         }
 
-        void Update()
+        private void Update()
         {
-            if (WinBobbles.Victory == 0 && Stop == 0)
+            if (WinBobbles.Victory == 0 && _stop == 0)
             {
-                Stop = 1;
+                _stop = 1;
             }
         }
 
-        public IEnumerator StartHint()
+        private IEnumerator StartHint()
         {
             while (true)
             {
-                while (HintTime < 4)
+                while (_hintTime < 4)
                 {
                     yield return new WaitForSeconds(1.0f);
                     if (WaitHint == 1)
                     {
-                        HintTime = 0;
+                        _hintTime = 0;
                         WaitHint = 0;
                         break;
                     }
 
-                    HintTime++;
+                    _hintTime++;
                 }
 
-                if (HintTime >= 4)
+                if (_hintTime >= 4)
                 {
                     StartCoroutine(Hint());
                 }
 
-                HintTime = 0;
+                _hintTime = 0;
                 yield return new WaitForSeconds(1.0f);
             }
         }
 
-        public IEnumerator Hint()
+        private IEnumerator Hint()
         {
             if (WinBobbles.Victory > 0)
             {
-                string _tag = " ";
+                var itemTag = " ";
                 foreach (var item in GetComponent<Level9Spawn>().SpawnPosition)
                 {
                     if (item.activeSelf)
                     {
-                        StartPosition = item.transform.position;
-                        _tag = item.tag;
+                        _startPosition = item.transform.position;
+                        itemTag = item.tag;
                         break;
                     }
                 }
 
                 foreach (var item in AllEmpty)
                 {
-                    if (item.tag == _tag)
+                    if (item.tag == itemTag)
                     {
-                        EndPosition = item.transform.position;
+                        _endPosition = item.transform.position;
                         break;
                     }
                 }
 
-                Finger.transform.position = StartPosition;
-                while (Finger.transform.position != EndPosition)
+                Finger.transform.position = _startPosition;
+                while (Finger.transform.position != _endPosition)
                 {
-                    Finger.transform.position = Vector3.MoveTowards(Finger.transform.position, EndPosition, 0.1f);
+                    Finger.transform.position = Vector3.MoveTowards(Finger.transform.position, _endPosition, 0.1f);
                     if (WaitHint == 1)
                     {
                         Finger.transform.position = new Vector3(0, 10, 0);

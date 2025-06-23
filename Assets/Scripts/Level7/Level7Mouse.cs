@@ -4,24 +4,24 @@ namespace Level7
 {
     public class Level7Mouse : MonoBehaviour
     {
-        Camera _camera;
-        GameObject _gameObject;
         public Vector3 Position;
-        int layerMask = 1 << 13;
-        int layerMask2 = 1 << 9;
-        float _z;
+        private Camera _camera;
+        private GameObject _gameObject;
+        private const int LayerMask = 1 << 13;
+        private const int LayerMask2 = 1 << 9;
+        private float _z;
 
-        void Start()
+        private void Start()
         {
             _camera = Camera.main;
         }
 
-        void Update()
+        private void Update()
         {
             if (Input.GetMouseButtonDown(0))
             {
-                RaycastHit2D hit = Physics2D.Raycast(_camera.ScreenToWorldPoint(Input.mousePosition), _camera.transform.forward, Mathf.Infinity, layerMask);
-                if (hit.collider != null)
+                var hit = Physics2D.Raycast(_camera.ScreenToWorldPoint(Input.mousePosition), _camera.transform.forward, Mathf.Infinity, LayerMask);
+                if (hit.collider)
                 {
                     _z = hit.collider.transform.position.z;
                     _gameObject = hit.collider.gameObject;
@@ -33,8 +33,8 @@ namespace Level7
 
             if (Input.GetMouseButtonUp(0) && _gameObject != null)
             {
-                Collider2D hitCollider = Physics2D.OverlapCircle(_gameObject.transform.position, 0.1f, layerMask2);
-                if (hitCollider != null)
+                var hitCollider = Physics2D.OverlapCircle(_gameObject.transform.position, 0.1f, LayerMask2);
+                if (hitCollider)
                 {
                     if (hitCollider.name == _gameObject.name)
                     {
@@ -57,18 +57,22 @@ namespace Level7
                 _gameObject = null;
             }
 
-            // if(Input.GetMouseButton(0) && _gameObject != null)
-            // {
-            //     var vector = _camera.ScreenToWorldPoint(Input.mousePosition);
-            //     vector.z = _z;
-            //     _gameObject.transform.position = vector;
-            // } 
-            if (Input.touchCount > 0 && _gameObject != null)
+#if UNITY_EDITOR
+            if (Input.GetMouseButton(0) && _gameObject)
+            {
+                var vector = _camera.ScreenToWorldPoint(Input.mousePosition);
+                vector.z = _z;
+                _gameObject.transform.position = vector;
+            }
+
+#else
+            if (Input.touchCount > 0 && _gameObject)
             {
                 var vector = _camera.ScreenToWorldPoint(Input.GetTouch(0).position);
                 vector.z = _z;
                 _gameObject.transform.position = vector;
             }
+#endif
         }
     }
 }

@@ -8,20 +8,20 @@ namespace Level6
         public List<GameObject> SpawnPositionVector;
         public List<GameObject> SpawnPosition;
 
-        void Awake()
+        private void Awake()
         {
             Level6Global._level6Spawn = gameObject;
         }
 
-        void Start()
+        private void Start()
         {
-            for (int i = 0; i < SpawnPosition.Count; i++)
+            for (var i = 0; i < SpawnPosition.Count; i++)
             {
                 SpawnStars(i);
             }
         }
 
-        void SpawnStars(int number)
+        private void SpawnStars(int number)
         {
             if (Level6Global.AllStarsStatic.Count > 0)
             {
@@ -33,7 +33,7 @@ namespace Level6
 
         public void SearchFreeSpace()
         {
-            for (int i = 0; i < 5; i++)
+            for (var i = 0; i < 5; i++)
             {
                 if (SpawnPosition[i].activeSelf == false)
                 {
