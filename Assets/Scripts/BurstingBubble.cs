@@ -4,36 +4,40 @@ using UnityEngine;
 
 public class BurstingBubble : MonoBehaviour
 {
-    public List<Sprite> SpriteBubble = new List<Sprite>();
-    SpriteRenderer _SpriteRenderer;
-    AudioSource _AudioSource;
-    void Start()
+    public List<Sprite> spriteBubble = new();
+    private SpriteRenderer _spriteRenderer;
+    private AudioSource _audioSource;
+
+    private void Start()
     {
         StartCoroutine(DestroyBubble());
     }
-    void OnMouseUp()
+
+    private void OnMouseUp()
     {
-        _AudioSource = GetComponent<AudioSource>();
+        _audioSource = GetComponent<AudioSource>();
         Destroy(GetComponent<CircleCollider2D>());
-        _SpriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         StartCoroutine(Bursting());
     }
-    IEnumerator Bursting() 
+
+    private IEnumerator Bursting()
     {
-        _AudioSource.Play();
-        _SpriteRenderer.sprite = SpriteBubble[0];
+        _audioSource.Play();
+        _spriteRenderer.sprite = spriteBubble[0];
         yield return new WaitForSeconds(0.1f);
-        _SpriteRenderer.sprite = SpriteBubble[1];
+        _spriteRenderer.sprite = spriteBubble[1];
         yield return new WaitForSeconds(0.1f);
-        _SpriteRenderer.sprite = SpriteBubble[2];
+        _spriteRenderer.sprite = spriteBubble[2];
         yield return new WaitForSeconds(0.1f);
-        WinBobbles.Count --;
+        WinBobbles.Count--;
         Destroy(gameObject);
     }
-    IEnumerator DestroyBubble()
+
+    private IEnumerator DestroyBubble()
     {
         yield return new WaitForSeconds(10);
-        WinBobbles.Count --;
+        WinBobbles.Count--;
         Destroy(gameObject);
     }
 }

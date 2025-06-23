@@ -1,74 +1,61 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Purchasing;
-using UnityEngine.UI;
-using System.IO;
+
 public class PurchaseManager : MonoBehaviour, IStoreListener
 {
-    private static IStoreController m_StoreController;
-    private static IExtensionProvider m_StoreExtensionProvider;
-    public const string open = "open.all1";
-    public const string openAppStore = "open.all1";
-    public const string openGooglePlay = "open.all1";
-    public List<GameObject> _lockList;
-    public Text Pay;
-    void Start()
+    private static IStoreController _storeController;
+    private static IExtensionProvider _storeExtensionProvider;
+    private const string Open = "open.all1";
+    private const string OpenAppStore = "open.all1";
+    private const string OpenGooglePlay = "open.all1";
+    public List<GameObject> lockList;
+
+    private void Start()
     {
-        if (m_StoreController == null)
+        if (_storeController == null)
         {
             InitializePurchasing();
         }
+
         TestFile();
     }
 
-    public void InitializePurchasing()
+    private void InitializePurchasing()
     {
         if (IsInitialized())
         {
             return;
         }
+
         var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
-        builder.AddProduct(open, ProductType.NonConsumable, new IDs() { { openAppStore, AppleAppStore.Name }, { openGooglePlay, GooglePlay.Name } });
+        builder.AddProduct(Open, ProductType.NonConsumable, new IDs() { { OpenAppStore, AppleAppStore.Name }, { OpenGooglePlay, GooglePlay.Name } });
         UnityPurchasing.Initialize(this, builder);
     }
-    void TestFile()
+
+    private void TestFile()
     {
-        // Pay.text += "Начало \n";
-        string filePath = Application.persistentDataPath  + @"/open.all1";
-        // Pay.text += filePath + "\n";
-        if(!File.Exists(filePath))
+        var filePath = Application.persistentDataPath + @"/open.all1";
+        if (!File.Exists(filePath))
         {
-            if(m_StoreController.products.WithID("open.all1").hasReceipt)
+            if (_storeController.products.WithID("open.all1").hasReceipt)
             {
-                // Pay.text += m_StoreController.products.WithID("open.all1").hasReceipt + "\n";
-                // Pay.text += "Уровни уже куплены \n";
-                FileInfo fi = new FileInfo(filePath);
+                var fi = new FileInfo(filePath);
                 fi.Create();
-                // Pay.text += "Файл создан \n";
-                // Pay.text += filePath + "\n";
-                // Pay.text += "Открытие уровней \n";
                 OpenLevel();
             }
-            // else
-            // {
-                // Pay.text += m_StoreController.products.WithID("open.all1").hasReceipt + "\n";
-                // Pay.text += "Уровни не куплены \n";
-            // }
         }
         else
         {
-            // Pay.text += "Файл уже есть \n";
-            // Pay.text += filePath + "\n";
-            // Pay.text += "Открытие уровней \n";
             OpenLevel();
         }
-        // Pay.text += "Конец \n";
     }
 
     private bool IsInitialized()
     {
-        return m_StoreController != null && m_StoreExtensionProvider != null;
+        return _storeController != null && _storeExtensionProvider != null;
     }
 
     public void BuyProductID(string productId)
@@ -77,12 +64,12 @@ public class PurchaseManager : MonoBehaviour, IStoreListener
         {
             if (IsInitialized())
             {
-                Product product = m_StoreController.products.WithID(productId);
+                var product = _storeController.products.WithID(productId);
 
-                if (product != null && product.availableToPurchase)
+                if (product is { availableToPurchase: true })
                 {
-                    Debug.Log(string.Format("Purchasing product asychronously: '{0}'", product.definition.id));// ... buy the product. Expect a response either through ProcessPurchase or OnPurchaseFailed asynchronously.
-                    m_StoreController.InitiatePurchase(product);
+                    Debug.Log(string.Format("Purchasing product asychronously: '{0}'", product.definition.id)); // ... buy the product. Expect a response either through ProcessPurchase or OnPurchaseFailed asynchronously.
+                    _storeController.InitiatePurchase(product);
                 }
                 else
                 {
@@ -112,11 +99,8 @@ public class PurchaseManager : MonoBehaviour, IStoreListener
         {
             Debug.Log("RestorePurchases started ...");
 
-            var apple = m_StoreExtensionProvider.GetExtension<IAppleExtensions>();
-            apple.RestoreTransactions((result) =>
-                {
-                    Debug.Log("RestorePurchases continuing: " + result + ". If no further messages, no purchases available to restore.");
-                });
+            var apple = _storeExtensionProvider.GetExtension<IAppleExtensions>();
+            apple.RestoreTransactions((result) => { Debug.Log("RestorePurchases continuing: " + result + ". If no further messages, no purchases available to restore."); });
         }
         else
         {
@@ -127,16 +111,13 @@ public class PurchaseManager : MonoBehaviour, IStoreListener
     public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
     {
         Debug.Log("OnInitialized: Completed!");
-        // Pay.text += "OnInitialized: Completed! \n";
-
-        m_StoreController = controller;
-        m_StoreExtensionProvider = extensions;
+        _storeController = controller;
+        _storeExtensionProvider = extensions;
     }
 
     public void OnInitializeFailed(InitializationFailureReason error)
     {
         Debug.Log("OnInitializeFailed InitializationFailureReason:" + error);
-        // Pay.text += "OnInitializeFailed InitializationFailureReason:" + error + "\n";
     }
 
     public void OnInitializeFailed(InitializationFailureReason error, string message)
@@ -147,11 +128,11 @@ public class PurchaseManager : MonoBehaviour, IStoreListener
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
     {
         Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
-        if (String.Equals(args.purchasedProduct.definition.id, open, StringComparison.Ordinal))
+        if (String.Equals(args.purchasedProduct.definition.id, Open, StringComparison.Ordinal))
         {
-            // Pay.text += "Игра куплена \n";
             OpenLevel();
         }
+
         return PurchaseProcessingResult.Complete;
     }
 
@@ -159,9 +140,10 @@ public class PurchaseManager : MonoBehaviour, IStoreListener
     {
         Debug.Log(string.Format("OnPurchaseFailed: FAIL. Product: '{0}', PurchaseFailureReason: {1}", product.definition.storeSpecificId, failureReason));
     }
-    void OpenLevel()
+
+    private void OpenLevel()
     {
-        foreach (var item in _lockList)
+        foreach (var item in lockList)
         {
             item.SetActive(false);
         }

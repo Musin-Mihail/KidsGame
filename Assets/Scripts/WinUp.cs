@@ -1,23 +1,23 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WinUp : MonoBehaviour
 {
     public IEnumerator Win()
     {
-        Vector3 StartVector3 = transform.position;
-        Vector3 TopVector3 = transform.position;
-        TopVector3.y +=1;
-        while (transform.position !=TopVector3)
+        var startVector3 = transform.position;
+        var topVector3 = transform.position;
+        topVector3.y += 1;
+        while (transform.position != topVector3)
         {
-            transform.position = Vector3.MoveTowards(transform.position, TopVector3, 0.1f);
+            transform.position = Vector3.MoveTowards(transform.position, topVector3, 0.1f);
             yield return new WaitForSeconds(0.02f);
         }
-        while (transform.position !=StartVector3)
+
+        while (transform.position != startVector3)
         {
-            transform.position = Vector3.MoveTowards(transform.position, StartVector3, 0.1f);
+            transform.position = Vector3.MoveTowards(transform.position, startVector3, 0.1f);
             yield return new WaitForSeconds(0.02f);
-        } 
+        }
     }
 }
