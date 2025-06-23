@@ -6,25 +6,89 @@
   <component name="ChangeListManager">
     <list default="true" id="7313cf86-6b92-4f5e-b60f-6a57ae13d2c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KidsGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KidsGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Bubble.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Bubble.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SellectScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SellectScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BurstingBubble.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BurstingBubble.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Direction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Direction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LoadingSceneBtn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LoadingSceneBtn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MoveItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MoveItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Music.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Music.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Level1Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Level1Global.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Global.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Level1Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Level1Mouse.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Mouse.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Level1Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Spawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Level1Spawn.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Spawn.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level10/Level10Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level10/Level10Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level10/Level10Global.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level10/Level10Global.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level10/Level10Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level10/Level10Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level10/Level10Mouse.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level10/Level10Mouse.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level11/DisableAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level11/DisableAnimation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level11/DisableAnimation.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level11/DisableAnimation.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level11/Level11.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level11/Level11.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level11/Level11.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level11/Level11.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level11/Level11Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level11/Level11Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level11/Level11Mouse.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level11/Level11Mouse.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level12/Level12.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level12/Level12.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level12/Level12Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12Item.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level12/Level12Item.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12Item.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level12/Level12Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level12/Level12Mouse.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12Mouse.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level2/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level2/Scripts/Level2Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level2/Scripts/Level2Global.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Global.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level2/Scripts/Level2Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level2/Scripts/Level2Mouse.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Mouse.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level2/Scripts/Level2Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Spawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level2/Scripts/Level2Spawn.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Spawn.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Scripts/Level3Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Scripts/Level3Global.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Global.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Scripts/Level3Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Scripts/Level3Mouse.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Mouse.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Scripts/Level3Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Spawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Scripts/Level3Spawn.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Spawn.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level4/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level4/Scripts/Level4Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level4/Level4Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level4/Scripts/Level4Global.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level4/Level4Global.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level4/Scripts/Level4Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level4/Level4Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level4/Scripts/Level4Mouse.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level4/Level4Mouse.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level4/Scripts/Level4Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level4/Level4Spawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level4/Scripts/Level4Spawn.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level4/Level4Spawn.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level5/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level5/Scripts/Level5Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level5/Level5Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level5/Scripts/Level5Global.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level5/Level5Global.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level5/Scripts/Level5Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level5/Level5Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level5/Scripts/Level5Mouse.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level5/Level5Mouse.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level5/Scripts/Level5SpawnOyster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level5/Level5SpawnOyster.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level5/Scripts/Level5SpawnOyster.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level5/Level5SpawnOyster.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level6/Level6Chest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level6/Level6Chest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level6/Level6Chest.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level6/Level6Chest.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level6/Level6Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level6/Level6Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level6/Level6Global.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level6/Level6Global.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level6/Level6Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level6/Level6Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level6/Level6Mouse.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level6/Level6Mouse.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level6/Level6Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level6/Level6Spawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level6/Level6Spawn.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level6/Level6Spawn.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level7/Level7Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level7/Level7Global.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Global.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level7/Level7Mause.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Mause.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level7/Level7Mause.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Mause.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level7/Level7Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Spawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level7/Level7Spawn.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Spawn.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level8/Level8.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level8/Level8.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level8/Level8.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level8/Level8.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level8/Level8Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level8/Level8Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level8/Level8Mouse.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level8/Level8Mouse.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level8/Level8MoveItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level8/Level8MoveItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level8/Level8MoveItem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level8/Level8MoveItem.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Level9Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level9/Level9Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Level9Global.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level9/Level9Global.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Level9Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level9/Level9Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Level9Mouse.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level9/Level9Mouse.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Level9Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level9/Level9Spawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Level9Spawn.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level9/Level9Spawn.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Menu/MenuMouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/MenuMouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Menu/MenuMouse.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/MenuMouse.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Menu/Protection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/Protection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Menu/Protection.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/Protection.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Menu/Sound.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/Sound.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Menu/Sound.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/Sound.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PurchaseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PurchaseManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Resolution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Resolution.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SoundClickItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SoundClickItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Test.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Test.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Test1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Test1.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WinBobbles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WinBobbles.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WinUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WinUp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,6 +104,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/44f3679c53d1477a9c6e72f269e3a3a91de200/fb/a4e2e012/MonoBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.purchasing/Editor/UnityPurchasingEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.purchasing/Runtime/Purchasing/Utilites/ILoggerExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Editor/UGUI/UI/GraphicEditor.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -47,6 +112,9 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2rQyizNw9wW7DuX4RY3aTd2EH8M" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
@@ -143,7 +211,7 @@
       <workItem from="1736505837087" duration="832000" />
       <workItem from="1748451667614" duration="6101000" />
       <workItem from="1748723167953" duration="34000" />
-      <workItem from="1750683299481" duration="4487000" />
+      <workItem from="1750683299481" duration="5139000" />
     </task>
     <servers />
   </component>
