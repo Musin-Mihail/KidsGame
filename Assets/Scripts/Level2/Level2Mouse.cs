@@ -1,94 +1,96 @@
 using UnityEngine;
 
-public class Level2Mouse : MonoBehaviour
+namespace Level2
 {
-    private Camera _camera;
-    private GameObject _gameObject;
-    private const int LayerMask = 1 << 13;
-    private const int LayerMask2 = 1 << 9;
-    private float _z;
-    private Vector3 _position;
-    private Vector3 _bigScale;
-    public Transform normalScale;
-    public Transform normalScaleWindows3;
-    public Transform normalScaleWindows1;
-
-    private void Start()
+    public class Level2Mouse : MonoBehaviour
     {
-        _camera = Camera.main;
-    }
+        private Camera _camera;
+        private GameObject _gameObject;
+        private const int LayerMask = 1 << 13;
+        private const int LayerMask2 = 1 << 9;
+        private float _z;
+        private Vector3 _position;
+        private Vector3 _bigScale;
+        public Transform normalScale;
+        public Transform normalScaleWindows3;
+        public Transform normalScaleWindows1;
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
+        private void Start()
         {
-            RaycastHit2D hit = Physics2D.Raycast(_camera.ScreenToWorldPoint(Input.mousePosition), _camera.transform.forward, Mathf.Infinity, LayerMask);
-            if (hit.collider)
-            {
-                _z = hit.collider.transform.position.z;
-                _gameObject = hit.collider.gameObject;
-                _bigScale = _gameObject.transform.localScale;
-                if (_gameObject.name == "Window3")
-                {
-                    _gameObject.transform.localScale = normalScaleWindows3.lossyScale;
-                }
-                else if (_gameObject.name == "Window1")
-                {
-                    _gameObject.transform.localScale = normalScaleWindows1.lossyScale;
-                }
-                else
-                {
-                    _gameObject.transform.localScale = normalScale.lossyScale;
-                }
-
-                _position = hit.collider.GetComponent<MoveItem>().StartPosition;
-                Level2Global.WaitHint = 1;
-                hit.collider.GetComponent<MoveItem>().State = 0;
-            }
+            _camera = Camera.main;
         }
 
-        if (Input.GetMouseButtonUp(0) && _gameObject != null)
+        private void Update()
         {
-            var hitCollider = Physics2D.OverlapCircle(_gameObject.transform.position, 0.1f, LayerMask2);
-            if (hitCollider)
+            if (Input.GetMouseButtonDown(0))
             {
-                if (hitCollider.name == _gameObject.name)
+                RaycastHit2D hit = Physics2D.Raycast(_camera.ScreenToWorldPoint(Input.mousePosition), _camera.transform.forward, Mathf.Infinity, LayerMask);
+                if (hit.collider)
                 {
-                    if (hitCollider.name == "Flag")
+                    _z = hit.collider.transform.position.z;
+                    _gameObject = hit.collider.gameObject;
+                    _bigScale = _gameObject.transform.localScale;
+                    if (_gameObject.name == "Window3")
                     {
-                        hitCollider.GetComponent<Animator>().enabled = true;
+                        _gameObject.transform.localScale = normalScaleWindows3.lossyScale;
+                    }
+                    else if (_gameObject.name == "Window1")
+                    {
+                        _gameObject.transform.localScale = normalScaleWindows1.lossyScale;
                     }
                     else
                     {
-                        hitCollider.GetComponent<SpriteRenderer>().sprite = _gameObject.GetComponent<SpriteRenderer>().sprite;
+                        _gameObject.transform.localScale = normalScale.lossyScale;
                     }
 
-                    hitCollider.GetComponent<SoundClickItem>().Play();
-                    _gameObject.SetActive(false);
-                    WinBobbles.Victory--;
+                    _position = hit.collider.GetComponent<MoveItem>().StartPosition;
+                    Level2Global.WaitHint = 1;
+                    hit.collider.GetComponent<MoveItem>().State = 0;
+                }
+            }
+
+            if (Input.GetMouseButtonUp(0) && _gameObject != null)
+            {
+                var hitCollider = Physics2D.OverlapCircle(_gameObject.transform.position, 0.1f, LayerMask2);
+                if (hitCollider)
+                {
+                    if (hitCollider.name == _gameObject.name)
+                    {
+                        if (hitCollider.name == "Flag")
+                        {
+                            hitCollider.GetComponent<Animator>().enabled = true;
+                        }
+                        else
+                        {
+                            hitCollider.GetComponent<SpriteRenderer>().sprite = _gameObject.GetComponent<SpriteRenderer>().sprite;
+                        }
+
+                        hitCollider.GetComponent<SoundClickItem>().Play();
+                        _gameObject.SetActive(false);
+                        WinBobbles.Victory--;
+                    }
+                    else
+                    {
+                        _gameObject.transform.position = _position;
+                        _gameObject.transform.localScale = _bigScale;
+                    }
                 }
                 else
                 {
                     _gameObject.transform.position = _position;
                     _gameObject.transform.localScale = _bigScale;
                 }
-            }
-            else
-            {
-                _gameObject.transform.position = _position;
-                _gameObject.transform.localScale = _bigScale;
-            }
 
-            _gameObject = null;
-        }
+                _gameObject = null;
+            }
 
 #if UNITY_EDITOR
-        if (Input.GetMouseButton(0) && _gameObject != null)
-        {
-            var vector = _camera.ScreenToWorldPoint(Input.mousePosition);
-            vector.z = _z;
-            _gameObject.transform.position = vector;
-        }
+            if (Input.GetMouseButton(0) && _gameObject != null)
+            {
+                var vector = _camera.ScreenToWorldPoint(Input.mousePosition);
+                vector.z = _z;
+                _gameObject.transform.position = vector;
+            }
 #else
         if (Input.touchCount > 0 && _gameObject != null)
         {
@@ -97,5 +99,6 @@ public class Level2Mouse : MonoBehaviour
             _gameObject.transform.position = vector;
         }
 #endif
+        }
     }
 }

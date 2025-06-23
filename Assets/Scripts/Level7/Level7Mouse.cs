@@ -1,14 +1,14 @@
 using UnityEngine;
 
-namespace Level6
+namespace Level7
 {
-    public class Level6Mouse : MonoBehaviour
+    public class Level7Mouse : MonoBehaviour
     {
         Camera _camera;
         GameObject _gameObject;
         public Vector3 Position;
-        int layerMask = 1 << 7;
-        int layerMask2 = 1 << 6;
+        int layerMask = 1 << 13;
+        int layerMask2 = 1 << 9;
         float _z;
 
         void Start()
@@ -26,7 +26,7 @@ namespace Level6
                     _z = hit.collider.transform.position.z;
                     _gameObject = hit.collider.gameObject;
                     Position = _gameObject.GetComponent<MoveItem>().StartPosition;
-                    Level6Global.WaitHint = 1;
+                    Level7Global.WaitHint = 1;
                     _gameObject.GetComponent<MoveItem>().State = 0;
                 }
             }
@@ -36,35 +36,21 @@ namespace Level6
                 Collider2D hitCollider = Physics2D.OverlapCircle(_gameObject.transform.position, 0.1f, layerMask2);
                 if (hitCollider != null)
                 {
-                    if (hitCollider.tag == _gameObject.tag)
+                    if (hitCollider.name == _gameObject.name)
                     {
                         hitCollider.GetComponent<SoundClickItem>().Play();
-                        var place = hitCollider.GetComponent<Level6Chest>().BusyPlaces;
-                        var GO = new GameObject();
-                        GO.transform.parent = hitCollider.transform;
-                        GO.transform.localPosition = hitCollider.GetComponent<Level6Chest>().CollectedThings[place];
-                        GO.transform.localScale = new Vector3(0.75f, 0.75f, 1);
-                        GO.AddComponent<SpriteRenderer>();
-                        GO.GetComponent<SpriteRenderer>().sprite = _gameObject.GetComponent<SpriteRenderer>().sprite;
-                        GO.AddComponent<WinUp>();
-                        Level6Global.AllCollectedStars.Add(GO);
-                        var newVector3 = GO.transform.position;
-                        newVector3.z = 2.5f;
-                        Instantiate(Resources.Load<ParticleSystem>("Bubbles"), newVector3, Quaternion.Euler(-90, -40, 0));
-                        hitCollider.GetComponent<Level6Chest>().BusyPlaces++;
+                        hitCollider.GetComponent<SpriteRenderer>().sprite = _gameObject.GetComponent<SpriteRenderer>().sprite;
+                        hitCollider.transform.localScale = _gameObject.transform.localScale * 100;
                         _gameObject.SetActive(false);
-                        Level6Global._level6Spawn.GetComponent<Level6Spawn>().SearchFreeSpace();
-                        WinBobbles.Victory--;
+                        Level7Global.NextFigure = 1;
                     }
                     else
                     {
-                        _gameObject.GetComponent<MoveItem>().State = 1;
                         _gameObject.transform.position = Position;
                     }
                 }
                 else
                 {
-                    _gameObject.GetComponent<MoveItem>().State = 1;
                     _gameObject.transform.position = Position;
                 }
 

@@ -1,39 +1,45 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level6Spawn : MonoBehaviour
+namespace Level6
 {
-    public List<GameObject> SpawnPositionVector;
-    public List<GameObject> SpawnPosition;
-    void Awake()
+    public class Level6Spawn : MonoBehaviour
     {
-        Level6Global._level6Spawn = gameObject;
-    }
-    void Start()
-    {
-        for (int i = 0; i < SpawnPosition.Count; i++)
+        public List<GameObject> SpawnPositionVector;
+        public List<GameObject> SpawnPosition;
+
+        void Awake()
         {
-            SpawnStars(i);
+            Level6Global._level6Spawn = gameObject;
         }
-    }
-    void SpawnStars(int number)
-    {
-        if(Level6Global.AllStarsStatic.Count > 0)
+
+        void Start()
         {
-            var star = Instantiate (Level6Global.AllStarsStatic[0], SpawnPositionVector[number].transform.position, Quaternion.identity);
-            SpawnPosition[number] = star;
-            Level6Global.AllStarsStatic.RemoveAt(0);
-        }
-    }
-    public void SearchFreeSpace()
-    {
-        for (int i = 0; i < 5; i++)
-        {
-            if(SpawnPosition[i].activeSelf == false)
+            for (int i = 0; i < SpawnPosition.Count; i++)
             {
                 SpawnStars(i);
-                break;
+            }
+        }
+
+        void SpawnStars(int number)
+        {
+            if (Level6Global.AllStarsStatic.Count > 0)
+            {
+                var star = Instantiate(Level6Global.AllStarsStatic[0], SpawnPositionVector[number].transform.position, Quaternion.identity);
+                SpawnPosition[number] = star;
+                Level6Global.AllStarsStatic.RemoveAt(0);
+            }
+        }
+
+        public void SearchFreeSpace()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                if (SpawnPosition[i].activeSelf == false)
+                {
+                    SpawnStars(i);
+                    break;
+                }
             }
         }
     }

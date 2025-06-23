@@ -1,9 +1,13 @@
 using UnityEngine;
-public class DisableAnimation : MonoBehaviour
+
+namespace Level11
 {
-    void OnEnable()
+    public class DisableAnimation : MonoBehaviour
     {
-        GetComponent<Animator>().enabled = false;
-        transform.localScale = Level11._scaleStatic.lossyScale;
+        void OnEnable()
+        {
+            GetComponent<Animator>().enabled = false;
+            transform.localScale = Level11._scaleStatic.lossyScale;
+        }
     }
 }

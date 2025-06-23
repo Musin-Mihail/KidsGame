@@ -1,9 +1,14 @@
 using UnityEngine;
-public class Level12Item : MonoBehaviour
+
+namespace Level12
 {
-    public Vector2 _scale;
-    void Start()
+    public class Level12Item : MonoBehaviour
     {
-        _scale = transform.localScale;
+        public Vector2 _scale;
+
+        void Start()
+        {
+            _scale = transform.localScale;
+        }
     }
 }
