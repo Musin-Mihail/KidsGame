@@ -4,9 +4,23 @@ using UnityEngine.SceneManagement;
 
 public class WinBobbles : MonoBehaviour
 {
-    public static int Victory;
+    public static WinBobbles Instance { get; private set; }
+    public int Victory;
+    public int Count = 30;
+    public GameObject bubble;
     private int _stop;
-    public static int Count = 30;
+
+    private void Awake()
+    {
+        if (Instance && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     private void Update()
     {
@@ -23,12 +37,11 @@ public class WinBobbles : MonoBehaviour
         }
     }
 
-    public static IEnumerator Win()
+    public IEnumerator Win()
     {
         yield return new WaitForSeconds(1);
-        Direction.BGBlackStatic.SetActive(true);
+        Direction.Instance.bgBlack.SetActive(true);
         var y = -7.0f;
-        var bubble = Resources.Load<GameObject>("Bubble");
         for (var i = 0; i < 31; i++)
         {
             var newVector = new Vector3(Random.Range(-6.0f, 6.0f), y, 0);

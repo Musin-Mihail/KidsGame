@@ -6,6 +6,7 @@ namespace Level9
 {
     public class Level9Global : MonoBehaviour
     {
+        public static Level9Global Instance { get; private set; }
         public List<GameObject> AllItem = new();
         public static List<GameObject> AllItemStatic = new();
         public List<GameObject> AllEmpty = new();
@@ -20,16 +21,23 @@ namespace Level9
 
         private void Awake()
         {
+            if (Instance && !Equals(Instance, this))
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Instance = this;
+            }
+
             for (var i = 0; i < AllItem.Count; i++)
             {
                 var chance = Random.Range(0, AllItem.Count);
-                var item = AllItem[i];
-                AllItem[i] = AllItem[chance];
-                AllItem[chance] = item;
+                (AllItem[i], AllItem[chance]) = (AllItem[chance], AllItem[i]);
             }
 
             AllItemStatic = AllItem;
-            WinBobbles.Victory = AllItem.Count;
+            WinBobbles.Instance.Victory = AllItem.Count;
         }
 
         private void Start()
@@ -39,7 +47,7 @@ namespace Level9
 
         private void Update()
         {
-            if (WinBobbles.Victory == 0 && _stop == 0)
+            if (WinBobbles.Instance.Victory == 0 && _stop == 0)
             {
                 _stop = 1;
             }
@@ -74,7 +82,7 @@ namespace Level9
 
         private IEnumerator Hint()
         {
-            if (WinBobbles.Victory > 0)
+            if (WinBobbles.Instance.Victory > 0)
             {
                 var itemTag = " ";
                 foreach (var item in GetComponent<Level9Spawn>().SpawnPosition)

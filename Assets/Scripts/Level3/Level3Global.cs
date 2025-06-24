@@ -6,17 +6,17 @@ namespace Level3
 {
     public class Level3Global : MonoBehaviour
     {
+        public static Level3Global Instance { get; private set; }
         public List<GameObject> ThreeFigures = new();
         public List<GameObject> AllAnimals = new();
         public List<GameObject> AllItem = new();
-        public static List<GameObject> AllItemStatic = new();
         public GameObject Finger;
-        public static int WaitHint;
-        public static int ThreeFiguresComplete;
+        public int waitHint;
+        public int threeFiguresComplete;
         public GameObject Task;
         public GameObject Figure;
         public GameObject AnimalCenter;
-        public static int NextFigure;
+        public int nextFigure;
         public int StageMove;
         private Vector3 _center;
         private Vector3 _endTarget;
@@ -27,38 +27,43 @@ namespace Level3
 
         private void Awake()
         {
-            ThreeFiguresComplete = -1;
-            _center = new Vector3(0, 0, 3);
-            _endTarget = new Vector3(15, 0, 3);
-            WinBobbles.Victory = 1;
-            for (var i = 0; i < AllAnimals.Count; i++)
+            if (Instance && !Equals(Instance, this))
             {
-                var chance = Random.Range(0, AllAnimals.Count - 1);
-                var item = AllAnimals[i];
-                AllAnimals[i] = AllAnimals[chance];
-                AllAnimals[chance] = item;
+                Destroy(gameObject);
             }
-
-            AllItemStatic = AllItem;
-            StartCoroutine(MoveAnimals());
+            else
+            {
+                Instance = this;
+            }
         }
 
         private void Start()
         {
+            threeFiguresComplete = -1;
+            _center = new Vector3(0, 0, 3);
+            _endTarget = new Vector3(15, 0, 3);
+            WinBobbles.Instance.Victory = 1;
+            for (var i = 0; i < AllAnimals.Count; i++)
+            {
+                var chance = Random.Range(0, AllAnimals.Count - 1);
+                (AllAnimals[i], AllAnimals[chance]) = (AllAnimals[chance], AllAnimals[i]);
+            }
+
+            StartCoroutine(MoveAnimals());
             _endPosition = new Vector3(0, 0, 0);
             StartCoroutine(StartHint());
         }
 
         private void Update()
         {
-            if (WinBobbles.Victory == 0 && _stop == 0)
+            if (WinBobbles.Instance.Victory == 0 && _stop == 0)
             {
                 _stop = 1;
             }
 
-            if (NextFigure == 1)
+            if (nextFigure == 1)
             {
-                NextFigure = 0;
+                nextFigure = 0;
                 FigureChange();
             }
         }
@@ -68,7 +73,7 @@ namespace Level3
             yield return new WaitForSeconds(1.0f);
             foreach (var item in AllAnimals)
             {
-                WaitHint = 1;
+                waitHint = 1;
                 RandomItem();
                 while (item.transform.position != _center)
                 {
@@ -92,7 +97,7 @@ namespace Level3
                     item2.SetActive(false);
                 }
 
-                WaitHint = 1;
+                waitHint = 1;
                 while (item.transform.position != _endTarget)
                 {
                     item.transform.position = Vector3.MoveTowards(item.transform.position, _endTarget, 0.1f);
@@ -104,21 +109,19 @@ namespace Level3
                     item3.GetComponent<SpriteRenderer>().enabled = false;
                 }
 
-                ThreeFiguresComplete = -1;
+                threeFiguresComplete = -1;
                 StageMove = 0;
             }
 
-            WinBobbles.Victory = 0;
+            WinBobbles.Instance.Victory = 0;
         }
 
         private void RandomItem()
         {
-            for (var i = 0; i < AllItemStatic.Count; i++)
+            for (var i = 0; i < AllItem.Count; i++)
             {
-                var chance = Random.Range(0, AllItemStatic.Count - 1);
-                var item = AllItemStatic[i];
-                AllItemStatic[i] = AllItemStatic[chance];
-                AllItemStatic[chance] = item;
+                var chance = Random.Range(0, AllItem.Count - 1);
+                (AllItem[i], AllItem[chance]) = (AllItem[chance], AllItem[i]);
             }
 
             GetComponent<Level3Spawn>().StartGame();
@@ -126,10 +129,10 @@ namespace Level3
 
         private void FigureChange()
         {
-            if (ThreeFiguresComplete >= 0)
+            if (threeFiguresComplete >= 0)
             {
-                ThreeFigures[ThreeFiguresComplete].GetComponent<SpriteRenderer>().enabled = true;
-                ThreeFigures[ThreeFiguresComplete].GetComponent<SpriteRenderer>().sprite = Figure.GetComponent<SpriteRenderer>().sprite;
+                ThreeFigures[threeFiguresComplete].GetComponent<SpriteRenderer>().enabled = true;
+                ThreeFigures[threeFiguresComplete].GetComponent<SpriteRenderer>().sprite = Figure.GetComponent<SpriteRenderer>().sprite;
             }
 
             if (GetComponent<Level3Spawn>().SpawnPosition.Count > 2)
@@ -155,15 +158,15 @@ namespace Level3
 
         private IEnumerator StartHint()
         {
-            while (WinBobbles.Victory != 0)
+            while (WinBobbles.Instance.Victory != 0)
             {
                 while (_hintTime < 4)
                 {
                     yield return new WaitForSeconds(1.0f);
-                    if (WaitHint == 1)
+                    if (waitHint == 1)
                     {
                         _hintTime = 0;
-                        WaitHint = 0;
+                        waitHint = 0;
                         break;
                     }
 
@@ -182,7 +185,7 @@ namespace Level3
 
         private IEnumerator Hint()
         {
-            if (WinBobbles.Victory > 0)
+            if (WinBobbles.Instance.Victory > 0)
             {
                 _startPosition.z = -1;
                 _endPosition.z = -1;
@@ -190,7 +193,7 @@ namespace Level3
                 while (Finger.transform.position != _endPosition)
                 {
                     Finger.transform.position = Vector3.MoveTowards(Finger.transform.position, _endPosition, 0.1f);
-                    if (WaitHint == 1)
+                    if (waitHint == 1)
                     {
                         Finger.transform.position = new Vector3(0, 10, 0);
                         break;

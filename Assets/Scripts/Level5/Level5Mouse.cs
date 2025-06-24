@@ -46,7 +46,7 @@ namespace Level5
                         StartCoroutine(parentOyster.GetComponent<Level5SpawnOyster>().ChangeStage());
                         hitColliders.GetComponent<SpriteRenderer>().sprite = _gameObject.GetComponent<SpriteRenderer>().sprite;
                         hitColliders.tag = "Untagged";
-                        WinBobbles.Victory--;
+                        WinBobbles.Instance.Victory--;
                     }
                     else
                     {

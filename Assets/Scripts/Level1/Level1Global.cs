@@ -6,45 +6,50 @@ namespace Level1
 {
     public class Level1Global : MonoBehaviour
     {
-        public List<GameObject> AllAnimals = new();
-        public List<GameObject> AllEmpty = new();
-        public static List<GameObject> AllAnimalsStatic = new();
-        public GameObject Finger;
-        public static int WaitHint;
+        public static Level1Global Instance { get; private set; }
+        public List<GameObject> allAnimals = new();
+        public List<GameObject> allEmpty = new();
+        public GameObject finger;
+        public int waitHint;
+        public Level1Spawn level1Spawn;
         private int _hintTime;
         private int _check;
-        public static GameObject Level1Spawn;
 
         private void Awake()
         {
-            WinBobbles.Victory = AllAnimals.Count;
-            for (var i = 0; i < AllAnimals.Count; i++)
+            if (Instance && !Equals(Instance, this))
             {
-                var chance = Random.Range(0, AllAnimals.Count - 1);
-                var item = AllAnimals[i];
-                AllAnimals[i] = AllAnimals[chance];
-                AllAnimals[chance] = item;
+                Destroy(gameObject);
             }
-
-            AllAnimalsStatic = AllAnimals;
+            else
+            {
+                Instance = this;
+            }
         }
 
         private void Start()
         {
+            WinBobbles.Instance.Victory = allEmpty.Count;
+            for (var i = 0; i < allAnimals.Count; i++)
+            {
+                var chance = Random.Range(0, allAnimals.Count - 1);
+                (allAnimals[i], allAnimals[chance]) = (allAnimals[chance], allAnimals[i]);
+            }
+
             StartCoroutine(StartHint());
         }
 
         private IEnumerator StartHint()
         {
-            while (WinBobbles.Victory != 0)
+            while (WinBobbles.Instance.Victory != 0)
             {
                 while (_hintTime < 4 && _check == 0)
                 {
                     yield return new WaitForSeconds(1.0f);
-                    if (WaitHint == 1)
+                    if (waitHint == 1)
                     {
                         _hintTime = 0;
-                        WaitHint = 0;
+                        waitHint = 0;
                         break;
                     }
 
@@ -67,8 +72,8 @@ namespace Level1
             var end = new Vector3(0, 10, 0);
             _check = 0;
             var itemName = "";
-
-            foreach (var item in GetComponent<Level1Spawn>().SpawnPosition)
+            if (!level1Spawn) yield break;
+            foreach (var item in level1Spawn.GetComponent<Level1Spawn>().spawnPosition)
             {
                 if (item.activeSelf)
                 {
@@ -81,7 +86,7 @@ namespace Level1
 
             if (_check == 1)
             {
-                foreach (var item in AllEmpty)
+                foreach (var item in allEmpty)
                 {
                     if (itemName == item.name)
                     {
@@ -93,15 +98,15 @@ namespace Level1
             }
 
             start.z = -1;
-            Finger.transform.position = start;
+            finger.transform.position = start;
             if (_check == 2)
             {
-                while (Finger.transform.position != end)
+                while (finger.transform.position != end)
                 {
-                    Finger.transform.position = Vector3.MoveTowards(Finger.transform.position, end, 0.1f);
-                    if (WaitHint == 1)
+                    finger.transform.position = Vector3.MoveTowards(finger.transform.position, end, 0.1f);
+                    if (waitHint == 1)
                     {
-                        Finger.transform.position = new Vector3(0, 10, 0);
+                        finger.transform.position = new Vector3(0, 10, 0);
                         break;
                     }
 
@@ -110,7 +115,7 @@ namespace Level1
             }
 
             _check = 0;
-            Finger.transform.position = new Vector3(0, 10, 0);
+            finger.transform.position = new Vector3(0, 10, 0);
         }
     }
 }

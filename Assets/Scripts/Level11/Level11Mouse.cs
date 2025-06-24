@@ -48,7 +48,7 @@ namespace Level11
             }
 
             Level11.AllTargetStatic[count].GetComponent<SpriteRenderer>().sprite = null;
-            if (WinBobbles.Victory == 1)
+            if (WinBobbles.Instance.Victory == 1)
             {
                 foreach (var item in Level11.Delete)
                 {
@@ -62,11 +62,11 @@ namespace Level11
                     yield return new WaitForSeconds(0.02f);
                 }
 
-                WinBobbles.Victory--;
+                WinBobbles.Instance.Victory--;
             }
             else
             {
-                WinBobbles.Victory--;
+                WinBobbles.Instance.Victory--;
             }
         }
     }

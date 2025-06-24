@@ -6,6 +6,7 @@ namespace Level12
 {
     public class Level12 : MonoBehaviour
     {
+        public static Level12 Instance { get; private set; }
         public List<GameObject> AllTarget = new();
         public static List<GameObject> AllTargetStatic = new();
         public List<GameObject> AllItem = new();
@@ -17,17 +18,27 @@ namespace Level12
         private int _hintTime;
         private Vector3 _endPosition;
 
+        private void Awake()
+        {
+            if (Instance && !Equals(Instance, this))
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Instance = this;
+            }
+        }
+
         private void Start()
         {
             AllItemStatic = AllItem;
             count = 0;
-            WinBobbles.Victory = 8;
+            WinBobbles.Instance.Victory = 8;
             for (var i = 0; i < AllTarget.Count; i++)
             {
                 var chance = Random.Range(0, AllTarget.Count - 1);
-                var item = AllTarget[i];
-                AllTarget[i] = AllTarget[chance];
-                AllTarget[chance] = item;
+                (AllTarget[i], AllTarget[chance]) = (AllTarget[chance], AllTarget[i]);
             }
 
             Invoke("StartGame", 5.5f);
@@ -81,7 +92,7 @@ namespace Level12
 
         private IEnumerator Hint()
         {
-            if (WinBobbles.Victory > 0)
+            if (WinBobbles.Instance.Victory > 0)
             {
                 foreach (var item in AllItem)
                 {

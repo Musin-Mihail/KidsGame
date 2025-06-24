@@ -2,17 +2,20 @@ using UnityEngine;
 
 public class Direction : MonoBehaviour
 {
+    public static Direction Instance { get; private set; }
     public Vector3 direction;
-    public AudioClip Sound;
-    public static AudioClip SoundStatic;
-    public static Vector3 directionStatic;
-    public GameObject BGBlack;
-    public static GameObject BGBlackStatic;
+    public AudioClip sound;
+    public GameObject bgBlack;
 
     private void Awake()
     {
-        directionStatic = direction;
-        SoundStatic = Sound;
-        BGBlackStatic = BGBlack;
+        if (Instance && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 }

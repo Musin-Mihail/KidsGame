@@ -5,18 +5,14 @@ namespace Level1
 {
     public class Level1Spawn : MonoBehaviour
     {
-        public List<GameObject> SpawnPositionVector;
-        public List<GameObject> SpawnPosition;
-        public Transform _scale;
-
-        private void Awake()
-        {
-            Level1Global.Level1Spawn = gameObject;
-        }
+        public List<GameObject> spawnPositionVector;
+        public List<GameObject> spawnPosition;
+        public Transform scale;
+        public GameObject canvas;
 
         private void Start()
         {
-            for (var i = 0; i < SpawnPosition.Count; i++)
+            for (var i = 0; i < spawnPosition.Count; i++)
             {
                 SpawnAnimal(i);
             }
@@ -24,13 +20,14 @@ namespace Level1
 
         public void SpawnAnimal(int number)
         {
-            if (Level1Global.AllAnimalsStatic.Count > 0)
+            if (Level1Global.Instance.allAnimals.Count > 0)
             {
-                var animal = Instantiate(Level1Global.AllAnimalsStatic[0], SpawnPositionVector[number].transform.position, Quaternion.identity);
-                animal.transform.localScale = _scale.transform.lossyScale;
-                animal.name = Level1Global.AllAnimalsStatic[0].name;
-                SpawnPosition[number] = animal;
-                Level1Global.AllAnimalsStatic.RemoveAt(0);
+                var animal = Instantiate(Level1Global.Instance.allAnimals[0], spawnPositionVector[number].transform.position, Quaternion.identity);
+                animal.transform.localScale = scale.transform.lossyScale;
+                animal.name = Level1Global.Instance.allAnimals[0].name;
+                spawnPosition[number] = animal;
+                animal.transform.SetParent(canvas.transform);
+                Level1Global.Instance.allAnimals.RemoveAt(0);
             }
         }
     }

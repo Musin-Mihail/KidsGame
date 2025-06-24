@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Level1
 {
@@ -26,12 +27,12 @@ namespace Level1
                     _z = hit.collider.transform.position.z;
                     _gameObject = hit.collider.gameObject;
                     _position = hit.collider.GetComponent<MoveItem>().StartPosition;
-                    Level1Global.WaitHint = 1;
+                    Level1Global.Instance.waitHint = 1;
                     hit.collider.GetComponent<MoveItem>().State = 0;
                 }
             }
 
-            if (Input.GetMouseButtonUp(0) && _gameObject != null)
+            if (Input.GetMouseButtonUp(0) && _gameObject)
             {
                 Collider2D hitCollider = Physics2D.OverlapCircle(_gameObject.transform.position, 0.1f, LayerMask2);
                 if (hitCollider)
@@ -41,14 +42,14 @@ namespace Level1
                         var newVector3 = hitCollider.transform.position;
                         newVector3.z += 0.5f;
                         Instantiate(Resources.Load<ParticleSystem>("BubblesLevel1"), newVector3, Quaternion.Euler(-90, -40, 0));
-                        hitCollider.GetComponent<SpriteRenderer>().sprite = _gameObject.GetComponent<SpriteRenderer>().sprite;
+                        hitCollider.GetComponent<Image>().sprite = _gameObject.GetComponent<Image>().sprite;
                         hitCollider.GetComponent<SoundClickItem>().Play();
-                        var level1Spawn = Level1Global.Level1Spawn.GetComponent<Level1Spawn>();
-                        for (var i = 0; i < level1Spawn.SpawnPosition.Count - 1; i++)
+                        var level1Spawn = Level1Global.Instance.level1Spawn;
+                        for (var i = 0; i < level1Spawn.spawnPosition.Count - 1; i++)
                         {
-                            if (level1Spawn.SpawnPosition[i] != null)
+                            if (level1Spawn.spawnPosition[i])
                             {
-                                if (level1Spawn.SpawnPosition[i].name == _gameObject.name)
+                                if (level1Spawn.spawnPosition[i].name == _gameObject.name)
                                 {
                                     level1Spawn.SpawnAnimal(i);
                                 }
@@ -56,7 +57,7 @@ namespace Level1
                         }
 
                         _gameObject.SetActive(false);
-                        WinBobbles.Victory--;
+                        WinBobbles.Instance.Victory--;
                     }
                     else
                     {

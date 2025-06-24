@@ -26,7 +26,7 @@ namespace Level3
                     _z = hit.collider.transform.position.z;
                     _gameObject = hit.collider.gameObject;
                     _position = _gameObject.GetComponent<MoveItem>().StartPosition;
-                    Level3Global.WaitHint = 1;
+                    Level3Global.Instance.waitHint = 1;
                     _gameObject.GetComponent<MoveItem>().State = 0;
                 }
             }
@@ -40,8 +40,8 @@ namespace Level3
                     {
                         hitCollider.GetComponent<SoundClickItem>().Play();
                         _gameObject.SetActive(false);
-                        Level3Global.NextFigure = 1;
-                        Level3Global.ThreeFiguresComplete++;
+                        Level3Global.Instance.nextFigure = 1;
+                        Level3Global.Instance.threeFiguresComplete++;
                     }
                     else
                     {

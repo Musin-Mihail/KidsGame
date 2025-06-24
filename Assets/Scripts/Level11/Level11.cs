@@ -7,6 +7,7 @@ namespace Level11
 {
     public class Level11 : MonoBehaviour
     {
+        public static Level11 Instance { get; private set; }
         public List<GameObject> AllItem = new();
         public List<GameObject> AllSpawn = new();
         public List<GameObject> AllTarget = new();
@@ -25,13 +26,25 @@ namespace Level11
         private int _hintTime;
         private Vector3 _endPosition;
 
+        private void Awake()
+        {
+            if (Instance && !Equals(Instance, this))
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Instance = this;
+            }
+        }
+
         private void Start()
         {
             _scaleStatic = _scale;
             AllFishChestStatic.Clear();
             count = 0;
             AllTargetStatic = AllTarget;
-            WinBobbles.Victory = 8;
+            WinBobbles.Instance.Victory = 8;
             for (var i = 0; i < 8; i++)
             {
                 AllItem.Add(FishChest);
@@ -45,9 +58,7 @@ namespace Level11
             for (var i = 0; i < AllItem.Count; i++)
             {
                 var chance = Random.Range(0, AllItem.Count - 1);
-                var item = AllItem[i];
-                AllItem[i] = AllItem[chance];
-                AllItem[chance] = item;
+                (AllItem[i], AllItem[chance]) = (AllItem[chance], AllItem[i]);
             }
 
             AllSpawn = AllSpawn.OrderBy(x => Vector2.Distance(TargetDistans.transform.position, x.transform.position)).ToList();
@@ -106,7 +117,7 @@ namespace Level11
 
         private IEnumerator Hint()
         {
-            if (WinBobbles.Victory > 0)
+            if (WinBobbles.Instance.Victory > 0)
             {
                 var newlist = AllFishChest.Where(x => x.name == "FishChest").OrderBy(x => Vector3.Distance(Finger.transform.position, x.transform.position)).ToList();
                 _endPosition = newlist[0].transform.position;

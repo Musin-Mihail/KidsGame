@@ -10,7 +10,7 @@ public class MoveItem : MonoBehaviour
     private void Start()
     {
         StartPosition = transform.position;
-        SpawnPosition = transform.position + Direction.directionStatic;
+        SpawnPosition = transform.position + Direction.Instance.direction;
         transform.position = SpawnPosition;
         if (gameObject.layer == LayerMask.NameToLayer("Star"))
         {

@@ -6,6 +6,7 @@ namespace Level6
 {
     public class Level6Global : MonoBehaviour
     {
+        public static Level6Global Instance { get; private set; }
         public List<GameObject> AllStars = new();
         public static List<GameObject> AllCollectedStars = new();
         public static List<GameObject> AllStarsStatic = new();
@@ -19,13 +20,20 @@ namespace Level6
 
         private void Awake()
         {
-            WinBobbles.Victory = AllStars.Count;
+            if (Instance && !Equals(Instance, this))
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Instance = this;
+            }
+
+            WinBobbles.Instance.Victory = AllStars.Count;
             for (var i = 0; i < AllStars.Count; i++)
             {
                 var chance = Random.Range(0, 11);
-                var item = AllStars[i];
-                AllStars[i] = AllStars[chance];
-                AllStars[chance] = item;
+                (AllStars[i], AllStars[chance]) = (AllStars[chance], AllStars[i]);
             }
 
             AllStarsStatic = AllStars;
@@ -40,7 +48,7 @@ namespace Level6
         private void Update()
         {
             WaitHintPublic = WaitHint;
-            if (WinBobbles.Victory == 0 && _stop == 0)
+            if (WinBobbles.Instance.Victory == 0 && _stop == 0)
             {
                 _stop = 1;
                 StartCoroutine(Win2());

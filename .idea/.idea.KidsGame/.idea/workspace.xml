@@ -5,11 +5,488 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7313cf86-6b92-4f5e-b60f-6a57ae13d2c3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/StartGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StartGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/StartGame.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StartGame.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainMenu/Rotation360.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rotation360.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainMenu/Rotation360.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rotation360.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.KidsGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KidsGame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Fish.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Fish.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Jellyfish.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Jellyfish.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Octopus.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Octopus.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Shark.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Shark.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Shell1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Shell1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Shell2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Shell2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Starfish.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Starfish.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Turtle.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level1/Turtle.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level4/фон_игра 4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level4/фон_игра 4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prifabs/algae1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prifabs/algae1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prifabs/algae2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prifabs/algae2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prifabs/algae3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prifabs/algae3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prifabs/algae4.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prifabs/algae4.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/BorderLeft.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/BorderLeft.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/BorderRight.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/BorderRight.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Bubble.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Bubble.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/algaeLeft.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/algaeLeft.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/algaeRight.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/algaeRight.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/bells.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/bells.mp3.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level10.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level10.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level11.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level11.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level12.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level12.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1Shadow.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1Shadow.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level2Boat.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level2Boat.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level3Shapes.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level3Shapes.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level4Animals.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level4Animals.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level5Chest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level5Chest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level6Chest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level6Chest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level7Logics.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level7Logics.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level8Puzzle.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level8Puzzle.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level9.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level9.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BurstingBubble.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BurstingBubble.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Direction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Direction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Spawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level10/Level10Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level10/Level10Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level11/Level11.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level11/Level11.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level11/Level11Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level11/Level11Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Spawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Spawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level4/Level4Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level4/Level4Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level4/Level4Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level4/Level4Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level5/Level5Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level5/Level5Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level5/Level5Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level5/Level5Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level6/Level6Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level6/Level6Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level6/Level6Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level6/Level6Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Spawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level8/Level8.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level8/Level8.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level9/Level9Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level9/Level9Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level9/Level9Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level9/Level9Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MoveItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MoveItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PurchaseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PurchaseManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Resolution.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Resolution.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SoundClickItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SoundClickItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WinBobbles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WinBobbles.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/283696.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/283696.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/AtlasLevel12.spriteatlas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/AtlasLevel12.spriteatlas.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/AtlasLevel3.spriteatlas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/AtlasLevel3.spriteatlas.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/AtlasLevel4.spriteatlas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/AtlasLevel4.spriteatlas.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/AtlasLevel5.spriteatlas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/AtlasLevel5.spriteatlas.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/AtlasLevel8.spriteatlas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/AtlasLevel8.spriteatlas.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/AtlasMenu.spriteatlas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/AtlasMenu.spriteatlas.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level10Sprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level10Sprite/фон_игра 10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level10Sprite/фон_игра 10.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level10Sprite/элементы_игра 10 medium.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level10Sprite/элементы_игра 10 medium.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level11Sprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level11Sprite/сцена_игра 11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level11Sprite/сцена_игра 11.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level11Sprite/элементы_уровень 10-17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level11Sprite/элементы_уровень 10-17.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level11Sprite/элементы_уровень 10-34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level11Sprite/элементы_уровень 10-34.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level11Sprite/элементы_уровень 10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level11Sprite/элементы_уровень 10.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/сцена_игра 12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/сцена_игра 12.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/элементы_уровень 12 (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/элементы_уровень 12 (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/элементы_уровень 12 (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/элементы_уровень 12 (2).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/элементы_уровень 12 (3).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/элементы_уровень 12 (3).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/элементы_уровень 12 (4)-54.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/элементы_уровень 12 (4)-54.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/элементы_уровень 12 (4)-55.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/элементы_уровень 12 (4)-55.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/элементы_уровень 12 (4)-56.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/элементы_уровень 12 (4)-56.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/элементы_уровень 12 (4)-57.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/элементы_уровень 12 (4)-57.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/элементы_уровень 12 (4)-58.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/элементы_уровень 12 (4)-58.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/элементы_уровень 12 (4)-59.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/элементы_уровень 12 (4)-59.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/элементы_уровень 12 (4).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level12Sprite/элементы_уровень 12 (4).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level1Sprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level1Sprite/Level1AllSprite.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level1Sprite/Level1AllSprite.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level1Sprite/фон_игра 1 (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level1Sprite/фон_игра 1 (2).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level2Sprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level2Sprite/фон_игра 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level2Sprite/фон_игра 2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level2Sprite/элементы_элементы ИГРА 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level2Sprite/элементы_элементы ИГРА 2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/Level3AllSprite.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/Level3AllSprite.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/crab-05-05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/crab-05-05.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/crab-05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/crab-05.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/turtle (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/turtle (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/turtle (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/turtle (2).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/turtle (3).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/turtle (3).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/turtle (4).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/turtle (4).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/turtle (5).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/turtle (5).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/turtle (6).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/turtle (6).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/whale (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/whale (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/whale (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/whale (2).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/whale (3).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/whale (3).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/whale (4).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/whale (4).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/whale (5).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/whale (5).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/фон_игра 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level3Sprite/фон_игра 3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/camel (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/camel (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/camel (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/camel (2).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/camel (3).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/camel (3).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/camel (4).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/camel (4).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/camel (5).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/camel (5).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/camel (6).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/camel (6).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/dog (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/dog (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/dog (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/dog (2).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/dolphin (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/dolphin (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/dolphin (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/dolphin (2).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/dolphin (3).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/dolphin (3).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/fish (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/fish (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/fish (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/fish (2).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/fish (3).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/fish (3).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/fish (4).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/fish (4).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/fish (5).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/fish (5).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/fish (6).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/fish (6).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/fish (7).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/fish (7).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/fish (8).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/fish (8).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/lion (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/lion (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/lion (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/lion (2).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/lion (3).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/lion (3).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/lion (4).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/lion (4).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/lion (5).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/lion (5).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/lion (6).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/lion (6).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/monkey (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/monkey (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/monkey (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/monkey (2).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/monkey (3).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/monkey (3).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/monkey (4).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/monkey (4).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/monkey (5).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/monkey (5).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/octopus (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/octopus (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/octopus (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/octopus (2).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/octopus (3).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/octopus (3).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/octopus (4).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/octopus (4).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/seahorse (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/seahorse (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/seahorse (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/seahorse (2).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/seahorse (3).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/seahorse (3).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/seahorse (4).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/seahorse (4).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/shark (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/shark (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/shark (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/shark (2).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/shark (3).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/shark (3).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/shark (4).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/shark (4).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/sky-41.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/sky-41.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/zebra (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/zebra (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/zebra (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/zebra (2).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/zebra (3).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/zebra (3).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/zebra (4).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/zebra (4).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/zebra (5).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/zebra (5).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/zebra (6).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/zebra (6).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/zebra (7).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/zebra (7).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/zebra (8).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/zebra (8).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/zebra (9).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/zebra (9).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/фон_игра 4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level4Sprite/фон_игра 4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level5Sprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level5Sprite/сундук.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level5Sprite/сундук.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level5Sprite/фон_игра 5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level5Sprite/фон_игра 5.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level5Sprite/элементы_сундук ИГРА 5 (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level5Sprite/элементы_сундук ИГРА 5 (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level5Sprite/элементы_сундук ИГРА 5 (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level5Sprite/элементы_сундук ИГРА 5 (2).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level5Sprite/элементы_сундук ИГРА 5 (3).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level5Sprite/элементы_сундук ИГРА 5 (3).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level5Sprite/элементы_элементы ИГРА 5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level5Sprite/элементы_элементы ИГРА 5.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level6Sprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level6Sprite/уровень 6 фон.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level6Sprite/уровень 6 фон.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level6Sprite/уровень 6 элементы.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level6Sprite/уровень 6 элементы.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level7Sprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level7Sprite/фон_игра 7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level7Sprite/фон_игра 7.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level7Sprite/элементы_элементы ИГРА 7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level7Sprite/элементы_элементы ИГРА 7.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Акула.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Акула/Base.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Акула/Base.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Акула/Level1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Акула/Level1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Акула/акула игра 9 (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Акула/акула игра 9 (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Акула/акула игра 9 (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Акула/акула игра 9 (2).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Акула/акула игра 9 (3).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Акула/акула игра 9 (3).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Акула/акула игра 9 (4).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Акула/акула игра 9 (4).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Кит.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Кит/Base.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Кит/Base.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Кит/Puzzle2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Кит/Puzzle2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Кит/кит 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Кит/кит 1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Кит/кит 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Кит/кит 2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Кит/кит 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Кит/кит 3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Кит/кит 4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Кит/кит 4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Кит/кит 5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Кит/кит 5.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Кит/кит тень.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Кит/кит тень.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Субмарина.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Субмарина/Base.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Субмарина/Base.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Субмарина/Puzzle3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Субмарина/Puzzle3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Субмарина/субмарина 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Субмарина/субмарина 1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Субмарина/субмарина 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Субмарина/субмарина 2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Субмарина/субмарина 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Субмарина/субмарина 3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Субмарина/субмарина 4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Субмарина/субмарина 4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Субмарина/субмарина 5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Субмарина/субмарина 5.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Субмарина/субмарина 6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/Субмарина/субмарина 6.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/фон_игра 8-02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level8Sprite/фон_игра 8-02.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level9Sprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level9Sprite/сцена_игра 9_Монтажная область 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level9Sprite/сцена_игра 9_Монтажная область 1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level9Sprite/фон_игра 9_Монтажная область 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level9Sprite/фон_игра 9_Монтажная область 1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level9Sprite/элементы_элементы ИГРА 9-13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level9Sprite/элементы_элементы ИГРА 9-13.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level9Sprite/элементы_элементы ИГРА 9-14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Level9Sprite/элементы_элементы ИГРА 9-14.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MainMenuSprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MainMenuSprite/ЗАСТАВКА_Монтажная область 1_Монтажная область 1_Монтажная область 1_Монтажная область 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MainMenuSprite/ЗАСТАВКА_Монтажная область 1_Монтажная область 1_Монтажная область 1_Монтажная область 1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MainMenuSprite/фон заставка_Монтажная область 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MainMenuSprite/фон заставка_Монтажная область 1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MainMenuSprite/элементы заставка-01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MainMenuSprite/элементы заставка-01.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MainMenuSprite/элементы заставка-02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MainMenuSprite/элементы заставка-02.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MainMenuSprite/элементы заставка-03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MainMenuSprite/элементы заставка-03.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MainMenuSprite/элементы заставка-04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MainMenuSprite/элементы заставка-04.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MainMenuSprite/элементы заставка-05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MainMenuSprite/элементы заставка-05.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ ИГРЫ расстановка.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ ИГРЫ расстановка.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ ИГРЫ фон 01-04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ ИГРЫ фон 01-04.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ ИГРЫ фон 02-04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ ИГРЫ фон 02-04.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ ИГРЫ фон 03-04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ ИГРЫ фон 03-04.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ ИГРЫ фон 04-04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ ИГРЫ фон 04-04.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ ИГРЫ фон 05-04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ ИГРЫ фон 05-04.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-09.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-09.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-10.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-11.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-12.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-13.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-14.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-15.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-16.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-17.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-18.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-19.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-20.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSprite/МЕНЮ иконки new-21.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSpriteOld.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSpriteOld/меню расстановка персонажей с номерами_меню игры.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSpriteOld/меню расстановка персонажей с номерами_меню игры.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSpriteOld/меню расстановка персонажей_меню игры_меню игры.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSpriteOld/меню расстановка персонажей_меню игры_меню игры.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSpriteOld/фон_главный экран.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSpriteOld/фон_главный экран.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSpriteOld/фон_меню игры.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSpriteOld/фон_меню игры.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSpriteOld/элементы_кнопки.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSpriteOld/элементы_кнопки.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSpriteOld/элементы_элементы МЕНЮ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/MenuSpriteOld/элементы_элементы МЕНЮ.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection.spriteatlas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection.spriteatlas.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/МЕНЮ ИГРЫ open элементы-22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/МЕНЮ ИГРЫ open элементы-22.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/МЕНЮ ИГРЫ open элементы-23.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/МЕНЮ ИГРЫ open элементы-23.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/МЕНЮ ИГРЫ open элементы-24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/МЕНЮ ИГРЫ open элементы-24.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/МЕНЮ ИГРЫ open элементы-25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/МЕНЮ ИГРЫ open элементы-25.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/доска-38.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/доска-38.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-39.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-39.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-40.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-41.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-41.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-42.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-42.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-43.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-43.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-44.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-44.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-45.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-45.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-46.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-46.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-47.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-47.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-48.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-49.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-49.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-50.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-51.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-51.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-52.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/Protection/цифры-52.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/ИКОНКА ДЛЯ ПРИЛОЖЕНИЯ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/ИКОНКА ДЛЯ ПРИЛОЖЕНИЯ.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/пузыри-13-14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/пузыри-13-14.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/элементы-11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprite/элементы-11.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +608,7 @@
       <workItem from="1736505837087" duration="832000" />
       <workItem from="1748451667614" duration="6101000" />
       <workItem from="1748723167953" duration="34000" />
-      <workItem from="1750683299481" duration="8490000" />
+      <workItem from="1750683299481" duration="24693000" />
     </task>
     <servers />
   </component>

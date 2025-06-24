@@ -6,6 +6,7 @@ namespace Level7
 {
     public class Level7Global : MonoBehaviour
     {
+        public static Level7Global Instance { get; private set; }
         public List<GameObject> AllItem = new();
         public static List<GameObject> AllItemStatic = new();
         public GameObject Finger;
@@ -18,7 +19,16 @@ namespace Level7
 
         private void Awake()
         {
-            WinBobbles.Victory = 1;
+            if (Instance && !Equals(Instance, this))
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Instance = this;
+            }
+
+            WinBobbles.Instance.Victory = 1;
             AllItemStatic = AllItem;
         }
 
@@ -31,7 +41,7 @@ namespace Level7
 
         private void Update()
         {
-            if (WinBobbles.Victory == 0 && _stop == 0)
+            if (WinBobbles.Instance.Victory == 0 && _stop == 0)
             {
                 _stop = 1;
             }
@@ -52,7 +62,7 @@ namespace Level7
             }
 
             GetComponent<Level7Spawn>().DestroyAll();
-            WinBobbles.Victory = 0;
+            WinBobbles.Instance.Victory = 0;
         }
 
         private void RandomItem()
@@ -60,9 +70,7 @@ namespace Level7
             for (var i = 0; i < AllItem.Count; i++)
             {
                 var chance = Random.Range(0, AllItem.Count - 1);
-                var item = AllItem[i];
-                AllItem[i] = AllItem[chance];
-                AllItem[chance] = item;
+                (AllItem[i], AllItem[chance]) = (AllItem[chance], AllItem[i]);
             }
 
             GetComponent<Level7Spawn>().StartGame();
@@ -97,7 +105,7 @@ namespace Level7
 
         private IEnumerator Hint()
         {
-            if (WinBobbles.Victory > 0)
+            if (WinBobbles.Instance.Victory > 0)
             {
                 var targetName = GetComponent<Level7Spawn>().TargetPosition[4].name;
                 foreach (var item in GetComponent<Level7Spawn>().SpawnPosition)

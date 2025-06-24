@@ -36,9 +36,7 @@ namespace Level7
             for (var i = 0; i < SpawnPosition.Count; i++)
             {
                 var chance = Random.Range(0, SpawnPosition.Count - 1);
-                var item = SpawnPosition[i];
-                SpawnPosition[i] = SpawnPosition[chance];
-                SpawnPosition[chance] = item;
+                (SpawnPosition[i], SpawnPosition[chance]) = (SpawnPosition[chance], SpawnPosition[i]);
             }
 
             TargetPosition[0].GetComponent<SpriteRenderer>().sprite = SpawnPosition[1].GetComponent<SpriteRenderer>().sprite;

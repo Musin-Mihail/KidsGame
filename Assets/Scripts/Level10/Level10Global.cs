@@ -8,6 +8,7 @@ namespace Level10
 {
     public class Level10Global : MonoBehaviour
     {
+        public static Level10Global Instance { get; private set; }
         public List<GameObject> AllItem = new();
         public List<GameObject> AllTarget = new();
         public List<GameObject> AllSpawn = new();
@@ -23,6 +24,18 @@ namespace Level10
         private Vector3 _endPosition;
         private IEnumerator _startHint;
 
+        private void Awake()
+        {
+            if (Instance && !Equals(Instance, this))
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Instance = this;
+            }
+        }
+
         private void Start()
         {
             AllBusyPlace.Clear();
@@ -31,12 +44,10 @@ namespace Level10
             for (var i = 0; i < AllItem.Count; i++)
             {
                 var chance = Random.Range(0, AllItem.Count - 1);
-                var item = AllItem[i];
-                AllItem[i] = AllItem[chance];
-                AllItem[chance] = item;
+                (AllItem[i], AllItem[chance]) = (AllItem[chance], AllItem[i]);
             }
 
-            WinBobbles.Victory = 1;
+            WinBobbles.Instance.Victory = 1;
             AllPlace = new List<GameObject>();
             StartCoroutine(StartGame());
             StartCoroutine(_startHint);
@@ -86,7 +97,7 @@ namespace Level10
             }
 
             yield return new WaitForSeconds(0.5f);
-            StartCoroutine(WinBobbles.Win());
+            StartCoroutine(WinBobbles.Instance.Win());
         }
 
         private IEnumerator StartHint()

@@ -6,6 +6,7 @@ namespace Level5
 {
     public class Level5Global : MonoBehaviour
     {
+        public static Level5Global Instance { get; private set; }
         public List<GameObject> EmptyFigures;
         public List<GameObject> ColarFigures;
         public static List<GameObject> NewColarFigures;
@@ -25,9 +26,18 @@ namespace Level5
 
         private void Awake()
         {
+            if (Instance && !Equals(Instance, this))
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Instance = this;
+            }
+
             ReadyEmptyFigures = new List<GameObject>();
             ReadyFigures = new List<GameObject>();
-            WinBobbles.Victory = ColarFigures.Count;
+            WinBobbles.Instance.Victory = ColarFigures.Count;
             NewStageOyster = StageOyster;
             Delete = GameObject.Find("Delete");
         }
@@ -37,17 +47,13 @@ namespace Level5
             for (var i = 0; i < ColarFigures.Count; i++)
             {
                 var chance = Random.Range(0, 11);
-                var item = ColarFigures[i];
-                ColarFigures[i] = ColarFigures[chance];
-                ColarFigures[chance] = item;
+                (ColarFigures[i], ColarFigures[chance]) = (ColarFigures[chance], ColarFigures[i]);
             }
 
             for (var i = 0; i < EmptyFigures.Count; i++)
             {
                 var chance = Random.Range(0, 11);
-                var item = EmptyFigures[i];
-                EmptyFigures[i] = EmptyFigures[chance];
-                EmptyFigures[chance] = item;
+                (EmptyFigures[i], EmptyFigures[chance]) = (EmptyFigures[chance], EmptyFigures[i]);
             }
 
             for (var i = 0; i < EmptyFiguresVector2.Count; i++)
@@ -63,7 +69,7 @@ namespace Level5
 
         private void Update()
         {
-            if (WinBobbles.Victory == 0 && _test == 0)
+            if (WinBobbles.Instance.Victory == 0 && _test == 0)
             {
                 _test = 1;
                 StartCoroutine(DestroyAll());

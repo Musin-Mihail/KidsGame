@@ -6,6 +6,7 @@ namespace Level8
 {
     public class Level8 : MonoBehaviour
     {
+        public static Level8 Instance { get; private set; }
         public List<GameObject> allItem = new();
         public List<GameObject> allPlace = new();
         public List<GameObject> allSpawn = new();
@@ -20,10 +21,22 @@ namespace Level8
         private Vector3 _endPosition;
         private IEnumerator _startHint;
 
+        private void Awake()
+        {
+            if (Instance && !Equals(Instance, this))
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Instance = this;
+            }
+        }
+
         private void Start()
         {
             _startHint = StartHint();
-            WinBobbles.Victory = 1;
+            WinBobbles.Instance.Victory = 1;
             StartCoroutine(Move());
         }
 
@@ -79,7 +92,7 @@ namespace Level8
             }
             else
             {
-                StartCoroutine(WinBobbles.Win());
+                StartCoroutine(WinBobbles.Instance.Win());
             }
         }
 
@@ -113,7 +126,7 @@ namespace Level8
         private IEnumerator Hint()
         {
             var newName = "";
-            if (WinBobbles.Victory > 0)
+            if (WinBobbles.Instance.Victory > 0)
             {
                 foreach (var item in allItem)
                 {

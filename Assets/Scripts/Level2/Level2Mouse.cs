@@ -44,7 +44,7 @@ namespace Level2
                     }
 
                     _position = hit.collider.GetComponent<MoveItem>().StartPosition;
-                    Level2Global.WaitHint = 1;
+                    Level2Global.Instance.waitHint = 1;
                     hit.collider.GetComponent<MoveItem>().State = 0;
                 }
             }
@@ -67,7 +67,7 @@ namespace Level2
 
                         hitCollider.GetComponent<SoundClickItem>().Play();
                         _gameObject.SetActive(false);
-                        WinBobbles.Victory--;
+                        WinBobbles.Instance.Victory--;
                     }
                     else
                     {

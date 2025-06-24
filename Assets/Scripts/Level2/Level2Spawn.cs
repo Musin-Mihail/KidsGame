@@ -16,8 +16,8 @@ namespace Level2
             spawnPosition = new List<GameObject>();
             foreach (var item in spawnPositionVector)
             {
-                var newItem = Instantiate(Level2Global.AllItemStatic[0], item.position, Quaternion.identity);
-                newItem.name = Level2Global.AllItemStatic[0].name;
+                var newItem = Instantiate(Level2Global.Instance.AllItem[0], item.position, Quaternion.identity);
+                newItem.name = Level2Global.Instance.AllItem[0].name;
                 if (newItem.name == "Window3")
                 {
                     newItem.transform.localScale = scaleWindows3.transform.lossyScale * 1.5f;
@@ -32,7 +32,7 @@ namespace Level2
                 }
 
                 spawnPosition.Add(newItem);
-                Level2Global.AllItemStatic.RemoveAt(0);
+                Level2Global.Instance.AllItem.RemoveAt(0);
             }
         }
     }

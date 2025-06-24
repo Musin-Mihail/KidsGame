@@ -25,11 +25,7 @@ public class PurchaseManager : MonoBehaviour, IStoreListener
 
     private void InitializePurchasing()
     {
-        if (IsInitialized())
-        {
-            return;
-        }
-
+        if (IsInitialized()) return;
         var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
         builder.AddProduct(Open, ProductType.NonConsumable, new IDs() { { OpenAppStore, AppleAppStore.Name }, { OpenGooglePlay, GooglePlay.Name } });
         UnityPurchasing.Initialize(this, builder);
@@ -65,10 +61,9 @@ public class PurchaseManager : MonoBehaviour, IStoreListener
             if (IsInitialized())
             {
                 var product = _storeController.products.WithID(productId);
-
                 if (product is { availableToPurchase: true })
                 {
-                    Debug.Log(string.Format("Purchasing product asychronously: '{0}'", product.definition.id)); // ... buy the product. Expect a response either through ProcessPurchase or OnPurchaseFailed asynchronously.
+                    Debug.Log(string.Format("Purchasing product asychronously: '{0}'", product.definition.id));
                     _storeController.InitiatePurchase(product);
                 }
                 else
@@ -98,7 +93,6 @@ public class PurchaseManager : MonoBehaviour, IStoreListener
         if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.OSXPlayer)
         {
             Debug.Log("RestorePurchases started ...");
-
             var apple = _storeExtensionProvider.GetExtension<IAppleExtensions>();
             apple.RestoreTransactions((result) => { Debug.Log("RestorePurchases continuing: " + result + ". If no further messages, no purchases available to restore."); });
         }

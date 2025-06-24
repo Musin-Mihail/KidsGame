@@ -55,7 +55,7 @@ namespace Level6
                         hitCollider.GetComponent<Level6Chest>().BusyPlaces++;
                         _gameObject.SetActive(false);
                         Level6Global._level6Spawn.GetComponent<Level6Spawn>().SearchFreeSpace();
-                        WinBobbles.Victory--;
+                        WinBobbles.Instance.Victory--;
                     }
                     else
                     {

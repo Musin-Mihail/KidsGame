@@ -6,6 +6,7 @@ namespace Level4
 {
     public class Level4Global : MonoBehaviour
     {
+        public static Level4Global Instance { get; private set; }
         public List<GameObject> AllAnimals = new();
         public static List<GameObject> AllCollected = new();
         public static List<GameObject> AllAimalsStatic = new();
@@ -18,27 +19,33 @@ namespace Level4
 
         private void Awake()
         {
-            WinBobbles.Victory = AllAnimals.Count;
-            for (var i = 0; i < AllAnimals.Count; i++)
+            if (Instance && !Equals(Instance, this))
             {
-                var chance = Random.Range(0, 9);
-                var item = AllAnimals[i];
-                AllAnimals[i] = AllAnimals[chance];
-                AllAnimals[chance] = item;
+                Destroy(gameObject);
             }
-
-            AllAimalsStatic = AllAnimals;
-            AllCollected = new List<GameObject>();
+            else
+            {
+                Instance = this;
+            }
         }
 
         private void Start()
         {
+            WinBobbles.Instance.Victory = AllAnimals.Count;
+            for (var i = 0; i < AllAnimals.Count; i++)
+            {
+                var chance = Random.Range(0, 9);
+                (AllAnimals[i], AllAnimals[chance]) = (AllAnimals[chance], AllAnimals[i]);
+            }
+
+            AllAimalsStatic = AllAnimals;
+            AllCollected = new List<GameObject>();
             StartCoroutine(StartHint());
         }
 
         private void Update()
         {
-            if (WinBobbles.Victory == 0 && _stop == 0)
+            if (WinBobbles.Instance.Victory == 0 && _stop == 0)
             {
                 _stop = 1;
                 StartCoroutine(Win2());
@@ -56,7 +63,7 @@ namespace Level4
 
         private IEnumerator StartHint()
         {
-            while (WinBobbles.Victory != 0)
+            while (WinBobbles.Instance.Victory != 0)
             {
                 while (_hintTime < 4)
                 {

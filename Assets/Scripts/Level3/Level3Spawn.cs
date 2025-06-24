@@ -13,8 +13,8 @@ namespace Level3
             SpawnPosition = new List<GameObject>();
             for (var i = 0; i < 5; i++)
             {
-                var animal = Instantiate(Level3Global.AllItemStatic[i], SpawnPositionVector[i].transform.position, Quaternion.identity);
-                animal.name = Level3Global.AllItemStatic[i].name;
+                var animal = Instantiate(Level3Global.Instance.AllItem[i], SpawnPositionVector[i].transform.position, Quaternion.identity);
+                animal.name = Level3Global.Instance.AllItem[i].name;
                 SpawnPosition.Add(animal);
             }
         }
