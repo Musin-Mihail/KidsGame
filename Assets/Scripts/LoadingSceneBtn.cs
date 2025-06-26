@@ -3,25 +3,25 @@ using UnityEngine.SceneManagement;
 
 public class LoadingSceneBtn : MonoBehaviour
 {
-    public enum OPTIONS
+    public enum Options
     {
         MainMenu,
         SelectScene,
-        Level1Shadow,
-        Level2Boat,
-        Level3Shapes,
-        Level4Animals,
-        Level5Chest,
-        Level6Chest,
-        Level7Logics,
-        Level8Puzzle,
+        Level1,
+        Level2,
+        Level3,
+        Level4,
+        Level5,
+        Level6,
+        Level7,
+        Level8,
         Level9,
         Level10,
         Level11,
         Level12
     }
 
-    public OPTIONS NameScene;
+    public Options NameScene;
 
     public void LoadingScene()
     {

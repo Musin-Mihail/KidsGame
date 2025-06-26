@@ -25,9 +25,9 @@ namespace Level3
                 {
                     _z = hit.collider.transform.position.z;
                     _gameObject = hit.collider.gameObject;
-                    _position = _gameObject.GetComponent<MoveItem>().StartPosition;
+                    _position = _gameObject.GetComponent<MoveItem>().startPosition;
                     Level3Global.Instance.waitHint = 1;
-                    _gameObject.GetComponent<MoveItem>().State = 0;
+                    _gameObject.GetComponent<MoveItem>().state = 0;
                 }
             }
 

@@ -40,7 +40,7 @@ namespace Level6
             AllCollectedStars = new List<GameObject>();
         }
 
-        void Start()
+        private void Start()
         {
             StartCoroutine(StartHint());
         }
@@ -100,7 +100,7 @@ namespace Level6
 
             foreach (var item in GetComponent<Level6Spawn>().SpawnPosition)
             {
-                if (item && item.transform.position == item.GetComponent<MoveItem>().StartPosition)
+                if (item && item.transform.position == item.GetComponent<MoveItem>().startPosition)
                 {
                     itemTag = item.tag;
                     start = item.transform.position;

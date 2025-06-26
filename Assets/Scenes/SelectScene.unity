@@ -1630,7 +1630,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 189024623}
-  - component: {fileID: 189024622}
   m_Layer: 0
   m_Name: PurchaseManager
   m_TagString: Untagged
@@ -1638,27 +1637,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &189024622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 189024621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5ba9404c80f6444aaacc7cdbfd60f2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockList:
-  - {fileID: 1573504879}
-  - {fileID: 2030498791}
-  - {fileID: 2037533325}
-  - {fileID: 1382900611}
-  - {fileID: 9319607}
-  - {fileID: 1551857545}
-  - {fileID: 1897514125}
-  - {fileID: 256748342}
 --- !u!4 &189024623
 Transform:
   m_ObjectHideFlags: 0
@@ -3045,7 +3023,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 486984033f838784b9fff25058d0c675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audiomixer: {fileID: 24100000, guid: 39f36542ac352db4e815d41c3de127b9, type: 2}
   _sprite1: {fileID: -8408631236075615568, guid: 618dad5dfb021ec408c8c2072b595e57,
     type: 3}
   _sprite2: {fileID: 4580977451200931424, guid: 618dad5dfb021ec408c8c2072b595e57,
@@ -7606,7 +7583,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 189024622}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: IAP.PurchaseManager, Assembly-CSharp
         m_MethodName: BuyProductID
         m_Mode: 5

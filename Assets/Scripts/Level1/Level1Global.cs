@@ -73,7 +73,7 @@ namespace Level1
             _check = 0;
             var itemName = "";
             if (!level1Spawn) yield break;
-            foreach (var item in level1Spawn.GetComponent<Level1Spawn>().spawnPosition)
+            foreach (var item in level1Spawn.activeItem)
             {
                 if (item.activeSelf)
                 {

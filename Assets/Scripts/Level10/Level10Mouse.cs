@@ -27,7 +27,7 @@ namespace Level10
                     _gameObject = hit.collider.gameObject;
                     Position = _gameObject.transform.position;
                     Level10Global.WaitHint = 1;
-                    _gameObject.GetComponent<MoveItem>().State = 0;
+                    _gameObject.GetComponent<MoveItem>().state = 0;
                 }
             }
 

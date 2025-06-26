@@ -25,9 +25,9 @@ namespace Level7
                 {
                     _z = hit.collider.transform.position.z;
                     _gameObject = hit.collider.gameObject;
-                    Position = _gameObject.GetComponent<MoveItem>().StartPosition;
+                    Position = _gameObject.GetComponent<MoveItem>().startPosition;
                     Level7Global.WaitHint = 1;
-                    _gameObject.GetComponent<MoveItem>().State = 0;
+                    _gameObject.GetComponent<MoveItem>().state = 0;
                 }
             }
 

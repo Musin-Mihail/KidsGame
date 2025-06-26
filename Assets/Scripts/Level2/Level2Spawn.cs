@@ -10,6 +10,7 @@ namespace Level2
         public Transform scale;
         public Transform scaleWindows3;
         public Transform scaleWindows1;
+        public Transform parent;
 
         private void Start()
         {
@@ -17,6 +18,7 @@ namespace Level2
             foreach (var item in spawnPositionVector)
             {
                 var newItem = Instantiate(Level2Global.Instance.AllItem[0], item.position, Quaternion.identity);
+                newItem.transform.SetParent(parent);
                 newItem.name = Level2Global.Instance.AllItem[0].name;
                 if (newItem.name == "Window3")
                 {

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Level1
 {
@@ -26,9 +25,9 @@ namespace Level1
                 {
                     _z = hit.collider.transform.position.z;
                     _gameObject = hit.collider.gameObject;
-                    _position = hit.collider.GetComponent<MoveItem>().StartPosition;
+                    _position = hit.collider.GetComponent<MoveItem>().endPosition;
                     Level1Global.Instance.waitHint = 1;
-                    hit.collider.GetComponent<MoveItem>().State = 0;
+                    hit.collider.GetComponent<MoveItem>().state = 0;
                 }
             }
 
@@ -40,16 +39,16 @@ namespace Level1
                     if (hitCollider.name == _gameObject.name)
                     {
                         var newVector3 = hitCollider.transform.position;
-                        newVector3.z += 0.5f;
+                        newVector3.z -= 0.5f;
                         Instantiate(Resources.Load<ParticleSystem>("BubblesLevel1"), newVector3, Quaternion.Euler(-90, -40, 0));
-                        hitCollider.GetComponent<Image>().sprite = _gameObject.GetComponent<Image>().sprite;
+                        hitCollider.GetComponent<SpriteRenderer>().sprite = _gameObject.GetComponent<SpriteRenderer>().sprite;
                         hitCollider.GetComponent<SoundClickItem>().Play();
                         var level1Spawn = Level1Global.Instance.level1Spawn;
-                        for (var i = 0; i < level1Spawn.spawnPosition.Count - 1; i++)
+                        for (var i = 0; i < level1Spawn.activeItem.Count; i++)
                         {
-                            if (level1Spawn.spawnPosition[i])
+                            if (level1Spawn.activeItem[i])
                             {
-                                if (level1Spawn.spawnPosition[i].name == _gameObject.name)
+                                if (level1Spawn.activeItem[i].name == _gameObject.name)
                                 {
                                     level1Spawn.SpawnAnimal(i);
                                 }

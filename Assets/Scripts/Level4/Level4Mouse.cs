@@ -26,9 +26,9 @@ namespace Level4
                 {
                     _z = hit.collider.transform.position.z;
                     _gameObject = hit.collider.gameObject;
-                    position = _gameObject.GetComponent<MoveItem>().StartPosition;
+                    position = _gameObject.GetComponent<MoveItem>().startPosition;
                     Level4Global.WaitHint = 1;
-                    _gameObject.GetComponent<MoveItem>().State = 0;
+                    _gameObject.GetComponent<MoveItem>().state = 0;
                 }
             }
 

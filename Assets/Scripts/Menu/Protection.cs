@@ -60,7 +60,7 @@ namespace Menu
 
         public void Payment()
         {
-            _purchaseManager.GetComponent<PurchaseManager>().BuyProductID("open.all1");
+            // _purchaseManager.GetComponent<PurchaseManager>().BuyProductID("open.all1");
         }
 
         public void ExitPayment()

@@ -3,35 +3,29 @@ using UnityEngine;
 
 public class MoveItem : MonoBehaviour
 {
-    public int State = 1;
-    public Vector3 StartPosition;
-    Vector3 SpawnPosition;
+    public int state = 1;
+    public Vector3 startPosition;
+    public Vector3 endPosition;
 
-    private void Start()
+    public void Initialization(Vector3 start, Vector3 end)
     {
-        StartPosition = transform.position;
-        SpawnPosition = transform.position + Direction.Instance.direction;
-        transform.position = SpawnPosition;
-        if (gameObject.layer == LayerMask.NameToLayer("Star"))
-        {
-            StartCoroutine(Rotation());
-        }
-
-        StartCoroutine(StartMove());
+        startPosition = start;
+        transform.position = start;
+        endPosition = end;
     }
 
-    private IEnumerator StartMove()
+    public IEnumerator StartMove()
     {
-        while (transform.position != StartPosition && State == 1)
+        while (transform.position != endPosition && state == 1)
         {
-            transform.position = Vector2.MoveTowards(transform.position, StartPosition, 0.02f);
+            transform.position = Vector2.MoveTowards(transform.position, endPosition, 0.02f);
             yield return new WaitForSeconds(0.01f);
         }
     }
 
-    private IEnumerator Rotation()
+    public IEnumerator Rotation()
     {
-        while (State == 1)
+        while (state == 1)
         {
             transform.rotation *= Quaternion.Euler(0, 0, 5);
             yield return new WaitForSeconds(0.05f);

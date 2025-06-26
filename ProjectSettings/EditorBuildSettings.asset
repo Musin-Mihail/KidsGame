@@ -12,28 +12,28 @@ EditorBuildSettings:
     path: Assets/Scenes/SelectScene.unity
     guid: 9dcf2fbea9c2e9e4fabe2daa510b6537
   - enabled: 1
-    path: Assets/Scenes/Level1Shadow.unity
+    path: Assets/Scenes/Level1.unity
     guid: a81e52e6625b0bd4c968981834b7de7f
   - enabled: 1
-    path: Assets/Scenes/Level2Boat.unity
+    path: Assets/Scenes/Level2.unity
     guid: 8ce6b68a424f9984698c299334d90c10
   - enabled: 1
-    path: Assets/Scenes/Level3Shapes.unity
+    path: Assets/Scenes/Level3.unity
     guid: 25107a0da7ec722429c1378be068e964
   - enabled: 1
-    path: Assets/Scenes/Level4Animals.unity
+    path: Assets/Scenes/Level4.unity
     guid: 5c44442aee47b1147ad629f85b7d9c8c
   - enabled: 1
-    path: Assets/Scenes/Level5Chest.unity
+    path: Assets/Scenes/Level5.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Level6Chest.unity
+    path: Assets/Scenes/Level6.unity
     guid: 10097b2b34de70a41a51e8ae40b5406b
   - enabled: 1
-    path: Assets/Scenes/Level7Logics.unity
+    path: Assets/Scenes/Level7.unity
     guid: 60f794d7c72ba034ca7e8ab070839842
   - enabled: 1
-    path: Assets/Scenes/Level8Puzzle.unity
+    path: Assets/Scenes/Level8.unity
     guid: 42caba909d5ef9440a95c338668b82db
   - enabled: 1
     path: Assets/Scenes/Level9.unity

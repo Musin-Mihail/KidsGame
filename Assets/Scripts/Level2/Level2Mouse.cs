@@ -43,9 +43,9 @@ namespace Level2
                         _gameObject.transform.localScale = normalScale.lossyScale;
                     }
 
-                    _position = hit.collider.GetComponent<MoveItem>().StartPosition;
+                    _position = hit.collider.GetComponent<MoveItem>().startPosition;
                     Level2Global.Instance.waitHint = 1;
-                    hit.collider.GetComponent<MoveItem>().State = 0;
+                    hit.collider.GetComponent<MoveItem>().state = 0;
                 }
             }
 
