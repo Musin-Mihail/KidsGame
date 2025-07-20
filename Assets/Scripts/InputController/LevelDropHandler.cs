@@ -63,7 +63,7 @@ namespace InputController
             draggedObject.SetActive(false);
         }
 
-        private static void HandleLevel1Drop(GameObject draggedObject, Collider2D targetCollider)
+        private void HandleLevel1Drop(GameObject draggedObject, Collider2D targetCollider)
         {
             Debug.Log("Обработчик для Уровня 1 сработал!");
             var newVector3 = targetCollider.transform.position;

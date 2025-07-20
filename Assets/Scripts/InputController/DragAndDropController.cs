@@ -2,11 +2,14 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// Необходимо для использования Action (событий)
+
 namespace InputController
 {
     /// <summary>
     /// Универсальный контроллер, отвечающий за механику перетаскивания объектов (Drag and Drop).
     /// Он содержит всю общую логику и не зависит от конкретного уровня.
+    /// Версия с поддержкой как мыши, так и сенсорного ввода.
     /// </summary>
     public class DragAndDropController : MonoBehaviour
     {
@@ -22,6 +25,7 @@ namespace InputController
         private GameObject _draggedObject;
         private Vector3 _startPosition;
         private Hint _hint;
+
         private PlayerControls _playerControls;
 
         private void Awake()
@@ -47,7 +51,7 @@ namespace InputController
 
         private void Update()
         {
-            if (!_draggedObject || !_playerControls.Gameplay.Drag.IsPressed()) return;
+            if (!_draggedObject) return;
 
             var screenPosition = _playerControls.Gameplay.PointerPosition.ReadValue<Vector2>();
             var worldPosition = _camera.ScreenToWorldPoint(screenPosition);

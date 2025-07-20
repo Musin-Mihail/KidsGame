@@ -23,15 +23,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "Drag",
-                    "type": "PassThrough",
-                    "id": "b012e0de-474b-4bb0-87af-a9d95ac6e248",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -49,7 +40,7 @@
                 {
                     "name": "",
                     "id": "6273d588-8ab9-4ff2-84af-1060147bb10c",
-                    "path": "<Touchscreen>/touch1/press",
+                    "path": "<Touchscreen>/Press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -65,28 +56,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "PointerPosition",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a42cc7a3-d1fe-453c-aa89-f770a615d9a7",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Drag",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "bfe4d905-7358-4330-a6d1-f3f4c46f5049",
-                    "path": "<Touchscreen>/primaryTouch/press",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Drag",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
