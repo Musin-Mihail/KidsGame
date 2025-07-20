@@ -5,28 +5,15 @@ namespace Level1
 {
     public class Level1Spawn : MonoBehaviour
     {
-        public List<Transform> spawnPositions;
-        public List<GameObject> activeItem;
         public GameObject parent;
-        private Camera _mainCamera;
-        private List<Vector3> _leftSidePositions = new();
-        private List<Vector3> _rightSidePositions = new();
+        public List<GameObject> startSpawnPositions = new();
+        public List<GameObject> endSpawnPositions = new();
 
-        private CalculateEdgePositions _calculateEdgePositions;
+        [HideInInspector] public List<GameObject> activeItem;
 
-        private void Awake()
+        public void Initialization()
         {
-            _mainCamera = Camera.main;
-            _calculateEdgePositions = new CalculateEdgePositions();
-            var result = _calculateEdgePositions.Calculate(_mainCamera, spawnPositions);
-            if (result == null) return;
-            _leftSidePositions = result.Value.side1;
-            _rightSidePositions = result.Value.side2;
-        }
-
-        private void Start()
-        {
-            for (var i = 0; i < activeItem.Count; i++)
+            for (var i = 0; i < 3; i++)
             {
                 SpawnAnimal(i);
             }
@@ -37,11 +24,11 @@ namespace Level1
             if (Level1Global.instance.allAnimals.Count <= 0) return;
             var animal = Instantiate(Level1Global.instance.allAnimals[0], parent.transform, false);
             var moveItem = animal.GetComponent<MoveItem>();
-            moveItem.Initialization(_rightSidePositions[number], _leftSidePositions[number]);
+            moveItem.Initialization(startSpawnPositions[number].transform.position, endSpawnPositions[number].transform.position);
             animal.name = Level1Global.instance.allAnimals[0].name;
             activeItem[number] = animal;
             Level1Global.instance.allAnimals.RemoveAt(0);
-            StartCoroutine(moveItem.StartMove());
+            StartCoroutine(moveItem.Move());
         }
     }
 }

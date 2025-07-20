@@ -8,7 +8,7 @@ public class Hint : MonoBehaviour
     public List<GameObject> itemPositions;
     public List<GameObject> emptyItemPositions;
     public GameObject finger;
-    public int waitHint;
+    [HideInInspector] public int waitHint;
     private int _hintTime;
 
     public void Initialization(List<GameObject> newEmptyItemPositions, List<GameObject> newItemPositions)

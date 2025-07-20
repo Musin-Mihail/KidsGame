@@ -11,13 +11,12 @@ namespace Level2
         private float _z;
         private Vector3 _position;
         private Vector3 _bigScale;
-        public Transform normalScale;
-        public Transform normalScaleWindows3;
-        public Transform normalScaleWindows1;
+        private Hint _hint;
 
-        private void Start()
+        public void Initialization()
         {
             _camera = Camera.main;
+            _hint = gameObject.GetComponent<Hint>();
         }
 
         private void Update()
@@ -29,22 +28,10 @@ namespace Level2
                 {
                     _z = hit.collider.transform.position.z;
                     _gameObject = hit.collider.gameObject;
-                    _bigScale = _gameObject.transform.localScale;
-                    if (_gameObject.name == "Window3")
-                    {
-                        _gameObject.transform.localScale = normalScaleWindows3.lossyScale;
-                    }
-                    else if (_gameObject.name == "Window1")
-                    {
-                        _gameObject.transform.localScale = normalScaleWindows1.lossyScale;
-                    }
-                    else
-                    {
-                        _gameObject.transform.localScale = normalScale.lossyScale;
-                    }
 
-                    _position = hit.collider.GetComponent<MoveItem>().startPosition;
-                    Level2Global.Instance.waitHint = 1;
+                    _position = hit.collider.GetComponent<MoveItem>().endPosition;
+
+                    _hint.waitHint = 1;
                     hit.collider.GetComponent<MoveItem>().state = 0;
                 }
             }
@@ -54,6 +41,9 @@ namespace Level2
                 var hitCollider = Physics2D.OverlapCircle(_gameObject.transform.position, 0.1f, LayerMask2);
                 if (hitCollider)
                 {
+                    Debug.Log(hitCollider.name);
+                    Debug.Log(_gameObject.name);
+
                     if (hitCollider.name == _gameObject.name)
                     {
                         if (hitCollider.name == "Flag")
@@ -67,38 +57,42 @@ namespace Level2
 
                         hitCollider.GetComponent<SoundClickItem>().Play();
                         _gameObject.SetActive(false);
-                        WinBobbles.Instance.Victory--;
+                        WinBobbles.instance.victory--;
                     }
                     else
                     {
                         _gameObject.transform.position = _position;
-                        _gameObject.transform.localScale = _bigScale;
                     }
                 }
                 else
                 {
                     _gameObject.transform.position = _position;
-                    _gameObject.transform.localScale = _bigScale;
                 }
 
                 _gameObject = null;
             }
 
 #if UNITY_EDITOR
-            if (Input.GetMouseButton(0) && _gameObject)
-            {
-                var vector = _camera.ScreenToWorldPoint(Input.mousePosition);
-                vector.z = _z;
-                _gameObject.transform.position = vector;
-            }
+            InputUnity();
 #else
-            if (Input.touchCount > 0 && _gameObject)
-            {
-                var vector = _camera.ScreenToWorldPoint(Input.GetTouch(0).position);
-                vector.z = _z;
-                _gameObject.transform.position = vector;
-            }
+            InputMobile();
 #endif
+        }
+
+        private void InputUnity()
+        {
+            if (!Input.GetMouseButton(0) || !_gameObject) return;
+            var vector = _camera.ScreenToWorldPoint(Input.mousePosition);
+            vector.z = _z;
+            _gameObject.transform.position = vector;
+        }
+
+        private void InputMobile()
+        {
+            if (Input.touchCount <= 0 || !_gameObject) return;
+            var vector = _camera.ScreenToWorldPoint(Input.GetTouch(0).position);
+            vector.z = _z;
+            _gameObject.transform.position = vector;
         }
     }
 }

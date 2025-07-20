@@ -5,36 +5,28 @@ namespace Level2
 {
     public class Level2Spawn : MonoBehaviour
     {
-        public List<Transform> spawnPositionVector;
-        public List<GameObject> spawnPosition;
-        public Transform scale;
-        public Transform scaleWindows3;
-        public Transform scaleWindows1;
         public Transform parent;
+        public List<GameObject> startSpawnPositions;
+        public List<GameObject> endSpawnPositions;
+        [HideInInspector] public List<GameObject> activeItem;
 
-        private void Start()
+        public void Initialization()
         {
-            spawnPosition = new List<GameObject>();
-            foreach (var item in spawnPositionVector)
-            {
-                var newItem = Instantiate(Level2Global.Instance.AllItem[0], item.position, Quaternion.identity);
-                newItem.transform.SetParent(parent);
-                newItem.name = Level2Global.Instance.AllItem[0].name;
-                if (newItem.name == "Window3")
-                {
-                    newItem.transform.localScale = scaleWindows3.transform.lossyScale * 1.5f;
-                }
-                else if (newItem.name == "Window1")
-                {
-                    newItem.transform.localScale = scaleWindows1.transform.lossyScale * 1.5f;
-                }
-                else
-                {
-                    newItem.transform.localScale = scale.transform.lossyScale * 1.5f;
-                }
+            SpawnAnimal();
+        }
 
-                spawnPosition.Add(newItem);
-                Level2Global.Instance.AllItem.RemoveAt(0);
+        private void SpawnAnimal()
+        {
+            for (var i = 0; i < startSpawnPositions.Count; i++)
+            {
+                var newItem = Instantiate(Level2Global.instance.allItem[i], parent, false);
+                newItem.name = Level2Global.instance.allItem[i].name;
+
+                var moveItem = newItem.GetComponent<MoveItem>();
+                moveItem.Initialization(startSpawnPositions[i].transform.position, endSpawnPositions[i].transform.position);
+                StartCoroutine(moveItem.Move());
+
+                activeItem.Add(newItem);
             }
         }
     }

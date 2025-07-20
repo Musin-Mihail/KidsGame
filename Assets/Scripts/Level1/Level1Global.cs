@@ -6,13 +6,14 @@ namespace Level1
     public class Level1Global : MonoBehaviour
     {
         public static Level1Global instance { get; private set; }
+        public Hint hint;
         public List<GameObject> allAnimals = new();
         public List<GameObject> allEmpty = new();
 
         [HideInInspector] public Level1Spawn level1Spawn;
 
         private int _check;
-        private Hint _hint;
+        private Level1Mouse _level1Mouse;
 
         private void Awake()
         {
@@ -28,7 +29,6 @@ namespace Level1
 
         private void Start()
         {
-            level1Spawn = gameObject.GetComponent<Level1Spawn>();
             WinBobbles.instance.victory = allEmpty.Count;
             for (var i = 0; i < allAnimals.Count; i++)
             {
@@ -36,9 +36,14 @@ namespace Level1
                 (allAnimals[i], allAnimals[chance]) = (allAnimals[chance], allAnimals[i]);
             }
 
-            _hint = gameObject.GetComponent<Hint>();
-            _hint.Initialization(allEmpty, level1Spawn.activeItem);
-            StartCoroutine(_hint.StartHint());
+            level1Spawn = gameObject.GetComponent<Level1Spawn>();
+            level1Spawn.Initialization();
+            _level1Mouse = gameObject.GetComponent<Level1Mouse>();
+            _level1Mouse.Initialization(hint);
+
+            hint = gameObject.GetComponent<Hint>();
+            hint.Initialization(allEmpty, level1Spawn.activeItem);
+            StartCoroutine(hint.StartHint());
         }
     }
 }

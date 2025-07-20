@@ -7,7 +7,7 @@ public class WinBobbles : MonoBehaviour
     public static WinBobbles instance { get; private set; }
     public GameObject bubble;
     [HideInInspector] public int count = 30;
-    [HideInInspector] public int victory;
+    [HideInInspector] public int victory = 1;
 
     private int _stop;
 
@@ -32,6 +32,7 @@ public class WinBobbles : MonoBehaviour
         }
 
         if (count != 0) return;
+
         count = 30;
         Invoke("LoadScene", 2.0f);
     }

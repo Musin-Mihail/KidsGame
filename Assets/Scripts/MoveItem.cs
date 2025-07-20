@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class MoveItem : MonoBehaviour
 {
-    public int state = 1;
-    public Vector3 startPosition;
-    public Vector3 endPosition;
+    [HideInInspector] public int state = 1;
+    [HideInInspector] public Vector3 startPosition;
+    [HideInInspector] public Vector3 endPosition;
 
     public void Initialization(Vector3 start, Vector3 end)
     {
@@ -14,7 +14,7 @@ public class MoveItem : MonoBehaviour
         endPosition = end;
     }
 
-    public IEnumerator StartMove()
+    public IEnumerator Move()
     {
         while (transform.position != endPosition && state == 1)
         {
