@@ -776,8 +776,9 @@ GameObject:
   - component: {fileID: 285091689}
   - component: {fileID: 285091688}
   - component: {fileID: 285091687}
-  - component: {fileID: 285091691}
   - component: {fileID: 285091694}
+  - component: {fileID: 285091696}
+  - component: {fileID: 285091695}
   m_Layer: 0
   m_Name: Game
   m_TagString: Game
@@ -879,18 +880,6 @@ MonoBehaviour:
   bubble: {fileID: 4912721534522409081, guid: e2b69a1f651e82f4692603bed8207f36, type: 3}
   count: 30
   victory: 0
---- !u!114 &285091691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 285091686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3daab4e710cf6ab4cb7c57fd7979d493, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &285091693
 Transform:
   m_ObjectHideFlags: 0
@@ -922,6 +911,38 @@ MonoBehaviour:
   emptyItemPositions: []
   finger: {fileID: 1072118361}
   waitHint: 0
+--- !u!114 &285091695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285091686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 455d975413694210be0933042bc84200, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dragController: {fileID: 285091696}
+  currentLevel: 1
+--- !u!114 &285091696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285091686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d827894b90d048989b86512a67d43b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  draggableLayerMask:
+    serializedVersion: 2
+    m_Bits: 8192
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &300495486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,7 +1629,6 @@ GameObject:
   - component: {fileID: 472636579}
   - component: {fileID: 472636577}
   - component: {fileID: 472636578}
-  - component: {fileID: 472636580}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1690,20 +1710,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &472636580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 472636576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49eb24e0dbe344698e0f15b9b10dbd63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetResolution: {x: 1920, y: 1080}
-  pixelsPerUnit: 100
 --- !u!1 &483191826
 GameObject:
   m_ObjectHideFlags: 0

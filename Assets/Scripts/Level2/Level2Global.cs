@@ -17,7 +17,6 @@ namespace Level2
         private int _hintTime;
         private int _win;
         private Level2Spawn _level2Spawn;
-        private Level2Mouse _level2Mouse;
 
         private void Awake()
         {
@@ -44,8 +43,6 @@ namespace Level2
 
             _level2Spawn = gameObject.GetComponent<Level2Spawn>();
             _level2Spawn.Initialization();
-            _level2Mouse = gameObject.GetComponent<Level2Mouse>();
-            _level2Mouse.Initialization();
 
             hint.Initialization(allEmpty, _level2Spawn.activeItem);
             StartCoroutine(hint.StartHint());

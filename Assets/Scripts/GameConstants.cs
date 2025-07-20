@@ -11,9 +11,4 @@ public static class GameConstants
     /// Шаг движения подсказки.
     /// </summary>
     public const float HintDistance = 0.1f;
-
-    /// <summary>
-    /// Отступ для точек спавна
-    /// </summary>
-    public const float SpawnEdgeOffset = 1.34f;
 }

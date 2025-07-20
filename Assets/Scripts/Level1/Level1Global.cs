@@ -13,7 +13,6 @@ namespace Level1
         [HideInInspector] public Level1Spawn level1Spawn;
 
         private int _check;
-        private Level1Mouse _level1Mouse;
 
         private void Awake()
         {
@@ -38,8 +37,6 @@ namespace Level1
 
             level1Spawn = gameObject.GetComponent<Level1Spawn>();
             level1Spawn.Initialization();
-            _level1Mouse = gameObject.GetComponent<Level1Mouse>();
-            _level1Mouse.Initialization(hint);
 
             hint = gameObject.GetComponent<Hint>();
             hint.Initialization(allEmpty, level1Spawn.activeItem);
