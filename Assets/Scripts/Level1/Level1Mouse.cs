@@ -9,7 +9,6 @@ namespace Level1
         private GameObject _gameObject;
         private const int DraggableLayerMask = 1 << 13;
         private const int TargetLayerMask = 1 << 9;
-        private float _z;
         private Vector3 _startPosition;
         private Hint _hint;
 
@@ -41,7 +40,6 @@ namespace Level1
             var hit = Physics2D.Raycast(_camera.ScreenToWorldPoint(screenPosition), _camera.transform.forward, Mathf.Infinity, DraggableLayerMask);
             if (!hit.collider) return;
             _gameObject = hit.collider.gameObject;
-            _z = _gameObject.transform.position.z;
             _startPosition = _gameObject.GetComponent<MoveItem>().endPosition;
 
             if (_hint)
@@ -75,7 +73,6 @@ namespace Level1
             var screenPosition = _playerControls.Gameplay.PointerPosition.ReadValue<Vector2>();
 
             var worldPosition = _camera.ScreenToWorldPoint(screenPosition);
-            worldPosition.z = _z;
             _gameObject.transform.position = worldPosition;
         }
 
