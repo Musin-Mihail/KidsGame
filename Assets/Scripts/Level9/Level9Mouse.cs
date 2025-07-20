@@ -41,7 +41,7 @@ namespace Level9
                         hitCollider.GetComponent<SoundClickItem>().Play();
                         _gameObject.SetActive(false);
                         Level9Global._level9Spawn.GetComponent<Level9Spawn>().SearchFreePlace();
-                        WinBobbles.Instance.Victory--;
+                        WinBobbles.instance.victory--;
                     }
                     else
                     {

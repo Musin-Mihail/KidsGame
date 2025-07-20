@@ -31,7 +31,7 @@ namespace Level4
 
         private void Start()
         {
-            WinBobbles.Instance.Victory = AllAnimals.Count;
+            WinBobbles.instance.victory = AllAnimals.Count;
             for (var i = 0; i < AllAnimals.Count; i++)
             {
                 var chance = Random.Range(0, 9);
@@ -45,7 +45,7 @@ namespace Level4
 
         private void Update()
         {
-            if (WinBobbles.Instance.Victory == 0 && _stop == 0)
+            if (WinBobbles.instance.victory == 0 && _stop == 0)
             {
                 _stop = 1;
                 StartCoroutine(Win2());
@@ -63,7 +63,7 @@ namespace Level4
 
         private IEnumerator StartHint()
         {
-            while (WinBobbles.Instance.Victory != 0)
+            while (WinBobbles.instance.victory != 0)
             {
                 while (_hintTime < 4)
                 {

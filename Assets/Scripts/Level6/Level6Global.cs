@@ -29,7 +29,7 @@ namespace Level6
                 Instance = this;
             }
 
-            WinBobbles.Instance.Victory = AllStars.Count;
+            WinBobbles.instance.victory = AllStars.Count;
             for (var i = 0; i < AllStars.Count; i++)
             {
                 var chance = Random.Range(0, 11);
@@ -48,7 +48,7 @@ namespace Level6
         private void Update()
         {
             WaitHintPublic = WaitHint;
-            if (WinBobbles.Instance.Victory == 0 && _stop == 0)
+            if (WinBobbles.instance.victory == 0 && _stop == 0)
             {
                 _stop = 1;
                 StartCoroutine(Win2());

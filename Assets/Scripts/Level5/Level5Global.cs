@@ -37,7 +37,7 @@ namespace Level5
 
             ReadyEmptyFigures = new List<GameObject>();
             ReadyFigures = new List<GameObject>();
-            WinBobbles.Instance.Victory = ColarFigures.Count;
+            WinBobbles.instance.victory = ColarFigures.Count;
             NewStageOyster = StageOyster;
             Delete = GameObject.Find("Delete");
         }
@@ -69,7 +69,7 @@ namespace Level5
 
         private void Update()
         {
-            if (WinBobbles.Instance.Victory == 0 && _test == 0)
+            if (WinBobbles.instance.victory == 0 && _test == 0)
             {
                 _test = 1;
                 StartCoroutine(DestroyAll());

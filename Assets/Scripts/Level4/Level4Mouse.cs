@@ -109,7 +109,7 @@ namespace Level4
 
             item.GetComponent<SpriteRenderer>().enabled = true;
             animal.SetActive(false);
-            WinBobbles.Instance.Victory--;
+            WinBobbles.instance.victory--;
         }
     }
 }

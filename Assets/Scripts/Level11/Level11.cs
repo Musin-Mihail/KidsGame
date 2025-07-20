@@ -44,7 +44,7 @@ namespace Level11
             AllFishChestStatic.Clear();
             count = 0;
             AllTargetStatic = AllTarget;
-            WinBobbles.Instance.Victory = 8;
+            WinBobbles.instance.victory = 8;
             for (var i = 0; i < 8; i++)
             {
                 AllItem.Add(FishChest);
@@ -117,7 +117,7 @@ namespace Level11
 
         private IEnumerator Hint()
         {
-            if (WinBobbles.Instance.Victory > 0)
+            if (WinBobbles.instance.victory > 0)
             {
                 var newlist = AllFishChest.Where(x => x.name == "FishChest").OrderBy(x => Vector3.Distance(Finger.transform.position, x.transform.position)).ToList();
                 _endPosition = newlist[0].transform.position;

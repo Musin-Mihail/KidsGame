@@ -34,7 +34,7 @@ namespace Level12
         {
             AllItemStatic = AllItem;
             count = 0;
-            WinBobbles.Instance.Victory = 8;
+            WinBobbles.instance.victory = 8;
             for (var i = 0; i < AllTarget.Count; i++)
             {
                 var chance = Random.Range(0, AllTarget.Count - 1);
@@ -92,7 +92,7 @@ namespace Level12
 
         private IEnumerator Hint()
         {
-            if (WinBobbles.Instance.Victory > 0)
+            if (WinBobbles.instance.victory > 0)
             {
                 foreach (var item in AllItem)
                 {

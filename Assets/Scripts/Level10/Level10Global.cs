@@ -47,7 +47,7 @@ namespace Level10
                 (AllItem[i], AllItem[chance]) = (AllItem[chance], AllItem[i]);
             }
 
-            WinBobbles.Instance.Victory = 1;
+            WinBobbles.instance.victory = 1;
             AllPlace = new List<GameObject>();
             StartCoroutine(StartGame());
             StartCoroutine(_startHint);
@@ -97,7 +97,7 @@ namespace Level10
             }
 
             yield return new WaitForSeconds(0.5f);
-            StartCoroutine(WinBobbles.Instance.Win());
+            StartCoroutine(WinBobbles.instance.Win());
         }
 
         private IEnumerator StartHint()

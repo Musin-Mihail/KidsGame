@@ -28,7 +28,7 @@ namespace Level12
         {
             Instantiate(Resources.Load<ParticleSystem>("ParticleSrarsLevel11"), transform.position, Quaternion.Euler(-90, 0, 0));
             Level12.AllTargetStatic[count].GetComponent<SpriteRenderer>().enabled = false;
-            if (WinBobbles.Instance.Victory == 1)
+            if (WinBobbles.instance.victory == 1)
             {
                 yield return new WaitForSeconds(0.5f);
                 foreach (var item in Level12.AllItemStatic)
@@ -37,11 +37,11 @@ namespace Level12
                     yield return new WaitForSeconds(0.02f);
                 }
 
-                WinBobbles.Instance.Victory--;
+                WinBobbles.instance.victory--;
             }
             else
             {
-                WinBobbles.Instance.Victory--;
+                WinBobbles.instance.victory--;
             }
         }
 

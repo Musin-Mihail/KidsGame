@@ -4,37 +4,36 @@ using UnityEngine.SceneManagement;
 
 public class WinBobbles : MonoBehaviour
 {
-    public static WinBobbles Instance { get; private set; }
-    public int Victory;
-    public int Count = 30;
+    public static WinBobbles instance { get; private set; }
     public GameObject bubble;
+    [HideInInspector] public int count = 30;
+    [HideInInspector] public int victory;
+
     private int _stop;
 
     private void Awake()
     {
-        if (Instance && Instance != this)
+        if (instance && instance != this)
         {
             Destroy(gameObject);
         }
         else
         {
-            Instance = this;
+            instance = this;
         }
     }
 
     private void Update()
     {
-        if (Victory == 0 && _stop == 0)
+        if (victory == 0 && _stop == 0)
         {
             _stop = 1;
             StartCoroutine(Win());
         }
 
-        if (Count == 0)
-        {
-            Count = 30;
-            Invoke("LoadScene", 2.0f);
-        }
+        if (count != 0) return;
+        count = 30;
+        Invoke("LoadScene", 2.0f);
     }
 
     public IEnumerator Win()

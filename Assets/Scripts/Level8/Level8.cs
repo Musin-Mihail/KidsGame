@@ -36,7 +36,7 @@ namespace Level8
         private void Start()
         {
             _startHint = StartHint();
-            WinBobbles.Instance.Victory = 1;
+            WinBobbles.instance.victory = 1;
             StartCoroutine(Move());
         }
 
@@ -92,7 +92,7 @@ namespace Level8
             }
             else
             {
-                StartCoroutine(WinBobbles.Instance.Win());
+                StartCoroutine(WinBobbles.instance.Win());
             }
         }
 
@@ -126,7 +126,7 @@ namespace Level8
         private IEnumerator Hint()
         {
             var newName = "";
-            if (WinBobbles.Instance.Victory > 0)
+            if (WinBobbles.instance.victory > 0)
             {
                 foreach (var item in allItem)
                 {

@@ -28,7 +28,7 @@ namespace Level7
                 Instance = this;
             }
 
-            WinBobbles.Instance.Victory = 1;
+            WinBobbles.instance.victory = 1;
             AllItemStatic = AllItem;
         }
 
@@ -41,7 +41,7 @@ namespace Level7
 
         private void Update()
         {
-            if (WinBobbles.Instance.Victory == 0 && _stop == 0)
+            if (WinBobbles.instance.victory == 0 && _stop == 0)
             {
                 _stop = 1;
             }
@@ -62,7 +62,7 @@ namespace Level7
             }
 
             GetComponent<Level7Spawn>().DestroyAll();
-            WinBobbles.Instance.Victory = 0;
+            WinBobbles.instance.victory = 0;
         }
 
         private void RandomItem()
@@ -105,7 +105,7 @@ namespace Level7
 
         private IEnumerator Hint()
         {
-            if (WinBobbles.Instance.Victory > 0)
+            if (WinBobbles.instance.victory > 0)
             {
                 var targetName = GetComponent<Level7Spawn>().TargetPosition[4].name;
                 foreach (var item in GetComponent<Level7Spawn>().SpawnPosition)

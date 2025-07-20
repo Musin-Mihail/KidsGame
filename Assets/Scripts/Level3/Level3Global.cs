@@ -42,7 +42,7 @@ namespace Level3
             threeFiguresComplete = -1;
             _center = new Vector3(0, 0, 3);
             _endTarget = new Vector3(15, 0, 3);
-            WinBobbles.Instance.Victory = 1;
+            WinBobbles.instance.victory = 1;
             for (var i = 0; i < AllAnimals.Count; i++)
             {
                 var chance = Random.Range(0, AllAnimals.Count - 1);
@@ -56,7 +56,7 @@ namespace Level3
 
         private void Update()
         {
-            if (WinBobbles.Instance.Victory == 0 && _stop == 0)
+            if (WinBobbles.instance.victory == 0 && _stop == 0)
             {
                 _stop = 1;
             }
@@ -113,7 +113,7 @@ namespace Level3
                 StageMove = 0;
             }
 
-            WinBobbles.Instance.Victory = 0;
+            WinBobbles.instance.victory = 0;
         }
 
         private void RandomItem()
@@ -158,7 +158,7 @@ namespace Level3
 
         private IEnumerator StartHint()
         {
-            while (WinBobbles.Instance.Victory != 0)
+            while (WinBobbles.instance.victory != 0)
             {
                 while (_hintTime < 4)
                 {
@@ -185,7 +185,7 @@ namespace Level3
 
         private IEnumerator Hint()
         {
-            if (WinBobbles.Instance.Victory > 0)
+            if (WinBobbles.instance.victory > 0)
             {
                 _startPosition.z = -1;
                 _endPosition.z = -1;

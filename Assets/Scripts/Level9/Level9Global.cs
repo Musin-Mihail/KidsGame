@@ -37,7 +37,7 @@ namespace Level9
             }
 
             AllItemStatic = AllItem;
-            WinBobbles.Instance.Victory = AllItem.Count;
+            WinBobbles.instance.victory = AllItem.Count;
         }
 
         private void Start()
@@ -47,7 +47,7 @@ namespace Level9
 
         private void Update()
         {
-            if (WinBobbles.Instance.Victory == 0 && _stop == 0)
+            if (WinBobbles.instance.victory == 0 && _stop == 0)
             {
                 _stop = 1;
             }
@@ -82,7 +82,7 @@ namespace Level9
 
         private IEnumerator Hint()
         {
-            if (WinBobbles.Instance.Victory > 0)
+            if (WinBobbles.instance.victory > 0)
             {
                 var itemTag = " ";
                 foreach (var item in GetComponent<Level9Spawn>().SpawnPosition)
