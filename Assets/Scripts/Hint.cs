@@ -7,17 +7,13 @@ public class Hint : MonoBehaviour
 {
     public GameObject finger;
 
-    // Списки для поиска
+    [HideInInspector] public int waitHint;
+
     private List<GameObject> _itemPositions;
     private List<GameObject> _emptyItemPositions;
-
-    // Поле для прямого указания цели. Если не null, используется логика с поиском пары для этой цели.
     private GameObject _targetObject;
-
-    [HideInInspector] public int waitHint;
+    private string _targetName;
     private int _hintTime;
-
-    // Хранит текущую запущенную корутину подсказки, чтобы ее можно было остановить
     private Coroutine _currentHintCoroutine;
 
     /// <summary>
@@ -28,19 +24,19 @@ public class Hint : MonoBehaviour
         _emptyItemPositions = newEmptyItemPositions;
         _itemPositions = newItemPositions;
 
-        // Сбрасываем прямую цель, чтобы использовался поиск по двум спискам
         _targetObject = null;
+        _targetName = null;
     }
 
     /// <summary>
-    /// Инициализация для поиска пары для конкретного целевого объекта.
+    /// Инициализация для поиска пары для конкретного целевого объекта по его имени.
     /// </summary>
     public void Initialization(GameObject targetObject, List<GameObject> newItemPositions)
     {
         _itemPositions = newItemPositions;
         _targetObject = targetObject;
+        _targetName = targetObject.name; // Сохраняем имя для поиска
 
-        // Очищаем список пустых позиций, т.к. он не используется в этом режиме
         _emptyItemPositions = null;
     }
 
@@ -58,7 +54,7 @@ public class Hint : MonoBehaviour
                 if (waitHint == 1)
                 {
                     _hintTime = 0;
-                    waitHint = 0; // Сбрасываем флаг после прерывания
+                    waitHint = 0;
                     break;
                 }
 
@@ -67,7 +63,6 @@ public class Hint : MonoBehaviour
 
             if (_hintTime >= 4)
             {
-                // Запускаем основную корутину поиска и отображения подсказки
                 ShowHint();
             }
 
@@ -96,42 +91,36 @@ public class Hint : MonoBehaviour
         GameObject start = null;
         GameObject target = null;
 
-        // ПЕРЕКЛЮЧЕНИЕ ЛОГИКИ:
-        // Режим 1: Задана конкретная цель. Ищем для нее стартовый объект по имени.
-        if (_targetObject != null)
+        if (_targetObject)
         {
             target = _targetObject;
-            if (_itemPositions != null)
+            if (_itemPositions != null && !string.IsNullOrEmpty(_targetName))
             {
-                start = _itemPositions.FirstOrDefault(item => item.activeSelf);
+                foreach (var itemPosition in _itemPositions)
+                {
+                    Debug.Log(itemPosition.activeSelf);
+                    Debug.Log(itemPosition.name);
+                }
+
+                start = _itemPositions.FirstOrDefault(item => item.activeSelf && item.name == _targetName);
+                Debug.Log(start);
             }
         }
-        // Режим 2: Цель не задана. Ищем любую возможную пару в двух списках.
         else if (_itemPositions != null && _emptyItemPositions != null)
         {
-            // Ищем первый активный объект в списке для поиска
             foreach (var item in _itemPositions.Where(item => item.activeSelf))
             {
-                // Ищем для него пустую позицию с таким же именем
                 var foundTarget = _emptyItemPositions.FirstOrDefault(empty => empty.name == item.name);
-                if (foundTarget != null)
-                {
-                    start = item;
-                    target = foundTarget;
-                    break; // Нашли первую возможную пару, выходим
-                }
+                if (!foundTarget) continue;
+                start = item;
+                target = foundTarget;
+                break;
             }
         }
 
-        // Если найдена полная пара (начало и конец), запускаем анимацию
-        if (start != null && target != null)
+        if (start && target)
         {
             yield return StartCoroutine(MoveFinger(start, target));
-        }
-        else
-        {
-            // Если пара не найдена, просто завершаем корутину
-            yield break;
         }
     }
 
@@ -143,32 +132,27 @@ public class Hint : MonoBehaviour
         finger.gameObject.SetActive(true);
         finger.transform.position = startObject.transform.position;
 
-        // Корректируем целевую позицию по оси Z
         var adjustedTarget = targetObject.transform.position;
         adjustedTarget.z += -1;
 
-        // Двигаем палец к цели
         while (Vector3.Distance(finger.transform.position, adjustedTarget) > 0.01f)
         {
-            // Проверяем, активны ли еще объекты
             if (!startObject.activeInHierarchy || !targetObject.activeInHierarchy)
             {
-                break; // Прерываем, если один из объектов стал неактивным
+                break;
             }
 
             finger.transform.position = Vector3.MoveTowards(finger.transform.position, adjustedTarget, Time.deltaTime * GameConstants.HintDistance);
             if (waitHint == 1)
             {
-                // Если пришел сигнал прервать подсказку, выходим из цикла
                 break;
             }
 
-            yield return null; // Используем yield return null для обновления каждый кадр
+            yield return null;
         }
 
-        // Сбрасываем флаг и выключаем палец
         waitHint = 0;
         finger.gameObject.SetActive(false);
-        _currentHintCoroutine = null; // Сбрасываем корутину после завершения
+        _currentHintCoroutine = null;
     }
 }

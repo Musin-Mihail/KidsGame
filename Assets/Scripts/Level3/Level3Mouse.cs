@@ -6,7 +6,7 @@ namespace Level3
     {
         private Camera _camera;
         private Vector3 _position;
-        private GameObject _gameObject;
+        private GameObject _target;
         private const int LayerMask = 1 << 13;
         private const int LayerMask2 = 1 << 9;
         private float _z;
@@ -26,44 +26,44 @@ namespace Level3
                 if (hit.collider)
                 {
                     _z = hit.collider.transform.position.z;
-                    _gameObject = hit.collider.gameObject;
-                    _position = _gameObject.GetComponent<MoveItem>().startPosition;
+                    _target = hit.collider.gameObject;
+                    _position = _target.GetComponent<MoveItem>().startPosition;
                     _hint.waitHint = 1;
-                    _gameObject.GetComponent<MoveItem>().state = 0;
+                    _target.GetComponent<MoveItem>().state = 0;
                 }
             }
 
-            if (Input.GetMouseButtonUp(0) && _gameObject != null)
+            if (Input.GetMouseButtonUp(0) && _target != null)
             {
-                Collider2D hitCollider = Physics2D.OverlapCircle(_gameObject.transform.position, 0.1f, LayerMask2);
+                var hitCollider = Physics2D.OverlapCircle(_target.transform.position, 0.1f, LayerMask2);
                 if (hitCollider)
                 {
-                    if (hitCollider.name == _gameObject.name)
+                    if (hitCollider.name == _target.name)
                     {
                         hitCollider.GetComponent<SoundClickItem>().Play();
-                        _gameObject.SetActive(false);
+                        _target.SetActive(false);
                         Level3Global.instance.nextFigure = 1;
                         Level3Global.instance.threeFiguresComplete++;
                     }
                     else
                     {
-                        _gameObject.transform.position = _position;
+                        _target.transform.position = _position;
                     }
                 }
                 else
                 {
-                    _gameObject.transform.position = _position;
+                    _target.transform.position = _position;
                 }
 
-                _gameObject = null;
+                _target = null;
             }
 
 #if UNITY_EDITOR
-            if (Input.GetMouseButton(0) && _gameObject)
+            if (Input.GetMouseButton(0) && _target)
             {
                 var vector = _camera.ScreenToWorldPoint(Input.mousePosition);
                 vector.z = _z;
-                _gameObject.transform.position = vector;
+                _target.transform.position = vector;
             }
 #else
             if (Input.touchCount > 0 && _gameObject)

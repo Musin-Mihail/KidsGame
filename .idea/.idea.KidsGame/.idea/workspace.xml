@@ -5,91 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7313cf86-6b92-4f5e-b60f-6a57ae13d2c3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/algae1Anim.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/algae1Anim.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/algae4Anim.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/algae4Anim.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level2.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level2/AnimFlag.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level2/AnimFlag.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level2/AnimWave1.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level2/AnimWave1.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level2/AnimWave2.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level2/AnimWave2.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level2/Flag.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level2/Flag.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level2/wave1.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level2/wave1.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level2/wave2.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level2/wave2.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/AnimCrab.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/AnimCrab.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/AnimTurtle.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/AnimTurtle.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/AnimWhale.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/AnimWhale.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Circle1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Circle1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Circle2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Circle2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Circle3.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Circle3.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Crab.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Crab.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Oval1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Oval1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Oval2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Oval2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Oval3.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Oval3.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Rectangle1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Rectangle1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Rectangle2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Rectangle2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Rectangle3.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Rectangle3.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Rhombus1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Rhombus1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Rhombus2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Rhombus2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Rhombus3.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Rhombus3.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Square1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Square1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Square2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Square2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Square3.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Square3.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Star1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Star1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Star2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Star2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Star3.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Star3.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Triangle1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Triangle1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Triangle2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Triangle2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Triangle3.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Triangle3.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Turtle.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Turtle.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Whale.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level3/Whale.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameConstants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.KidsGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KidsGame/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Hint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Hint.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Global.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Mouse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Spawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Search.settings" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Search.settings" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -100,6 +27,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/44f3679c53d1477a9c6e72f269e3a3a91de200/9c/037ce3b3/Screen.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/44f3679c53d1477a9c6e72f269e3a3a91de200/c9/ac005392/SceneManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/44f3679c53d1477a9c6e72f269e3a3a91de200/fb/a4e2e012/MonoBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/504728fa4de640bebd6545076ade529a10fc00/2b/12153e4d/Enumerable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Rotation360.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@fa3a0bab2b90/Editor/inspectors/BuiltInCurvePresets.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@57cef44123c7/Editor/TMP/TMPro_FontAssetCreatorWindow.cs" root0="SKIP_HIGHLIGHTING" />
@@ -123,21 +51,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../Новая папка\Развивающие игры для детей 2-5 лет.exe" />
@@ -186,13 +115,15 @@
       <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="22228">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="22228" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list />
+        <list>
+          <MonoRuntime />
+        </list>
       </option>
       <option name="selectedOptions">
         <list />
@@ -218,6 +149,7 @@
       <workItem from="1750947243044" duration="6943000" />
       <workItem from="1752915038716" duration="16598000" />
       <workItem from="1752990606532" duration="23155000" />
+      <workItem from="1753165989250" duration="6758000" />
     </task>
     <servers />
   </component>
@@ -262,6 +194,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Level3/Level3Global.cs</url>
+          <line>148</line>
+          <properties documentPath="D:\Repositories\KidsGame\Assets\Scripts\Level3\Level3Global.cs" containingFunctionPresentation="Method 'FigureChange'">
+            <startOffsets>
+              <option value="4911" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4956" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
