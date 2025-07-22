@@ -2,8 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// Необходимо для использования Action (событий)
-
 namespace InputController
 {
     /// <summary>

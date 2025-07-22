@@ -35,7 +35,7 @@ public class Hint : MonoBehaviour
     {
         _itemPositions = newItemPositions;
         _targetObject = targetObject;
-        _targetName = targetObject.name; // Сохраняем имя для поиска
+        _targetName = targetObject.name;
 
         _emptyItemPositions = null;
     }
@@ -94,16 +94,20 @@ public class Hint : MonoBehaviour
         if (_targetObject)
         {
             target = _targetObject;
+            // Debug.Log(target);
+
             if (_itemPositions != null && !string.IsNullOrEmpty(_targetName))
             {
-                foreach (var itemPosition in _itemPositions)
-                {
-                    Debug.Log(itemPosition.activeSelf);
-                    Debug.Log(itemPosition.name);
-                }
+                // foreach (var itemPosition in _itemPositions)
+                // {
+                //     Debug.Log(itemPosition.activeSelf);
+                //     Debug.Log(itemPosition.name);
+                // }
 
                 start = _itemPositions.FirstOrDefault(item => item.activeSelf && item.name == _targetName);
-                Debug.Log(start);
+                // Debug.Log("------------------------");
+                // Debug.Log(_targetName);
+                // Debug.Log(start);
             }
         }
         else if (_itemPositions != null && _emptyItemPositions != null)

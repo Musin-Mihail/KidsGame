@@ -16,7 +16,6 @@ namespace Level3
         public GameObject figure;
 
         [HideInInspector] public GameObject animalCenter;
-        [HideInInspector] public int nextFigure;
         [HideInInspector] public int stageMove;
         [HideInInspector] public int threeFiguresComplete;
 
@@ -39,10 +38,10 @@ namespace Level3
 
         private void Start()
         {
-            threeFiguresComplete = -1;
+            threeFiguresComplete = 0;
             _center = new Vector3(0, 0, 3);
             _endTarget = new Vector3(15, 0, 3);
-            WinBobbles.instance.victory = 1;
+            WinBobbles.instance.victory = 18;
             for (var i = 0; i < allAnimals.Count; i++)
             {
                 var chance = Random.Range(0, allAnimals.Count - 1);
@@ -60,10 +59,6 @@ namespace Level3
             {
                 _stop = 1;
             }
-
-            if (nextFigure != 1) return;
-            nextFigure = 0;
-            FigureChange();
         }
 
         private IEnumerator MoveAnimals()
@@ -80,7 +75,7 @@ namespace Level3
                 }
 
                 animalCenter = item;
-                FigureChange();
+                ChangeAnimal();
                 figure.GetComponent<SpriteRenderer>().enabled = true;
                 task.GetComponent<SpriteRenderer>().enabled = true;
                 while (stageMove != 1)
@@ -107,7 +102,7 @@ namespace Level3
                     item3.GetComponent<SpriteRenderer>().enabled = false;
                 }
 
-                threeFiguresComplete = -1;
+                threeFiguresComplete = 0;
                 stageMove = 0;
             }
 
@@ -125,26 +120,34 @@ namespace Level3
             _level3Spawn.SpawnAnimal();
         }
 
-        private void FigureChange()
+        private void ChangeAnimal()
         {
-            if (threeFiguresComplete >= 0)
+            var activeItems = _level3Spawn.activeItem.Where(item => item.activeSelf).ToList();
+            if (activeItems.Count == 0)
             {
-                threeFigures[threeFiguresComplete].GetComponent<SpriteRenderer>().enabled = true;
-                threeFigures[threeFiguresComplete].GetComponent<SpriteRenderer>().sprite = figure.GetComponent<SpriteRenderer>().sprite;
+                return;
             }
 
-            if (_level3Spawn.activeItem.Count > 2)
+            var randomIndex = Random.Range(0, activeItems.Count);
+            var randomAnimal = activeItems[randomIndex];
+            figure.GetComponent<SpriteRenderer>().sprite = randomAnimal.GetComponent<SpriteRenderer>().sprite;
+            animalCenter.name = randomAnimal.name;
+            hint.Initialization(animalCenter, _level3Spawn.activeItem);
+        }
+
+        public void ChangeFigure()
+        {
+            threeFigures[threeFiguresComplete].GetComponent<SpriteRenderer>().enabled = true;
+            threeFigures[threeFiguresComplete].GetComponent<SpriteRenderer>().sprite = figure.GetComponent<SpriteRenderer>().sprite;
+            threeFiguresComplete++;
+
+            if (threeFiguresComplete == 3)
             {
-                var newItems = _level3Spawn.activeItem.Where(x => x.activeSelf).ToList();
-                var newRandom = Random.Range(0, newItems.Count);
-                figure.GetComponent<SpriteRenderer>().sprite = newItems[newRandom].GetComponent<SpriteRenderer>().sprite;
-                animalCenter.name = newItems[newRandom].name;
-                newItems.RemoveAt(newRandom);
-                hint.Initialization(animalCenter, _level3Spawn.activeItem);
+                stageMove = 1;
             }
             else
             {
-                stageMove = 1;
+                ChangeAnimal();
             }
         }
     }

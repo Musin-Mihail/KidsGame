@@ -1,10 +1,10 @@
 using Level1;
+using Level3;
 using UnityEngine;
 
 namespace InputController
 {
     /// <summary>
-    /// ПРИМЕР ИСПОЛЬЗОВАНИЯ:
     /// Этот компонент нужно повесить на менеджер уровня.
     /// Он подписывается на событие из DragAndDropController и выполняет логику,
     /// специфичную для конкретного уровня.
@@ -16,7 +16,8 @@ namespace InputController
         private enum LevelType
         {
             Level1,
-            Level2
+            Level2,
+            Level3
         }
         [SerializeField] private LevelType currentLevel;
 
@@ -50,6 +51,7 @@ namespace InputController
                 WinBobbles.instance.victory--;
             }
 
+            draggedObject.SetActive(false);
             switch (currentLevel)
             {
                 case LevelType.Level1:
@@ -58,16 +60,16 @@ namespace InputController
                 case LevelType.Level2:
                     HandleLevel2Drop(draggedObject, targetCollider);
                     break;
+                case LevelType.Level3:
+                    HandleLevel3Drop();
+                    break;
             }
-
-            draggedObject.SetActive(false);
         }
 
         private void HandleLevel1Drop(GameObject draggedObject, Collider2D targetCollider)
         {
             Debug.Log("Обработчик для Уровня 1 сработал!");
             var newVector3 = targetCollider.transform.position;
-            newVector3.z -= 0.5f;
             Instantiate(Resources.Load<ParticleSystem>("BubblesLevel1"), newVector3, Quaternion.Euler(-90, -40, 0));
 
             targetCollider.GetComponent<SpriteRenderer>().sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
@@ -92,6 +94,22 @@ namespace InputController
             else
             {
                 targetCollider.GetComponent<SpriteRenderer>().sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
+            }
+        }
+
+        /// <summary>
+        /// Обработчик для логики третьего уровня.
+        /// </summary>
+        private void HandleLevel3Drop()
+        {
+            Debug.Log("Обработчик для Уровня 3 сработал!");
+            if (Level3Global.instance)
+            {
+                Level3Global.instance.ChangeFigure();
+            }
+            else
+            {
+                Debug.LogError("Level3Global.instance не найден! Убедитесь, что объект с этим скриптом существует на сцене.");
             }
         }
     }
