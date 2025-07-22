@@ -1,39 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Level3
 {
     public class Level3Global : MonoBehaviour
     {
-        public static Level3Global Instance { get; private set; }
-        public List<GameObject> ThreeFigures = new();
-        public List<GameObject> AllAnimals = new();
-        public List<GameObject> AllItem = new();
-        public GameObject Finger;
-        public int waitHint;
-        public int threeFiguresComplete;
-        public GameObject Task;
-        public GameObject Figure;
-        public GameObject AnimalCenter;
-        public int nextFigure;
-        public int StageMove;
+        public static Level3Global instance { get; private set; }
+        public Hint hint;
+        public List<GameObject> threeFigures = new();
+        public List<GameObject> allAnimals = new();
+        public List<GameObject> allItem = new();
+        public GameObject task;
+        public GameObject figure;
+
+        [HideInInspector] public GameObject animalCenter;
+        [HideInInspector] public int nextFigure;
+        [HideInInspector] public int stageMove;
+        [HideInInspector] public int threeFiguresComplete;
+
         private Vector3 _center;
         private Vector3 _endTarget;
-        private int _hintTime;
         private int _stop;
-        private Vector3 _startPosition;
-        private Vector3 _endPosition;
+        private Level3Spawn _level3Spawn;
+        private string _name;
 
         private void Awake()
         {
-            if (Instance && !Equals(Instance, this))
+            if (instance && !Equals(instance, this))
             {
                 Destroy(gameObject);
             }
             else
             {
-                Instance = this;
+                instance = this;
             }
         }
 
@@ -43,15 +44,17 @@ namespace Level3
             _center = new Vector3(0, 0, 3);
             _endTarget = new Vector3(15, 0, 3);
             WinBobbles.instance.victory = 1;
-            for (var i = 0; i < AllAnimals.Count; i++)
+            for (var i = 0; i < allAnimals.Count; i++)
             {
-                var chance = Random.Range(0, AllAnimals.Count - 1);
-                (AllAnimals[i], AllAnimals[chance]) = (AllAnimals[chance], AllAnimals[i]);
+                var chance = Random.Range(0, allAnimals.Count - 1);
+                (allAnimals[i], allAnimals[chance]) = (allAnimals[chance], allAnimals[i]);
             }
 
+            _level3Spawn = GetComponent<Level3Spawn>();
             StartCoroutine(MoveAnimals());
-            _endPosition = new Vector3(0, 0, 0);
-            StartCoroutine(StartHint());
+
+            hint.Initialization(animalCenter, _level3Spawn.activeItem);
+            StartCoroutine(hint.StartHint());
         }
 
         private void Update()
@@ -71,9 +74,9 @@ namespace Level3
         private IEnumerator MoveAnimals()
         {
             yield return new WaitForSeconds(1.0f);
-            foreach (var item in AllAnimals)
+            foreach (var item in allAnimals)
             {
-                waitHint = 1;
+                hint.waitHint = 1;
                 RandomItem();
                 while (item.transform.position != _center)
                 {
@@ -81,36 +84,36 @@ namespace Level3
                     yield return new WaitForSeconds(0.01f);
                 }
 
-                AnimalCenter = item;
+                animalCenter = item;
                 FigureChange();
-                Figure.GetComponent<SpriteRenderer>().enabled = true;
-                Task.GetComponent<SpriteRenderer>().enabled = true;
-                while (StageMove != 1)
+                figure.GetComponent<SpriteRenderer>().enabled = true;
+                task.GetComponent<SpriteRenderer>().enabled = true;
+                while (stageMove != 1)
                 {
                     yield return new WaitForSeconds(1);
                 }
 
-                Figure.GetComponent<SpriteRenderer>().enabled = false;
-                Task.GetComponent<SpriteRenderer>().enabled = false;
-                foreach (var item2 in GetComponent<Level3Spawn>().SpawnPosition)
+                figure.GetComponent<SpriteRenderer>().enabled = false;
+                task.GetComponent<SpriteRenderer>().enabled = false;
+                foreach (var item2 in _level3Spawn.activeItem)
                 {
                     item2.SetActive(false);
                 }
 
-                waitHint = 1;
+                hint.waitHint = 1;
                 while (item.transform.position != _endTarget)
                 {
                     item.transform.position = Vector3.MoveTowards(item.transform.position, _endTarget, 0.1f);
                     yield return new WaitForSeconds(0.01f);
                 }
 
-                foreach (var item3 in ThreeFigures)
+                foreach (var item3 in threeFigures)
                 {
                     item3.GetComponent<SpriteRenderer>().enabled = false;
                 }
 
                 threeFiguresComplete = -1;
-                StageMove = 0;
+                stageMove = 0;
             }
 
             WinBobbles.instance.victory = 0;
@@ -118,91 +121,42 @@ namespace Level3
 
         private void RandomItem()
         {
-            for (var i = 0; i < AllItem.Count; i++)
+            for (var i = 0; i < allItem.Count; i++)
             {
-                var chance = Random.Range(0, AllItem.Count - 1);
-                (AllItem[i], AllItem[chance]) = (AllItem[chance], AllItem[i]);
+                var chance = Random.Range(0, allItem.Count - 1);
+                (allItem[i], allItem[chance]) = (allItem[chance], allItem[i]);
             }
 
-            GetComponent<Level3Spawn>().StartGame();
+            _level3Spawn.SpawnAnimal();
         }
 
         private void FigureChange()
         {
             if (threeFiguresComplete >= 0)
             {
-                ThreeFigures[threeFiguresComplete].GetComponent<SpriteRenderer>().enabled = true;
-                ThreeFigures[threeFiguresComplete].GetComponent<SpriteRenderer>().sprite = Figure.GetComponent<SpriteRenderer>().sprite;
+                threeFigures[threeFiguresComplete].GetComponent<SpriteRenderer>().enabled = true;
+                threeFigures[threeFiguresComplete].GetComponent<SpriteRenderer>().sprite = figure.GetComponent<SpriteRenderer>().sprite;
+                _name = figure.GetComponent<SpriteRenderer>().sprite.name;
             }
 
-            if (GetComponent<Level3Spawn>().SpawnPosition.Count > 2)
+            if (_level3Spawn.activeItem.Count > 2)
             {
-                var NewRandom = Random.Range(0, GetComponent<Level3Spawn>().SpawnPosition.Count);
-                if (GetComponent<Level3Spawn>().SpawnPosition[NewRandom] == null)
-                {
-                    FigureChange();
-                }
-                else
-                {
-                    Figure.GetComponent<SpriteRenderer>().sprite = GetComponent<Level3Spawn>().SpawnPosition[NewRandom].GetComponent<SpriteRenderer>().sprite;
-                    AnimalCenter.name = GetComponent<Level3Spawn>().SpawnPosition[NewRandom].name;
-                    _startPosition = GetComponent<Level3Spawn>().SpawnPosition[NewRandom].transform.position;
-                    GetComponent<Level3Spawn>().SpawnPosition.RemoveAt(NewRandom);
-                }
+                var newItems = _level3Spawn.activeItem.Where(x => x.activeSelf).ToList();
+                var newRandom = Random.Range(0, newItems.Count);
+                // if (_level3Spawn.activeItem[newRandom] == null)
+                // {
+                //     FigureChange();
+                // }
+                // else
+                // {
+                figure.GetComponent<SpriteRenderer>().sprite = newItems[newRandom].GetComponent<SpriteRenderer>().sprite;
+                animalCenter.name = newItems[newRandom].name;
+                newItems.RemoveAt(newRandom);
+                // }
             }
             else
             {
-                StageMove = 1;
-            }
-        }
-
-        private IEnumerator StartHint()
-        {
-            while (WinBobbles.instance.victory != 0)
-            {
-                while (_hintTime < 4)
-                {
-                    yield return new WaitForSeconds(1.0f);
-                    if (waitHint == 1)
-                    {
-                        _hintTime = 0;
-                        waitHint = 0;
-                        break;
-                    }
-
-                    _hintTime++;
-                }
-
-                if (_hintTime >= 4)
-                {
-                    StartCoroutine(Hint());
-                }
-
-                _hintTime = 0;
-                yield return new WaitForSeconds(1.0f);
-            }
-        }
-
-        private IEnumerator Hint()
-        {
-            if (WinBobbles.instance.victory > 0)
-            {
-                _startPosition.z = -1;
-                _endPosition.z = -1;
-                Finger.transform.position = _startPosition;
-                while (Finger.transform.position != _endPosition)
-                {
-                    Finger.transform.position = Vector3.MoveTowards(Finger.transform.position, _endPosition, 0.1f);
-                    if (waitHint == 1)
-                    {
-                        Finger.transform.position = new Vector3(0, 10, 0);
-                        break;
-                    }
-
-                    yield return new WaitForSeconds(0.01f);
-                }
-
-                Finger.transform.position = new Vector3(0, 10, 0);
+                stageMove = 1;
             }
         }
     }

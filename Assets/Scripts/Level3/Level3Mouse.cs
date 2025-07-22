@@ -10,10 +10,12 @@ namespace Level3
         private const int LayerMask = 1 << 13;
         private const int LayerMask2 = 1 << 9;
         private float _z;
+        private Hint _hint;
 
         private void Start()
         {
             _camera = Camera.main;
+            _hint = GetComponent<Hint>();
         }
 
         private void Update()
@@ -26,7 +28,7 @@ namespace Level3
                     _z = hit.collider.transform.position.z;
                     _gameObject = hit.collider.gameObject;
                     _position = _gameObject.GetComponent<MoveItem>().startPosition;
-                    Level3Global.Instance.waitHint = 1;
+                    _hint.waitHint = 1;
                     _gameObject.GetComponent<MoveItem>().state = 0;
                 }
             }
@@ -40,8 +42,8 @@ namespace Level3
                     {
                         hitCollider.GetComponent<SoundClickItem>().Play();
                         _gameObject.SetActive(false);
-                        Level3Global.Instance.nextFigure = 1;
-                        Level3Global.Instance.threeFiguresComplete++;
+                        Level3Global.instance.nextFigure = 1;
+                        Level3Global.instance.threeFiguresComplete++;
                     }
                     else
                     {

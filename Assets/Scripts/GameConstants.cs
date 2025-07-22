@@ -4,11 +4,7 @@
 public static class GameConstants
 {
     /// <summary>
-    /// Скорость движения подсказки.
-    /// </summary>
-    public const float HintSpeed = 0.01f;
-    /// <summary>
     /// Шаг движения подсказки.
     /// </summary>
-    public const float HintDistance = 0.1f;
+    public const float HintDistance = 7.5f;
 }

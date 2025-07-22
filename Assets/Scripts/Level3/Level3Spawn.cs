@@ -5,17 +5,18 @@ namespace Level3
 {
     public class Level3Spawn : MonoBehaviour
     {
-        public List<GameObject> SpawnPositionVector;
-        public List<GameObject> SpawnPosition;
+        public List<GameObject> spawnPositionVector;
+        [HideInInspector] public List<GameObject> activeItem;
 
-        public void StartGame()
+
+        public void SpawnAnimal()
         {
-            SpawnPosition = new List<GameObject>();
+            activeItem = new List<GameObject>();
             for (var i = 0; i < 5; i++)
             {
-                var animal = Instantiate(Level3Global.Instance.AllItem[i], SpawnPositionVector[i].transform.position, Quaternion.identity);
-                animal.name = Level3Global.Instance.AllItem[i].name;
-                SpawnPosition.Add(animal);
+                var item = Instantiate(Level3Global.instance.allItem[i], spawnPositionVector[i].transform.position, Quaternion.identity);
+                item.name = Level3Global.instance.allItem[i].name;
+                activeItem.Add(item);
             }
         }
     }
