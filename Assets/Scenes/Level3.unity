@@ -242,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e0bc32b7d64a5141a9e0eb20b1c1c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 0}
   startSpawnPositions:
   - {fileID: 345216669}
   - {fileID: 2089720207}
@@ -268,18 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hint: {fileID: 142792123}
-  threeFigures:
-  - {fileID: 7978605854297638940}
-  - {fileID: 1731530311}
-  - {fileID: 1188374319}
-  allAnimals:
-  - {fileID: 7601839416934047521}
-  - {fileID: 875119997526640885}
-  - {fileID: 2073975357015285796}
-  - {fileID: 7234372680797809127}
-  - {fileID: 5907518680495408741}
-  - {fileID: 8037833678072505899}
-  allItem:
+  allItems:
   - {fileID: 1850525304009938637, guid: 9c665b95d59551d4880c8a3fcefbcbd3, type: 3}
   - {fileID: 8904721755619041209, guid: 2d3fe8095d74d084c85905eaf93bb530, type: 3}
   - {fileID: 5448384343768352003, guid: 6dcd91a48e2aabc41a31a788c2504a68, type: 3}
@@ -301,6 +291,18 @@ MonoBehaviour:
   - {fileID: 1953794955827371029, guid: 99aafc58e18d0264c9ce40eddf480ca9, type: 3}
   - {fileID: 1919850346225885733, guid: 2ce87deebac6a5b4eb6784227f2247a9, type: 3}
   - {fileID: 7859400148481730839, guid: 08f8607c0a55601449fd75067b218527, type: 3}
+  allTargets: []
+  threeFigures:
+  - {fileID: 7978605854297638940}
+  - {fileID: 1731530311}
+  - {fileID: 1188374319}
+  allAnimals:
+  - {fileID: 7601839416934047521}
+  - {fileID: 875119997526640885}
+  - {fileID: 2073975357015285796}
+  - {fileID: 7234372680797809127}
+  - {fileID: 5907518680495408741}
+  - {fileID: 8037833678072505899}
   task: {fileID: 567383517}
   figure: {fileID: 45130656}
   animalCenter: {fileID: 0}

@@ -1,51 +1,28 @@
 using System.Collections;
-using System.Collections.Generic;
+using Core;
 using UnityEngine;
 
 namespace Level2
 {
-    public class Level2Global : MonoBehaviour
+    public class Level2Global : BaseLevelManager<Level2Global>
     {
-        public static Level2Global instance { get; private set; }
-
+        [Header("Настройки уровня 2")]
         public GameObject boat;
-        public Hint hint;
-        public List<GameObject> allItem = new();
-        public List<GameObject> allEmpty = new();
 
         private Vector3 _targetBoat;
-        private int _hintTime;
         private int _win;
         private Level2Spawn _level2Spawn;
 
-        private void Awake()
+        protected override void Awake()
         {
-            if (instance && !Equals(instance, this))
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                instance = this;
-            }
+            base.Awake();
+            _level2Spawn = GetComponent<Level2Spawn>();
         }
 
-        private void Start()
+        protected override void Start()
         {
-            WinBobbles.instance.victory = allEmpty.Count;
-            for (var i = 0; i < allItem.Count; i++)
-            {
-                var chance = Random.Range(0, allItem.Count - 1);
-                (allItem[i], allItem[chance]) = (allItem[chance], allItem[i]);
-            }
-
+            base.Start();
             _targetBoat = new Vector3(-15, 1.1f, 2.89f);
-
-            _level2Spawn = gameObject.GetComponent<Level2Spawn>();
-            _level2Spawn.Initialization();
-
-            hint.Initialization(allEmpty, _level2Spawn.activeItem);
-            StartCoroutine(hint.StartHint());
         }
 
         private void Update()
@@ -62,6 +39,21 @@ namespace Level2
                 boat.transform.position = Vector3.MoveTowards(boat.transform.position, _targetBoat, 0.1f);
                 yield return new WaitForSeconds(0.02f);
             }
+        }
+
+        protected override void InitializeSpawner()
+        {
+            if (_level2Spawn)
+            {
+                _level2Spawn.Initialization();
+            }
+        }
+
+        protected override void InitializeHint()
+        {
+            if (!hint || !_level2Spawn) return;
+            hint.Initialization(allTargets, _level2Spawn.activeItem);
+            StartCoroutine(hint.StartHint());
         }
     }
 }

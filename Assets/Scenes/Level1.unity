@@ -1568,7 +1568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a999a772c2dd47546bc62a25bbd2db7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 139432740}
+  parent: {fileID: 139432741}
   startSpawnPositions:
   - {fileID: 1343753132}
   - {fileID: 919204615}
@@ -1594,7 +1594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hint: {fileID: 1039780534}
-  allAnimals:
+  allItems:
   - {fileID: 964470814211606645, guid: 5f4321f39e59d2443aa35db2c33b6e29, type: 3}
   - {fileID: 1369803303231353898, guid: e9302ffe36762ed47aa444c969462981, type: 3}
   - {fileID: 6234840525703818958, guid: 71d58cd4f94d6e14d8d108ee42633df2, type: 3}
@@ -1603,7 +1603,7 @@ MonoBehaviour:
   - {fileID: 8715931894083389226, guid: afe5e7dc32a9f574fba7254c4720f196, type: 3}
   - {fileID: 7837017559140140663, guid: b2b31d5c61deb714483b9beb7643cf3b, type: 3}
   - {fileID: 392150414209237190, guid: 9b37cee6c54776b4f9db41a45855e62a, type: 3}
-  allEmpty:
+  allTargets:
   - {fileID: 825834219}
   - {fileID: 219484914}
   - {fileID: 1459430046}
@@ -1670,8 +1670,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a2aa0102ab42c4aa5dd2aa43afa235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPositions: []
-  emptyItemPositions: []
   finger: {fileID: 409574969}
   waitHint: 0
 --- !u!114 &1039780535

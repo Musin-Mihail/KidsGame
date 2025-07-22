@@ -1,18 +1,14 @@
 using System.Collections.Generic;
+using Core;
 using UnityEngine;
 
 namespace Level1
 {
-    public class Level1Spawn : MonoBehaviour
+    public class Level1Spawn : BaseSpawner
     {
-        public GameObject parent;
-        public List<GameObject> startSpawnPositions = new();
-        public List<GameObject> endSpawnPositions = new();
-
-        [HideInInspector] public List<GameObject> activeItem;
-
-        public void Initialization()
+        public override void Initialization()
         {
+            activeItem = new List<GameObject>(new GameObject[startSpawnPositions.Count]);
             for (var i = 0; i < 3; i++)
             {
                 SpawnAnimal(i);
@@ -21,14 +17,20 @@ namespace Level1
 
         public void SpawnAnimal(int number)
         {
-            if (Level1Global.instance.allAnimals.Count <= 0) return;
-            var animal = Instantiate(Level1Global.instance.allAnimals[0], parent.transform, false);
+            if (Level1Global.instance.allItems.Count <= 0) return;
+
+            var animal = Instantiate(Level1Global.instance.allItems[0], parent.transform, false);
+            animal.name = Level1Global.instance.allItems[0].name;
+
             var moveItem = animal.GetComponent<MoveItem>();
-            moveItem.Initialization(startSpawnPositions[number].transform.position, endSpawnPositions[number].transform.position);
-            animal.name = Level1Global.instance.allAnimals[0].name;
+            if (moveItem)
+            {
+                moveItem.Initialization(startSpawnPositions[number].transform.position, endSpawnPositions[number].transform.position);
+                StartCoroutine(moveItem.Move());
+            }
+
             activeItem[number] = animal;
-            Level1Global.instance.allAnimals.RemoveAt(0);
-            StartCoroutine(moveItem.Move());
+            Level1Global.instance.allItems.RemoveAt(0);
         }
     }
 }

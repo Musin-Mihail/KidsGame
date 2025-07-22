@@ -1,17 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Core;
 using UnityEngine;
 
 namespace Level3
 {
-    public class Level3Global : MonoBehaviour
+    public class Level3Global : BaseLevelManager<Level3Global>
     {
-        public static Level3Global instance { get; private set; }
-        public Hint hint;
+        [Header("Настройки уровня 3")]
         public List<GameObject> threeFigures = new();
         public List<GameObject> allAnimals = new();
-        public List<GameObject> allItem = new();
         public GameObject task;
         public GameObject figure;
 
@@ -24,31 +23,21 @@ namespace Level3
         private int _stop;
         private Level3Spawn _level3Spawn;
 
-        private void Awake()
+        protected override void Awake()
         {
-            if (instance && !Equals(instance, this))
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                instance = this;
-            }
+            base.Awake();
+            _level3Spawn = GetComponent<Level3Spawn>();
         }
 
-        private void Start()
+        protected override void Start()
         {
             threeFiguresComplete = 0;
             _center = new Vector3(0, 0, 3);
             _endTarget = new Vector3(15, 0, 3);
             WinBobbles.instance.victory = 18;
-            for (var i = 0; i < allAnimals.Count; i++)
-            {
-                var chance = Random.Range(0, allAnimals.Count - 1);
-                (allAnimals[i], allAnimals[chance]) = (allAnimals[chance], allAnimals[i]);
-            }
 
-            _level3Spawn = GetComponent<Level3Spawn>();
+            Shuffle(allAnimals);
+
             StartCoroutine(MoveAnimals());
             StartCoroutine(hint.StartHint());
         }
@@ -111,27 +100,20 @@ namespace Level3
 
         private void RandomItem()
         {
-            for (var i = 0; i < allItem.Count; i++)
-            {
-                var chance = Random.Range(0, allItem.Count - 1);
-                (allItem[i], allItem[chance]) = (allItem[chance], allItem[i]);
-            }
-
+            Shuffle(allItems);
             _level3Spawn.SpawnAnimal();
         }
 
         private void ChangeAnimal()
         {
             var activeItems = _level3Spawn.activeItem.Where(item => item.activeSelf).ToList();
-            if (activeItems.Count == 0)
-            {
-                return;
-            }
+            if (activeItems.Count == 0) return;
 
             var randomIndex = Random.Range(0, activeItems.Count);
             var randomAnimal = activeItems[randomIndex];
             figure.GetComponent<SpriteRenderer>().sprite = randomAnimal.GetComponent<SpriteRenderer>().sprite;
             animalCenter.name = randomAnimal.name;
+
             hint.Initialization(animalCenter, _level3Spawn.activeItem);
         }
 
@@ -149,6 +131,16 @@ namespace Level3
             {
                 ChangeAnimal();
             }
+        }
+
+        protected override void InitializeSpawner()
+        {
+            /* Управляется вручную */
+        }
+
+        protected override void InitializeHint()
+        {
+            /* Управляется вручную */
         }
     }
 }
