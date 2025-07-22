@@ -39,16 +39,14 @@ namespace Level4
                 {
                     if (hitColliders.tag == _gameObject.tag)
                     {
-                        Transform[] allChildren = hitColliders.GetComponentsInChildren<Transform>();
+                        var allChildren = hitColliders.GetComponentsInChildren<Transform>();
                         foreach (var item in allChildren)
                         {
-                            if (item.name == _gameObject.name)
-                            {
-                                _gameObject.GetComponent<BoxCollider2D>().enabled = false;
-                                StartCoroutine(MoveAnimal(item, _gameObject));
-                                Level4Global._level4Spawn.GetComponent<Level4Spawn>().SearchFreeSpace(_gameObject.name);
-                                break;
-                            }
+                            if (item.name != _gameObject.name) continue;
+                            _gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                            StartCoroutine(MoveAnimal(item, _gameObject));
+                            Level4Global._level4Spawn.GetComponent<Level4Spawn>().SearchFreeSpace(_gameObject.name);
+                            break;
                         }
                     }
                     else

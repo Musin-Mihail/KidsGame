@@ -95,7 +95,7 @@ namespace Level4
             var check = 0;
             var itemTag = "";
 
-            foreach (var item in GetComponent<Level4Spawn>().SpawnPosition)
+            foreach (var item in GetComponent<Level4Spawn>().spawnPosition)
             {
                 if (item.activeSelf)
                 {
