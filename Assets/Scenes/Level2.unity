@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 23709233}
   m_Layer: 9
   m_Name: Window2
-  m_TagString: Spawn7
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 83434219}
   m_Layer: 9
   m_Name: Window3
-  m_TagString: Spawn8
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -862,7 +862,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f1b63f81a2a2d4bab0770d4d06df4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: -3, z: 0}
   sound: {fileID: 8300000, guid: 96e7cc73854eaf64cb97b40cc53b3d48, type: 3}
   bgBlack: {fileID: 2064700451}
 --- !u!114 &285091690
@@ -935,6 +934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d827894b90d048989b86512a67d43b29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comparisonMethod: 0
   draggableLayerMask:
     serializedVersion: 2
     m_Bits: 8192
@@ -955,7 +955,7 @@ GameObject:
   - component: {fileID: 300495490}
   m_Layer: 9
   m_Name: Anchor
-  m_TagString: Spawn1
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1451,7 +1451,7 @@ GameObject:
   - component: {fileID: 452108310}
   m_Layer: 9
   m_Name: Barrage
-  m_TagString: Spawn2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1890,7 +1890,7 @@ GameObject:
   - component: {fileID: 726017403}
   m_Layer: 9
   m_Name: Flag
-  m_TagString: Spawn3
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2060,7 +2060,7 @@ GameObject:
   - component: {fileID: 785500616}
   m_Layer: 9
   m_Name: Rope
-  m_TagString: Spawn5
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2357,7 +2357,7 @@ GameObject:
   - component: {fileID: 881356995}
   m_Layer: 9
   m_Name: Lifebuoy
-  m_TagString: Spawn4
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3206,7 +3206,7 @@ GameObject:
   - component: {fileID: 1754107500}
   m_Layer: 9
   m_Name: Window1
-  m_TagString: Spawn6
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

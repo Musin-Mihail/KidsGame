@@ -5,6 +5,15 @@ using UnityEngine.InputSystem;
 namespace InputController
 {
     /// <summary>
+    /// Определяет метод сравнения перетаскиваемого объекта с целью.
+    /// </summary>
+    public enum ComparisonType
+    {
+        LevelCheckByName,
+        LevelCheckByTag
+    }
+
+    /// <summary>
     /// Универсальный контроллер, отвечающий за механику перетаскивания объектов (Drag and Drop).
     /// Он содержит всю общую логику и не зависит от конкретного уровня.
     /// Версия с поддержкой как мыши, так и сенсорного ввода.
@@ -12,6 +21,10 @@ namespace InputController
     public class DragAndDropController : MonoBehaviour
     {
         public event Action<GameObject, Collider2D> OnSuccessfulDrop;
+
+        [Header("Логика сравнения")]
+        [Tooltip("Выберите, как сравнивать перетаскиваемый объект с целью.")]
+        [SerializeField] private ComparisonType comparisonMethod = ComparisonType.LevelCheckByName;
 
         [Header("Настройки слоев")]
         [Tooltip("Слой, на котором находятся объекты, которые можно перетаскивать.")]
@@ -89,9 +102,22 @@ namespace InputController
         {
             if (!_draggedObject) return;
             var hitCollider = Physics2D.OverlapCircle(_draggedObject.transform.position, 0.1f, targetLayerMask);
-            if (hitCollider && hitCollider.CompareTag(_draggedObject.tag))
+            if (hitCollider)
             {
-                OnSuccessfulDrop?.Invoke(_draggedObject, hitCollider);
+                var isMatch = comparisonMethod switch
+                {
+                    ComparisonType.LevelCheckByName => hitCollider.gameObject.name == _draggedObject.name,
+                    ComparisonType.LevelCheckByTag => hitCollider.CompareTag(_draggedObject.tag),
+                    _ => false
+                };
+                if (isMatch)
+                {
+                    OnSuccessfulDrop?.Invoke(_draggedObject, hitCollider);
+                }
+                else
+                {
+                    _draggedObject.transform.position = _startPosition;
+                }
             }
             else
             {

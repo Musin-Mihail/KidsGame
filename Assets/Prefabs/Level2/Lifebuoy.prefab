@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1837064368297564476}
   m_Layer: 13
   m_Name: Lifebuoy
-  m_TagString: Spawn4
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

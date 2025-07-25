@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4427689240183364594}
   m_Layer: 13
   m_Name: Turtle
-  m_TagString: Spawn8
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

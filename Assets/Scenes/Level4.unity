@@ -1507,7 +1507,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f1b63f81a2a2d4bab0770d4d06df4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: -3, y: 0, z: 0}
   sound: {fileID: 8300000, guid: 96e7cc73854eaf64cb97b40cc53b3d48, type: 3}
   bgBlack: {fileID: 789985699}
 --- !u!114 &1066311947
@@ -1550,6 +1549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d827894b90d048989b86512a67d43b29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comparisonMethod: 1
   draggableLayerMask:
     serializedVersion: 2
     m_Bits: 8192

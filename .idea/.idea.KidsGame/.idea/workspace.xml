@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7313cf86-6b92-4f5e-b60f-6a57ae13d2c3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.KidsGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KidsGame/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level1/Fish.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level1/Fish.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level1/Jellyfish.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level1/Jellyfish.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level1/Octopus.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level1/Octopus.prefab" afterDir="false" />
@@ -21,22 +22,11 @@
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level2/Window1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level2/Window1.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level2/Window2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level2/Window2.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level2/Window3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level2/Window3.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level4/Dog.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level4/Dog.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level2.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level4.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/BaseLevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/BaseLevelManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Direction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Direction.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputController/DragAndDropController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputController/DragAndDropController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputController/LevelDropHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputController/LevelDropHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Global.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Global.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level4/Level4Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level4/Level4Global.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level4/Level4Mouse.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level4/Level4Mouse.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level4/Level4Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level4/Level4Spawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -182,7 +172,7 @@
       <workItem from="1753165989250" duration="24689000" />
       <workItem from="1753255093814" duration="6296000" />
       <workItem from="1753360508863" duration="2726000" />
-      <workItem from="1753434271797" duration="9116000" />
+      <workItem from="1753434271797" duration="10242000" />
     </task>
     <servers />
   </component>
@@ -230,13 +220,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/InputController/LevelDropHandler.cs</url>
-          <line>86</line>
+          <line>87</line>
           <properties documentPath="D:\Repositories\KidsGame\Assets\Scripts\InputController\LevelDropHandler.cs" containingFunctionPresentation="Method 'HandleLevel1Drop'">
             <startOffsets>
-              <option value="3153" />
+              <option value="3142" />
             </startOffsets>
             <endOffsets>
-              <option value="3176" />
+              <option value="3165" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="12" />

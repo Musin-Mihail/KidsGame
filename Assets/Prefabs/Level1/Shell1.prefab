@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2519017670553662809}
   m_Layer: 13
   m_Name: Shell1
-  m_TagString: Spawn5
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

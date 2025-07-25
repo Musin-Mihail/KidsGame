@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6728194871047043433}
   m_Layer: 13
   m_Name: Anchor
-  m_TagString: Spawn1
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

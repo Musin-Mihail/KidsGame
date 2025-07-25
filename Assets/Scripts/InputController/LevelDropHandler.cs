@@ -58,7 +58,7 @@ namespace InputController
                     HandleLevel2Drop(draggedObject, targetCollider);
                     break;
                 case LevelType.Level3:
-                    HandleLevel3Drop(targetCollider);
+                    HandleLevel3Drop(draggedObject, targetCollider);
                     break;
                 case LevelType.Level4:
                     HandleLevel4Drop(draggedObject, targetCollider);
@@ -105,10 +105,11 @@ namespace InputController
             Destroy(draggedObject);
         }
 
-        private void HandleLevel3Drop(Collider2D targetCollider)
+        private void HandleLevel3Drop(GameObject draggedObject, Collider2D targetCollider)
         {
             if (WinBobbles.instance) WinBobbles.instance.victory--;
             Debug.Log("Обработчик для Уровня 3 сработал!");
+            draggedObject.gameObject.SetActive(false);
             if (Level3Global.instance)
             {
                 Level3Global.instance.ChangeFigure();
@@ -152,7 +153,7 @@ namespace InputController
 
             var childObjectTransform = targetCollider.transform.Find(draggedObject.name);
 
-            if (childObjectTransform != null)
+            if (childObjectTransform)
             {
                 StartCoroutine(MoveAndActivate(draggedObject, childObjectTransform.gameObject));
             }

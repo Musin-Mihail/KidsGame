@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6929657454776197339}
   m_Layer: 13
   m_Name: Jellyfish
-  m_TagString: Spawn2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
