@@ -89,7 +89,7 @@ namespace InputController
         {
             if (!_draggedObject) return;
             var hitCollider = Physics2D.OverlapCircle(_draggedObject.transform.position, 0.1f, targetLayerMask);
-            if (hitCollider && hitCollider.name == _draggedObject.name)
+            if (hitCollider && hitCollider.CompareTag(_draggedObject.tag))
             {
                 OnSuccessfulDrop?.Invoke(_draggedObject, hitCollider);
             }

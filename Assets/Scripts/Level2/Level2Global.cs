@@ -23,6 +23,7 @@ namespace Level2
         {
             base.Start();
             _targetBoat = new Vector3(-15, 1.1f, 2.89f);
+            WinBobbles.instance.victory = 8;
         }
 
         private void Update()

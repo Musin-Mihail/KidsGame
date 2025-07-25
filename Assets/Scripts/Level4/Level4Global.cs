@@ -1,142 +1,91 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core;
 using UnityEngine;
 
 namespace Level4
 {
-    public class Level4Global : MonoBehaviour
+    /// <summary>
+    /// Менеджер 4-го уровня. Управляет состоянием уровня, победой и инициализацией.
+    /// Наследуется от BaseLevelManager для использования общей логики.
+    /// </summary>
+    public class Level4Global : BaseLevelManager<Level4Global>
     {
-        public static Level4Global instance { get; private set; }
-        public List<GameObject> allAnimals = new();
-        public static List<GameObject> AllCollected = new();
-        public static List<GameObject> AllAnimalsStatic = new();
-        public List<GameObject> allZone = new();
-        public GameObject finger;
-        public static int WaitHint;
-        public Level4Spawn level4Spawn;
-        private int _hintTime;
-        private int _stop;
+        [Header("Настройки уровня 4")]
+        [Tooltip("Спаунер для этого уровня. Должен находиться на том же GameObject.")]
+        [SerializeField] private Level4Spawn level4Spawn;
 
-        private void Awake()
+        public List<GameObject> collectedItems = new();
+        private bool _isVictoryTriggered;
+
+        protected override void Awake()
         {
-            if (instance && !Equals(instance, this))
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                instance = this;
-            }
+            base.Awake();
+            if (!level4Spawn) level4Spawn = GetComponent<Level4Spawn>();
         }
 
-        private void Start()
+        protected override void Start()
         {
-            WinBobbles.instance.victory = allAnimals.Count;
-            for (var i = 0; i < allAnimals.Count; i++)
-            {
-                var chance = Random.Range(0, 9);
-                (allAnimals[i], allAnimals[chance]) = (allAnimals[chance], allAnimals[i]);
-            }
-
-            AllAnimalsStatic = allAnimals;
-            AllCollected = new List<GameObject>();
-            StartCoroutine(StartHint());
+            base.Start();
+            WinBobbles.instance.victory = 10;
         }
 
         private void Update()
         {
-            if (WinBobbles.instance.victory == 0 && _stop == 0)
+            if (_isVictoryTriggered || !WinBobbles.instance || WinBobbles.instance.victory != 0) return;
+            _isVictoryTriggered = true;
+            StartCoroutine(WinAnimation());
+        }
+
+        /// <summary>
+        /// Инициализирует спаунер. Вызывается из BaseLevelManager.Start().
+        /// </summary>
+        protected override void InitializeSpawner()
+        {
+            if (level4Spawn)
             {
-                _stop = 1;
-                StartCoroutine(Win2());
+                level4Spawn.Initialization();
+            }
+            else
+            {
+                Debug.LogError("Level4Spawn не назначен или не найден на объекте Level4Global!");
             }
         }
 
-        private IEnumerator Win2()
+        /// <summary>
+        /// Инициализирует систему подсказок. Вызывается из BaseLevelManager.Start().
+        /// </summary>
+        protected override void InitializeHint()
         {
-            foreach (var item in AllCollected)
+            if (hint && level4Spawn)
             {
-                StartCoroutine(item.GetComponent<WinUp>().Win());
-                yield return new WaitForSeconds(0.05f);
+                hint.Initialization(allTargets, level4Spawn.activeItem);
+                StartCoroutine(hint.StartHint());
+            }
+            else
+            {
+                Debug.LogError("Компонент Hint или Level4Spawn не найден!");
             }
         }
 
-        private IEnumerator StartHint()
+        /// <summary>
+        /// Победная анимация для всех собранных предметов.
+        /// </summary>
+        private IEnumerator WinAnimation()
         {
-            while (WinBobbles.instance.victory != 0)
+            if (hint)
             {
-                while (_hintTime < 4)
-                {
-                    yield return new WaitForSeconds(1.0f);
-                    if (WaitHint == 1)
-                    {
-                        _hintTime = 0;
-                        WaitHint = 0;
-                        break;
-                    }
-
-                    _hintTime++;
-                }
-
-                if (_hintTime >= 4)
-                {
-                    StartCoroutine(Hint());
-                }
-
-                _hintTime = 0;
-                yield return new WaitForSeconds(1.0f);
-            }
-        }
-
-        private IEnumerator Hint()
-        {
-            var start = new Vector3(0, 10, 0);
-            var end = new Vector3(0, 10, 0);
-            var check = 0;
-            var itemTag = "";
-
-            foreach (var item in GetComponent<Level4Spawn>().spawnPosition)
-            {
-                if (item.activeSelf)
-                {
-                    itemTag = item.tag;
-                    start = item.transform.position;
-                    check = 1;
-                    break;
-                }
+                hint.StopAllCoroutines();
             }
 
-            if (check == 1)
+            yield return new WaitForSeconds(0.5f);
+
+            foreach (var item in collectedItems)
             {
-                foreach (var item in allZone)
-                {
-                    if (itemTag == item.tag)
-                    {
-                        check = 2;
-                        end = item.transform.position;
-                        break;
-                    }
-                }
+                if (!item || !item.TryGetComponent<WinUp>(out var winUp)) continue;
+                StartCoroutine(winUp.Win());
+                yield return new WaitForSeconds(0.1f);
             }
-
-            start.z = -1;
-            finger.transform.position = start;
-            if (check == 2)
-            {
-                while (finger.transform.position != end)
-                {
-                    finger.transform.position = Vector3.MoveTowards(finger.transform.position, end, 0.1f);
-                    if (WaitHint == 1)
-                    {
-                        finger.transform.position = new Vector3(0, 10, 0);
-                        break;
-                    }
-
-                    yield return new WaitForSeconds(0.01f);
-                }
-            }
-
-            finger.transform.position = new Vector3(0, 10, 0);
         }
     }
 }

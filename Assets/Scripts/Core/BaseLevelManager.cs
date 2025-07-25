@@ -26,11 +26,6 @@ namespace Core
 
         protected virtual void Start()
         {
-            if (WinBobbles.instance != null)
-            {
-                WinBobbles.instance.victory = allTargets.Count;
-            }
-
             Shuffle(allItems);
 
             InitializeSpawner();

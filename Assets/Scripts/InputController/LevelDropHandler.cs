@@ -1,5 +1,9 @@
+// D:\Repositories\KidsGame\Assets\Scripts\InputController\LevelDropHandler.cs
+
+using System.Collections;
 using Level1;
 using Level3;
+using Level4;
 using UnityEngine;
 
 namespace InputController
@@ -17,7 +21,8 @@ namespace InputController
         {
             Level1,
             Level2,
-            Level3
+            Level3,
+            Level4
         }
         [SerializeField] private LevelType currentLevel;
 
@@ -44,14 +49,6 @@ namespace InputController
         /// <param name="targetCollider">Коллайдер цели, на которую поместили объект.</param>
         private void HandleDrop(GameObject draggedObject, Collider2D targetCollider)
         {
-            targetCollider.GetComponent<SoundClickItem>()?.Play();
-
-            if (WinBobbles.instance)
-            {
-                WinBobbles.instance.victory--;
-            }
-
-            draggedObject.SetActive(false);
             switch (currentLevel)
             {
                 case LevelType.Level1:
@@ -61,19 +58,23 @@ namespace InputController
                     HandleLevel2Drop(draggedObject, targetCollider);
                     break;
                 case LevelType.Level3:
-                    HandleLevel3Drop();
+                    HandleLevel3Drop(targetCollider);
+                    break;
+                case LevelType.Level4:
+                    HandleLevel4Drop(draggedObject, targetCollider);
                     break;
             }
         }
 
         private void HandleLevel1Drop(GameObject draggedObject, Collider2D targetCollider)
         {
+            if (WinBobbles.instance) WinBobbles.instance.victory--;
+            Debug.Log(WinBobbles.instance.victory);
+
             Debug.Log("Обработчик для Уровня 1 сработал!");
             var newVector3 = targetCollider.transform.position;
             Instantiate(Resources.Load<ParticleSystem>("BubblesLevel1"), newVector3, Quaternion.Euler(-90, -40, 0));
-
             targetCollider.GetComponent<SpriteRenderer>().sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
-
             var level1Spawn = Level1Global.instance.level1Spawn;
             if (!level1Spawn) return;
             for (var i = 0; i < level1Spawn.activeItem.Count; i++)
@@ -82,10 +83,14 @@ namespace InputController
                 level1Spawn.SpawnAnimal(i);
                 break;
             }
+
+            targetCollider.GetComponent<SoundClickItem>()?.Play();
+            Destroy(draggedObject);
         }
 
         private void HandleLevel2Drop(GameObject draggedObject, Collider2D targetCollider)
         {
+            if (WinBobbles.instance) WinBobbles.instance.victory--;
             Debug.Log("Обработчик для Уровня 2 сработал!");
             if (targetCollider.name == "Flag")
             {
@@ -95,13 +100,14 @@ namespace InputController
             {
                 targetCollider.GetComponent<SpriteRenderer>().sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
             }
+
+            targetCollider.GetComponent<SoundClickItem>()?.Play();
+            Destroy(draggedObject);
         }
 
-        /// <summary>
-        /// Обработчик для логики третьего уровня.
-        /// </summary>
-        private void HandleLevel3Drop()
+        private void HandleLevel3Drop(Collider2D targetCollider)
         {
+            if (WinBobbles.instance) WinBobbles.instance.victory--;
             Debug.Log("Обработчик для Уровня 3 сработал!");
             if (Level3Global.instance)
             {
@@ -111,6 +117,74 @@ namespace InputController
             {
                 Debug.LogError("Level3Global.instance не найден! Убедитесь, что объект с этим скриптом существует на сцене.");
             }
+
+            targetCollider.GetComponent<SoundClickItem>()?.Play();
+        }
+
+        /// <summary>
+        /// Обработчик для логики четвертого уровня. Проверяет совпадение тегов.
+        /// </summary>
+        private void HandleLevel4Drop(GameObject draggedObject, Collider2D targetCollider)
+        {
+            Debug.Log("Обработчик для Уровня 4 сработал!");
+            if (!targetCollider.CompareTag(draggedObject.tag))
+            {
+                return;
+            }
+
+            if (WinBobbles.instance)
+            {
+                WinBobbles.instance.victory--;
+            }
+
+            if (targetCollider.CompareTag("Water"))
+            {
+                var particlePosition = draggedObject.transform.position;
+                particlePosition.z += 0.5f;
+                Instantiate(Resources.Load<ParticleSystem>("Bubbles"), particlePosition, Quaternion.Euler(-90, -40, 0));
+            }
+
+            var spawner = Level4Global.instance.GetComponent<Level4Spawn>();
+            if (spawner)
+            {
+                spawner.RespawnAnimal(draggedObject);
+            }
+
+            var childObjectTransform = targetCollider.transform.Find(draggedObject.name);
+
+            if (childObjectTransform != null)
+            {
+                StartCoroutine(MoveAndActivate(draggedObject, childObjectTransform.gameObject));
+            }
+            else
+            {
+                Debug.LogWarning($"Не удалось найти дочерний объект с именем '{draggedObject.name}' у цели '{targetCollider.name}'.");
+                Destroy(draggedObject);
+            }
+        }
+
+        /// <summary>
+        /// Корутина для плавного перемещения объекта к цели, активации дочернего объекта и удаления исходного.
+        /// </summary>
+        private IEnumerator MoveAndActivate(GameObject objectToMove, GameObject childToActivate)
+        {
+            if (objectToMove.TryGetComponent<Collider2D>(out var collider))
+            {
+                collider.enabled = false;
+            }
+
+            const float speed = 15f;
+            var targetPosition = childToActivate.transform.position;
+
+            while (Vector3.Distance(objectToMove.transform.position, targetPosition) > 0.01f)
+            {
+                objectToMove.transform.position = Vector3.MoveTowards(objectToMove.transform.position, targetPosition, Time.deltaTime * speed);
+                yield return null;
+            }
+
+            childToActivate.SetActive(true);
+            childToActivate.GetComponent<SoundClickItem>()?.Play();
+            Destroy(objectToMove);
         }
     }
 }

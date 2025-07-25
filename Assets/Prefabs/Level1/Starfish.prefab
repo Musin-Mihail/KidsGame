@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5125371525960885994}
   m_Layer: 13
   m_Name: Starfish
-  m_TagString: Untagged
+  m_TagString: Spawn7
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,8 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c8084546038d94fb6310bec24aa96d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 1
-  StartPosition: {x: 0, y: 0, z: 0}
+  state: 1
+  startPosition: {x: 0, y: 0, z: 0}
+  endPosition: {x: 0, y: 0, z: 0}
 --- !u!61 &6790414168967580728
 BoxCollider2D:
   m_ObjectHideFlags: 0

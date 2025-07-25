@@ -1,38 +1,60 @@
-using System.Collections.Generic;
+using System.Linq;
+using Core;
 using UnityEngine;
 
 namespace Level4
 {
-    public class Level4Spawn : MonoBehaviour
+    /// <summary>
+    /// Спаунер для 4-го уровня. Наследуется от BaseSpawner.
+    /// Отвечает за создание и замену перетаскиваемых животных.
+    /// </summary>
+    public class Level4Spawn : BaseSpawner
     {
-        public List<GameObject> spawnPositionVector;
-        [HideInInspector] public List<GameObject> spawnPosition = new() { null, null, null };
-
-        private void Start()
+        /// <summary>
+        /// Инициализация спаунера. Создает начальный набор животных.
+        /// </summary>
+        public override void Initialization()
         {
-            for (var i = 0; i < 3; i++)
+            activeItem = new GameObject[startSpawnPositions.Count].ToList();
+            for (var i = 0; i < startSpawnPositions.Count; i++)
             {
                 SpawnAnimal(i);
             }
         }
 
-        private void SpawnAnimal(int number)
+        /// <summary>
+        /// Создает новое животное на указанной позиции.
+        /// </summary>
+        /// <param name="index">Индекс в списке startSpawnPositions, куда нужно создать животное.</param>
+        private void SpawnAnimal(int index)
         {
-            if (Level4Global.AllAnimalsStatic.Count <= 0) return;
-            var animal = Instantiate(Level4Global.AllAnimalsStatic[0], spawnPositionVector[number].transform.position, Quaternion.identity);
-            animal.name = Level4Global.AllAnimalsStatic[0].name;
-            spawnPosition[number] = animal;
-            Level4Global.AllAnimalsStatic.RemoveAt(0);
+            if (Level4Global.instance.allItems.Count <= 0 || index < 0 || index >= activeItem.Count) return;
+            var animalPrefab = Level4Global.instance.allItems[0];
+            var spawnPosition = startSpawnPositions[index].transform.position;
+            var newAnimal = Instantiate(animalPrefab, spawnPosition, Quaternion.identity, parent);
+            newAnimal.name = animalPrefab.name;
+            activeItem[index] = newAnimal;
+            var moveItem = newAnimal.GetComponent<MoveItem>();
+            if (moveItem)
+            {
+                moveItem.Initialization(startSpawnPositions[index].transform.position, endSpawnPositions[index].transform.position);
+                StartCoroutine(moveItem.Move());
+            }
+
+            Level4Global.instance.allItems.RemoveAt(0);
         }
 
-        public void SearchFreeSpace(string nameAnimal)
+        /// <summary>
+        /// Находит место размещенного животного и спаунит там новое.
+        /// </summary>
+        /// <param name="placedAnimal">Животное, которое было только что успешно размещено.</param>
+        public void RespawnAnimal(GameObject placedAnimal)
         {
-            for (var i = 0; i < 3; i++)
+            var index = activeItem.FindIndex(item => item == placedAnimal);
+
+            if (index != -1)
             {
-                if (nameAnimal == spawnPosition[i].name)
-                {
-                    SpawnAnimal(i);
-                }
+                SpawnAnimal(index);
             }
         }
     }

@@ -13,6 +13,12 @@ namespace Level1
             level1Spawn = GetComponent<Level1Spawn>();
         }
 
+        protected override void Start()
+        {
+            base.Start();
+            WinBobbles.instance.victory = 8;
+        }
+
         protected override void InitializeSpawner()
         {
             if (level1Spawn)
