@@ -529,12 +529,12 @@ GameObject:
   - component: {fileID: 238641704}
   - component: {fileID: 238641703}
   m_Layer: 5
-  m_Name: Image
+  m_Name: WinBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &238641702
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1046,12 +1046,12 @@ GameObject:
   - component: {fileID: 567300558}
   - component: {fileID: 567300557}
   m_Layer: 5
-  m_Name: CanvasWinBG
+  m_Name: CanvasWin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &567300557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1432,6 +1432,54 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &814392672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 814392674}
+  - component: {fileID: 814392673}
+  m_Layer: 0
+  m_Name: WinBobbles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &814392673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814392672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d899a1bacec684a85055bd616c746e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgBlack: {fileID: 238641701}
+  bubble: {fileID: 4912721534522409081, guid: e2b69a1f651e82f4692603bed8207f36, type: 3}
+  count: 30
+  victory: 0
+--- !u!4 &814392674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814392672}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1731143650}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &826256600
 GameObject:
@@ -1939,7 +1987,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1731143650}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1087583719
 GameObject:
@@ -3023,8 +3071,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1731143650}
-  - component: {fileID: 1731143647}
-  - component: {fileID: 1731143646}
   - component: {fileID: 1731143645}
   m_Layer: 0
   m_Name: Game
@@ -3096,34 +3142,6 @@ MonoBehaviour:
   TargetDistans: {fileID: 1535374044}
   Finger: {fileID: 790335858}
   _scale: {fileID: 1585612702213985037}
---- !u!114 &1731143646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1731143644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9f1b63f81a2a2d4bab0770d4d06df4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bgBlack: {fileID: 0}
---- !u!114 &1731143647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1731143644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4d899a1bacec684a85055bd616c746e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bubble: {fileID: 0}
-  count: 30
-  victory: 1
 --- !u!4 &1731143650
 Transform:
   m_ObjectHideFlags: 0
@@ -3136,7 +3154,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1076145848}
+  - {fileID: 814392674}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1818728935
@@ -3807,7 +3827,6 @@ SceneRoots:
   - {fileID: 418522608}
   - {fileID: 826256604}
   - {fileID: 506602157}
-  - {fileID: 1731143650}
   - {fileID: 790335860}
   - {fileID: 1284079392}
   - {fileID: 9469776}
@@ -3816,4 +3835,4 @@ SceneRoots:
   - {fileID: 1304476177}
   - {fileID: 1674246032}
   - {fileID: 1535374045}
-  - {fileID: 1076145848}
+  - {fileID: 1731143650}

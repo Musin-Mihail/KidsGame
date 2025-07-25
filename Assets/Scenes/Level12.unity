@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 69760048}
   - component: {fileID: 69760047}
   m_Layer: 5
-  m_Name: CanvasWinBG
+  m_Name: CanvasWin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1020,7 +1020,7 @@ GameObject:
   - component: {fileID: 478197179}
   - component: {fileID: 478197178}
   m_Layer: 5
-  m_Name: Image
+  m_Name: WinBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3212,7 +3212,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1385257629}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1015608746
 PrefabInstance:
@@ -3438,6 +3438,54 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1182192373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1182192375}
+  - component: {fileID: 1182192374}
+  m_Layer: 0
+  m_Name: WinBobbles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1182192374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182192373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d899a1bacec684a85055bd616c746e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgBlack: {fileID: 478197176}
+  bubble: {fileID: 4912721534522409081, guid: e2b69a1f651e82f4692603bed8207f36, type: 3}
+  count: 30
+  victory: 0
+--- !u!4 &1182192375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182192373}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1385257629}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1187673157
 GameObject:
   m_ObjectHideFlags: 0
@@ -3876,8 +3924,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1385257629}
-  - component: {fileID: 1385257626}
-  - component: {fileID: 1385257625}
   - component: {fileID: 1385257624}
   m_Layer: 0
   m_Name: Game
@@ -3918,34 +3964,6 @@ MonoBehaviour:
   - {fileID: 886658552}
   Target: {fileID: 1558433145}
   Finger: {fileID: 153409084}
---- !u!114 &1385257625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1385257623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9f1b63f81a2a2d4bab0770d4d06df4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bgBlack: {fileID: 0}
---- !u!114 &1385257626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1385257623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4d899a1bacec684a85055bd616c746e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bubble: {fileID: 0}
-  count: 30
-  victory: 1
 --- !u!4 &1385257629
 Transform:
   m_ObjectHideFlags: 0
@@ -3958,7 +3976,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 987519339}
+  - {fileID: 1182192375}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1411980844
@@ -5923,10 +5943,9 @@ SceneRoots:
   - {fileID: 1224859967}
   - {fileID: 153256959}
   - {fileID: 1328916180}
-  - {fileID: 1385257629}
   - {fileID: 153409086}
   - {fileID: 1722198611}
   - {fileID: 1020234396}
   - {fileID: 69760050}
   - {fileID: 1187673159}
-  - {fileID: 987519339}
+  - {fileID: 1385257629}

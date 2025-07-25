@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 public class WinBobbles : MonoBehaviour
 {
     public static WinBobbles instance { get; private set; }
+    [Header("Настройки победы")]
+    [Tooltip("Объект, который появляется при победе (черный фон)")]
+    public GameObject bgBlack;
+    [Tooltip("Префаб пузырька для победной анимации")]
     public GameObject bubble;
     [HideInInspector] public int count = 30;
     [HideInInspector] public int victory = 1;
-
     private int _stop;
 
     private void Awake()
@@ -37,10 +40,21 @@ public class WinBobbles : MonoBehaviour
         Invoke("LoadScene", 2.0f);
     }
 
+    /// <summary>
+    /// Корутина, запускающая победную анимацию.
+    /// </summary>
     public IEnumerator Win()
     {
         yield return new WaitForSeconds(1);
-        Direction.instance.bgBlack.SetActive(true);
+        if (bgBlack)
+        {
+            bgBlack.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("Объект для фона победы (bgBlack) не назначен в инспекторе!", this);
+        }
+
         var y = -7.0f;
         for (var i = 0; i < 31; i++)
         {

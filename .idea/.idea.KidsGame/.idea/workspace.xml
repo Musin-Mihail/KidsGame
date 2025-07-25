@@ -6,29 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7313cf86-6b92-4f5e-b60f-6a57ae13d2c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KidsGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KidsGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level11/FishChest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level11/FishChest.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/circle1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/circle1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/circle2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/circle2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/oval1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/oval1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/oval2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/oval2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/rectangle1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/rectangle1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/rectangle2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/rectangle2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/square1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/square1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/square2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/square2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/star1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/star1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/star2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/star2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/triangle1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/triangle1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/triangle2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level5/Prebaf/triangle2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Menu/Target1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Menu/Target1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PluginYourGames/Editor/BuildLogYG2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PluginYourGames/Editor/BuildLogYG2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level2/Anchor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level2/Anchor.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level2/Barrage.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level2/Barrage.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level2/Flag.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level2/Flag.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level2/Lifebuoy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level2/Lifebuoy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level2/Rope.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level2/Rope.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level2/Window1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level2/Window1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level2/Window2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level2/Window2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level2/Window3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level2/Window3.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level10.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level10.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level11.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level11.unity" afterDir="false" />
@@ -41,21 +18,8 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level7.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level7.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level8.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level8.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level9.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level9.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Direction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Direction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputController/LevelDropHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputController/LevelDropHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level10/Level10Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level10/Level10Mouse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level11/Level11Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level11/Level11Mouse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12Mouse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level5/Level5Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level5/Level5Mouse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level6/Level6Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level6/Level6Mouse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level7/Level7Mouse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level8/Level8Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level8/Level8Mouse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level9/Level9Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level9/Level9Mouse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SoundClickItem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SoundClickItem.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/WinBobbles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WinBobbles.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +164,7 @@
       <workItem from="1753165989250" duration="24689000" />
       <workItem from="1753255093814" duration="6296000" />
       <workItem from="1753360508863" duration="2726000" />
-      <workItem from="1753434271797" duration="12867000" />
+      <workItem from="1753434271797" duration="13870000" />
     </task>
     <servers />
   </component>
