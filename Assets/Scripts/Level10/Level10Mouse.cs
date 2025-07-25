@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 namespace Level10
@@ -38,7 +39,7 @@ namespace Level10
                 {
                     if (hitCollider.tag == _gameObject.tag)
                     {
-                        hitCollider.GetComponent<SoundClickItem>().Play();
+                        AudioManager.instance.PlayClickSound();
                         var allChildren = hitCollider.GetComponentsInChildren<Transform>();
                         foreach (var item in allChildren)
                         {

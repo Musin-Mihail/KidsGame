@@ -40,7 +40,7 @@ public class WinBobbles : MonoBehaviour
     public IEnumerator Win()
     {
         yield return new WaitForSeconds(1);
-        Direction.Instance.bgBlack.SetActive(true);
+        Direction.instance.bgBlack.SetActive(true);
         var y = -7.0f;
         for (var i = 0; i < 31; i++)
         {

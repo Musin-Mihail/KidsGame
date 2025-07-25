@@ -1,4 +1,5 @@
 using System.Collections;
+using Core;
 using UnityEngine;
 
 namespace Level12
@@ -20,7 +21,7 @@ namespace Level12
 
         private void Particle()
         {
-            GetComponent<SoundClickItem>().Play();
+            AudioManager.instance.PlayClickSound();
             Instantiate(Resources.Load<ParticleSystem>("ParticleSrarsLevel11"), transform.position, Quaternion.Euler(-90, 0, 0));
         }
 

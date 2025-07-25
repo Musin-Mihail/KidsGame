@@ -1,4 +1,5 @@
 using System.Collections;
+using Core;
 using UnityEngine;
 
 namespace Level11
@@ -22,7 +23,7 @@ namespace Level11
                 var stars = Instantiate(Resources.Load<ParticleSystem>("ParticleSrarsLevel11"));
                 stars.transform.position = gameObject.transform.position;
                 GetComponent<BoxCollider2D>().enabled = false;
-                GetComponent<SoundClickItem>().Play();
+                AudioManager.instance.PlayClickSound();
                 StartCoroutine(Move(Level11.count));
                 Level11.count++;
                 Level11.WaitHint = 1;

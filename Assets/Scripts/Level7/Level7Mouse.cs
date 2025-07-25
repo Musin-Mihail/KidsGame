@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 namespace Level7
@@ -38,7 +39,7 @@ namespace Level7
                 {
                     if (hitCollider.name == _gameObject.name)
                     {
-                        hitCollider.GetComponent<SoundClickItem>().Play();
+                        AudioManager.instance.PlayClickSound();
                         hitCollider.GetComponent<SpriteRenderer>().sprite = _gameObject.GetComponent<SpriteRenderer>().sprite;
                         hitCollider.transform.localScale = _gameObject.transform.localScale * 100;
                         _gameObject.SetActive(false);

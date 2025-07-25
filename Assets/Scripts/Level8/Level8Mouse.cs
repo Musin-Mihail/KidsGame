@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 namespace Level8
@@ -38,7 +39,7 @@ namespace Level8
                 {
                     if (hitCollider.name == _gameObject.name)
                     {
-                        hitCollider.GetComponent<SoundClickItem>().Play();
+                        AudioManager.instance.PlayClickSound();
                         _gameObject.GetComponent<BoxCollider2D>().enabled = false;
                         _gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
                         _gameObject.transform.position = hitCollider.transform.position;

@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 namespace Level5
@@ -37,7 +38,7 @@ namespace Level5
                 {
                     if (hitColliders.tag == _gameObject.tag)
                     {
-                        hitColliders.GetComponent<SoundClickItem>().Play();
+                        AudioManager.instance.PlayClickSound();
                         var newVector3 = hitColliders.transform.position;
                         newVector3.z += 0.5f;
                         Instantiate(Resources.Load<ParticleSystem>("Bubbles"), newVector3, Quaternion.Euler(-90, -40, 0));

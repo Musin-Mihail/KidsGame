@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 namespace Level9
@@ -38,7 +39,7 @@ namespace Level9
                 {
                     if (hitCollider.tag == _gameObject.tag)
                     {
-                        hitCollider.GetComponent<SoundClickItem>().Play();
+                        AudioManager.instance.PlayClickSound();
                         _gameObject.SetActive(false);
                         Level9Global._level9Spawn.GetComponent<Level9Spawn>().SearchFreePlace();
                         WinBobbles.instance.victory--;

@@ -1,6 +1,7 @@
 // D:\Repositories\KidsGame\Assets\Scripts\InputController\LevelDropHandler.cs
 
 using System.Collections;
+using Core;
 using Level1;
 using Level3;
 using Level4;
@@ -84,7 +85,7 @@ namespace InputController
                 break;
             }
 
-            targetCollider.GetComponent<SoundClickItem>()?.Play();
+            AudioManager.instance.PlayClickSound(); // <- ИЗМЕНЕНО
             Destroy(draggedObject);
         }
 
@@ -101,7 +102,7 @@ namespace InputController
                 targetCollider.GetComponent<SpriteRenderer>().sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
             }
 
-            targetCollider.GetComponent<SoundClickItem>()?.Play();
+            AudioManager.instance.PlayClickSound(); // <- ИЗМЕНЕНО
             Destroy(draggedObject);
         }
 
@@ -119,7 +120,7 @@ namespace InputController
                 Debug.LogError("Level3Global.instance не найден! Убедитесь, что объект с этим скриптом существует на сцене.");
             }
 
-            targetCollider.GetComponent<SoundClickItem>()?.Play();
+            AudioManager.instance.PlayClickSound(); // <- ИЗМЕНЕНО
         }
 
         /// <summary>
@@ -155,6 +156,7 @@ namespace InputController
 
             if (childObjectTransform)
             {
+                AudioManager.instance.PlayClickSound();
                 StartCoroutine(MoveAndActivate(draggedObject, childObjectTransform.gameObject));
             }
             else
@@ -184,7 +186,6 @@ namespace InputController
             }
 
             childToActivate.SetActive(true);
-            childToActivate.GetComponent<SoundClickItem>()?.Play();
             Destroy(objectToMove);
         }
     }

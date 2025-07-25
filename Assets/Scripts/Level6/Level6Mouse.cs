@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 namespace Level6
@@ -39,7 +40,7 @@ namespace Level6
                 {
                     if (hitCollider.tag == _gameObject.tag)
                     {
-                        hitCollider.GetComponent<SoundClickItem>().Play();
+                        AudioManager.instance.PlayClickSound();
                         var place = hitCollider.GetComponent<Level6Chest>().BusyPlaces;
                         var go = new GameObject();
                         go.transform.parent = hitCollider.transform;
