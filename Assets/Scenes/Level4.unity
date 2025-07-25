@@ -1406,7 +1406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00adf4ff86acea044ba292d716727044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AllAnimals:
+  allAnimals:
   - {fileID: 1937004295028797795, guid: 084e4a50d8677d9459c629d9fc96fd37, type: 3}
   - {fileID: 7547282802031887376, guid: 640719826c3b37746be61da3ae7334ea, type: 3}
   - {fileID: 7601839416509503672, guid: d4354f37516079c4a9acf5f023ddee4d, type: 3}
@@ -1417,10 +1417,11 @@ MonoBehaviour:
   - {fileID: 875119997136951458, guid: c0bd7f86e08727540b721954d18629a9, type: 3}
   - {fileID: 6079516619482936741, guid: 35402ad0d1db77343b71fc7dfc587725, type: 3}
   - {fileID: 252527899979710103, guid: bcb9e40b26a2fab4782f48f0132d095b, type: 3}
-  AllZone:
+  allZone:
   - {fileID: 82215676}
   - {fileID: 172623946}
-  Finger: {fileID: 1170274516}
+  finger: {fileID: 1170274516}
+  level4Spawn: {fileID: 1066311945}
 --- !u!4 &1066311944
 Transform:
   m_ObjectHideFlags: 0
@@ -1452,7 +1453,10 @@ MonoBehaviour:
   - {fileID: 1142858453}
   - {fileID: 765920766}
   - {fileID: 68759626}
-  spawnPosition: []
+  spawnPosition:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1066311946
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,39 +6,39 @@ namespace Level4
 {
     public class Level4Global : MonoBehaviour
     {
-        public static Level4Global Instance { get; private set; }
-        public List<GameObject> AllAnimals = new();
+        public static Level4Global instance { get; private set; }
+        public List<GameObject> allAnimals = new();
         public static List<GameObject> AllCollected = new();
-        public static List<GameObject> AllAimalsStatic = new();
-        public List<GameObject> AllZone = new();
-        public GameObject Finger;
+        public static List<GameObject> AllAnimalsStatic = new();
+        public List<GameObject> allZone = new();
+        public GameObject finger;
         public static int WaitHint;
-        public static GameObject _level4Spawn;
+        public Level4Spawn level4Spawn;
         private int _hintTime;
         private int _stop;
 
         private void Awake()
         {
-            if (Instance && !Equals(Instance, this))
+            if (instance && !Equals(instance, this))
             {
                 Destroy(gameObject);
             }
             else
             {
-                Instance = this;
+                instance = this;
             }
         }
 
         private void Start()
         {
-            WinBobbles.instance.victory = AllAnimals.Count;
-            for (var i = 0; i < AllAnimals.Count; i++)
+            WinBobbles.instance.victory = allAnimals.Count;
+            for (var i = 0; i < allAnimals.Count; i++)
             {
                 var chance = Random.Range(0, 9);
-                (AllAnimals[i], AllAnimals[chance]) = (AllAnimals[chance], AllAnimals[i]);
+                (allAnimals[i], allAnimals[chance]) = (allAnimals[chance], allAnimals[i]);
             }
 
-            AllAimalsStatic = AllAnimals;
+            AllAnimalsStatic = allAnimals;
             AllCollected = new List<GameObject>();
             StartCoroutine(StartHint());
         }
@@ -108,7 +108,7 @@ namespace Level4
 
             if (check == 1)
             {
-                foreach (var item in AllZone)
+                foreach (var item in allZone)
                 {
                     if (itemTag == item.tag)
                     {
@@ -120,15 +120,15 @@ namespace Level4
             }
 
             start.z = -1;
-            Finger.transform.position = start;
+            finger.transform.position = start;
             if (check == 2)
             {
-                while (Finger.transform.position != end)
+                while (finger.transform.position != end)
                 {
-                    Finger.transform.position = Vector3.MoveTowards(Finger.transform.position, end, 0.1f);
+                    finger.transform.position = Vector3.MoveTowards(finger.transform.position, end, 0.1f);
                     if (WaitHint == 1)
                     {
-                        Finger.transform.position = new Vector3(0, 10, 0);
+                        finger.transform.position = new Vector3(0, 10, 0);
                         break;
                     }
 
@@ -136,7 +136,7 @@ namespace Level4
                 }
             }
 
-            Finger.transform.position = new Vector3(0, 10, 0);
+            finger.transform.position = new Vector3(0, 10, 0);
         }
     }
 }

@@ -10,7 +10,6 @@ namespace Level4
         public Vector3 position;
         private const int LayerMask = 1 << 13;
         private const int LayerMask2 = 1 << 10;
-        private float _z;
 
         private void Start()
         {
@@ -24,7 +23,6 @@ namespace Level4
                 var hit = Physics2D.Raycast(_camera.ScreenToWorldPoint(Input.mousePosition), _camera.transform.forward, Mathf.Infinity, LayerMask);
                 if (hit.collider)
                 {
-                    _z = hit.collider.transform.position.z;
                     _gameObject = hit.collider.gameObject;
                     position = _gameObject.GetComponent<MoveItem>().startPosition;
                     Level4Global.WaitHint = 1;
@@ -45,7 +43,7 @@ namespace Level4
                             if (item.name != _gameObject.name) continue;
                             _gameObject.GetComponent<BoxCollider2D>().enabled = false;
                             StartCoroutine(MoveAnimal(item, _gameObject));
-                            Level4Global._level4Spawn.GetComponent<Level4Spawn>().SearchFreeSpace(_gameObject.name);
+                            Level4Global.instance.level4Spawn.SearchFreeSpace(_gameObject.name);
                             break;
                         }
                     }
@@ -66,14 +64,12 @@ namespace Level4
             if (Input.GetMouseButton(0) && _gameObject)
             {
                 var vector = _camera.ScreenToWorldPoint(Input.mousePosition);
-                vector.z = _z;
                 _gameObject.transform.position = vector;
             }
 #else
             if (Input.touchCount > 0 && _gameObject)
             {
                 var vector = _camera.ScreenToWorldPoint(Input.GetTouch(0).position);
-                vector.z = _z;
                 _gameObject.transform.position = vector;
             }
 #endif

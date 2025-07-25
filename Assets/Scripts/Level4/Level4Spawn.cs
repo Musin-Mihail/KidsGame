@@ -6,12 +6,7 @@ namespace Level4
     public class Level4Spawn : MonoBehaviour
     {
         public List<GameObject> spawnPositionVector;
-        [HideInInspector] public List<GameObject> spawnPosition;
-
-        private void Awake()
-        {
-            Level4Global._level4Spawn = gameObject;
-        }
+        [HideInInspector] public List<GameObject> spawnPosition = new() { null, null, null };
 
         private void Start()
         {
@@ -23,11 +18,11 @@ namespace Level4
 
         private void SpawnAnimal(int number)
         {
-            if (Level4Global.AllAimalsStatic.Count <= 0) return;
-            var animal = Instantiate(Level4Global.AllAimalsStatic[0], spawnPositionVector[number].transform.position, Quaternion.identity);
-            animal.name = Level4Global.AllAimalsStatic[0].name;
+            if (Level4Global.AllAnimalsStatic.Count <= 0) return;
+            var animal = Instantiate(Level4Global.AllAnimalsStatic[0], spawnPositionVector[number].transform.position, Quaternion.identity);
+            animal.name = Level4Global.AllAnimalsStatic[0].name;
             spawnPosition[number] = animal;
-            Level4Global.AllAimalsStatic.RemoveAt(0);
+            Level4Global.AllAnimalsStatic.RemoveAt(0);
         }
 
         public void SearchFreeSpace(string nameAnimal)
