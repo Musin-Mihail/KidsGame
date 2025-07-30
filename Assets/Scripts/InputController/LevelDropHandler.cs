@@ -86,7 +86,7 @@ namespace InputController
             }
 
             AudioManager.instance.PlayClickSound();
-            Destroy(draggedObject);
+            draggedObject.gameObject.SetActive(false);
         }
 
         private void HandleLevel2Drop(GameObject draggedObject, Collider2D targetCollider)
@@ -103,7 +103,7 @@ namespace InputController
             }
 
             AudioManager.instance.PlayClickSound();
-            Destroy(draggedObject);
+            draggedObject.gameObject.SetActive(false);
         }
 
         private void HandleLevel3Drop(GameObject draggedObject)
@@ -162,7 +162,7 @@ namespace InputController
             else
             {
                 Debug.LogWarning($"Не удалось найти дочерний объект с именем '{draggedObject.name}' у цели '{targetCollider.name}'.");
-                Destroy(draggedObject);
+                draggedObject.gameObject.SetActive(false);
             }
         }
 
@@ -186,7 +186,7 @@ namespace InputController
             }
 
             childToActivate.SetActive(true);
-            Destroy(objectToMove);
+            objectToMove.gameObject.SetActive(false);
         }
     }
 }

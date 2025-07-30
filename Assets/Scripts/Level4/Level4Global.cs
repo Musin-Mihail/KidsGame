@@ -26,8 +26,12 @@ namespace Level4
 
         protected override void Start()
         {
+            if (WinBobbles.instance)
+            {
+                WinBobbles.instance.victory = 10;
+            }
+
             base.Start();
-            WinBobbles.instance.victory = 10;
         }
 
         private void Update()

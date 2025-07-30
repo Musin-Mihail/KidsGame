@@ -3,8 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// Enum для определения того, как подсказка должна искать совпадение.
+/// </summary>
+public enum HintComparisonType
+{
+    ByName,
+    ByTag
+}
+
 public class Hint : MonoBehaviour
 {
+    [Tooltip("Метод, используемый для поиска совпадений в подсказке (ByName или ByTag).")]
+    public HintComparisonType comparisonType = HintComparisonType.ByName; // По умолчанию ByName
     public GameObject finger;
 
     [HideInInspector] public int waitHint;
@@ -102,8 +113,10 @@ public class Hint : MonoBehaviour
         {
             foreach (var item in _itemPositions.Where(item => item.activeSelf))
             {
-                var foundTarget = _emptyItemPositions.FirstOrDefault(empty => empty.name == item.name);
+                var foundTarget = comparisonType == HintComparisonType.ByTag ? _emptyItemPositions.FirstOrDefault(empty => empty.CompareTag(item.tag)) : _emptyItemPositions.FirstOrDefault(empty => empty.name == item.name);
+
                 if (!foundTarget) continue;
+
                 start = item;
                 target = foundTarget;
                 break;

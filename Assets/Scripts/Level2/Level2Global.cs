@@ -21,9 +21,13 @@ namespace Level2
 
         protected override void Start()
         {
-            base.Start();
+            if (WinBobbles.instance)
+            {
+                WinBobbles.instance.victory = 8;
+            }
+
             _targetBoat = new Vector3(-15, 1.1f, 2.89f);
-            WinBobbles.instance.victory = 8;
+            base.Start();
         }
 
         private void Update()

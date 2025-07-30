@@ -1405,17 +1405,8 @@ MonoBehaviour:
   - {fileID: 6079516619482936741, guid: 35402ad0d1db77343b71fc7dfc587725, type: 3}
   - {fileID: 252527899979710103, guid: bcb9e40b26a2fab4782f48f0132d095b, type: 3}
   allTargets:
-  - {fileID: 6048782940882608905}
-  - {fileID: 6560876109330745188}
-  - {fileID: 1490230931}
-  - {fileID: 5523665974830933383}
-  - {fileID: 824436354080219124}
-  - {fileID: 332814288}
-  - {fileID: 4970158653693211143}
-  - {fileID: 5368382526751151797}
-  - {fileID: 2615259784898498359}
-  - {fileID: 4490405126341818978}
-  - {fileID: 3209633756632852121}
+  - {fileID: 82215676}
+  - {fileID: 172623946}
   level4Spawn: {fileID: 1066311945}
   collectedItems:
   - {fileID: 6048782940882608905}
@@ -1479,6 +1470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a2aa0102ab42c4aa5dd2aa43afa235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comparisonType: 1
   finger: {fileID: 1170274516}
   waitHint: 0
 --- !u!114 &1066311948

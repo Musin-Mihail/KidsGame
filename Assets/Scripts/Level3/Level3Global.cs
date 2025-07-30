@@ -31,10 +31,14 @@ namespace Level3
 
         protected override void Start()
         {
+            if (WinBobbles.instance)
+            {
+                WinBobbles.instance.victory = 18;
+            }
+
             threeFiguresComplete = 0;
             _center = new Vector3(0, 0, 3);
             _endTarget = new Vector3(15, 0, 3);
-            WinBobbles.instance.victory = 18;
             Shuffle(allAnimals);
             StartCoroutine(MoveAnimals());
             StartCoroutine(hint.StartHint());

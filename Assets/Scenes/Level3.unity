@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e0bc32b7d64a5141a9e0eb20b1c1c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 0}
+  parent: {fileID: 1457713334}
   startSpawnPositions:
   - {fileID: 345216669}
   - {fileID: 2089720207}
@@ -335,6 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a2aa0102ab42c4aa5dd2aa43afa235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comparisonType: 0
   finger: {fileID: 1931205458}
   waitHint: 0
 --- !u!114 &142792124
@@ -1654,6 +1655,7 @@ Transform:
   - {fileID: 45130658}
   - {fileID: 1791383407}
   - {fileID: 1842293488}
+  - {fileID: 1931205460}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1498758400
@@ -1871,7 +1873,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7512602757263215373, guid: fc3f8db3aa66cb445b0fcc1418e057c7,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2209,7 +2211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1931205459
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2273,12 +2275,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1931205458}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1457713334}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1969230447
 GameObject:
@@ -3662,7 +3664,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7512602757263215373, guid: fc3f8db3aa66cb445b0fcc1418e057c7,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3851,4 +3853,3 @@ SceneRoots:
   - {fileID: 752018624}
   - {fileID: 1457713334}
   - {fileID: 142792122}
-  - {fileID: 1931205460}

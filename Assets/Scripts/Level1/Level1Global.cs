@@ -15,8 +15,12 @@ namespace Level1
 
         protected override void Start()
         {
+            if (WinBobbles.instance)
+            {
+                WinBobbles.instance.victory = 8;
+            }
+
             base.Start();
-            WinBobbles.instance.victory = 8;
         }
 
         protected override void InitializeSpawner()
