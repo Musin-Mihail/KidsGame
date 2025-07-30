@@ -142,13 +142,6 @@ namespace InputController
                 WinBobbles.instance.victory--;
             }
 
-            if (targetCollider.CompareTag("Water"))
-            {
-                var particlePosition = draggedObject.transform.position;
-                particlePosition.z += 0.5f;
-                Instantiate(Resources.Load<ParticleSystem>("Bubbles"), particlePosition, Quaternion.Euler(-90, -40, 0));
-            }
-
             var spawner = Level4Global.instance.GetComponent<Level4Spawn>();
             if (spawner)
             {
@@ -160,7 +153,7 @@ namespace InputController
             if (childObjectTransform)
             {
                 AudioManager.instance.PlayClickSound();
-                StartCoroutine(MoveAndActivate(draggedObject, childObjectTransform.gameObject));
+                StartCoroutine(MoveAndActivate(draggedObject, childObjectTransform.gameObject, targetCollider.CompareTag("Water")));
             }
             else
             {
@@ -172,11 +165,11 @@ namespace InputController
         /// <summary>
         /// Корутина для плавного перемещения объекта к цели, активации дочернего объекта и удаления исходного.
         /// </summary>
-        private IEnumerator MoveAndActivate(GameObject objectToMove, GameObject childToActivate)
+        private IEnumerator MoveAndActivate(GameObject objectToMove, GameObject childToActivate, bool water)
         {
-            if (objectToMove.TryGetComponent<Collider2D>(out var collider))
+            if (objectToMove.TryGetComponent<Collider2D>(out var objectCollider))
             {
-                collider.enabled = false;
+                objectCollider.enabled = false;
             }
 
             const float speed = 15f;
@@ -186,6 +179,12 @@ namespace InputController
             {
                 objectToMove.transform.position = Vector3.MoveTowards(objectToMove.transform.position, targetPosition, Time.deltaTime * speed);
                 yield return null;
+            }
+
+            if (water)
+            {
+                var particlePosition = objectToMove.transform.position;
+                Instantiate(Resources.Load<ParticleSystem>("Bubbles"), particlePosition, Quaternion.Euler(-90, -40, 0));
             }
 
             childToActivate.SetActive(true);

@@ -72,6 +72,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: CanvasScene
+    uniqueID: 1098228181
+    locked: 0
+  - name: Scene
+    uniqueID: 3152512093
+    locked: 0
+  - name: Win
+    uniqueID: 1740764275
+    locked: 0
+  - name: UI
+    uniqueID: 1865175845
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -83,9 +95,6 @@ TagManager:
     locked: 0
   - name: Object
     uniqueID: 63912513
-    locked: 0
-  - name: Winner
-    uniqueID: 1740764275
     locked: 0
   - name: Reset
     uniqueID: 756416963
