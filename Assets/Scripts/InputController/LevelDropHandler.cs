@@ -59,7 +59,7 @@ namespace InputController
                     HandleLevel2Drop(draggedObject, targetCollider);
                     break;
                 case LevelType.Level3:
-                    HandleLevel3Drop(draggedObject, targetCollider);
+                    HandleLevel3Drop(draggedObject);
                     break;
                 case LevelType.Level4:
                     HandleLevel4Drop(draggedObject, targetCollider);
@@ -85,7 +85,7 @@ namespace InputController
                 break;
             }
 
-            AudioManager.instance.PlayClickSound(); // <- ИЗМЕНЕНО
+            AudioManager.instance.PlayClickSound();
             Destroy(draggedObject);
         }
 
@@ -102,11 +102,11 @@ namespace InputController
                 targetCollider.GetComponent<SpriteRenderer>().sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
             }
 
-            AudioManager.instance.PlayClickSound(); // <- ИЗМЕНЕНО
+            AudioManager.instance.PlayClickSound();
             Destroy(draggedObject);
         }
 
-        private void HandleLevel3Drop(GameObject draggedObject, Collider2D targetCollider)
+        private void HandleLevel3Drop(GameObject draggedObject)
         {
             if (WinBobbles.instance) WinBobbles.instance.victory--;
             Debug.Log("Обработчик для Уровня 3 сработал!");
@@ -120,7 +120,7 @@ namespace InputController
                 Debug.LogError("Level3Global.instance не найден! Убедитесь, что объект с этим скриптом существует на сцене.");
             }
 
-            AudioManager.instance.PlayClickSound(); // <- ИЗМЕНЕНО
+            AudioManager.instance.PlayClickSound();
         }
 
         /// <summary>

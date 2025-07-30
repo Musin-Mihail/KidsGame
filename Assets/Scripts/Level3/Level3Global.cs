@@ -35,9 +35,7 @@ namespace Level3
             _center = new Vector3(0, 0, 3);
             _endTarget = new Vector3(15, 0, 3);
             WinBobbles.instance.victory = 18;
-
             Shuffle(allAnimals);
-
             StartCoroutine(MoveAnimals());
             StartCoroutine(hint.StartHint());
         }
@@ -65,15 +63,15 @@ namespace Level3
 
                 animalCenter = item;
                 ChangeAnimal();
-                figure.GetComponent<SpriteRenderer>().enabled = true;
-                task.GetComponent<SpriteRenderer>().enabled = true;
+                figure.gameObject.SetActive(true);
+                task.gameObject.SetActive(true);
                 while (stageMove != 1)
                 {
                     yield return new WaitForSeconds(1);
                 }
 
-                figure.GetComponent<SpriteRenderer>().enabled = false;
-                task.GetComponent<SpriteRenderer>().enabled = false;
+                figure.gameObject.SetActive(false);
+                task.gameObject.SetActive(false);
                 foreach (var item2 in _level3Spawn.activeItem)
                 {
                     item2.SetActive(false);
@@ -88,7 +86,7 @@ namespace Level3
 
                 foreach (var item3 in threeFigures)
                 {
-                    item3.GetComponent<SpriteRenderer>().enabled = false;
+                    item3.gameObject.SetActive(false);
                 }
 
                 threeFiguresComplete = 0;
@@ -108,21 +106,18 @@ namespace Level3
         {
             var activeItems = _level3Spawn.activeItem.Where(item => item.activeSelf).ToList();
             if (activeItems.Count == 0) return;
-
             var randomIndex = Random.Range(0, activeItems.Count);
             var randomAnimal = activeItems[randomIndex];
             figure.GetComponent<SpriteRenderer>().sprite = randomAnimal.GetComponent<SpriteRenderer>().sprite;
             animalCenter.name = randomAnimal.name;
-
             hint.Initialization(animalCenter, _level3Spawn.activeItem);
         }
 
         public void ChangeFigure()
         {
-            threeFigures[threeFiguresComplete].GetComponent<SpriteRenderer>().enabled = true;
+            threeFigures[threeFiguresComplete].gameObject.SetActive(true);
             threeFigures[threeFiguresComplete].GetComponent<SpriteRenderer>().sprite = figure.GetComponent<SpriteRenderer>().sprite;
             threeFiguresComplete++;
-
             if (threeFiguresComplete == 3)
             {
                 stageMove = 1;

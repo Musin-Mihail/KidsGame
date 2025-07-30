@@ -90,24 +90,12 @@ public class Hint : MonoBehaviour
     {
         GameObject start = null;
         GameObject target = null;
-
         if (_targetObject)
         {
             target = _targetObject;
-            // Debug.Log(target);
-
             if (_itemPositions != null && !string.IsNullOrEmpty(_targetName))
             {
-                // foreach (var itemPosition in _itemPositions)
-                // {
-                //     Debug.Log(itemPosition.activeSelf);
-                //     Debug.Log(itemPosition.name);
-                // }
-
                 start = _itemPositions.FirstOrDefault(item => item.activeSelf && item.name == _targetName);
-                // Debug.Log("------------------------");
-                // Debug.Log(_targetName);
-                // Debug.Log(start);
             }
         }
         else if (_itemPositions != null && _emptyItemPositions != null)
@@ -137,7 +125,6 @@ public class Hint : MonoBehaviour
         finger.transform.position = startObject.transform.position;
 
         var adjustedTarget = targetObject.transform.position;
-        adjustedTarget.z += -1;
 
         while (Vector3.Distance(finger.transform.position, adjustedTarget) > 0.01f)
         {
