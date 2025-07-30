@@ -9,8 +9,8 @@ namespace InputController
     /// </summary>
     public enum ComparisonType
     {
-        LevelCheckByName,
-        LevelCheckByTag
+        CheckByName,
+        CheckByTag
     }
 
     /// <summary>
@@ -24,7 +24,7 @@ namespace InputController
 
         [Header("Логика сравнения")]
         [Tooltip("Выберите, как сравнивать перетаскиваемый объект с целью.")]
-        [SerializeField] private ComparisonType comparisonMethod = ComparisonType.LevelCheckByName;
+        [SerializeField] private ComparisonType comparisonMethod = ComparisonType.CheckByName;
 
         [Header("Настройки слоев")]
         [Tooltip("Слой, на котором находятся объекты, которые можно перетаскивать.")]
@@ -106,8 +106,8 @@ namespace InputController
             {
                 var isMatch = comparisonMethod switch
                 {
-                    ComparisonType.LevelCheckByName => hitCollider.gameObject.name == _draggedObject.name,
-                    ComparisonType.LevelCheckByTag => hitCollider.CompareTag(_draggedObject.tag),
+                    ComparisonType.CheckByName => hitCollider.gameObject.name == _draggedObject.name,
+                    ComparisonType.CheckByTag => hitCollider.CompareTag(_draggedObject.tag),
                     _ => false
                 };
                 if (isMatch)

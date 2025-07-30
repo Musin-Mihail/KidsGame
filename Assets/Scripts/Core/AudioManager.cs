@@ -28,7 +28,6 @@ namespace Core
             }
 
             instance = this;
-            // DontDestroyOnLoad(gameObject);
             _audioSource = GetComponent<AudioSource>();
         }
 

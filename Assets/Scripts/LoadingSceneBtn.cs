@@ -21,10 +21,10 @@ public class LoadingSceneBtn : MonoBehaviour
         Level12
     }
 
-    public Options NameScene;
+    public Options nameScene;
 
     public void LoadingScene()
     {
-        SceneManager.LoadScene(NameScene.ToString());
+        SceneManager.LoadScene(nameScene.ToString());
     }
 }

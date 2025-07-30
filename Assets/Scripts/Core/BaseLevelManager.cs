@@ -35,7 +35,7 @@ namespace Core
         /// <summary>
         /// Перемешивает элементы в списке.
         /// </summary>
-        protected void Shuffle<T_List>(List<T_List> list)
+        protected void Shuffle<TList>(List<TList> list)
         {
             for (var i = 0; i < list.Count; i++)
             {

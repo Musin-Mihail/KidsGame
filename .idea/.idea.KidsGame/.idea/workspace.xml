@@ -6,24 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="7313cf86-6b92-4f5e-b60f-6a57ae13d2c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KidsGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KidsGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level4/Dog.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level4/Dog.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level4/camel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level4/camel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level4/dolphin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level4/dolphin.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level4/fish.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level4/fish.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level4/lion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level4/lion.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level4/monkey.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level4/monkey.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level4/octopus.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level4/octopus.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level4/seaHorse.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level4/seaHorse.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level4/shark.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level4/shark.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level4/zebra.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level4/zebra.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/AudioManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/BaseLevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/BaseLevelManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Hint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Hint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputController/LevelDropHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputController/LevelDropHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level1/Level1Global.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level2/Level2Global.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level3/Level3Global.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level4/Level4Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level4/Level4Global.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputController/DragAndDropController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputController/DragAndDropController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LoadingSceneBtn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LoadingSceneBtn.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,22 +54,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../Новая папка\Развивающие игры для детей 2-5 лет.exe" />
@@ -168,7 +156,7 @@
       <workItem from="1753360508863" duration="2726000" />
       <workItem from="1753434271797" duration="14519000" />
       <workItem from="1753708891281" duration="2448000" />
-      <workItem from="1753864491998" duration="8331000" />
+      <workItem from="1753864491998" duration="8928000" />
     </task>
     <servers />
   </component>
@@ -201,19 +189,6 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Level1/Level1Global.cs</url>
-          <line>36</line>
-          <properties documentPath="D:\Repositories\KidsGame\Assets\Scripts\Level1\Level1Global.cs" containingFunctionPresentation="Method 'InitializeHint'">
-            <startOffsets>
-              <option value="817" />
-            </startOffsets>
-            <endOffsets>
-              <option value="873" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

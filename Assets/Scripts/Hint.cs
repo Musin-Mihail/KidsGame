@@ -113,7 +113,9 @@ public class Hint : MonoBehaviour
         {
             foreach (var item in _itemPositions.Where(item => item.activeSelf))
             {
-                var foundTarget = comparisonType == HintComparisonType.ByTag ? _emptyItemPositions.FirstOrDefault(empty => empty.CompareTag(item.tag)) : _emptyItemPositions.FirstOrDefault(empty => empty.name == item.name);
+                var foundTarget = comparisonType == HintComparisonType.ByTag
+                    ? _emptyItemPositions.FirstOrDefault(empty => empty.CompareTag(item.tag))
+                    : _emptyItemPositions.FirstOrDefault(empty => empty.name == item.name);
 
                 if (!foundTarget) continue;
 
