@@ -1,10 +1,9 @@
-// D:\Repositories\KidsGame\Assets\Scripts\InputController\LevelDropHandler.cs
-
 using System.Collections;
 using Core;
 using Level1;
 using Level3;
 using Level4;
+using Level5;
 using UnityEngine;
 
 namespace InputController
@@ -23,7 +22,8 @@ namespace InputController
             Level1,
             Level2,
             Level3,
-            Level4
+            Level4,
+            Level5
         }
         [SerializeField] private LevelType currentLevel;
 
@@ -63,6 +63,9 @@ namespace InputController
                     break;
                 case LevelType.Level4:
                     HandleLevel4Drop(draggedObject, targetCollider);
+                    break;
+                case LevelType.Level5:
+                    HandleLevel5Drop(draggedObject, targetCollider);
                     break;
             }
         }
@@ -187,6 +190,37 @@ namespace InputController
 
             childToActivate.SetActive(true);
             objectToMove.gameObject.SetActive(false);
+        }
+
+        /// <summary>
+        /// Обработчик для логики пятого уровня.
+        /// </summary>
+        private void HandleLevel5Drop(GameObject draggedObject, Collider2D targetCollider)
+        {
+            Debug.Log("Обработчик для Уровня 5 сработал!");
+            AudioManager.instance.PlayClickSound();
+            var particlePosition = targetCollider.transform.position;
+            Instantiate(Resources.Load<ParticleSystem>("Bubbles"), particlePosition, Quaternion.Euler(-90, -40, 0));
+            targetCollider.GetComponent<SpriteRenderer>().sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
+            targetCollider.tag = "Untagged";
+            if (WinBobbles.instance)
+            {
+                WinBobbles.instance.victory--;
+            }
+
+            var oyster = draggedObject.GetComponentInParent<Level5SpawnOyster>();
+            if (oyster)
+            {
+                StartCoroutine(oyster.SpawnNextFigure());
+            }
+
+            var spawner = Level5Manager.instance.GetComponent<Level5Spawner>();
+            if (spawner && spawner.activeItem.Contains(draggedObject))
+            {
+                spawner.activeItem.Remove(draggedObject);
+            }
+
+            draggedObject.SetActive(false);
         }
     }
 }

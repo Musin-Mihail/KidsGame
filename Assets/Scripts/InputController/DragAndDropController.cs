@@ -77,6 +77,7 @@ namespace InputController
             var screenPosition = _playerControls.Gameplay.PointerPosition.ReadValue<Vector2>();
             var hit = Physics2D.Raycast(_camera.ScreenToWorldPoint(screenPosition), _camera.transform.forward, Mathf.Infinity, draggableLayerMask);
             if (!hit.collider) return;
+
             _draggedObject = hit.collider.gameObject;
             var moveItem = _draggedObject.GetComponent<MoveItem>();
             if (moveItem)

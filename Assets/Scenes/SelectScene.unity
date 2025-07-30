@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 9319612}
   - component: {fileID: 9319611}
   - component: {fileID: 9319610}
-  - component: {fileID: 9319609}
   m_Layer: 5
   m_Name: Lock09
   m_TagString: Untagged
@@ -158,19 +157,6 @@ RectTransform:
   m_AnchoredPosition: {x: -540, y: -350}
   m_SizeDelta: {x: 350, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &9319609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9319607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NameScene: 10
 --- !u!114 &9319610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,7 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameScene: 3
+  nameScene: 3
 --- !u!114 &22274863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -797,7 +783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameScene: 7
+  nameScene: 7
 --- !u!114 &52273828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1112,7 +1098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameScene: 11
+  nameScene: 11
 --- !u!114 &90424914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1526,7 +1512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameScene: 6
+  nameScene: 6
 --- !u!114 &184968906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1995,7 +1981,6 @@ GameObject:
   - component: {fileID: 256748347}
   - component: {fileID: 256748346}
   - component: {fileID: 256748345}
-  - component: {fileID: 256748344}
   - component: {fileID: 256748348}
   m_Layer: 5
   m_Name: Lock12
@@ -2023,19 +2008,6 @@ RectTransform:
   m_AnchoredPosition: {x: 510, y: -350}
   m_SizeDelta: {x: 350, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &256748344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 256748342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NameScene: 13
 --- !u!114 &256748345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3795,7 +3767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameScene: 13
+  nameScene: 13
 --- !u!114 &685824788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4096,7 +4068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameScene: 5
+  nameScene: 5
 --- !u!114 &850722346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5481,7 +5453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameScene: 9
+  nameScene: 9
 --- !u!114 &1306365930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5835,7 +5807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameScene: 8
+  nameScene: 8
 --- !u!114 &1328685405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5981,7 +5953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameScene: 10
+  nameScene: 10
 --- !u!114 &1353152006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6088,7 +6060,6 @@ GameObject:
   - component: {fileID: 1382900616}
   - component: {fileID: 1382900615}
   - component: {fileID: 1382900614}
-  - component: {fileID: 1382900613}
   m_Layer: 5
   m_Name: Lock08
   m_TagString: Untagged
@@ -6115,19 +6086,6 @@ RectTransform:
   m_AnchoredPosition: {x: 510, y: 0}
   m_SizeDelta: {x: 350, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1382900613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1382900611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NameScene: 9
 --- !u!114 &1382900614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6467,7 +6425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameScene: 4
+  nameScene: 4
 --- !u!114 &1512239435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6574,7 +6532,6 @@ GameObject:
   - component: {fileID: 1551857550}
   - component: {fileID: 1551857549}
   - component: {fileID: 1551857548}
-  - component: {fileID: 1551857547}
   m_Layer: 5
   m_Name: Lock10
   m_TagString: Untagged
@@ -6601,19 +6558,6 @@ RectTransform:
   m_AnchoredPosition: {x: -190, y: -350}
   m_SizeDelta: {x: 350, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1551857547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551857545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NameScene: 11
 --- !u!114 &1551857548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6720,7 +6664,6 @@ GameObject:
   - component: {fileID: 1573504884}
   - component: {fileID: 1573504883}
   - component: {fileID: 1573504882}
-  - component: {fileID: 1573504881}
   m_Layer: 5
   m_Name: Lock05
   m_TagString: Untagged
@@ -6747,19 +6690,6 @@ RectTransform:
   m_AnchoredPosition: {x: -540, y: 0}
   m_SizeDelta: {x: 350, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1573504881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1573504879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NameScene: 6
 --- !u!114 &1573504882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7684,7 +7614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameScene: 12
+  nameScene: 12
 --- !u!114 &1837278381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7866,7 +7796,6 @@ GameObject:
   - component: {fileID: 1897514130}
   - component: {fileID: 1897514129}
   - component: {fileID: 1897514128}
-  - component: {fileID: 1897514127}
   m_Layer: 5
   m_Name: Lock11
   m_TagString: Untagged
@@ -7893,19 +7822,6 @@ RectTransform:
   m_AnchoredPosition: {x: 160, y: -350}
   m_SizeDelta: {x: 350, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1897514127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1897514125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NameScene: 12
 --- !u!114 &1897514128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8627,7 +8543,6 @@ GameObject:
   - component: {fileID: 2030498796}
   - component: {fileID: 2030498795}
   - component: {fileID: 2030498794}
-  - component: {fileID: 2030498793}
   m_Layer: 5
   m_Name: Lock06
   m_TagString: Untagged
@@ -8654,19 +8569,6 @@ RectTransform:
   m_AnchoredPosition: {x: -190, y: 0}
   m_SizeDelta: {x: 350, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2030498793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2030498791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NameScene: 7
 --- !u!114 &2030498794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8773,7 +8675,6 @@ GameObject:
   - component: {fileID: 2037533330}
   - component: {fileID: 2037533329}
   - component: {fileID: 2037533328}
-  - component: {fileID: 2037533327}
   m_Layer: 5
   m_Name: Lock07
   m_TagString: Untagged
@@ -8800,19 +8701,6 @@ RectTransform:
   m_AnchoredPosition: {x: 160, y: 0}
   m_SizeDelta: {x: 350, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2037533327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2037533325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NameScene: 8
 --- !u!114 &2037533328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9127,7 +9015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b6f86031e5e374a91c2ff3168e77f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameScene: 2
+  nameScene: 2
 --- !u!114 &2058811829
 MonoBehaviour:
   m_ObjectHideFlags: 0

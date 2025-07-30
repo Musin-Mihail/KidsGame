@@ -15,7 +15,7 @@ public enum HintComparisonType
 public class Hint : MonoBehaviour
 {
     [Tooltip("Метод, используемый для поиска совпадений в подсказке (ByName или ByTag).")]
-    public HintComparisonType comparisonType = HintComparisonType.ByName; // По умолчанию ByName
+    public HintComparisonType comparisonType = HintComparisonType.ByName;
     public GameObject finger;
 
     [HideInInspector] public int waitHint;
@@ -116,9 +116,7 @@ public class Hint : MonoBehaviour
                 var foundTarget = comparisonType == HintComparisonType.ByTag
                     ? _emptyItemPositions.FirstOrDefault(empty => empty.CompareTag(item.tag))
                     : _emptyItemPositions.FirstOrDefault(empty => empty.name == item.name);
-
                 if (!foundTarget) continue;
-
                 start = item;
                 target = foundTarget;
                 break;
@@ -138,12 +136,10 @@ public class Hint : MonoBehaviour
     {
         finger.gameObject.SetActive(true);
         finger.transform.position = startObject.transform.position;
-
         var adjustedTarget = targetObject.transform.position;
-
         while (Vector3.Distance(finger.transform.position, adjustedTarget) > 0.01f)
         {
-            if (!startObject.activeInHierarchy || !targetObject.activeInHierarchy)
+            if (!startObject.activeSelf || !targetObject.activeSelf)
             {
                 break;
             }

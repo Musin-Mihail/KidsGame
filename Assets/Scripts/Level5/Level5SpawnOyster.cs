@@ -5,42 +5,47 @@ namespace Level5
 {
     public class Level5SpawnOyster : MonoBehaviour
     {
-        public SpriteRenderer _SpriteRenderer;
+        private SpriteRenderer _spriteRenderer;
 
-        private void Start()
+        private void Awake()
         {
-            _SpriteRenderer = GetComponent<SpriteRenderer>();
-            StartCoroutine(StartStage());
+            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        public IEnumerator ChangeStage()
+        /// <summary>
+        /// Спаунит самую первую фигуру при старте уровня.
+        /// </summary>
+        public void InitialSpawn()
         {
-            _SpriteRenderer.sprite = Level5Global.NewStageOyster[1];
-            yield return new WaitForSeconds(0.4f);
-            _SpriteRenderer.sprite = Level5Global.NewStageOyster[0];
-            yield return new WaitForSeconds(0.4f);
-            if (Level5Global.NewColarFigures.Count > 0)
+            StartCoroutine(SpawnNextFigure(isInitial: true));
+        }
+
+        /// <summary>
+        /// Анимирует устрицу и спаунит следующую фигуру.
+        /// </summary>
+        public IEnumerator SpawnNextFigure(bool isInitial = false)
+        {
+            var manager = Level5Manager.instance;
+            if (!manager) yield break;
+            var spawner = manager.GetComponent<Level5Spawner>();
+            if (!spawner) yield break;
+            if (!isInitial)
             {
-                _SpriteRenderer.sprite = Level5Global.NewStageOyster[1];
+                _spriteRenderer.sprite = manager.oysterStages[1];
                 yield return new WaitForSeconds(0.4f);
-                _SpriteRenderer.sprite = Level5Global.NewStageOyster[2];
-                var newVector3 = new Vector3(transform.position.x, transform.position.y, -0.25f);
-                var instFirure = Instantiate(Level5Global.NewColarFigures[0], newVector3, Level5Global.NewColarFigures[0].transform.rotation, gameObject.transform);
-                Level5Global.ReadyFigures.Add(instFirure);
-                Level5Global.NewColarFigures.RemoveAt(0);
+                _spriteRenderer.sprite = manager.oysterStages[0];
+                yield return new WaitForSeconds(0.4f);
             }
-        }
 
-        private IEnumerator StartStage()
-        {
+            var figureToSpawn = manager.GetNextFigureToSpawn();
+            if (!figureToSpawn) yield break;
+            _spriteRenderer.sprite = manager.oysterStages[1];
             yield return new WaitForSeconds(0.4f);
-            _SpriteRenderer.sprite = Level5Global.NewStageOyster[1];
-            yield return new WaitForSeconds(0.4f);
-            _SpriteRenderer.sprite = Level5Global.NewStageOyster[2];
-            var newVector3 = new Vector3(transform.position.x, transform.position.y, -0.25f);
-            var instFirure = Instantiate(Level5Global.NewColarFigures[0], newVector3, Level5Global.NewColarFigures[0].transform.rotation, gameObject.transform);
-            Level5Global.ReadyFigures.Add(instFirure);
-            Level5Global.NewColarFigures.RemoveAt(0);
+            _spriteRenderer.sprite = manager.oysterStages[2];
+            var spawnPosition = new Vector3(transform.position.x, transform.position.y, -0.25f);
+            var newFigure = Instantiate(figureToSpawn, spawnPosition, figureToSpawn.transform.rotation, transform);
+            newFigure.name = figureToSpawn.name;
+            spawner.activeItem.Add(newFigure);
         }
     }
 }
