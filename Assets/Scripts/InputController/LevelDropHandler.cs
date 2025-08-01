@@ -8,7 +8,6 @@ using Level6;
 using Level7;
 using Level8;
 using UnityEngine;
-// Добавляем using для нового уровня
 
 namespace InputController
 {
@@ -272,6 +271,7 @@ namespace InputController
         {
             AudioManager.instance.PlayClickSound();
             draggedObject.transform.position = targetCollider.transform.position;
+            draggedObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
             var col = draggedObject.GetComponent<Collider2D>();
             if (col) col.enabled = false;
             Level8Manager.instance.OnItemPlaced();
