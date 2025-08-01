@@ -31,23 +31,20 @@ namespace InputController
 
         private void OnEnable()
         {
-            if (dragController)
-            {
-                dragController.OnSuccessfulDrop += HandleDrop;
-            }
+            if (!dragController) return;
+            dragController.OnSuccessfulDrop += HandleDrop;
+            dragController.OnDropFailed += HandleFailedDrop;
         }
 
         private void OnDisable()
         {
-            if (dragController)
-            {
-                dragController.OnSuccessfulDrop -= HandleDrop;
-            }
+            if (!dragController) return;
+            dragController.OnSuccessfulDrop -= HandleDrop;
+            dragController.OnDropFailed -= HandleFailedDrop;
         }
 
         /// <summary>
         /// Эта функция будет вызвана, когда DragAndDropController зафиксирует успешное размещение.
-        /// Сигнатура обновлена для получения стартовой позиции.
         /// </summary>
         private void HandleDrop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
         {
@@ -69,9 +66,21 @@ namespace InputController
                     HandleLevel5Drop(draggedObject, targetCollider);
                     break;
                 case LevelType.Level6:
-                    HandleLevel6Drop(draggedObject, targetCollider, startPosition);
+                    HandleLevel6Drop(draggedObject, targetCollider);
                     break;
             }
+        }
+
+        /// <summary>
+        /// Обрабатывает неудачный бросок. 
+        /// Для 6-го уровня возобновляет вращение для объектов, у которых есть компонент MoveItem.
+        /// </summary>
+        private void HandleFailedDrop(GameObject draggedObject)
+        {
+            if (currentLevel != LevelType.Level6) return;
+            if (!draggedObject.TryGetComponent<MoveItem>(out var moveItem)) return;
+            moveItem.state = 1;
+            StartCoroutine(moveItem.Rotation());
         }
 
         private void HandleLevel1Drop(GameObject draggedObject, Collider2D targetCollider)
@@ -189,39 +198,34 @@ namespace InputController
         /// <summary>
         /// Обработчик для логики шестого уровня.
         /// </summary>
-        private void HandleLevel6Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
+        private void HandleLevel6Drop(GameObject draggedObject, Collider2D targetCollider)
         {
             var chest = targetCollider.GetComponent<Level6Chest>();
-            // Если это не сундук или он уже полон, возвращаем звезду на место
-            if (!chest || chest.BusyPlaces >= chest.CollectedThings.Count)
+            if (!chest)
             {
-                draggedObject.transform.position = startPosition;
                 return;
             }
 
             AudioManager.instance.PlayClickSound();
-
-            // Создаем "собранную" звезду внутри сундука
-            var collectedStar = new GameObject("CollectedStar");
-            collectedStar.transform.parent = targetCollider.transform;
-            collectedStar.transform.localPosition = chest.CollectedThings[chest.BusyPlaces];
-            collectedStar.transform.localScale = new Vector3(0.75f, 0.75f, 1);
+            var collectedStar = new GameObject("CollectedStar")
+            {
+                transform =
+                {
+                    parent = targetCollider.transform,
+                    localPosition = chest.CollectedThings[chest.BusyPlaces],
+                    localScale = new Vector3(0.75f, 0.75f, 1)
+                }
+            };
             var sr = collectedStar.AddComponent<SpriteRenderer>();
             sr.sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
             sr.sortingLayerID = draggedObject.GetComponent<SpriteRenderer>().sortingLayerID;
             sr.sortingOrder = 1;
             collectedStar.AddComponent<WinUp>();
-
             Level6Manager.instance.collectedStars.Add(collectedStar);
-
-            // Создаем партиклы
             var particlePosition = collectedStar.transform.position;
             Instantiate(Resources.Load<ParticleSystem>("Bubbles"), particlePosition, Quaternion.Euler(-90, 0, 0));
-
             chest.BusyPlaces++;
-
             draggedObject.SetActive(false);
-
             var spawner = Level6Manager.instance.GetComponent<Level6Spawner>();
             if (spawner)
             {

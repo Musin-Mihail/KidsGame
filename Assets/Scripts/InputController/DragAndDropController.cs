@@ -21,6 +21,7 @@ namespace InputController
     public class DragAndDropController : MonoBehaviour
     {
         public event Action<GameObject, Collider2D, Vector3> OnSuccessfulDrop;
+        public event Action<GameObject> OnDropFailed;
 
         [Header("Логика сравнения")]
         [Tooltip("Выберите, как сравнивать перетаскиваемый объект с целью.")]
@@ -36,6 +37,7 @@ namespace InputController
         private GameObject _draggedObject;
         private Vector3 _startPosition;
         private Hint _hint;
+
         private PlayerControls _playerControls;
 
         private void Awake()
@@ -111,11 +113,13 @@ namespace InputController
                 else
                 {
                     _draggedObject.transform.position = _startPosition;
+                    OnDropFailed?.Invoke(_draggedObject);
                 }
             }
             else
             {
                 _draggedObject.transform.position = _startPosition;
+                OnDropFailed?.Invoke(_draggedObject);
             }
 
             _draggedObject = null;
