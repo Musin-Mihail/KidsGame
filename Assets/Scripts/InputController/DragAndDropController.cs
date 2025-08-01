@@ -20,7 +20,7 @@ namespace InputController
     /// </summary>
     public class DragAndDropController : MonoBehaviour
     {
-        public event Action<GameObject, Collider2D> OnSuccessfulDrop;
+        public event Action<GameObject, Collider2D, Vector3> OnSuccessfulDrop;
 
         [Header("Логика сравнения")]
         [Tooltip("Выберите, как сравнивать перетаскиваемый объект с целью.")]
@@ -36,7 +36,6 @@ namespace InputController
         private GameObject _draggedObject;
         private Vector3 _startPosition;
         private Hint _hint;
-
         private PlayerControls _playerControls;
 
         private void Awake()
@@ -77,17 +76,11 @@ namespace InputController
             var screenPosition = _playerControls.Gameplay.PointerPosition.ReadValue<Vector2>();
             var hit = Physics2D.Raycast(_camera.ScreenToWorldPoint(screenPosition), _camera.transform.forward, Mathf.Infinity, draggableLayerMask);
             if (!hit.collider) return;
-
             _draggedObject = hit.collider.gameObject;
-            var moveItem = _draggedObject.GetComponent<MoveItem>();
-            if (moveItem)
+            _startPosition = _draggedObject.transform.position;
+            if (_draggedObject.TryGetComponent<MoveItem>(out var moveItem))
             {
-                _startPosition = moveItem.endPosition;
                 moveItem.state = 0;
-            }
-            else
-            {
-                _startPosition = _draggedObject.transform.position;
             }
 
             if (_hint)
@@ -113,7 +106,7 @@ namespace InputController
                 };
                 if (isMatch)
                 {
-                    OnSuccessfulDrop?.Invoke(_draggedObject, hitCollider);
+                    OnSuccessfulDrop?.Invoke(_draggedObject, hitCollider, _startPosition);
                 }
                 else
                 {

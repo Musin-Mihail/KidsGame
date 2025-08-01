@@ -23,6 +23,10 @@ public class MoveItem : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Корутина для вращения объекта.
+    /// Вращение происходит, пока 'state' равен 1.
+    /// </summary>
     public IEnumerator Rotation()
     {
         while (state == 1)
@@ -30,8 +34,5 @@ public class MoveItem : MonoBehaviour
             transform.rotation *= Quaternion.Euler(0, 0, 5);
             yield return new WaitForSeconds(0.05f);
         }
-
-        yield return new WaitForSeconds(0.05f);
-        StartCoroutine(Rotation());
     }
 }

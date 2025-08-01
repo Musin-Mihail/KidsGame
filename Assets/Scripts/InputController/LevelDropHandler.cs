@@ -4,6 +4,7 @@ using Level1;
 using Level3;
 using Level4;
 using Level5;
+using Level6;
 using UnityEngine;
 
 namespace InputController
@@ -23,7 +24,8 @@ namespace InputController
             Level2,
             Level3,
             Level4,
-            Level5
+            Level5,
+            Level6
         }
         [SerializeField] private LevelType currentLevel;
 
@@ -45,10 +47,9 @@ namespace InputController
 
         /// <summary>
         /// Эта функция будет вызвана, когда DragAndDropController зафиксирует успешное размещение.
+        /// Сигнатура обновлена для получения стартовой позиции.
         /// </summary>
-        /// <param name="draggedObject">Объект, который перетащили.</param>
-        /// <param name="targetCollider">Коллайдер цели, на которую поместили объект.</param>
-        private void HandleDrop(GameObject draggedObject, Collider2D targetCollider)
+        private void HandleDrop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
         {
             switch (currentLevel)
             {
@@ -67,15 +68,15 @@ namespace InputController
                 case LevelType.Level5:
                     HandleLevel5Drop(draggedObject, targetCollider);
                     break;
+                case LevelType.Level6:
+                    HandleLevel6Drop(draggedObject, targetCollider, startPosition);
+                    break;
             }
         }
 
         private void HandleLevel1Drop(GameObject draggedObject, Collider2D targetCollider)
         {
             if (WinBobbles.instance) WinBobbles.instance.victory--;
-            Debug.Log(WinBobbles.instance.victory);
-
-            Debug.Log("Обработчик для Уровня 1 сработал!");
             var newVector3 = targetCollider.transform.position;
             Instantiate(Resources.Load<ParticleSystem>("BubblesLevel1"), newVector3, Quaternion.Euler(-90, -40, 0));
             targetCollider.GetComponent<SpriteRenderer>().sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
@@ -95,7 +96,6 @@ namespace InputController
         private void HandleLevel2Drop(GameObject draggedObject, Collider2D targetCollider)
         {
             if (WinBobbles.instance) WinBobbles.instance.victory--;
-            Debug.Log("Обработчик для Уровня 2 сработал!");
             if (targetCollider.name == "Flag")
             {
                 targetCollider.GetComponent<Animator>().enabled = true;
@@ -112,7 +112,6 @@ namespace InputController
         private void HandleLevel3Drop(GameObject draggedObject)
         {
             if (WinBobbles.instance) WinBobbles.instance.victory--;
-            Debug.Log("Обработчик для Уровня 3 сработал!");
             draggedObject.gameObject.SetActive(false);
             if (Level3Global.instance)
             {
@@ -120,36 +119,18 @@ namespace InputController
             }
             else
             {
-                Debug.LogError("Level3Global.instance не найден! Убедитесь, что объект с этим скриптом существует на сцене.");
+                Debug.LogError("Level3Global.instance не найден!");
             }
 
             AudioManager.instance.PlayClickSound();
         }
 
-        /// <summary>
-        /// Обработчик для логики четвертого уровня. Проверяет совпадение тегов.
-        /// </summary>
         private void HandleLevel4Drop(GameObject draggedObject, Collider2D targetCollider)
         {
-            Debug.Log("Обработчик для Уровня 4 сработал!");
-            if (!targetCollider.CompareTag(draggedObject.tag))
-            {
-                return;
-            }
-
-            if (WinBobbles.instance)
-            {
-                WinBobbles.instance.victory--;
-            }
-
+            if (WinBobbles.instance) WinBobbles.instance.victory--;
             var spawner = Level4Global.instance.GetComponent<Level4Spawn>();
-            if (spawner)
-            {
-                spawner.RespawnAnimal(draggedObject);
-            }
-
+            if (spawner) spawner.RespawnAnimal(draggedObject);
             var childObjectTransform = targetCollider.transform.Find(draggedObject.name);
-
             if (childObjectTransform)
             {
                 AudioManager.instance.PlayClickSound();
@@ -157,14 +138,10 @@ namespace InputController
             }
             else
             {
-                Debug.LogWarning($"Не удалось найти дочерний объект с именем '{draggedObject.name}' у цели '{targetCollider.name}'.");
                 draggedObject.gameObject.SetActive(false);
             }
         }
 
-        /// <summary>
-        /// Корутина для плавного перемещения объекта к цели, активации дочернего объекта и удаления исходного.
-        /// </summary>
         private IEnumerator MoveAndActivate(GameObject objectToMove, GameObject childToActivate, bool water)
         {
             if (objectToMove.TryGetComponent<Collider2D>(out var objectCollider))
@@ -174,7 +151,6 @@ namespace InputController
 
             const float speed = 15f;
             var targetPosition = childToActivate.transform.position;
-
             while (Vector3.Distance(objectToMove.transform.position, targetPosition) > 0.01f)
             {
                 objectToMove.transform.position = Vector3.MoveTowards(objectToMove.transform.position, targetPosition, Time.deltaTime * speed);
@@ -191,28 +167,16 @@ namespace InputController
             objectToMove.gameObject.SetActive(false);
         }
 
-        /// <summary>
-        /// Обработчик для логики пятого уровня.
-        /// </summary>
         private void HandleLevel5Drop(GameObject draggedObject, Collider2D targetCollider)
         {
-            Debug.Log("Обработчик для Уровня 5 сработал!");
             AudioManager.instance.PlayClickSound();
             var particlePosition = targetCollider.transform.position;
             Instantiate(Resources.Load<ParticleSystem>("Bubbles"), particlePosition, Quaternion.Euler(-90, -40, 0));
             targetCollider.GetComponent<SpriteRenderer>().sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
             targetCollider.tag = "Untagged";
-            if (WinBobbles.instance)
-            {
-                WinBobbles.instance.victory--;
-            }
-
+            if (WinBobbles.instance) WinBobbles.instance.victory--;
             var oyster = draggedObject.GetComponentInParent<Level5SpawnOyster>();
-            if (oyster)
-            {
-                StartCoroutine(oyster.SpawnNextFigure());
-            }
-
+            if (oyster) StartCoroutine(oyster.SpawnNextFigure());
             var spawner = Level5Manager.instance.GetComponent<Level5Spawner>();
             if (spawner && spawner.activeItem.Contains(draggedObject))
             {
@@ -220,6 +184,54 @@ namespace InputController
             }
 
             draggedObject.SetActive(false);
+        }
+
+        /// <summary>
+        /// Обработчик для логики шестого уровня.
+        /// </summary>
+        private void HandleLevel6Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
+        {
+            var chest = targetCollider.GetComponent<Level6Chest>();
+            // Если это не сундук или он уже полон, возвращаем звезду на место
+            if (!chest || chest.BusyPlaces >= chest.CollectedThings.Count)
+            {
+                draggedObject.transform.position = startPosition;
+                return;
+            }
+
+            AudioManager.instance.PlayClickSound();
+
+            // Создаем "собранную" звезду внутри сундука
+            var collectedStar = new GameObject("CollectedStar");
+            collectedStar.transform.parent = targetCollider.transform;
+            collectedStar.transform.localPosition = chest.CollectedThings[chest.BusyPlaces];
+            collectedStar.transform.localScale = new Vector3(0.75f, 0.75f, 1);
+            var sr = collectedStar.AddComponent<SpriteRenderer>();
+            sr.sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
+            sr.sortingLayerID = draggedObject.GetComponent<SpriteRenderer>().sortingLayerID;
+            sr.sortingOrder = 1;
+            collectedStar.AddComponent<WinUp>();
+
+            Level6Manager.instance.collectedStars.Add(collectedStar);
+
+            // Создаем партиклы
+            var particlePosition = collectedStar.transform.position;
+            Instantiate(Resources.Load<ParticleSystem>("Bubbles"), particlePosition, Quaternion.Euler(-90, 0, 0));
+
+            chest.BusyPlaces++;
+
+            draggedObject.SetActive(false);
+
+            var spawner = Level6Manager.instance.GetComponent<Level6Spawner>();
+            if (spawner)
+            {
+                spawner.RespawnStar(draggedObject);
+            }
+
+            if (WinBobbles.instance)
+            {
+                WinBobbles.instance.victory--;
+            }
         }
     }
 }

@@ -16,15 +16,13 @@ namespace Level5
         public GameObject chest;
         [Tooltip("Префаб открытого сундука.")]
         public GameObject openChest;
-        private int _itemsToWin;
         private bool _isVictoryTriggered;
 
         protected override void Start()
         {
             if (WinBobbles.instance)
             {
-                _itemsToWin = allItems.Count;
-                WinBobbles.instance.victory = _itemsToWin;
+                WinBobbles.instance.victory = 12;
             }
 
             base.Start();
