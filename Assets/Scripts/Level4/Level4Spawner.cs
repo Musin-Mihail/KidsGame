@@ -37,7 +37,7 @@ namespace Level4
             var moveItem = newAnimal.GetComponent<MoveItem>();
             if (moveItem)
             {
-                moveItem.Initialization(spawnPosition, endSpawnPositions[index].transform.position);
+                moveItem.Initialization(spawnPosition, endSpawnPositions[index].transform.position, GameConstants.DefaultMoveSpeed);
                 StartCoroutine(moveItem.Move());
             }
 

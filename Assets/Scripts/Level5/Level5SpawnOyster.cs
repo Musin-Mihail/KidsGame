@@ -48,7 +48,7 @@ namespace Level5
 
             if (newFigure.TryGetComponent<MoveItem>(out var moveItem))
             {
-                moveItem.Initialization(spawnPosition, spawnPosition);
+                moveItem.Initialization(spawnPosition, spawnPosition, GameConstants.DefaultMoveSpeed);
                 moveItem.state = 0;
             }
 

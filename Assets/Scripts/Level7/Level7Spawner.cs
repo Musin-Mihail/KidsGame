@@ -59,7 +59,7 @@ namespace Level7
                 var moveItem = newItem.GetComponent<MoveItem>();
                 if (moveItem)
                 {
-                    moveItem.Initialization(startSpawnPositions[i].transform.position, endSpawnPositions[i].transform.position);
+                    moveItem.Initialization(startSpawnPositions[i].transform.position, endSpawnPositions[i].transform.position, GameConstants.DefaultMoveSpeed);
                     StartCoroutine(moveItem.Move());
                 }
 

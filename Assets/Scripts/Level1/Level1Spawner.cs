@@ -23,7 +23,7 @@ namespace Level1
             var moveItem = animal.GetComponent<MoveItem>();
             if (moveItem)
             {
-                moveItem.Initialization(startSpawnPositions[number].transform.position, endSpawnPositions[number].transform.position);
+                moveItem.Initialization(startSpawnPositions[number].transform.position, endSpawnPositions[number].transform.position, GameConstants.DefaultMoveSpeed);
                 StartCoroutine(moveItem.Move());
             }
 

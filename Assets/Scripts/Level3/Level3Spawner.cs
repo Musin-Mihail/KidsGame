@@ -28,7 +28,7 @@ namespace Level3
                 var moveItem = item.GetComponent<MoveItem>();
                 if (moveItem)
                 {
-                    moveItem.Initialization(startSpawnPositions[i].transform.position, endSpawnPositions[i].transform.position);
+                    moveItem.Initialization(startSpawnPositions[i].transform.position, endSpawnPositions[i].transform.position, GameConstants.DefaultMoveSpeed);
                     StartCoroutine(moveItem.Move());
                 }
 

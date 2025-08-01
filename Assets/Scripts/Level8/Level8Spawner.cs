@@ -41,7 +41,7 @@ namespace Level8
                 activeItem.Add(pieceToMove);
                 if (pieceToMove.TryGetComponent<MoveItem>(out var moveItem))
                 {
-                    moveItem.Initialization(pieceToMove.transform.position, spawnPos);
+                    moveItem.Initialization(pieceToMove.transform.position, spawnPos, GameConstants.Level8MoveSpeed);
                     StartCoroutine(moveItem.Move());
                 }
                 else
