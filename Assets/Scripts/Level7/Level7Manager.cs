@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using Core;
 using UnityEngine;
 
@@ -30,6 +29,7 @@ namespace Level7
             }
 
             base.Start();
+            StartCoroutine(hint.StartHint());
             SetupNextTask();
         }
 
@@ -100,10 +100,7 @@ namespace Level7
         {
             if (hint && level7Spawner && level7Spawner.currentTarget)
             {
-                var correctItem = level7Spawner.activeItem.Find(item => item && item.name == level7Spawner.currentTarget.name);
-                if (!correctItem) return;
-                var correctItemsList = new List<GameObject> { correctItem };
-                hint.Initialization(level7Spawner.currentTarget, correctItemsList);
+                hint.Initialization(level7Spawner.currentTarget, level7Spawner.activeItem);
             }
             else
             {
