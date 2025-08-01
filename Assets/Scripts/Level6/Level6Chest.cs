@@ -5,14 +5,9 @@ namespace Level6
 {
     public class Level6Chest : MonoBehaviour
     {
-        public List<Vector3> CollectedThings = new();
-        public int BusyPlaces;
+        [Tooltip("Список заранее созданных объектов-звёзд. Назначьте их в инспекторе.")]
+        public List<GameObject> starPlaceholders = new();
 
-        private void Start()
-        {
-            CollectedThings.Add(new Vector3(-1.5f, 2, 1.2f));
-            CollectedThings.Add(new Vector3(1.5f, 2, 1.1f));
-            CollectedThings.Add(new Vector3(0, 2.5f, 1));
-        }
+        [HideInInspector] public int busyPlaces;
     }
 }

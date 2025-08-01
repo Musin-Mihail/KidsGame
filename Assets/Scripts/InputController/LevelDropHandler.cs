@@ -201,30 +201,28 @@ namespace InputController
         private void HandleLevel6Drop(GameObject draggedObject, Collider2D targetCollider)
         {
             var chest = targetCollider.GetComponent<Level6Chest>();
-            if (!chest)
+            if (!chest || chest.busyPlaces >= chest.starPlaceholders.Count)
             {
+                if (!draggedObject.TryGetComponent<MoveItem>(out var moveItem)) return;
+                draggedObject.transform.position = moveItem.startPosition;
+                if (moveItem.state != 0) return;
+                moveItem.state = 1;
+                StartCoroutine(moveItem.Rotation());
+
                 return;
             }
 
             AudioManager.instance.PlayClickSound();
-            var collectedStar = new GameObject("CollectedStar")
+            var starToShow = chest.starPlaceholders[chest.busyPlaces];
+            if (starToShow)
             {
-                transform =
-                {
-                    parent = targetCollider.transform,
-                    localPosition = chest.CollectedThings[chest.BusyPlaces],
-                    localScale = new Vector3(0.75f, 0.75f, 1)
-                }
-            };
-            var sr = collectedStar.AddComponent<SpriteRenderer>();
-            sr.sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
-            sr.sortingLayerID = draggedObject.GetComponent<SpriteRenderer>().sortingLayerID;
-            sr.sortingOrder = 1;
-            collectedStar.AddComponent<WinUp>();
-            Level6Manager.instance.collectedStars.Add(collectedStar);
-            var particlePosition = collectedStar.transform.position;
-            Instantiate(Resources.Load<ParticleSystem>("Bubbles"), particlePosition, Quaternion.Euler(-90, 0, 0));
-            chest.BusyPlaces++;
+                starToShow.SetActive(true);
+                Level6Manager.instance.collectedStars.Add(starToShow);
+                var particlePosition = starToShow.transform.position;
+                Instantiate(Resources.Load<ParticleSystem>("Bubbles"), particlePosition, Quaternion.Euler(-90, 0, 0));
+            }
+
+            chest.busyPlaces++;
             draggedObject.SetActive(false);
             var spawner = Level6Manager.instance.GetComponent<Level6Spawner>();
             if (spawner)
