@@ -6,7 +6,9 @@ using Level4;
 using Level5;
 using Level6;
 using Level7;
+using Level8;
 using UnityEngine;
+// Добавляем using для нового уровня
 
 namespace InputController
 {
@@ -27,7 +29,8 @@ namespace InputController
             Level4,
             Level5,
             Level6,
-            Level7
+            Level7,
+            Level8
         }
         [SerializeField] private LevelType currentLevel;
 
@@ -73,12 +76,14 @@ namespace InputController
                 case LevelType.Level7:
                     HandleLevel7Drop(draggedObject, targetCollider);
                     break;
+                case LevelType.Level8:
+                    HandleLevel8Drop(draggedObject, targetCollider);
+                    break;
             }
         }
 
         /// <summary>
         /// Обрабатывает неудачный бросок. 
-        /// Для 6-го уровня возобновляет вращение для объектов, у которых есть компонент MoveItem.
         /// </summary>
         private void HandleFailedDrop(GameObject draggedObject)
         {
@@ -258,6 +263,19 @@ namespace InputController
 
             draggedObject.SetActive(false);
             levelManager.OnTaskCompleted();
+        }
+
+        /// <summary>
+        /// Обрабатывает успешное перетаскивание для 8-го уровня.
+        /// </summary>
+        private void HandleLevel8Drop(GameObject draggedObject, Collider2D targetCollider)
+        {
+            AudioManager.instance.PlayClickSound();
+            draggedObject.transform.position = targetCollider.transform.position;
+            var col = draggedObject.GetComponent<Collider2D>();
+            if (col) col.enabled = false;
+            Level8Manager.instance.OnItemPlaced();
+            Instantiate(Resources.Load<ParticleSystem>("Bubbles"), draggedObject.transform.position, Quaternion.identity);
         }
     }
 }
