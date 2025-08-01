@@ -257,7 +257,7 @@ namespace InputController
             }
 
             draggedObject.SetActive(false);
-            levelManager.canProceed = true;
+            levelManager.OnTaskCompleted();
         }
     }
 }

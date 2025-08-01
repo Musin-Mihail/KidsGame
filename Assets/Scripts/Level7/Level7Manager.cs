@@ -15,10 +15,6 @@ namespace Level7
         [Header("Настройки уровня 7")]
         [Tooltip("Ссылка на спаунер этого уровня")]
         public Level7Spawner level7Spawner;
-        [HideInInspector]
-        public bool canProceed;
-        private int _tasksCompleted = 0;
-        private const int TotalTasks = 5;
 
         protected override void Awake()
         {
@@ -30,35 +26,56 @@ namespace Level7
         {
             if (WinBobbles.instance)
             {
-                WinBobbles.instance.victory = 1;
+                WinBobbles.instance.victory = 5;
             }
 
             base.Start();
-            StartCoroutine(GameLoop());
+            SetupNextTask();
         }
 
         /// <summary>
-        /// Основной игровой цикл, который управляет сменой заданий.
+        /// Вызывается из LevelDropHandler после успешного размещения предмета.
         /// </summary>
-        private IEnumerator GameLoop()
+        public void OnTaskCompleted()
         {
-            while (_tasksCompleted < TotalTasks)
+            if (!WinBobbles.instance) return;
+            WinBobbles.instance.victory--;
+            if (WinBobbles.instance.victory > 0)
             {
-                canProceed = false;
-                Shuffle(allItems);
-                level7Spawner.SpawnTaskItems();
-                hint.waitHint = 1;
-                InitializeHint();
-                yield return new WaitUntil(() => canProceed);
-                _tasksCompleted++;
-                yield return new WaitForSeconds(2.0f);
+                StartCoroutine(WaitAndStartNextTask());
             }
+            else
+            {
+                EndLevel();
+            }
+        }
 
+        /// <summary>
+        /// Корутина для ожидания перед показом нового задания.
+        /// </summary>
+        private IEnumerator WaitAndStartNextTask()
+        {
+            yield return new WaitForSeconds(2.0f);
+            SetupNextTask();
+        }
+
+        /// <summary>
+        /// Настраивает и отображает новое задание.
+        /// </summary>
+        private void SetupNextTask()
+        {
+            Shuffle(allItems);
+            level7Spawner.SpawnTaskItems();
+            hint.waitHint = 1;
+            InitializeHint();
+        }
+
+        /// <summary>
+        /// Логика завершения уровня.
+        /// </summary>
+        private void EndLevel()
+        {
             level7Spawner.ClearAllItems();
-            if (WinBobbles.instance)
-            {
-                WinBobbles.instance.victory = 0;
-            }
         }
 
         /// <summary>
@@ -81,16 +98,12 @@ namespace Level7
         /// </summary>
         protected override void InitializeHint()
         {
-            if (hint && level7Spawner)
+            if (hint && level7Spawner && level7Spawner.currentTarget)
             {
-                // Находим правильный предмет для подсказки
                 var correctItem = level7Spawner.activeItem.Find(item => item && item.name == level7Spawner.currentTarget.name);
-                
-                if (correctItem)
-                {
-                    // Инициализируем подсказку для поиска пары для конкретного объекта
-                    hint.Initialization(level7Spawner.currentTarget, new List<GameObject> { correctItem });
-                }
+                if (!correctItem) return;
+                var correctItemsList = new List<GameObject> { correctItem };
+                hint.Initialization(level7Spawner.currentTarget, correctItemsList);
             }
             else
             {
