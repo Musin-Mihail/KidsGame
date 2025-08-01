@@ -31,14 +31,14 @@ namespace Level6
             if (Level6Manager.instance.allItems.Count <= 0 || index < 0 || index >= activeItem.Count) return;
             var starPrefab = Level6Manager.instance.allItems[0];
             var spawnPosition = startSpawnPositions[index].transform.position;
-            var newStar = Instantiate(starPrefab, spawnPosition, Quaternion.identity, parent);
+            var newStar = Instantiate(starPrefab, parent, false);
             newStar.name = starPrefab.name;
             newStar.tag = starPrefab.tag;
             activeItem[index] = newStar;
             var moveItem = newStar.GetComponent<MoveItem>();
             if (moveItem)
             {
-                moveItem.Initialization(startSpawnPositions[index].transform.position, endSpawnPositions[index].transform.position);
+                moveItem.Initialization(spawnPosition, endSpawnPositions[index].transform.position);
                 StartCoroutine(moveItem.Move());
                 StartCoroutine(moveItem.Rotation());
             }

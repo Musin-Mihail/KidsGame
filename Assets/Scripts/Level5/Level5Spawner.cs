@@ -23,6 +23,7 @@ namespace Level5
                 var targetPrefab = targets[i];
                 var spawnPosition = startSpawnPositions[i].transform.position;
                 var newTarget = Instantiate(targetPrefab, spawnPosition, targetPrefab.transform.rotation, targetsParent);
+                newTarget.transform.parent = parent;
                 newTarget.name = targetPrefab.name;
                 spawnedTargets.Add(newTarget);
             }

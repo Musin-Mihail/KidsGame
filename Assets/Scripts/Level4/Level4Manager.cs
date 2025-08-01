@@ -9,11 +9,11 @@ namespace Level4
     /// Менеджер 4-го уровня. Управляет состоянием уровня, победой и инициализацией.
     /// Наследуется от BaseLevelManager для использования общей логики.
     /// </summary>
-    public class Level4Global : BaseLevelManager<Level4Global>
+    public class Level4Manager : BaseLevelManager<Level4Manager>
     {
         [Header("Настройки уровня 4")]
         [Tooltip("Спаунер для этого уровня. Должен находиться на том же GameObject.")]
-        [SerializeField] private Level4Spawn level4Spawn;
+        public Level4Spawner level4Spawn;
 
         public List<GameObject> collectedItems = new();
         private bool _isVictoryTriggered;
@@ -21,7 +21,7 @@ namespace Level4
         protected override void Awake()
         {
             base.Awake();
-            if (!level4Spawn) level4Spawn = GetComponent<Level4Spawn>();
+            if (!level4Spawn) level4Spawn = GetComponent<Level4Spawner>();
         }
 
         protected override void Start()

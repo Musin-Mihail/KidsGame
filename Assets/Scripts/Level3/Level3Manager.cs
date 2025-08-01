@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Level3
 {
-    public class Level3Global : BaseLevelManager<Level3Global>
+    public class Level3Manager : BaseLevelManager<Level3Manager>
     {
         [Header("Настройки уровня 3")]
         public List<GameObject> threeFigures = new();
@@ -21,12 +21,12 @@ namespace Level3
         private Vector3 _center;
         private Vector3 _endTarget;
         private int _stop;
-        private Level3Spawn _level3Spawn;
+        private Level3Spawner _level3Spawn;
 
         protected override void Awake()
         {
             base.Awake();
-            _level3Spawn = GetComponent<Level3Spawn>();
+            _level3Spawn = GetComponent<Level3Spawner>();
         }
 
         protected override void Start()

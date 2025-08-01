@@ -2,7 +2,7 @@ using Core;
 
 namespace Level2
 {
-    public class Level2Spawn : BaseSpawner
+    public class Level2Spawner : BaseSpawner
     {
         public override void Initialization()
         {
@@ -13,9 +13,9 @@ namespace Level2
         {
             for (var i = 0; i < startSpawnPositions.Count; i++)
             {
-                if (i >= Level2Global.instance.allItems.Count) break;
-                var newItem = Instantiate(Level2Global.instance.allItems[i], parent, false);
-                newItem.name = Level2Global.instance.allItems[i].name;
+                if (i >= Level2Manager.instance.allItems.Count) break;
+                var newItem = Instantiate(Level2Manager.instance.allItems[i], parent, false);
+                newItem.name = Level2Manager.instance.allItems[i].name;
                 var moveItem = newItem.GetComponent<MoveItem>();
                 if (moveItem)
                 {

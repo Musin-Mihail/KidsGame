@@ -1683,8 +1683,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1039780533}
-  - component: {fileID: 1039780528}
-  - component: {fileID: 1039780527}
+  - component: {fileID: 1039780538}
+  - component: {fileID: 1039780537}
   - component: {fileID: 1039780534}
   - component: {fileID: 1039780536}
   - component: {fileID: 1039780535}
@@ -1695,63 +1695,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1039780527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1039780526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a999a772c2dd47546bc62a25bbd2db7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parent: {fileID: 139432741}
-  startSpawnPositions:
-  - {fileID: 1343753132}
-  - {fileID: 919204615}
-  - {fileID: 483161921}
-  endSpawnPositions:
-  - {fileID: 2065350453}
-  - {fileID: 1094391152}
-  - {fileID: 1143494156}
-  activeItem:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &1039780528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1039780526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97b0f9c413a7c0f42a94c27d0a03ab3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hint: {fileID: 1039780534}
-  allItems:
-  - {fileID: 964470814211606645, guid: 5f4321f39e59d2443aa35db2c33b6e29, type: 3}
-  - {fileID: 1369803303231353898, guid: e9302ffe36762ed47aa444c969462981, type: 3}
-  - {fileID: 6234840525703818958, guid: 71d58cd4f94d6e14d8d108ee42633df2, type: 3}
-  - {fileID: 9151444376490438505, guid: e0843fc490f11c94085003a93720f63b, type: 3}
-  - {fileID: 8303009790167254722, guid: 5639cb1779eb3c04db8e20bdca1b903b, type: 3}
-  - {fileID: 8715931894083389226, guid: afe5e7dc32a9f574fba7254c4720f196, type: 3}
-  - {fileID: 7837017559140140663, guid: b2b31d5c61deb714483b9beb7643cf3b, type: 3}
-  - {fileID: 392150414209237190, guid: 9b37cee6c54776b4f9db41a45855e62a, type: 3}
-  allTargets:
-  - {fileID: 825834219}
-  - {fileID: 219484914}
-  - {fileID: 1459430046}
-  - {fileID: 464208220}
-  - {fileID: 1507637650}
-  - {fileID: 771676602}
-  - {fileID: 1170279260}
-  - {fileID: 1682230819}
-  level1Spawn: {fileID: 1039780527}
 --- !u!4 &1039780533
 Transform:
   m_ObjectHideFlags: 0
@@ -1817,6 +1760,60 @@ MonoBehaviour:
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &1039780537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039780526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678461dcebdb43e2b96fd23ab30acaa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 139432741}
+  startSpawnPositions:
+  - {fileID: 1343753132}
+  - {fileID: 919204615}
+  - {fileID: 483161921}
+  endSpawnPositions:
+  - {fileID: 2065350453}
+  - {fileID: 1094391152}
+  - {fileID: 1143494156}
+  activeItem: []
+--- !u!114 &1039780538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039780526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35556b44ce3d4b6cb5b3af088c3c04ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hint: {fileID: 1039780534}
+  allItems:
+  - {fileID: 964470814211606645, guid: 5f4321f39e59d2443aa35db2c33b6e29, type: 3}
+  - {fileID: 1369803303231353898, guid: e9302ffe36762ed47aa444c969462981, type: 3}
+  - {fileID: 6234840525703818958, guid: 71d58cd4f94d6e14d8d108ee42633df2, type: 3}
+  - {fileID: 9151444376490438505, guid: e0843fc490f11c94085003a93720f63b, type: 3}
+  - {fileID: 8303009790167254722, guid: 5639cb1779eb3c04db8e20bdca1b903b, type: 3}
+  - {fileID: 8715931894083389226, guid: afe5e7dc32a9f574fba7254c4720f196, type: 3}
+  - {fileID: 7837017559140140663, guid: b2b31d5c61deb714483b9beb7643cf3b, type: 3}
+  - {fileID: 392150414209237190, guid: 9b37cee6c54776b4f9db41a45855e62a, type: 3}
+  allTargets:
+  - {fileID: 825834219}
+  - {fileID: 1682230819}
+  - {fileID: 219484914}
+  - {fileID: 1459430046}
+  - {fileID: 464208220}
+  - {fileID: 1507637650}
+  - {fileID: 771676602}
+  - {fileID: 1170279260}
+  level1Spawn: {fileID: 0}
 --- !u!1 &1094391152
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Level3
 {
-    public class Level3Spawn : BaseSpawner
+    public class Level3Spawner : BaseSpawner
     {
         public override void Initialization()
         {
@@ -22,9 +22,9 @@ namespace Level3
             activeItem = new List<GameObject>();
             for (var i = 0; i < 5; i++)
             {
-                if (i >= Level3Global.instance.allItems.Count) break;
-                var item = Instantiate(Level3Global.instance.allItems[i], startSpawnPositions[i].transform.position, Quaternion.identity);
-                item.name = Level3Global.instance.allItems[i].name;
+                if (i >= Level3Manager.instance.allItems.Count) break;
+                var item = Instantiate(Level3Manager.instance.allItems[i], parent, false);
+                item.name = Level3Manager.instance.allItems[i].name;
                 var moveItem = item.GetComponent<MoveItem>();
                 if (moveItem)
                 {

@@ -3,14 +3,14 @@ using UnityEngine;
 
 namespace Level1
 {
-    public class Level1Global : BaseLevelManager<Level1Global>
+    public class Level1Manager : BaseLevelManager<Level1Manager>
     {
-        [HideInInspector] public Level1Spawn level1Spawn;
+        [HideInInspector] public Level1Spawner level1Spawn;
 
         protected override void Awake()
         {
             base.Awake();
-            level1Spawn = GetComponent<Level1Spawn>();
+            level1Spawn = GetComponent<Level1Spawner>();
         }
 
         protected override void Start()

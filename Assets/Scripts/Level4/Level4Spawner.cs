@@ -8,7 +8,7 @@ namespace Level4
     /// Спаунер для 4-го уровня. Наследуется от BaseSpawner.
     /// Отвечает за создание и замену перетаскиваемых животных.
     /// </summary>
-    public class Level4Spawn : BaseSpawner
+    public class Level4Spawner : BaseSpawner
     {
         /// <summary>
         /// Инициализация спаунера. Создает начальный набор животных.
@@ -28,20 +28,20 @@ namespace Level4
         /// <param name="index">Индекс в списке startSpawnPositions, куда нужно создать животное.</param>
         private void SpawnAnimal(int index)
         {
-            if (Level4Global.instance.allItems.Count <= 0 || index < 0 || index >= activeItem.Count) return;
-            var animalPrefab = Level4Global.instance.allItems[0];
+            if (Level4Manager.instance.allItems.Count <= 0 || index < 0 || index >= activeItem.Count) return;
+            var animalPrefab = Level4Manager.instance.allItems[0];
             var spawnPosition = startSpawnPositions[index].transform.position;
-            var newAnimal = Instantiate(animalPrefab, spawnPosition, Quaternion.identity, parent);
+            var newAnimal = Instantiate(animalPrefab, parent, false);
             newAnimal.name = animalPrefab.name;
             activeItem[index] = newAnimal;
             var moveItem = newAnimal.GetComponent<MoveItem>();
             if (moveItem)
             {
-                moveItem.Initialization(startSpawnPositions[index].transform.position, endSpawnPositions[index].transform.position);
+                moveItem.Initialization(spawnPosition, endSpawnPositions[index].transform.position);
                 StartCoroutine(moveItem.Move());
             }
 
-            Level4Global.instance.allItems.RemoveAt(0);
+            Level4Manager.instance.allItems.RemoveAt(0);
         }
 
         /// <summary>

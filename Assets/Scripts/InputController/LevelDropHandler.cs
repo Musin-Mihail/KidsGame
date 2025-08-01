@@ -89,11 +89,11 @@ namespace InputController
             var newVector3 = targetCollider.transform.position;
             Instantiate(Resources.Load<ParticleSystem>("BubblesLevel1"), newVector3, Quaternion.Euler(-90, -40, 0));
             targetCollider.GetComponent<SpriteRenderer>().sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
-            var level1Spawn = Level1Global.instance.level1Spawn;
+            var level1Spawn = Level1Manager.instance.level1Spawn;
             if (!level1Spawn) return;
             for (var i = 0; i < level1Spawn.activeItem.Count; i++)
             {
-                if (level1Spawn.activeItem[i] == null || level1Spawn.activeItem[i].name != draggedObject.name) continue;
+                if (!level1Spawn.activeItem[i] || level1Spawn.activeItem[i].name != draggedObject.name) continue;
                 level1Spawn.SpawnAnimal(i);
                 break;
             }
@@ -122,9 +122,9 @@ namespace InputController
         {
             if (WinBobbles.instance) WinBobbles.instance.victory--;
             draggedObject.gameObject.SetActive(false);
-            if (Level3Global.instance)
+            if (Level3Manager.instance)
             {
-                Level3Global.instance.ChangeFigure();
+                Level3Manager.instance.ChangeFigure();
             }
             else
             {
@@ -137,7 +137,7 @@ namespace InputController
         private void HandleLevel4Drop(GameObject draggedObject, Collider2D targetCollider)
         {
             if (WinBobbles.instance) WinBobbles.instance.victory--;
-            var spawner = Level4Global.instance.GetComponent<Level4Spawn>();
+            var spawner = Level4Manager.instance.level4Spawn;
             if (spawner) spawner.RespawnAnimal(draggedObject);
             var childObjectTransform = targetCollider.transform.Find(draggedObject.name);
             if (childObjectTransform)

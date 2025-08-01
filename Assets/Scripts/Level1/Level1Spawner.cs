@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Level1
 {
-    public class Level1Spawn : BaseSpawner
+    public class Level1Spawner : BaseSpawner
     {
         public override void Initialization()
         {
@@ -17,11 +17,9 @@ namespace Level1
 
         public void SpawnAnimal(int number)
         {
-            if (Level1Global.instance.allItems.Count <= 0) return;
-
-            var animal = Instantiate(Level1Global.instance.allItems[0], parent.transform, false);
-            animal.name = Level1Global.instance.allItems[0].name;
-
+            if (Level1Manager.instance.allItems.Count <= 0) return;
+            var animal = Instantiate(Level1Manager.instance.allItems[0], parent, false);
+            animal.name = Level1Manager.instance.allItems[0].name;
             var moveItem = animal.GetComponent<MoveItem>();
             if (moveItem)
             {
@@ -30,7 +28,7 @@ namespace Level1
             }
 
             activeItem[number] = animal;
-            Level1Global.instance.allItems.RemoveAt(0);
+            Level1Manager.instance.allItems.RemoveAt(0);
         }
     }
 }

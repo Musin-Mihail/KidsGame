@@ -4,19 +4,19 @@ using UnityEngine;
 
 namespace Level2
 {
-    public class Level2Global : BaseLevelManager<Level2Global>
+    public class Level2Manager : BaseLevelManager<Level2Manager>
     {
         [Header("Настройки уровня 2")]
         public GameObject boat;
 
         private Vector3 _targetBoat;
         private int _win;
-        private Level2Spawn _level2Spawn;
+        private Level2Spawner _level2Spawn;
 
         protected override void Awake()
         {
             base.Awake();
-            _level2Spawn = GetComponent<Level2Spawn>();
+            _level2Spawn = GetComponent<Level2Spawner>();
         }
 
         protected override void Start()
