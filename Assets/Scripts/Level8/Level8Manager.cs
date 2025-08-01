@@ -41,7 +41,6 @@ namespace Level8
 
         private PuzzleInfo _currentPuzzle;
         private int _itemsToPlaceCount;
-        private bool _isCurrentPuzzleFinished;
 
         protected override void Awake()
         {
@@ -53,7 +52,7 @@ namespace Level8
         {
             if (WinBobbles.instance)
             {
-                WinBobbles.instance.victory = 1;
+                WinBobbles.instance.victory = puzzles.Count;
             }
 
             StartCoroutine(RunAllPuzzlesSequentially());
@@ -71,11 +70,6 @@ namespace Level8
                 yield return StartCoroutine(LevelFlowCoroutine(_currentPuzzle));
                 _currentPuzzle.puzzleObject.SetActive(false);
             }
-
-            if (WinBobbles.instance)
-            {
-                WinBobbles.instance.victory = 0;
-            }
         }
 
         /// <summary>
@@ -83,7 +77,6 @@ namespace Level8
         /// </summary>
         private IEnumerator LevelFlowCoroutine(PuzzleInfo currentPuzzle)
         {
-            _isCurrentPuzzleFinished = false;
             _itemsToPlaceCount = currentPuzzle.puzzlePieces.Count;
             var puzzleTransform = currentPuzzle.puzzleObject.transform;
             var puzzleAnimator = currentPuzzle.puzzleObject.GetComponent<Animator>();
@@ -106,7 +99,11 @@ namespace Level8
             InitializeSpawner();
             InitializeHint();
             StartCoroutine(hint.StartHint());
-            yield return new WaitUntil(() => _isCurrentPuzzleFinished);
+            while (_itemsToPlaceCount > 0)
+            {
+                yield return null;
+            }
+
             if (hint)
             {
                 hint.StopAllCoroutines();
@@ -135,11 +132,14 @@ namespace Level8
         /// </summary>
         public void OnItemPlaced()
         {
-            if (_isCurrentPuzzleFinished) return;
+            if (_itemsToPlaceCount <= 0) return;
             _itemsToPlaceCount--;
             if (_itemsToPlaceCount <= 0)
             {
-                _isCurrentPuzzleFinished = true;
+                if (WinBobbles.instance)
+                {
+                    WinBobbles.instance.victory--;
+                }
             }
 
             hint.waitHint = 1;
