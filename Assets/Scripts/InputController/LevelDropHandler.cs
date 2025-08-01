@@ -5,6 +5,7 @@ using Level3;
 using Level4;
 using Level5;
 using Level6;
+using Level7;
 using UnityEngine;
 
 namespace InputController
@@ -25,7 +26,8 @@ namespace InputController
             Level3,
             Level4,
             Level5,
-            Level6
+            Level6,
+            Level7
         }
         [SerializeField] private LevelType currentLevel;
 
@@ -67,6 +69,9 @@ namespace InputController
                     break;
                 case LevelType.Level6:
                     HandleLevel6Drop(draggedObject, targetCollider);
+                    break;
+                case LevelType.Level7:
+                    HandleLevel7Drop(draggedObject, targetCollider);
                     break;
             }
         }
@@ -234,6 +239,25 @@ namespace InputController
             {
                 WinBobbles.instance.victory--;
             }
+        }
+
+        /// <summary>
+        /// Обрабатывает успешное перетаскивание для 7-го уровня.
+        /// </summary>
+        private void HandleLevel7Drop(GameObject draggedObject, Collider2D targetCollider)
+        {
+            var levelManager = Level7Manager.instance;
+            if (!levelManager) return;
+            AudioManager.instance.PlayClickSound();
+            var targetSpriteRenderer = targetCollider.GetComponent<SpriteRenderer>();
+            if (targetSpriteRenderer)
+            {
+                targetSpriteRenderer.sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
+                targetCollider.transform.localScale = draggedObject.transform.localScale;
+            }
+
+            draggedObject.SetActive(false);
+            levelManager.canProceed = true;
         }
     }
 }
