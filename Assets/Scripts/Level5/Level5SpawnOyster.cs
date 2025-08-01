@@ -45,6 +45,13 @@ namespace Level5
             var spawnPosition = new Vector3(transform.position.x, transform.position.y, -0.25f);
             var newFigure = Instantiate(figureToSpawn, spawnPosition, figureToSpawn.transform.rotation, transform);
             newFigure.name = figureToSpawn.name;
+
+            if (newFigure.TryGetComponent<MoveItem>(out var moveItem))
+            {
+                moveItem.Initialization(spawnPosition, spawnPosition);
+                moveItem.state = 0;
+            }
+
             spawner.activeItem.Add(newFigure);
         }
     }
