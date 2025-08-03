@@ -5,79 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7313cf86-6b92-4f5e-b60f-6a57ae13d2c3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.KidsGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KidsGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level10.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level10/Item1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level10/Item1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level10/Item2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level10/Item2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level10/Item3.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level10/Item3.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level10/Item4.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level10/Item4.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level10/Item5.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level10/Item5.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level7.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level7/Item1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level7/Item1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level7/Item2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level7/Item2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level7/Item3.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level7/Item3.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level7/Item4.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level7/Item4.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level7/Item5.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level7/Item5.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level7/Item6.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level7/Item6.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level8.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level8/AnimShark.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level8/AnimShark.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level8/AnimSubmarine.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level8/AnimSubmarine.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level8/AnimWhale.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level8/AnimWhale.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level8/Puzzle1.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level8/Puzzle1.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level8/Puzzle2.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level8/Puzzle2.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level8/Puzzle3.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level8/Puzzle3.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target10.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target10.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target11.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target11.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target12.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target12.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target3.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target3.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target4.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target4.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target5.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target5.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target6.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target6.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target7.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target7.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target8.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target8.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target9.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level9/Target9.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level5/AnimChest.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level5/AnimChest.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level5/Chest.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level5/Chest.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputController/LevelDropHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputController/LevelDropHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level10/Level10Global.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level10/Level10Global.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level10/Level10Mouse.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level10/Level10Mouse.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PluginYourGames/Editor/BuildLogYG2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PluginYourGames/Editor/BuildLogYG2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level10/Level10Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level10/Level10Spawner.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +22,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2c271b216ff84328b73d1d7f2333e7ab1eac00/99/3a5ee688/GameObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2c271b216ff84328b73d1d7f2333e7ab1eac00/ba/9da4ff20/Transform.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2c271b216ff84328b73d1d7f2333e7ab1eac00/d7/477df17b/Behaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2c271b216ff84328b73d1d7f2333e7ab1eac00/e0/f60c7b85/Object.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/44f3679c53d1477a9c6e72f269e3a3a91de200/9c/037ce3b3/Screen.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/44f3679c53d1477a9c6e72f269e3a3a91de200/c9/ac005392/SceneManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -229,7 +159,7 @@
       <workItem from="1753708891281" duration="2448000" />
       <workItem from="1753864491998" duration="23427000" />
       <workItem from="1754048018125" duration="20811000" />
-      <workItem from="1754226022963" duration="6662000" />
+      <workItem from="1754226022963" duration="7069000" />
     </task>
     <servers />
   </component>

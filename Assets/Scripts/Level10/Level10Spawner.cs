@@ -42,7 +42,7 @@ namespace Level10
                 go.tag = sizes[i];
                 if (go.TryGetComponent<MoveItem>(out var moveItem))
                 {
-                    moveItem.enabled = false;
+                    moveItem.Initialization(startSpawnPositions[i].transform.position, endSpawnPositions[i].transform.position, GameConstants.DefaultMoveSpeed);
                 }
 
                 activeItem.Add(go);
