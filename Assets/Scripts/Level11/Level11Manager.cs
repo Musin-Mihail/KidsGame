@@ -10,7 +10,7 @@ namespace Level11
     /// Управляет основной логикой 11-го уровня.
     /// Наследуется от BaseLevelManager для использования общей логики уровней.
     /// </summary>
-    [RequireComponent(typeof(Level11Spawner))]
+    [RequireComponent(typeof(Level11Spawner), typeof(Hint))]
     public class Level11Manager : BaseLevelManager<Level11Manager>
     {
         [Header("Настройки уровня 11")]
@@ -24,27 +24,26 @@ namespace Level11
         [SerializeField] private int fishChestCount = 8;
         [Tooltip("Общее количество сундуков")]
         [SerializeField] private int totalChestCount = 32;
-
-        [Header("Настройки подсказок")]
-        [Tooltip("Объект 'пальца' для подсказки")]
-        [SerializeField] private GameObject finger;
-        [Tooltip("Задержка перед показом подсказки в секундах")]
-        [SerializeField] private float hintDelay = 4f;
-
         [Header("Ссылки на компоненты")]
         [Tooltip("Спаунер для этого уровня")]
         public Level11Spawner level11Spawner;
-
         [HideInInspector] public List<GameObject> spawnedChests = new();
         [HideInInspector] public List<GameObject> emptyChestsForDeletion = new();
         [HideInInspector] public List<GameObject> foundFishObjects = new();
-
-        private int _waitHint;
+        private GameObject _hintStartObject;
 
         protected override void Awake()
         {
             base.Awake();
             if (!level11Spawner) level11Spawner = GetComponent<Level11Spawner>();
+            _hintStartObject = new GameObject("HintStartObject")
+            {
+                tag = "FishChest",
+                transform =
+                {
+                    position = new Vector3(0, -8, 0)
+                }
+            };
         }
 
         protected override void Start()
@@ -55,7 +54,22 @@ namespace Level11
             }
 
             InitializeSpawner();
-            StartCoroutine(HintCoroutine());
+            StartCoroutine(WaitForSpawningAndInitializeHint());
+        }
+
+        private IEnumerator WaitForSpawningAndInitializeHint()
+        {
+            while (spawnedChests.Count < totalChestCount)
+            {
+                yield return null;
+            }
+
+            InitializeHint();
+            yield return new WaitForSeconds(4.4f);
+            if (hint)
+            {
+                StartCoroutine(hint.StartHint());
+            }
         }
 
         /// <summary>
@@ -75,18 +89,29 @@ namespace Level11
             }
 
             Shuffle(chestPrefabs);
-
             if (!level11Spawner) return;
             level11Spawner.chestsToSpawn = chestPrefabs;
             level11Spawner.Initialization();
         }
 
         /// <summary>
-        /// На этом уровне используется своя логика подсказок, поэтому этот метод не переопределяется.
+        /// Инициализирует компонент подсказки для текущего состояния уровня.
         /// </summary>
         protected override void InitializeHint()
         {
-            // Не используется
+            if (!hint) return;
+            hint.comparisonType = HintComparisonType.ByTag;
+            var fishChests = spawnedChests
+                .Where(c => c && c.CompareTag("FishChest") && c.GetComponent<Collider2D>()?.enabled == true)
+                .ToList();
+            if (!fishChests.Any())
+            {
+                hint.Initialization(new List<GameObject>(), new List<GameObject>());
+                return;
+            }
+
+            var startList = new List<GameObject> { _hintStartObject };
+            hint.Initialization(fishChests, startList);
         }
 
         /// <summary>
@@ -102,6 +127,8 @@ namespace Level11
             {
                 HandleEmptyChest(chest);
             }
+
+            InitializeHint();
         }
 
         /// <summary>
@@ -109,7 +136,10 @@ namespace Level11
         /// </summary>
         public void NotifyInteraction()
         {
-            _waitHint = 1;
+            if (hint)
+            {
+                hint.waitHint = 1;
+            }
         }
 
         private void HandleFishChest(GameObject chest)
@@ -167,6 +197,12 @@ namespace Level11
 
         private IEnumerator WinAnimation()
         {
+            if (hint)
+            {
+                hint.StopAllCoroutines();
+                if (hint.finger) hint.finger.SetActive(false);
+            }
+
             foreach (var item in emptyChestsForDeletion)
             {
                 if (item) Destroy(item);
@@ -183,64 +219,6 @@ namespace Level11
                 }
 
                 yield return new WaitForSeconds(0.02f);
-            }
-        }
-
-        private IEnumerator HintCoroutine()
-        {
-            yield return new WaitForSeconds(hintDelay);
-            while (WinBobbles.instance && WinBobbles.instance.victory > 0)
-            {
-                var hintTimer = 0f;
-                while (hintTimer < hintDelay)
-                {
-                    yield return new WaitForSeconds(1.0f);
-                    if (_waitHint == 1)
-                    {
-                        _waitHint = 0;
-                        hintTimer = 0;
-                        break;
-                    }
-
-                    hintTimer++;
-                }
-
-                if (hintTimer >= hintDelay)
-                {
-                    yield return StartCoroutine(ShowHintAnimation());
-                }
-
-                yield return new WaitForSeconds(1.0f);
-            }
-        }
-
-        private IEnumerator ShowHintAnimation()
-        {
-            if (!finger) yield break;
-
-            var unopenedFishChests = spawnedChests
-                .Where(c => c && c.CompareTag("FishChest") && c.GetComponent<Collider2D>() && c.GetComponent<Collider2D>().enabled)
-                .ToList();
-
-            if (!unopenedFishChests.Any()) yield break;
-            {
-                finger.SetActive(true);
-                var targetChest = unopenedFishChests.OrderBy(c => Vector3.Distance(finger.transform.position, c.transform.position)).First();
-                var targetPosition = targetChest.transform.position;
-
-                while (Vector3.Distance(finger.transform.position, targetPosition) > 0.01f)
-                {
-                    finger.transform.position = Vector3.MoveTowards(finger.transform.position, targetPosition, Time.deltaTime * GameConstants.HintDistance);
-                    if (_waitHint == 1)
-                    {
-                        break;
-                    }
-
-                    yield return null;
-                }
-
-                _waitHint = 0;
-                finger.SetActive(false);
             }
         }
     }
