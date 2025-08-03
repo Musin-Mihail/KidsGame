@@ -38,6 +38,8 @@ TagManager:
   - Spawn8
   - Spawn9
   - Spawn10
+  - FishChest
+  - EmptyChest
   layers:
   - Default
   - TransparentFX

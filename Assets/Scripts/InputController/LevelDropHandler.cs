@@ -2,6 +2,7 @@ using System.Collections;
 using Core;
 using Level1;
 using Level10;
+using Level11;
 using Level3;
 using Level4;
 using Level5;
@@ -15,12 +16,16 @@ namespace InputController
 {
     /// <summary>
     /// Этот компонент нужно повесить на менеджер уровня.
-    /// Он подписывается на событие из DragAndDropController и выполняет логику,
-    /// специфичную для конкретного уровня.
+    /// Он подписывается на события из контроллеров ввода (DragAndDropController, ClickController)
+    /// и выполняет логику, специфичную для конкретного уровня.
     /// </summary>
     public class LevelDropHandler : MonoBehaviour
     {
+        [Header("Контроллеры ввода")]
+        [Tooltip("Контроллер для перетаскивания. Необходим для уровней с Drag & Drop.")]
         [SerializeField] private DragAndDropController dragController;
+        [Tooltip("Контроллер для кликов. Необходим для уровней с механикой клика.")]
+        [SerializeField] private ClickController clickController;
 
         private enum LevelType
         {
@@ -33,26 +38,52 @@ namespace InputController
             Level7,
             Level8,
             Level9,
-            Level10
+            Level10,
+            Level11
         }
         [SerializeField] private LevelType currentLevel;
 
         private void OnEnable()
         {
-            if (!dragController) return;
-            dragController.OnSuccessfulDrop += HandleDrop;
-            dragController.OnDropFailed += HandleFailedDrop;
+            if (dragController)
+            {
+                dragController.OnSuccessfulDrop += HandleDrop;
+                dragController.OnDropFailed += HandleFailedDrop;
+            }
+
+            if (clickController)
+            {
+                clickController.OnObjectClicked += HandleClick;
+            }
         }
 
         private void OnDisable()
         {
-            if (!dragController) return;
-            dragController.OnSuccessfulDrop -= HandleDrop;
-            dragController.OnDropFailed -= HandleFailedDrop;
+            if (dragController)
+            {
+                dragController.OnSuccessfulDrop -= HandleDrop;
+                dragController.OnDropFailed -= HandleFailedDrop;
+            }
+
+            if (clickController)
+            {
+                clickController.OnObjectClicked -= HandleClick;
+            }
         }
 
         /// <summary>
-        /// Эта функция будет вызвана, когда DragAndDropController зафиксирует успешное размещение.
+        /// Обрабатывает событие клика от ClickController.
+        /// </summary>
+        private void HandleClick(GameObject clickedObject)
+        {
+            if (currentLevel == LevelType.Level11)
+            {
+                HandleLevel11Click(clickedObject);
+            }
+        }
+
+        /// <summary>
+        /// Обрабатывает успешное перетаскивание.
         /// </summary>
         private void HandleDrop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
         {
@@ -318,6 +349,17 @@ namespace InputController
             AudioManager.instance.PlayClickSound();
             levelManager.OnItemPlaced(targetCollider.gameObject);
             draggedObject.SetActive(false);
+        }
+
+        /// <summary>
+        /// Обрабатывает клик для 11-го уровня.
+        /// </summary>
+        private void HandleLevel11Click(GameObject clickedObject)
+        {
+            var manager = Level11Manager.instance;
+            if (!manager) return;
+            manager.OnChestClicked(clickedObject);
+            manager.NotifyInteraction();
         }
     }
 }

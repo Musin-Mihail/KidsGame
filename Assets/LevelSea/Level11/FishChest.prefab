@@ -11,9 +11,7 @@ GameObject:
   - component: {fileID: 8398934689580528932}
   - component: {fileID: 241688341049409758}
   - component: {fileID: 6880124542813411185}
-  - component: {fileID: -7147461916065305176}
   - component: {fileID: -7870860558957486280}
-  - component: {fileID: 7560821782680658141}
   m_Layer: 11
   m_Name: FishChest
   m_TagString: Untagged
@@ -77,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1142455203
+  m_SortingLayer: -3
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 50300f7bf9917124e809c7bd7ea25558, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -113,19 +111,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-7147461916065305176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5325823693771768380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293d77272218b824eb9cf25d827ecfa2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _fish: {fileID: 21300000, guid: 495837a71cfe7c74ba07a68c260aa6fa, type: 3}
 --- !u!61 &-7870860558957486280
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -133,7 +118,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5325823693771768380}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -172,15 +157,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.61, y: 3.47}
   m_EdgeRadius: 0
---- !u!114 &7560821782680658141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5325823693771768380}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e707748c9d746554aa4f395863a03d58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
