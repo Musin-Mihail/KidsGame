@@ -1,6 +1,7 @@
 using System.Collections;
 using Core;
 using Level1;
+using Level10;
 using Level3;
 using Level4;
 using Level5;
@@ -31,7 +32,8 @@ namespace InputController
             Level6,
             Level7,
             Level8,
-            Level9
+            Level9,
+            Level10
         }
         [SerializeField] private LevelType currentLevel;
 
@@ -82,6 +84,9 @@ namespace InputController
                     break;
                 case LevelType.Level9:
                     HandleLevel9Drop(draggedObject);
+                    break;
+                case LevelType.Level10:
+                    HandleLevel10Drop(draggedObject, targetCollider);
                     break;
             }
         }
@@ -300,6 +305,19 @@ namespace InputController
             }
 
             levelManager.OnItemPlaced();
+        }
+
+        /// <summary>
+        /// Обрабатывает успешное перетаскивание для 10-го уровня.
+        /// </summary>
+        private void HandleLevel10Drop(GameObject draggedObject, Collider2D targetCollider)
+        {
+            var levelManager = Level10Manager.instance;
+            if (!levelManager) return;
+
+            AudioManager.instance.PlayClickSound();
+            levelManager.OnItemPlaced(targetCollider.gameObject);
+            draggedObject.SetActive(false);
         }
     }
 }
