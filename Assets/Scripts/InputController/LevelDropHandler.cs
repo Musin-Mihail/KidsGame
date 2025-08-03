@@ -7,6 +7,7 @@ using Level5;
 using Level6;
 using Level7;
 using Level8;
+using Level9;
 using UnityEngine;
 
 namespace InputController
@@ -29,7 +30,8 @@ namespace InputController
             Level5,
             Level6,
             Level7,
-            Level8
+            Level8,
+            Level9
         }
         [SerializeField] private LevelType currentLevel;
 
@@ -77,6 +79,9 @@ namespace InputController
                     break;
                 case LevelType.Level8:
                     HandleLevel8Drop(draggedObject, targetCollider);
+                    break;
+                case LevelType.Level9:
+                    HandleLevel9Drop(draggedObject);
                     break;
             }
         }
@@ -276,6 +281,25 @@ namespace InputController
             if (col) col.enabled = false;
             Level8Manager.instance.OnItemPlaced();
             Instantiate(Resources.Load<ParticleSystem>("Bubbles"), draggedObject.transform.position, Quaternion.identity);
+        }
+
+        /// <summary>
+        /// Обрабатывает успешное перетаскивание для 9-го уровня.
+        /// </summary>
+        private void HandleLevel9Drop(GameObject draggedObject)
+        {
+            var levelManager = Level9Manager.instance;
+            var spawner = levelManager.GetComponent<Level9Spawner>();
+            if (!levelManager || !spawner) return;
+            AudioManager.instance.PlayClickSound();
+            draggedObject.SetActive(false);
+            spawner.RespawnItem(draggedObject);
+            if (WinBobbles.instance)
+            {
+                WinBobbles.instance.victory--;
+            }
+
+            levelManager.OnItemPlaced();
         }
     }
 }
