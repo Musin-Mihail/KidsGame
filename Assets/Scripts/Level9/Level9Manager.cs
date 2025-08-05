@@ -21,6 +21,7 @@ namespace Level9
         protected override void Awake()
         {
             base.Awake();
+            if (!level9Spawner) level9Spawner = GetComponent<Level9Spawner>();
             if (!dragController) dragController = GetComponent<DragAndDropController>();
         }
 
@@ -42,11 +43,7 @@ namespace Level9
 
         protected override void Start()
         {
-            if (WinBobbles.instance)
-            {
-                WinBobbles.instance.victory = allItems.Count;
-            }
-
+            WinBobbles.instance?.SetVictoryCondition(allItems.Count);
             base.Start();
             StartCoroutine(hint.StartHint());
         }
@@ -84,7 +81,7 @@ namespace Level9
         /// <summary>
         /// Вызывается, когда предмет успешно размещен, чтобы обновить подсказку.
         /// </summary>
-        private void OnItemPlaced()
+        private void UpdateHintAfterPlacement()
         {
             if (!hint) return;
             hint.waitHint = 1;
@@ -97,16 +94,9 @@ namespace Level9
         private void HandleLevel9Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
         {
             if (!level9Spawner) return;
-
-            AudioManager.instance.PlayClickSound();
-            draggedObject.SetActive(false);
+            ProcessSuccessfulPlacement(draggedObject, targetCollider.gameObject);
             level9Spawner.RespawnItem(draggedObject);
-            if (WinBobbles.instance)
-            {
-                WinBobbles.instance.victory--;
-            }
-
-            OnItemPlaced();
+            UpdateHintAfterPlacement();
         }
     }
 }

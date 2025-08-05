@@ -46,17 +46,13 @@ namespace Level6
 
         protected override void Start()
         {
-            if (WinBobbles.instance)
-            {
-                WinBobbles.instance.victory = 15;
-            }
-
+            WinBobbles.instance?.SetVictoryCondition(15);
             base.Start();
         }
 
         private void Update()
         {
-            if (_isVictoryTriggered || !WinBobbles.instance || WinBobbles.instance.victory != 0) return;
+            if (_isVictoryTriggered || !WinBobbles.instance || WinBobbles.instance.victoryCondition != 0) return;
             _isVictoryTriggered = true;
             StartCoroutine(WinAnimation());
         }
@@ -144,27 +140,18 @@ namespace Level6
                 return;
             }
 
-            AudioManager.instance.PlayClickSound();
             var starToShow = chest.starPlaceholders[chest.busyPlaces];
             if (starToShow)
             {
                 starToShow.SetActive(true);
                 collectedStars.Add(starToShow);
-                var particlePosition = starToShow.transform.position;
-                Instantiate(Resources.Load<ParticleSystem>("Bubbles"), particlePosition, Quaternion.Euler(-90, 0, 0));
             }
 
+            ProcessSuccessfulPlacement(draggedObject, starToShow.gameObject);
             chest.busyPlaces++;
-            draggedObject.SetActive(false);
-
             if (level6Spawner)
             {
                 level6Spawner.RespawnStar(draggedObject);
-            }
-
-            if (WinBobbles.instance)
-            {
-                WinBobbles.instance.victory--;
             }
         }
     }

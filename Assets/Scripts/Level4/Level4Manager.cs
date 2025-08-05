@@ -48,17 +48,13 @@ namespace Level4
 
         protected override void Start()
         {
-            if (WinBobbles.instance)
-            {
-                WinBobbles.instance.victory = 10;
-            }
-
+            WinBobbles.instance?.SetVictoryCondition(10);
             base.Start();
         }
 
         private void Update()
         {
-            if (_isVictoryTriggered || !WinBobbles.instance || WinBobbles.instance.victory != 0) return;
+            if (_isVictoryTriggered || !WinBobbles.instance || WinBobbles.instance.victoryCondition != 0) return;
             _isVictoryTriggered = true;
             StartCoroutine(WinAnimation());
         }
@@ -119,18 +115,17 @@ namespace Level4
         /// </summary>
         private void HandleLevel4Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
         {
-            if (WinBobbles.instance) WinBobbles.instance.victory--;
-
+            WinBobbles.instance?.OnItemPlaced();
+            AudioManager.instance?.PlayClickSound();
             if (level4Spawn) level4Spawn.RespawnAnimal(draggedObject);
             var childObjectTransform = targetCollider.transform.Find(draggedObject.name);
             if (childObjectTransform)
             {
-                AudioManager.instance.PlayClickSound();
                 StartCoroutine(MoveAndActivate(draggedObject, childObjectTransform.gameObject, targetCollider.CompareTag("Water")));
             }
             else
             {
-                draggedObject.gameObject.SetActive(false);
+                draggedObject.SetActive(false);
             }
         }
 
@@ -151,8 +146,7 @@ namespace Level4
 
             if (water)
             {
-                var particlePosition = objectToMove.transform.position;
-                Instantiate(Resources.Load<ParticleSystem>("Bubbles"), particlePosition, Quaternion.Euler(-90, -40, 0));
+                SpawnSuccessEffect(objectToMove.transform);
             }
 
             childToActivate.SetActive(true);

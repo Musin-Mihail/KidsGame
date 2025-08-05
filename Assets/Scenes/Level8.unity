@@ -4521,8 +4521,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgBlack: {fileID: 1144025251}
   bubble: {fileID: 4912721534522409081, guid: e2b69a1f651e82f4692603bed8207f36, type: 3}
-  count: 30
-  victory: 0
 --- !u!1 &1708604821
 GameObject:
   m_ObjectHideFlags: 0
@@ -5518,6 +5516,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hint: {fileID: 1949496704}
+  successEffectPrefab: {fileID: 5981370303694277390, guid: 3710ee0e1031c274fb0abe08a0db1858,
+    type: 3}
+  successEffectLayer: 5
   allItems: []
   allTargets: []
   puzzles:

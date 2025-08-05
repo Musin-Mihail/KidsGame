@@ -54,10 +54,7 @@ namespace Level12
 
         protected override void Start()
         {
-            if (WinBobbles.instance)
-            {
-                WinBobbles.instance.victory = allTargets.Count;
-            }
+            WinBobbles.instance?.SetVictoryCondition(allTargets.Count);
 
             foreach (var target in allTargets.Where(target => target))
             {
@@ -101,14 +98,7 @@ namespace Level12
             var currentTarget = allTargets[_currentTaskIndex];
             if (clickedItem.name != currentTarget.name) return;
             if (hint) hint.waitHint = 1;
-            OnCorrectItemClicked(clickedItem);
-        }
 
-        /// <summary>
-        /// Вызывается при клике на правильный предмет.
-        /// </summary>
-        private void OnCorrectItemClicked(GameObject clickedItem)
-        {
             if (clickedItem.TryGetComponent<Collider2D>(out var collider))
             {
                 collider.enabled = false;
@@ -122,8 +112,8 @@ namespace Level12
         /// </summary>
         private IEnumerator MoveAndScaleItem(GameObject item, GameObject target)
         {
-            AudioManager.instance.PlayClickSound();
-            Instantiate(Resources.Load<ParticleSystem>("ParticleSrarsLevel11"), item.transform.position, Quaternion.Euler(-90, 0, 0));
+            AudioManager.instance?.PlayClickSound();
+            SpawnSuccessEffect(item.transform);
             if (item.TryGetComponent<SpriteRenderer>(out var itemRenderer))
             {
                 itemRenderer.sortingOrder = 12;
@@ -143,17 +133,13 @@ namespace Level12
             var scaleCoroutine = StartCoroutine(Scale(item, target.transform.localScale));
             yield return moveCoroutine;
             yield return scaleCoroutine;
-            Instantiate(Resources.Load<ParticleSystem>("ParticleSrarsLevel11"), item.transform.position, Quaternion.Euler(-90, 0, 0));
+            SpawnSuccessEffect(item.transform);
             if (target.TryGetComponent<SpriteRenderer>(out var targetRenderer))
             {
                 targetRenderer.enabled = false;
             }
 
-            if (WinBobbles.instance)
-            {
-                WinBobbles.instance.victory--;
-            }
-
+            WinBobbles.instance?.OnItemPlaced();
             _currentTaskIndex++;
             if (_currentTaskIndex < allTargets.Count)
             {

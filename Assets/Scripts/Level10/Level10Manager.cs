@@ -54,11 +54,7 @@ namespace Level10
 
         protected override void Start()
         {
-            if (WinBobbles.instance)
-            {
-                WinBobbles.instance.victory = 1;
-            }
-
+            WinBobbles.instance?.SetVictoryCondition(1);
             Shuffle(allItems);
             StartCoroutine(GameFlow());
             StartCoroutine(hint.StartHint());
@@ -81,10 +77,7 @@ namespace Level10
             }
 
             yield return StartCoroutine(WinAnimation());
-            if (WinBobbles.instance)
-            {
-                WinBobbles.instance.victory = 0;
-            }
+            WinBobbles.instance?.SetVictoryCondition(0);
         }
 
         /// <summary>
@@ -177,7 +170,7 @@ namespace Level10
         /// </summary>
         private void HandleLevel10Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
         {
-            AudioManager.instance.PlayClickSound();
+            AudioManager.instance?.PlayClickSound();
             OnItemPlaced(targetCollider.gameObject);
             draggedObject.SetActive(false);
         }

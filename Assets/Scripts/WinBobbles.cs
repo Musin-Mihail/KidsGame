@@ -10,9 +10,13 @@ public class WinBobbles : MonoBehaviour
     public GameObject bgBlack;
     [Tooltip("Префаб пузырька для победной анимации")]
     public GameObject bubble;
-    [HideInInspector] public int count = 30;
-    [HideInInspector] public int victory = 1;
+    private int _bubblesToWin = 30;
     private int _stop;
+
+    /// <summary>
+    /// Публичное свойство для чтения текущего состояния победы.
+    /// </summary>
+    public int victoryCondition { get; private set; }
 
     private void Awake()
     {
@@ -26,24 +30,54 @@ public class WinBobbles : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Устанавливает начальное количество условий для победы.
+    /// Вызывается из менеджеров уровней.
+    /// </summary>
+    public void SetVictoryCondition(int count)
+    {
+        victoryCondition = count;
+    }
+
+    /// <summary>
+    /// Вызывается, когда игрок успешно размещает предмет.
+    /// </summary>
+    public void OnItemPlaced()
+    {
+        if (victoryCondition > 0)
+        {
+            victoryCondition--;
+        }
+    }
+
+    /// <summary>
+    /// Вызывается, когда лопается пузырь в победной анимации.
+    /// </summary>
+    public void OnBubbleBurst()
+    {
+        if (_bubblesToWin > 0)
+        {
+            _bubblesToWin--;
+        }
+    }
+
     private void Update()
     {
-        if (victory == 0 && _stop == 0)
+        if (victoryCondition == 0 && _stop == 0)
         {
             _stop = 1;
             StartCoroutine(Win());
         }
 
-        if (count != 0) return;
-
-        count = 30;
+        if (_bubblesToWin != 0) return;
+        _bubblesToWin = 30;
         Invoke("LoadScene", 2.0f);
     }
 
     /// <summary>
     /// Корутина, запускающая победную анимацию.
     /// </summary>
-    public IEnumerator Win()
+    private IEnumerator Win()
     {
         yield return new WaitForSeconds(1);
         if (bgBlack)

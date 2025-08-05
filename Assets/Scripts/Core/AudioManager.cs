@@ -6,7 +6,6 @@ namespace Core
     /// Управляет воспроизведением звука в игре.
     /// Реализован как синглтон, чтобы обеспечить единственный экземпляр.
     /// </summary>
-    [RequireComponent(typeof(AudioSource))]
     public class AudioManager : MonoBehaviour
     {
         public static AudioManager instance { get; private set; }

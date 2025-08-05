@@ -45,24 +45,19 @@ namespace Level7
 
         protected override void Start()
         {
-            if (WinBobbles.instance)
-            {
-                WinBobbles.instance.victory = 5;
-            }
-
+            WinBobbles.instance?.SetVictoryCondition(5);
             base.Start();
             StartCoroutine(hint.StartHint());
             SetupNextTask();
         }
 
         /// <summary>
-        /// Вызывается из LevelDropHandler после успешного размещения предмета.
+        /// Вызывается после успешного размещения предмета.
         /// </summary>
-        public void OnTaskCompleted()
+        private void OnTaskCompleted()
         {
-            if (!WinBobbles.instance) return;
-            WinBobbles.instance.victory--;
-            if (WinBobbles.instance.victory > 0)
+            WinBobbles.instance?.OnItemPlaced();
+            if (WinBobbles.instance?.victoryCondition > 0)
             {
                 StartCoroutine(WaitAndStartNextTask());
             }
@@ -135,7 +130,7 @@ namespace Level7
         /// </summary>
         private void HandleLevel7Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
         {
-            AudioManager.instance.PlayClickSound();
+            AudioManager.instance?.PlayClickSound();
             var targetSpriteRenderer = targetCollider.GetComponent<SpriteRenderer>();
             if (targetSpriteRenderer)
             {

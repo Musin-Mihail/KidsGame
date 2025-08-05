@@ -40,7 +40,7 @@ public class BurstingBubble : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
-        WinBobbles.instance.count--;
+        WinBobbles.instance?.OnBubbleBurst();
         Destroy(gameObject);
     }
 
@@ -52,7 +52,7 @@ public class BurstingBubble : MonoBehaviour
         yield return new WaitForSeconds(10);
         if (_isBursting) yield break;
         _isBursting = true;
-        WinBobbles.instance.count--;
+        WinBobbles.instance?.OnBubbleBurst();
         Destroy(gameObject);
     }
 }

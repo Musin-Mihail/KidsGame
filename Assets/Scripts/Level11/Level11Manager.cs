@@ -46,10 +46,7 @@ namespace Level11
             _hintStartObject = new GameObject("HintStartObject")
             {
                 tag = "FishChest",
-                transform =
-                {
-                    position = new Vector3(0, -8, 0)
-                }
+                transform = { position = new Vector3(0, -8, 0) }
             };
         }
 
@@ -57,7 +54,7 @@ namespace Level11
         {
             if (clickController)
             {
-                clickController.OnObjectClicked += HandleLevel11Click;
+                clickController.OnObjectClicked += OnChestClicked;
             }
         }
 
@@ -65,17 +62,13 @@ namespace Level11
         {
             if (clickController)
             {
-                clickController.OnObjectClicked -= HandleLevel11Click;
+                clickController.OnObjectClicked -= OnChestClicked;
             }
         }
 
         protected override void Start()
         {
-            if (WinBobbles.instance)
-            {
-                WinBobbles.instance.victory = fishChestCount;
-            }
-
+            WinBobbles.instance?.SetVictoryCondition(fishChestCount);
             InitializeSpawner();
             StartCoroutine(WaitForSpawningAndInitializeHint());
         }
@@ -140,7 +133,7 @@ namespace Level11
         /// <summary>
         /// Обрабатывает клик по сундуку.
         /// </summary>
-        public void OnChestClicked(GameObject chest)
+        private void OnChestClicked(GameObject chest)
         {
             if (chest.CompareTag("FishChest"))
             {
@@ -151,42 +144,26 @@ namespace Level11
                 HandleEmptyChest(chest);
             }
 
+            if (hint) hint.waitHint = 1;
             InitializeHint();
-        }
-
-        /// <summary>
-        /// Уведомляет менеджер о том, что произошло взаимодействие, чтобы сбросить таймер подсказки.
-        /// </summary>
-        private void NotifyInteraction()
-        {
-            if (hint)
-            {
-                hint.waitHint = 1;
-            }
         }
 
         private void HandleFishChest(GameObject chest)
         {
             var animator = chest.GetComponent<Animator>();
-            if (animator)
-            {
-                animator.enabled = false;
-            }
-
+            if (animator) animator.enabled = false;
             foundFishObjects.Add(chest);
             chest.GetComponent<SpriteRenderer>().sprite = fishSprite;
             var chestCollider = chest.GetComponent<Collider2D>();
             if (chestCollider) chestCollider.enabled = false;
-            var stars = Instantiate(Resources.Load<ParticleSystem>("ParticleSrarsLevel11"));
-            stars.transform.position = chest.transform.position;
-            AudioManager.instance.PlayClickSound();
+            AudioManager.instance?.PlayClickSound();
+            SpawnSuccessEffect(chest.transform);
             StartCoroutine(MoveFishToTarget(chest));
         }
 
         private void HandleEmptyChest(GameObject chest)
         {
-            var bubbles = Instantiate(Resources.Load<ParticleSystem>("BubblesLevel1"));
-            bubbles.transform.position = chest.transform.position;
+            SpawnSecondaryEffect(chest.transform);
             emptyChestsForDeletion.Remove(chest);
             Destroy(chest);
         }
@@ -210,9 +187,9 @@ namespace Level11
 
             fishObject.transform.position = targetPosition;
             allTargets[targetIndex].GetComponent<SpriteRenderer>().enabled = false;
-            if (!WinBobbles.instance) yield break;
-            WinBobbles.instance.victory--;
-            if (WinBobbles.instance.victory == 0)
+
+            WinBobbles.instance?.OnItemPlaced();
+            if (WinBobbles.instance?.victoryCondition == 0)
             {
                 StartCoroutine(WinAnimation());
             }
@@ -233,25 +210,12 @@ namespace Level11
             }
 
             emptyChestsForDeletion.Clear();
-            foreach (var animator in from item in foundFishObjects where item select item.GetComponent<Animator>())
+            foreach (var animator in foundFishObjects.Select(item => item ? item.GetComponent<Animator>() : null).Where(animator => animator))
             {
-                if (animator)
-                {
-                    animator.enabled = true;
-                    animator.Play("Scale");
-                }
-
+                animator.enabled = true;
+                animator.Play("Scale");
                 yield return new WaitForSeconds(0.02f);
             }
-        }
-
-        /// <summary>
-        /// Обрабатывает клик для 11-го уровня.
-        /// </summary>
-        private void HandleLevel11Click(GameObject clickedObject)
-        {
-            OnChestClicked(clickedObject);
-            NotifyInteraction();
         }
     }
 }

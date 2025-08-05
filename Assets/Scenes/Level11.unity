@@ -992,8 +992,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgBlack: {fileID: 238641701}
   bubble: {fileID: 4912721534522409081, guid: e2b69a1f651e82f4692603bed8207f36, type: 3}
-  count: 30
-  victory: 0
 --- !u!4 &814392674
 Transform:
   m_ObjectHideFlags: 0
@@ -2313,6 +2311,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hint: {fileID: 1731143655}
+  successEffectPrefab: {fileID: 1539493729847738760, guid: 90160bc211b8b004095520e534c1d8e6,
+    type: 3}
+  successEffectLayer: 5
+  secondaryEffectPrefab: {fileID: 5981370303694277390, guid: 3710ee0e1031c274fb0abe08a0db1858,
+    type: 3}
+  secondaryEffectLayer: 5
   allItems: []
   allTargets:
   - {fileID: 1642478215}

@@ -166,8 +166,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgBlack: {fileID: 845178232}
   bubble: {fileID: 4912721534522409081, guid: e2b69a1f651e82f4692603bed8207f36, type: 3}
-  count: 30
-  victory: 0
 --- !u!1 &59446801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,6 +1779,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hint: {fileID: 1039780534}
+  successEffectPrefab: {fileID: 5981370303694277390, guid: 3710ee0e1031c274fb0abe08a0db1858,
+    type: 3}
+  successEffectLayer: 0
   allItems:
   - {fileID: 964470814211606645, guid: 5f4321f39e59d2443aa35db2c33b6e29, type: 3}
   - {fileID: 1369803303231353898, guid: e9302ffe36762ed47aa444c969462981, type: 3}

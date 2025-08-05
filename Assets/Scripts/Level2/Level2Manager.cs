@@ -43,18 +43,14 @@ namespace Level2
 
         protected override void Start()
         {
-            if (WinBobbles.instance)
-            {
-                WinBobbles.instance.victory = 8;
-            }
-
+            WinBobbles.instance?.SetVictoryCondition(8);
             _targetBoat = new Vector3(-15, 1.1f, 2.89f);
             base.Start();
         }
 
         private void Update()
         {
-            if (WinBobbles.instance.victory != 0 || _win != 0) return;
+            if (WinBobbles.instance.victoryCondition != 0 || _win != 0) return;
             _win = 1;
             StartCoroutine(Win());
         }
@@ -88,7 +84,7 @@ namespace Level2
         /// </summary>
         private void HandleLevel2Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
         {
-            if (WinBobbles.instance) WinBobbles.instance.victory--;
+            ProcessSuccessfulPlacement(draggedObject, targetCollider.gameObject);
             if (targetCollider.name == "Flag")
             {
                 targetCollider.GetComponent<Animator>().enabled = true;
@@ -97,9 +93,6 @@ namespace Level2
             {
                 targetCollider.GetComponent<SpriteRenderer>().sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
             }
-
-            AudioManager.instance.PlayClickSound();
-            draggedObject.gameObject.SetActive(false);
         }
     }
 }

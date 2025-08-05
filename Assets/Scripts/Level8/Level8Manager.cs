@@ -29,7 +29,6 @@ namespace Level8
     /// <summary>
     /// Управляет основной логикой и последовательностью пазлов на 8-м уровне.
     /// </summary>
-    [RequireComponent(typeof(Level8Spawner), typeof(Hint))]
     public class Level8Manager : BaseLevelManager<Level8Manager>
     {
         [Header("Настройки уровня 8")]
@@ -70,11 +69,7 @@ namespace Level8
 
         protected override void Start()
         {
-            if (WinBobbles.instance)
-            {
-                WinBobbles.instance.victory = puzzles.Count;
-            }
-
+            WinBobbles.instance?.SetVictoryCondition(puzzles.Count);
             if (hint)
             {
                 StartCoroutine(hint.StartHint());
@@ -164,16 +159,13 @@ namespace Level8
         /// <summary>
         /// Вызывается из LevelDropHandler, когда предмет успешно размещен.
         /// </summary>
-        public void OnItemPlaced()
+        private void OnItemPlaced()
         {
             if (_itemsToPlaceCount <= 0) return;
             _itemsToPlaceCount--;
             if (_itemsToPlaceCount <= 0)
             {
-                if (WinBobbles.instance)
-                {
-                    WinBobbles.instance.victory--;
-                }
+                WinBobbles.instance?.OnItemPlaced();
             }
 
             if (hint) hint.waitHint = 1;
@@ -192,15 +184,9 @@ namespace Level8
         protected override void InitializeHint()
         {
             if (!hint || !level8Spawner || _currentPuzzle == null) return;
-            var activeDraggableItems = new List<GameObject>();
-            foreach (var item in level8Spawner.activeItem)
-            {
-                if (item && item.TryGetComponent<Collider2D>(out var col) && col.enabled)
-                {
-                    activeDraggableItems.Add(item);
-                }
-            }
-
+            var activeDraggableItems = level8Spawner.activeItem
+                .Where(item => item && item.TryGetComponent<Collider2D>(out var col) && col.enabled)
+                .ToList();
             hint.Initialization(_currentPuzzle.pieceTargets, activeDraggableItems);
         }
 
@@ -209,13 +195,13 @@ namespace Level8
         /// </summary>
         private void HandleLevel8Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
         {
-            AudioManager.instance.PlayClickSound();
+            AudioManager.instance?.PlayClickSound();
+            SpawnSuccessEffect(draggedObject.transform);
             draggedObject.transform.position = targetCollider.transform.position;
             draggedObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
             var col = draggedObject.GetComponent<Collider2D>();
             if (col) col.enabled = false;
             OnItemPlaced();
-            Instantiate(Resources.Load<ParticleSystem>("Bubbles"), draggedObject.transform.position, Quaternion.identity);
         }
     }
 }

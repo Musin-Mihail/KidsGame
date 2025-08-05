@@ -37,11 +37,7 @@ namespace Level1
 
         protected override void Start()
         {
-            if (WinBobbles.instance)
-            {
-                WinBobbles.instance.victory = 8;
-            }
-
+            WinBobbles.instance?.SetVictoryCondition(8);
             base.Start();
         }
 
@@ -62,9 +58,7 @@ namespace Level1
 
         private void HandleLevel1Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
         {
-            if (WinBobbles.instance) WinBobbles.instance.victory--;
-            var newVector3 = targetCollider.transform.position;
-            Instantiate(Resources.Load<ParticleSystem>("BubblesLevel1"), newVector3, Quaternion.Euler(-90, -40, 0));
+            ProcessSuccessfulPlacement(draggedObject, targetCollider.gameObject);
             targetCollider.GetComponent<SpriteRenderer>().sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
 
             if (!level1Spawn) return;
@@ -74,9 +68,6 @@ namespace Level1
                 level1Spawn.SpawnAnimal(i);
                 break;
             }
-
-            AudioManager.instance.PlayClickSound();
-            draggedObject.gameObject.SetActive(false);
         }
     }
 }

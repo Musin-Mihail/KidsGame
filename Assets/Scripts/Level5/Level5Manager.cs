@@ -48,17 +48,13 @@ namespace Level5
 
         protected override void Start()
         {
-            if (WinBobbles.instance)
-            {
-                WinBobbles.instance.victory = 12;
-            }
-
+            WinBobbles.instance?.SetVictoryCondition(12);
             base.Start();
         }
 
         private void Update()
         {
-            if (_isVictoryTriggered || !WinBobbles.instance || WinBobbles.instance.victory != 0) return;
+            if (_isVictoryTriggered || !WinBobbles.instance || WinBobbles.instance.victoryCondition != 0) return;
             _isVictoryTriggered = true;
             StartCoroutine(WinAnimation());
         }
@@ -137,12 +133,9 @@ namespace Level5
         /// </summary>
         private void HandleLevel5Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
         {
-            AudioManager.instance.PlayClickSound();
-            var particlePosition = targetCollider.transform.position;
-            Instantiate(Resources.Load<ParticleSystem>("Bubbles"), particlePosition, Quaternion.Euler(-90, -40, 0));
+            ProcessSuccessfulPlacement(draggedObject, targetCollider.gameObject);
             targetCollider.GetComponent<SpriteRenderer>().sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
             targetCollider.tag = "Untagged";
-            if (WinBobbles.instance) WinBobbles.instance.victory--;
             var oyster = draggedObject.GetComponentInParent<Level5SpawnOyster>();
             if (oyster) StartCoroutine(oyster.SpawnNextFigure());
             var spawner = GetComponent<Level5Spawner>();
@@ -150,8 +143,6 @@ namespace Level5
             {
                 spawner.activeItem.Remove(draggedObject);
             }
-
-            draggedObject.SetActive(false);
         }
     }
 }

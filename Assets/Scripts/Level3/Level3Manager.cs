@@ -25,7 +25,6 @@ namespace Level3
 
         private Vector3 _center;
         private Vector3 _endTarget;
-        private int _stop;
         private Level3Spawner _level3Spawn;
 
         protected override void Awake()
@@ -53,25 +52,13 @@ namespace Level3
 
         protected override void Start()
         {
-            if (WinBobbles.instance)
-            {
-                WinBobbles.instance.victory = 18;
-            }
-
+            WinBobbles.instance?.SetVictoryCondition(18);
             threeFiguresComplete = 0;
             _center = new Vector3(0, 0, 3);
             _endTarget = new Vector3(15, 0, 3);
             Shuffle(allAnimals);
             StartCoroutine(MoveAnimals());
             StartCoroutine(hint.StartHint());
-        }
-
-        private void Update()
-        {
-            if (WinBobbles.instance.victory == 0 && _stop == 0)
-            {
-                _stop = 1;
-            }
         }
 
         private IEnumerator MoveAnimals()
@@ -119,7 +106,7 @@ namespace Level3
                 stageMove = 0;
             }
 
-            WinBobbles.instance.victory = 0;
+            WinBobbles.instance?.SetVictoryCondition(0);
         }
 
         private void RandomItem()
@@ -169,12 +156,8 @@ namespace Level3
         /// </summary>
         private void HandleLevel3Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
         {
-            if (WinBobbles.instance) WinBobbles.instance.victory--;
-            draggedObject.gameObject.SetActive(false);
-
+            ProcessSuccessfulPlacement(draggedObject, targetCollider.gameObject);
             ChangeFigure();
-
-            AudioManager.instance.PlayClickSound();
         }
     }
 }

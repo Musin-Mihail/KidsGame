@@ -318,6 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hint: {fileID: 142792123}
+  successEffectPrefab: {fileID: 0}
   allItems:
   - {fileID: 1850525304009938637, guid: 9c665b95d59551d4880c8a3fcefbcbd3, type: 3}
   - {fileID: 8904721755619041209, guid: 2d3fe8095d74d084c85905eaf93bb530, type: 3}
@@ -617,8 +618,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgBlack: {fileID: 253095408}
   bubble: {fileID: 4912721534522409081, guid: e2b69a1f651e82f4692603bed8207f36, type: 3}
-  count: 30
-  victory: 0
 --- !u!1 &345216669
 GameObject:
   m_ObjectHideFlags: 0
