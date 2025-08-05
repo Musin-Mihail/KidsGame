@@ -16,6 +16,17 @@ namespace Level12
         [Tooltip("Главный объект-контейнер для целей, который анимируется в начале")]
         [SerializeField] private GameObject targetContainer;
         private int _currentTaskIndex;
+        private GameObject _hintStartObject;
+        private readonly Dictionary<GameObject, Vector3> _initialScales = new();
+
+        protected override void Awake()
+        {
+            base.Awake();
+            _hintStartObject = new GameObject("HintStartObject_Permanent")
+            {
+                transform = { position = new Vector3(0, -6, 0) }
+            };
+        }
 
         protected override void Start()
         {
@@ -24,8 +35,21 @@ namespace Level12
                 WinBobbles.instance.victory = allTargets.Count;
             }
 
+            foreach (var target in allTargets)
+            {
+                _initialScales[target] = target.transform.localScale;
+            }
+
             Shuffle(allTargets);
             StartCoroutine(GameFlow());
+        }
+
+        private void OnDestroy()
+        {
+            if (_hintStartObject)
+            {
+                Destroy(_hintStartObject);
+            }
         }
 
         /// <summary>
@@ -87,9 +111,9 @@ namespace Level12
                 targetAnimator.enabled = false;
             }
 
-            if (target.TryGetComponent<Level12Item>(out var targetItem))
+            if (_initialScales.TryGetValue(target, out var initialScale))
             {
-                target.transform.localScale = targetItem.scale;
+                target.transform.localScale = initialScale;
             }
 
             var moveCoroutine = StartCoroutine(Move(item, target.transform.position));
@@ -124,7 +148,6 @@ namespace Level12
             const float speed = 10f;
             while (Vector3.Distance(item.transform.position, targetPosition) > 0.01f)
             {
-                Debug.Log(Vector3.Distance(item.transform.position, targetPosition));
                 item.transform.position = Vector2.MoveTowards(item.transform.position, targetPosition, speed * Time.deltaTime);
                 yield return null;
             }
@@ -137,7 +160,7 @@ namespace Level12
             const float speed = 0.8f;
             while (Vector3.Distance(item.transform.localScale, targetScale) > 0.01f)
             {
-                item.transform.localScale = Vector2.MoveTowards(item.transform.localScale, targetScale, speed * Time.deltaTime);
+                item.transform.localScale = Vector3.MoveTowards(item.transform.localScale, targetScale, speed * Time.deltaTime);
                 yield return null;
             }
 
@@ -168,8 +191,7 @@ namespace Level12
         /// </summary>
         private IEnumerator AnimateWinItem(GameObject item)
         {
-            if (!item.TryGetComponent<Level12Item>(out var levelItem)) yield break;
-            var originalScale = levelItem.scale;
+            if (!_initialScales.TryGetValue(item, out var originalScale)) yield break;
             var bigScale = originalScale * 1.2f;
             const float duration = 0.2f;
             yield return AnimateScale(item, item.transform.localScale, bigScale, duration);
@@ -222,17 +244,12 @@ namespace Level12
         {
             if (!hint || _currentTaskIndex >= allTargets.Count) return;
             var currentTarget = allTargets[_currentTaskIndex];
-            var correctItem = allItems.FirstOrDefault(item => item.name == currentTarget.name && item.GetComponent<Collider2D>()?.enabled == true);
-            if (correctItem)
+            var correctItem = allItems.FirstOrDefault(item => item && item.name == currentTarget.name && item.GetComponent<Collider2D>()?.enabled == true);
+            if (correctItem && _hintStartObject)
             {
-                var hintStartObject = new GameObject("HintStart")
-                {
-                    transform = { position = new Vector3(0, -6, 0) },
-                    name = correctItem.name
-                };
+                _hintStartObject.name = correctItem.name;
                 hint.comparisonType = HintComparisonType.ByName;
-                hint.Initialization(new List<GameObject> { correctItem }, new List<GameObject> { hintStartObject });
-                Destroy(hintStartObject, 5f);
+                hint.Initialization(new List<GameObject> { correctItem }, new List<GameObject> { _hintStartObject });
             }
 
             if (hint) hint.waitHint = 1;

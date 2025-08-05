@@ -6,26 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7313cf86-6b92-4f5e-b60f-6a57ae13d2c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KidsGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KidsGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level12/Target1Anim.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level12/Target1Anim.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level12/Target2Anim.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level12/Target2Anim.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level12/Target3Anim.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level12/Target3Anim.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level12/Target4Anim.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level12/Target4Anim.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level12/Target5Anim.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level12/Target5Anim.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level12/Target6Anim.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level12/Target6Anim.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level12/Target7Anim.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level12/Target7Anim.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level12/Target8Anim.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level12/Target8Anim.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSea/Level12/TargetAnim.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSea/Level12/TargetAnim.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PluginYourGames/Editor/BuildLogYG2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PluginYourGames/Editor/BuildLogYG2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level12.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level12.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputController/ClickController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputController/ClickController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputController/LevelDropHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputController/LevelDropHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12Item.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12Item.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12Mouse.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12Mouse.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12Item.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level12/Level12Manager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,6 +33,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/44f3679c53d1477a9c6e72f269e3a3a91de200/fb/a4e2e012/MonoBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/504728fa4de640bebd6545076ade529a10fc00/2b/12153e4d/Enumerable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/48/9664e05e/Action`2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9349cccc08644df0bd1f09a17b65aed83e200/aa/0c7fb8f7/Graph.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Rotation360.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@978211393e28/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@fa3a0bab2b90/Editor/inspectors/BuiltInCurvePresets.cs" root0="SKIP_HIGHLIGHTING" />
@@ -138,13 +123,15 @@
       <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="21768">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="21768" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list />
+        <list>
+          <MonoRuntime />
+        </list>
       </option>
       <option name="selectedOptions">
         <list />
@@ -179,7 +166,7 @@
       <workItem from="1754048018125" duration="20811000" />
       <workItem from="1754226022963" duration="15337000" />
       <workItem from="1754396471335" duration="754000" />
-      <workItem from="1754401090245" duration="4007000" />
+      <workItem from="1754401090245" duration="7700000" />
     </task>
     <servers />
   </component>
@@ -212,6 +199,19 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Hint.cs</url>
+          <line>34</line>
+          <properties documentPath="D:\Repositories\KidsGame\Assets\Scripts\Hint.cs" containingFunctionPresentation="Method 'Initialization'">
+            <startOffsets>
+              <option value="996" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1040" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
