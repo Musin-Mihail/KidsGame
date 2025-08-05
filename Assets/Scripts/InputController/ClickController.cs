@@ -42,6 +42,8 @@ namespace InputController
         /// </summary>
         private void OnClickPerformed(InputAction.CallbackContext context)
         {
+            Debug.Log("OnClickPerformed");
+            
             if (!_camera) return;
             var screenPosition = _playerControls.Gameplay.PointerPosition.ReadValue<Vector2>();
             var hit = Physics2D.Raycast(_camera.ScreenToWorldPoint(screenPosition), _camera.transform.forward, Mathf.Infinity, clickableLayerMask);

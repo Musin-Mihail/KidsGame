@@ -4,11 +4,11 @@ namespace Level12
 {
     public class Level12Item : MonoBehaviour
     {
-        public Vector2 _scale;
+        public Vector2 scale;
 
         private void Start()
         {
-            _scale = transform.localScale;
+            scale = transform.localScale;
         }
     }
 }

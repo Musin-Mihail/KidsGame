@@ -3,6 +3,7 @@ using Core;
 using Level1;
 using Level10;
 using Level11;
+using Level12;
 using Level3;
 using Level4;
 using Level5;
@@ -39,7 +40,8 @@ namespace InputController
             Level8,
             Level9,
             Level10,
-            Level11
+            Level11,
+            Level12
         }
         [SerializeField] private LevelType currentLevel;
 
@@ -76,9 +78,14 @@ namespace InputController
         /// </summary>
         private void HandleClick(GameObject clickedObject)
         {
-            if (currentLevel == LevelType.Level11)
+            switch (currentLevel)
             {
-                HandleLevel11Click(clickedObject);
+                case LevelType.Level11:
+                    HandleLevel11Click(clickedObject);
+                    break;
+                case LevelType.Level12:
+                    HandleLevel12Click(clickedObject);
+                    break;
             }
         }
 
@@ -245,9 +252,6 @@ namespace InputController
             draggedObject.SetActive(false);
         }
 
-        /// <summary>
-        /// Обработчик для логики шестого уровня.
-        /// </summary>
         private void HandleLevel6Drop(GameObject draggedObject, Collider2D targetCollider)
         {
             var chest = targetCollider.GetComponent<Level6Chest>();
@@ -286,9 +290,6 @@ namespace InputController
             }
         }
 
-        /// <summary>
-        /// Обрабатывает успешное перетаскивание для 7-го уровня.
-        /// </summary>
         private void HandleLevel7Drop(GameObject draggedObject, Collider2D targetCollider)
         {
             var levelManager = Level7Manager.instance;
@@ -305,9 +306,6 @@ namespace InputController
             levelManager.OnTaskCompleted();
         }
 
-        /// <summary>
-        /// Обрабатывает успешное перетаскивание для 8-го уровня.
-        /// </summary>
         private void HandleLevel8Drop(GameObject draggedObject, Collider2D targetCollider)
         {
             AudioManager.instance.PlayClickSound();
@@ -319,9 +317,6 @@ namespace InputController
             Instantiate(Resources.Load<ParticleSystem>("Bubbles"), draggedObject.transform.position, Quaternion.identity);
         }
 
-        /// <summary>
-        /// Обрабатывает успешное перетаскивание для 9-го уровня.
-        /// </summary>
         private void HandleLevel9Drop(GameObject draggedObject)
         {
             var levelManager = Level9Manager.instance;
@@ -338,9 +333,6 @@ namespace InputController
             levelManager.OnItemPlaced();
         }
 
-        /// <summary>
-        /// Обрабатывает успешное перетаскивание для 10-го уровня.
-        /// </summary>
         private void HandleLevel10Drop(GameObject draggedObject, Collider2D targetCollider)
         {
             var levelManager = Level10Manager.instance;
@@ -351,15 +343,26 @@ namespace InputController
             draggedObject.SetActive(false);
         }
 
-        /// <summary>
-        /// Обрабатывает клик для 11-го уровня.
-        /// </summary>
         private void HandleLevel11Click(GameObject clickedObject)
         {
             var manager = Level11Manager.instance;
             if (!manager) return;
             manager.OnChestClicked(clickedObject);
             manager.NotifyInteraction();
+        }
+
+        /// <summary>
+        /// Обрабатывает клик для 12-го уровня.
+        /// </summary>
+        private void HandleLevel12Click(GameObject clickedObject)
+        {
+            Debug.Log("HandleLevel12Click");
+            var manager = Level12Manager.instance;
+            if (!manager) return;
+            
+            // Просто передаем событие клика менеджеру уровня,
+            // который сам решит, правильный ли это клик.
+            manager.ProcessClick(clickedObject);
         }
     }
 }
