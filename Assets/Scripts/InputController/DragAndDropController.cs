@@ -84,7 +84,7 @@ namespace InputController
             if (_draggedObject.TryGetComponent<MoveItem>(out var moveItem))
             {
                 _startPosition = moveItem.endPosition;
-                moveItem.state = 0;
+                moveItem.isMoving = false;
             }
             else
             {

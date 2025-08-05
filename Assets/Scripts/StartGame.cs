@@ -4,18 +4,19 @@ using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour
 {
+    private readonly WaitForSeconds _loadDelay = new(5.0f);
+
     private void Start()
     {
-        StartCoroutine(LoadSelectSceneAfterDelay(5.0f));
+        StartCoroutine(LoadSelectSceneAfterDelay());
     }
 
     /// <summary>
-    /// Загружает сцену выбора уровня после указанной задержки.
+    /// Загружает сцену выбора уровня после задержки.
     /// </summary>
-    /// <param name="delay">Время ожидания в секундах.</param>
-    private IEnumerator LoadSelectSceneAfterDelay(float delay)
+    private IEnumerator LoadSelectSceneAfterDelay()
     {
-        yield return new WaitForSeconds(delay);
+        yield return _loadDelay;
         SceneManager.LoadScene("SelectScene");
     }
 }

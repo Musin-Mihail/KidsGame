@@ -16,6 +16,8 @@ namespace Level6
         [SerializeField] private Level6Spawner level6Spawner;
         [HideInInspector] public List<GameObject> collectedStars = new();
         private bool _isVictoryTriggered;
+        private readonly WaitForSeconds _winAnimDelay = new(0.5f);
+        private readonly WaitForSeconds _starAnimDelay = new(0.05f);
 
         protected override void Awake()
         {
@@ -82,13 +84,12 @@ namespace Level6
                 }
             }
 
-            yield return new WaitForSeconds(0.5f);
-
+            yield return _winAnimDelay;
             foreach (var star in collectedStars)
             {
                 if (!star || !star.TryGetComponent<WinUp>(out var winUp)) continue;
                 StartCoroutine(winUp.Win());
-                yield return new WaitForSeconds(0.05f);
+                yield return _starAnimDelay;
             }
         }
 
@@ -98,7 +99,7 @@ namespace Level6
         protected override void OnFailedDrop(GameObject draggedObject)
         {
             if (!draggedObject.TryGetComponent<MoveItem>(out var moveItem)) return;
-            moveItem.state = 1;
+            moveItem.isMoving = true;
             StartCoroutine(moveItem.Rotation());
         }
 
@@ -112,8 +113,8 @@ namespace Level6
             {
                 if (!draggedObject.TryGetComponent<MoveItem>(out var moveItem)) return;
                 draggedObject.transform.position = moveItem.startPosition;
-                if (moveItem.state != 0) return;
-                moveItem.state = 1;
+                if (moveItem.isMoving) return;
+                moveItem.isMoving = true;
                 StartCoroutine(moveItem.Rotation());
                 return;
             }

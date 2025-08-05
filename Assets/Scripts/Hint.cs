@@ -27,6 +27,7 @@ public class Hint : MonoBehaviour
     private string _targetName;
     private int _hintTime;
     private Coroutine _currentHintCoroutine;
+    private readonly WaitForSeconds _oneSecondWait = new(1.0f);
 
     /// <summary>
     /// Инициализация для поиска подсказки по имени в двух списках.
@@ -88,7 +89,7 @@ public class Hint : MonoBehaviour
                     waitHint = 0;
                 }
 
-                yield return new WaitForSeconds(1.0f);
+                yield return _oneSecondWait;
                 _hintTime++;
             }
 
@@ -99,7 +100,7 @@ public class Hint : MonoBehaviour
 
             if (!requireManualActivation)
             {
-                yield return new WaitForSeconds(1.0f);
+                yield return _oneSecondWait;
             }
         }
     }

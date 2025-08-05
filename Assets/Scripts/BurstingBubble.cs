@@ -8,6 +8,8 @@ public class BurstingBubble : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private AudioSource _audioSource;
     private bool _isBursting;
+    private readonly WaitForSeconds _burstDelay = new(0.1f);
+    private readonly WaitForSeconds _destroyDelay = new(10f);
 
     private void Awake()
     {
@@ -37,7 +39,7 @@ public class BurstingBubble : MonoBehaviour
         foreach (var sprite in spriteBubble)
         {
             _spriteRenderer.sprite = sprite;
-            yield return new WaitForSeconds(0.1f);
+            yield return _burstDelay;
         }
 
         WinBobbles.instance?.OnBubbleBurst();
@@ -49,7 +51,7 @@ public class BurstingBubble : MonoBehaviour
     /// </summary>
     private IEnumerator DestroyBubble()
     {
-        yield return new WaitForSeconds(10);
+        yield return _destroyDelay;
         if (_isBursting) yield break;
         _isBursting = true;
         WinBobbles.instance?.OnBubbleBurst();

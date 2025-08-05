@@ -1,10 +1,11 @@
 using System.Collections;
+using Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WinBobbles : MonoBehaviour
+// Теперь класс наследуется от нашего универсального Singleton
+public class WinBobbles : Singleton<WinBobbles>
 {
-    public static WinBobbles instance { get; private set; }
     [Header("Настройки победы")]
     [Tooltip("Объект, который появляется при победе (черный фон)")]
     public GameObject bgBlack;
@@ -12,23 +13,13 @@ public class WinBobbles : MonoBehaviour
     public GameObject bubble;
     private int _bubblesToWin = 30;
     private bool _winAnimationStarted;
+    private readonly WaitForSeconds _winWait = new(1f);
+    private readonly WaitForSeconds _loadSceneDelay = new(2.0f);
 
     /// <summary>
     /// Публичное свойство для чтения текущего состояния победы.
     /// </summary>
     public int victoryCondition { get; private set; }
-
-    private void Awake()
-    {
-        if (instance && instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            instance = this;
-        }
-    }
 
     /// <summary>
     /// Устанавливает начальное количество условий для победы.
@@ -68,7 +59,7 @@ public class WinBobbles : MonoBehaviour
 
         if (_bubblesToWin == 0)
         {
-            StartCoroutine(LoadSceneAfterDelay(2.0f));
+            StartCoroutine(LoadSceneAfterDelay());
         }
     }
 
@@ -77,7 +68,7 @@ public class WinBobbles : MonoBehaviour
     /// </summary>
     private IEnumerator Win()
     {
-        yield return new WaitForSeconds(1);
+        yield return _winWait;
         if (bgBlack)
         {
             bgBlack.SetActive(true);
@@ -103,9 +94,9 @@ public class WinBobbles : MonoBehaviour
     /// <summary>
     /// Загружает сцену после задержки.
     /// </summary>
-    private IEnumerator LoadSceneAfterDelay(float delay)
+    private IEnumerator LoadSceneAfterDelay()
     {
-        yield return new WaitForSeconds(delay);
+        yield return _loadSceneDelay;
         SceneManager.LoadScene("SelectScene");
     }
 }

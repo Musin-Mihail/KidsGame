@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class MoveItem : MonoBehaviour
 {
-    [HideInInspector] public int state = 1;
+    [HideInInspector] public bool isMoving = true;
     [HideInInspector] public Vector3 startPosition;
     [HideInInspector] public Vector3 endPosition;
     [HideInInspector] public float speed;
+    private readonly WaitForSeconds _rotationDelay = new(0.05f);
 
     /// <summary>
     /// Инициализирует начальные параметры для движения.
@@ -24,7 +25,7 @@ public class MoveItem : MonoBehaviour
 
     /// <summary>
     /// Корутина для плавного перемещения объекта из startPosition в endPosition.
-    /// Движение происходит, пока 'state' равен 1.
+    /// Движение происходит, пока 'isMoving' равно true.
     /// </summary>
     public IEnumerator Move()
     {
@@ -33,13 +34,13 @@ public class MoveItem : MonoBehaviour
             yield break;
         }
 
-        while (Vector3.Distance(transform.position, endPosition) > 0.01f && state == 1)
+        while (Vector3.Distance(transform.position, endPosition) > 0.01f && isMoving)
         {
             transform.position = Vector2.MoveTowards(transform.position, endPosition, speed * Time.deltaTime);
             yield return null;
         }
 
-        if (state == 1)
+        if (isMoving)
         {
             transform.position = endPosition;
         }
@@ -47,14 +48,14 @@ public class MoveItem : MonoBehaviour
 
     /// <summary>
     /// Корутина для вращения объекта.
-    /// Вращение происходит, пока 'state' равен 1.
+    /// Вращение происходит, пока 'isMoving' равен true.
     /// </summary>
     public IEnumerator Rotation()
     {
-        while (state == 1)
+        while (isMoving)
         {
             transform.rotation *= Quaternion.Euler(0, 0, 5);
-            yield return new WaitForSeconds(0.05f);
+            yield return _rotationDelay;
         }
     }
 }
