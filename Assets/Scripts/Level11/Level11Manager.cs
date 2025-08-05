@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Core;
-using InputController;
 using UnityEngine;
 
 namespace Level11
 {
     /// <summary>
     /// Управляет основной логикой 11-го уровня.
-    /// Наследуется от BaseLevelManager для использования общей логики уровней.
     /// </summary>
-    [RequireComponent(typeof(Level11Spawner), typeof(Hint))]
     public class Level11Manager : BaseLevelManager<Level11Manager>
     {
         [Header("Настройки уровня 11")]
@@ -25,13 +22,9 @@ namespace Level11
         [SerializeField] private int fishChestCount = 8;
         [Tooltip("Общее количество сундуков")]
         [SerializeField] private int totalChestCount = 32;
-
         [Header("Ссылки на компоненты")]
         [Tooltip("Спаунер для этого уровня")]
         public Level11Spawner level11Spawner;
-        [Tooltip("Контроллер для кликов. Необходим для уровней с механикой клика.")]
-        [SerializeField] private ClickController clickController;
-
         [HideInInspector] public List<GameObject> spawnedChests = new();
         [HideInInspector] public List<GameObject> emptyChestsForDeletion = new();
         [HideInInspector] public List<GameObject> foundFishObjects = new();
@@ -41,29 +34,11 @@ namespace Level11
         {
             base.Awake();
             if (!level11Spawner) level11Spawner = GetComponent<Level11Spawner>();
-            if (!clickController) clickController = GetComponent<ClickController>();
-
             _hintStartObject = new GameObject("HintStartObject")
             {
                 tag = "FishChest",
                 transform = { position = new Vector3(0, -8, 0) }
             };
-        }
-
-        private void OnEnable()
-        {
-            if (clickController)
-            {
-                clickController.OnObjectClicked += OnChestClicked;
-            }
-        }
-
-        private void OnDisable()
-        {
-            if (clickController)
-            {
-                clickController.OnObjectClicked -= OnChestClicked;
-            }
         }
 
         protected override void Start()
@@ -133,7 +108,7 @@ namespace Level11
         /// <summary>
         /// Обрабатывает клик по сундуку.
         /// </summary>
-        private void OnChestClicked(GameObject chest)
+        protected override void OnClick(GameObject chest)
         {
             if (chest.CompareTag("FishChest"))
             {
@@ -144,7 +119,6 @@ namespace Level11
                 HandleEmptyChest(chest);
             }
 
-            if (hint) hint.waitHint = 1;
             InitializeHint();
         }
 

@@ -2,25 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Core;
-using InputController;
 using UnityEngine;
 
 namespace Level12
 {
     /// <summary>
     /// Управляет игровой логикой для 12-го уровня.
-    /// Наследуется от BaseLevelManager для использования общей логики уровней и синглтона.
     /// </summary>
     public class Level12Manager : BaseLevelManager<Level12Manager>
     {
         [Header("Настройки уровня 12")]
         [Tooltip("Главный объект-контейнер для целей, который анимируется в начале")]
         [SerializeField] private GameObject targetContainer;
-
-        [Header("Контроллеры ввода")]
-        [Tooltip("Контроллер для кликов. Необходим для уровней с механикой клика.")]
-        [SerializeField] private ClickController clickController;
-
         private int _currentTaskIndex;
         private GameObject _hintStartObject;
         private readonly Dictionary<GameObject, Vector3> _initialScales = new();
@@ -28,28 +21,10 @@ namespace Level12
         protected override void Awake()
         {
             base.Awake();
-            if (!clickController) clickController = GetComponent<ClickController>();
-
             _hintStartObject = new GameObject("HintStartObject_Permanent")
             {
                 transform = { position = new Vector3(0, -6, 0) }
             };
-        }
-
-        private void OnEnable()
-        {
-            if (clickController)
-            {
-                clickController.OnObjectClicked += ProcessClick;
-            }
-        }
-
-        private void OnDisable()
-        {
-            if (clickController)
-            {
-                clickController.OnObjectClicked -= ProcessClick;
-            }
         }
 
         protected override void Start()
@@ -92,12 +67,11 @@ namespace Level12
         /// <summary>
         /// Обрабатывает клик по предмету.
         /// </summary>
-        private void ProcessClick(GameObject clickedItem)
+        protected override void OnClick(GameObject clickedItem)
         {
             if (_currentTaskIndex >= allTargets.Count) return;
             var currentTarget = allTargets[_currentTaskIndex];
             if (clickedItem.name != currentTarget.name) return;
-            if (hint) hint.waitHint = 1;
 
             if (clickedItem.TryGetComponent<Collider2D>(out var collider))
             {

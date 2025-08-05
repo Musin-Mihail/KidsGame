@@ -1,5 +1,4 @@
 using Core;
-using InputController;
 using UnityEngine;
 
 namespace Level1
@@ -8,31 +7,10 @@ namespace Level1
     {
         [HideInInspector] public Level1Spawner level1Spawn;
 
-        [Header("Контроллеры ввода")]
-        [Tooltip("Контроллер для перетаскивания. Необходим для уровней с Drag & Drop.")]
-        [SerializeField] private DragAndDropController dragController;
-
         protected override void Awake()
         {
             base.Awake();
             level1Spawn = GetComponent<Level1Spawner>();
-            if (!dragController) dragController = GetComponent<DragAndDropController>();
-        }
-
-        private void OnEnable()
-        {
-            if (dragController)
-            {
-                dragController.OnSuccessfulDrop += HandleLevel1Drop;
-            }
-        }
-
-        private void OnDisable()
-        {
-            if (dragController)
-            {
-                dragController.OnSuccessfulDrop -= HandleLevel1Drop;
-            }
         }
 
         protected override void Start()
@@ -56,7 +34,10 @@ namespace Level1
             StartCoroutine(hint.StartHint());
         }
 
-        private void HandleLevel1Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
+        /// <summary>
+        /// Реализуем специфичную для уровня логику, которая вызывается из базового класса.
+        /// </summary>
+        protected override void OnSuccessfulDrop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
         {
             ProcessSuccessfulPlacement(draggedObject, targetCollider.gameObject);
             targetCollider.GetComponent<SpriteRenderer>().sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;

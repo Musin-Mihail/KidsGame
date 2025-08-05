@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Core;
-using InputController;
 using UnityEngine;
 
 namespace Level5
@@ -17,34 +16,7 @@ namespace Level5
         public GameObject chest;
         [Tooltip("Префаб открытого сундука.")]
         public GameObject openChest;
-
-        [Header("Контроллеры ввода")]
-        [Tooltip("Контроллер для перетаскивания. Необходим для уровней с Drag & Drop.")]
-        [SerializeField] private DragAndDropController dragController;
-
         private bool _isVictoryTriggered;
-
-        protected override void Awake()
-        {
-            base.Awake();
-            if (!dragController) dragController = GetComponent<DragAndDropController>();
-        }
-
-        private void OnEnable()
-        {
-            if (dragController)
-            {
-                dragController.OnSuccessfulDrop += HandleLevel5Drop;
-            }
-        }
-
-        private void OnDisable()
-        {
-            if (dragController)
-            {
-                dragController.OnSuccessfulDrop -= HandleLevel5Drop;
-            }
-        }
 
         protected override void Start()
         {
@@ -54,7 +26,7 @@ namespace Level5
 
         private void Update()
         {
-            if (_isVictoryTriggered || !WinBobbles.instance || WinBobbles.instance.victoryCondition != 0) return;
+            if (_isVictoryTriggered || WinBobbles.instance.victoryCondition != 0) return;
             _isVictoryTriggered = true;
             StartCoroutine(WinAnimation());
         }
@@ -131,7 +103,7 @@ namespace Level5
         /// <summary>
         /// Обрабатывает успешное перетаскивание для Уровня 5.
         /// </summary>
-        private void HandleLevel5Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
+        protected override void OnSuccessfulDrop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
         {
             ProcessSuccessfulPlacement(draggedObject, targetCollider.gameObject);
             targetCollider.GetComponent<SpriteRenderer>().sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;

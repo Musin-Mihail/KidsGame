@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Core;
-using InputController;
 using UnityEngine;
 
 namespace Level10
@@ -10,7 +9,6 @@ namespace Level10
     /// Управляет основной логикой 10-го уровня.
     /// Наследуется от BaseLevelManager для использования общей логики уровней.
     /// </summary>
-    [RequireComponent(typeof(Level10Spawner), typeof(Hint))]
     public class Level10Manager : BaseLevelManager<Level10Manager>
     {
         [Header("Настройки уровня 10")]
@@ -20,41 +18,14 @@ namespace Level10
         public List<float> allScales = new();
         [Tooltip("Список тегов размеров, соответствующих масштабам (например, Small, Medium, Big)")]
         public List<string> allSizes = new();
-
-        [Header("Контроллеры ввода")]
-        [Tooltip("Контроллер для перетаскивания. Необходим для уровней с Drag & Drop.")]
-        [SerializeField] private DragAndDropController dragController;
-
         private const int ItemsPerRound = 3;
         private readonly List<GameObject> _placedTargetObjects = new();
         private int _currentItemIndex;
         private int _placedThisRound;
 
-        protected override void Awake()
-        {
-            base.Awake();
-            if (!dragController) dragController = GetComponent<DragAndDropController>();
-        }
-
-        private void OnEnable()
-        {
-            if (dragController)
-            {
-                dragController.OnSuccessfulDrop += HandleLevel10Drop;
-            }
-        }
-
-        private void OnDisable()
-        {
-            if (dragController)
-            {
-                dragController.OnSuccessfulDrop -= HandleLevel10Drop;
-            }
-        }
-
         protected override void Start()
         {
-            WinBobbles.instance?.SetVictoryCondition(1);
+            WinBobbles.instance?.SetVictoryCondition(0);
             Shuffle(allItems);
             StartCoroutine(GameFlow());
             StartCoroutine(hint.StartHint());
@@ -77,7 +48,7 @@ namespace Level10
             }
 
             yield return StartCoroutine(WinAnimation());
-            WinBobbles.instance?.SetVictoryCondition(0);
+            WinBobbles.instance?.OnItemPlaced();
         }
 
         /// <summary>
@@ -168,7 +139,7 @@ namespace Level10
         /// <summary>
         /// Обрабатывает успешное перетаскивание для Уровня 10.
         /// </summary>
-        private void HandleLevel10Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
+        protected override void OnSuccessfulDrop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
         {
             AudioManager.instance?.PlayClickSound();
             OnItemPlaced(targetCollider.gameObject);

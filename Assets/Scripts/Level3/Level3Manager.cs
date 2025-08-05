@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Core;
-using InputController;
 using UnityEngine;
 
 namespace Level3
@@ -14,11 +13,6 @@ namespace Level3
         public List<GameObject> allAnimals = new();
         public GameObject task;
         public GameObject figure;
-
-        [Header("Контроллеры ввода")]
-        [Tooltip("Контроллер для перетаскивания. Необходим для уровней с Drag & Drop.")]
-        [SerializeField] private DragAndDropController dragController;
-
         [HideInInspector] public GameObject animalCenter;
         [HideInInspector] public int stageMove;
         [HideInInspector] public int threeFiguresComplete;
@@ -31,23 +25,6 @@ namespace Level3
         {
             base.Awake();
             _level3Spawn = GetComponent<Level3Spawner>();
-            if (!dragController) dragController = GetComponent<DragAndDropController>();
-        }
-
-        private void OnEnable()
-        {
-            if (dragController)
-            {
-                dragController.OnSuccessfulDrop += HandleLevel3Drop;
-            }
-        }
-
-        private void OnDisable()
-        {
-            if (dragController)
-            {
-                dragController.OnSuccessfulDrop -= HandleLevel3Drop;
-            }
         }
 
         protected override void Start()
@@ -105,8 +82,6 @@ namespace Level3
                 threeFiguresComplete = 0;
                 stageMove = 0;
             }
-
-            WinBobbles.instance?.SetVictoryCondition(0);
         }
 
         private void RandomItem()
@@ -126,7 +101,7 @@ namespace Level3
             hint.Initialization(animalCenter, _level3Spawn.activeItem);
         }
 
-        public void ChangeFigure()
+        private void ChangeFigure()
         {
             threeFigures[threeFiguresComplete].gameObject.SetActive(true);
             threeFigures[threeFiguresComplete].GetComponent<SpriteRenderer>().sprite = figure.GetComponent<SpriteRenderer>().sprite;
@@ -151,10 +126,7 @@ namespace Level3
             /* Управляется вручную */
         }
 
-        /// <summary>
-        /// Обрабатывает успешное перетаскивание для Уровня 3.
-        /// </summary>
-        private void HandleLevel3Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
+        protected override void OnSuccessfulDrop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
         {
             ProcessSuccessfulPlacement(draggedObject, targetCollider.gameObject);
             ChangeFigure();

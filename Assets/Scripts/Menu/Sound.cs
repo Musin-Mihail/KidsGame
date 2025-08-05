@@ -5,25 +5,30 @@ public class Sound : MonoBehaviour
 {
     public Sprite sprite1;
     public Sprite sprite2;
-    private GameObject _music;
+    private AudioSource _musicAudioSource;
 
     private void Start()
     {
-        _music = GameObject.Find("Music");
-        GetComponent<Image>().sprite = _music.GetComponent<AudioSource>().mute == false ? sprite1 : sprite2;
+        if (!Music.instance) return;
+        _musicAudioSource = Music.instance.GetComponent<AudioSource>();
+        UpdateSprite();
     }
 
     public void OffSound()
     {
-        if (_music.GetComponent<AudioSource>().mute == false)
+        if (!_musicAudioSource) return;
+        _musicAudioSource.mute = !_musicAudioSource.mute;
+        UpdateSprite();
+    }
+
+    /// <summary>
+    /// Обновляет иконку звука в зависимости от состояния mute.
+    /// </summary>
+    private void UpdateSprite()
+    {
+        if (_musicAudioSource)
         {
-            _music.GetComponent<AudioSource>().mute = true;
-            GetComponent<Image>().sprite = sprite2;
-        }
-        else
-        {
-            _music.GetComponent<AudioSource>().mute = false;
-            GetComponent<Image>().sprite = sprite1;
+            GetComponent<Image>().sprite = _musicAudioSource.mute ? sprite2 : sprite1;
         }
     }
 }

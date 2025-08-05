@@ -11,7 +11,7 @@ public class WinBobbles : MonoBehaviour
     [Tooltip("Префаб пузырька для победной анимации")]
     public GameObject bubble;
     private int _bubblesToWin = 30;
-    private int _stop;
+    private bool _winAnimationStarted;
 
     /// <summary>
     /// Публичное свойство для чтения текущего состояния победы.
@@ -37,10 +37,12 @@ public class WinBobbles : MonoBehaviour
     public void SetVictoryCondition(int count)
     {
         victoryCondition = count;
+        _winAnimationStarted = false;
     }
 
     /// <summary>
     /// Вызывается, когда игрок успешно размещает предмет.
+    /// Уменьшает счетчик и проверяет, не достигнуто ли условие победы.
     /// </summary>
     public void OnItemPlaced()
     {
@@ -48,6 +50,10 @@ public class WinBobbles : MonoBehaviour
         {
             victoryCondition--;
         }
+
+        if (victoryCondition != 0 || _winAnimationStarted) return;
+        _winAnimationStarted = true;
+        StartCoroutine(Win());
     }
 
     /// <summary>
@@ -59,19 +65,11 @@ public class WinBobbles : MonoBehaviour
         {
             _bubblesToWin--;
         }
-    }
 
-    private void Update()
-    {
-        if (victoryCondition == 0 && _stop == 0)
+        if (_bubblesToWin == 0)
         {
-            _stop = 1;
-            StartCoroutine(Win());
+            StartCoroutine(LoadSceneAfterDelay(2.0f));
         }
-
-        if (_bubblesToWin != 0) return;
-        _bubblesToWin = 30;
-        Invoke("LoadScene", 2.0f);
     }
 
     /// <summary>
@@ -102,8 +100,12 @@ public class WinBobbles : MonoBehaviour
         }
     }
 
-    private void LoadScene()
+    /// <summary>
+    /// Загружает сцену после задержки.
+    /// </summary>
+    private IEnumerator LoadSceneAfterDelay(float delay)
     {
+        yield return new WaitForSeconds(delay);
         SceneManager.LoadScene("SelectScene");
     }
 }

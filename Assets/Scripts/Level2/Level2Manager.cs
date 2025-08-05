@@ -1,6 +1,5 @@
 using System.Collections;
 using Core;
-using InputController;
 using UnityEngine;
 
 namespace Level2
@@ -9,36 +8,14 @@ namespace Level2
     {
         [Header("Настройки уровня 2")]
         public GameObject boat;
-
-        [Header("Контроллеры ввода")]
-        [Tooltip("Контроллер для перетаскивания. Необходим для уровней с Drag & Drop.")]
-        [SerializeField] private DragAndDropController dragController;
-
         private Vector3 _targetBoat;
-        private int _win;
+        private int _isVictoryTriggered;
         private Level2Spawner _level2Spawn;
 
         protected override void Awake()
         {
             base.Awake();
             _level2Spawn = GetComponent<Level2Spawner>();
-            if (!dragController) dragController = GetComponent<DragAndDropController>();
-        }
-
-        private void OnEnable()
-        {
-            if (dragController)
-            {
-                dragController.OnSuccessfulDrop += HandleLevel2Drop;
-            }
-        }
-
-        private void OnDisable()
-        {
-            if (dragController)
-            {
-                dragController.OnSuccessfulDrop -= HandleLevel2Drop;
-            }
         }
 
         protected override void Start()
@@ -50,8 +27,8 @@ namespace Level2
 
         private void Update()
         {
-            if (WinBobbles.instance.victoryCondition != 0 || _win != 0) return;
-            _win = 1;
+            if (WinBobbles.instance.victoryCondition != 0 || _isVictoryTriggered != 0) return;
+            _isVictoryTriggered = 1;
             StartCoroutine(Win());
         }
 
@@ -82,7 +59,7 @@ namespace Level2
         /// <summary>
         /// Обрабатывает успешное перетаскивание для Уровня 2.
         /// </summary>
-        private void HandleLevel2Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
+        protected override void OnSuccessfulDrop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
         {
             ProcessSuccessfulPlacement(draggedObject, targetCollider.gameObject);
             if (targetCollider.name == "Flag")

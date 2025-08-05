@@ -1,25 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using Core;
-using InputController;
 using UnityEngine;
 
 namespace Level4
 {
     /// <summary>
-    /// Менеджер 4-го уровня. Управляет состоянием уровня, победой и инициализацией.
-    /// Наследуется от BaseLevelManager для использования общей логики.
+    /// Менеджер 4-го уровня.
     /// </summary>
     public class Level4Manager : BaseLevelManager<Level4Manager>
     {
         [Header("Настройки уровня 4")]
         [Tooltip("Спаунер для этого уровня. Должен находиться на том же GameObject.")]
         public Level4Spawner level4Spawn;
-
-        [Header("Контроллеры ввода")]
-        [Tooltip("Контроллер для перетаскивания. Необходим для уровней с Drag & Drop.")]
-        [SerializeField] private DragAndDropController dragController;
-
         public List<GameObject> collectedItems = new();
         private bool _isVictoryTriggered;
 
@@ -27,23 +20,6 @@ namespace Level4
         {
             base.Awake();
             if (!level4Spawn) level4Spawn = GetComponent<Level4Spawner>();
-            if (!dragController) dragController = GetComponent<DragAndDropController>();
-        }
-
-        private void OnEnable()
-        {
-            if (dragController)
-            {
-                dragController.OnSuccessfulDrop += HandleLevel4Drop;
-            }
-        }
-
-        private void OnDisable()
-        {
-            if (dragController)
-            {
-                dragController.OnSuccessfulDrop -= HandleLevel4Drop;
-            }
         }
 
         protected override void Start()
@@ -54,14 +30,11 @@ namespace Level4
 
         private void Update()
         {
-            if (_isVictoryTriggered || !WinBobbles.instance || WinBobbles.instance.victoryCondition != 0) return;
+            if (_isVictoryTriggered || WinBobbles.instance.victoryCondition != 0) return;
             _isVictoryTriggered = true;
             StartCoroutine(WinAnimation());
         }
 
-        /// <summary>
-        /// Инициализирует спаунер. Вызывается из BaseLevelManager.Start().
-        /// </summary>
         protected override void InitializeSpawner()
         {
             if (level4Spawn)
@@ -70,13 +43,10 @@ namespace Level4
             }
             else
             {
-                Debug.LogError("Level4Spawn не назначен или не найден на объекте Level4Global!");
+                Debug.LogError("Level4Spawn не назначен или не найден на объекте Level4Manager!");
             }
         }
 
-        /// <summary>
-        /// Инициализирует систему подсказок. Вызывается из BaseLevelManager.Start().
-        /// </summary>
         protected override void InitializeHint()
         {
             if (hint && level4Spawn)
@@ -113,7 +83,7 @@ namespace Level4
         /// <summary>
         /// Обрабатывает успешное перетаскивание для Уровня 4.
         /// </summary>
-        private void HandleLevel4Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
+        protected override void OnSuccessfulDrop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
         {
             WinBobbles.instance?.OnItemPlaced();
             AudioManager.instance?.PlayClickSound();

@@ -1,5 +1,4 @@
 using Core;
-using InputController;
 using UnityEngine;
 
 namespace Level9
@@ -14,31 +13,10 @@ namespace Level9
         [Tooltip("Спаунер для этого уровня.")]
         [SerializeField] private Level9Spawner level9Spawner;
 
-        [Header("Контроллеры ввода")]
-        [Tooltip("Контроллер для перетаскивания. Необходим для уровней с Drag & Drop.")]
-        [SerializeField] private DragAndDropController dragController;
-
         protected override void Awake()
         {
             base.Awake();
             if (!level9Spawner) level9Spawner = GetComponent<Level9Spawner>();
-            if (!dragController) dragController = GetComponent<DragAndDropController>();
-        }
-
-        private void OnEnable()
-        {
-            if (dragController)
-            {
-                dragController.OnSuccessfulDrop += HandleLevel9Drop;
-            }
-        }
-
-        private void OnDisable()
-        {
-            if (dragController)
-            {
-                dragController.OnSuccessfulDrop -= HandleLevel9Drop;
-            }
         }
 
         protected override void Start()
@@ -91,7 +69,7 @@ namespace Level9
         /// <summary>
         /// Обрабатывает успешное перетаскивание для Уровня 9.
         /// </summary>
-        private void HandleLevel9Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
+        protected override void OnSuccessfulDrop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
         {
             if (!level9Spawner) return;
             ProcessSuccessfulPlacement(draggedObject, targetCollider.gameObject);

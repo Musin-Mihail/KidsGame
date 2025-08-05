@@ -3,14 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Core;
-using InputController;
 using UnityEngine;
 
 namespace Level8
 {
-    /// <summary>
-    /// Содержит данные для одного пазла: сам объект, его части и цели.
-    /// </summary>
     [Serializable]
     public class PuzzleInfo
     {
@@ -34,13 +30,9 @@ namespace Level8
         [Header("Настройки уровня 8")]
         [Tooltip("Список всех пазлов, которые нужно собрать на уровне по порядку")]
         [SerializeField] private List<PuzzleInfo> puzzles = new();
-
         [Header("Компоненты")]
         [Tooltip("Спаунер для этого уровня")]
         [SerializeField] private Level8Spawner level8Spawner;
-        [Tooltip("Контроллер для перетаскивания. Необходим для уровней с Drag & Drop.")]
-        [SerializeField] private DragAndDropController dragController;
-
         private PuzzleInfo _currentPuzzle;
         private int _itemsToPlaceCount;
 
@@ -48,23 +40,6 @@ namespace Level8
         {
             base.Awake();
             if (!level8Spawner) level8Spawner = GetComponent<Level8Spawner>();
-            if (!dragController) dragController = GetComponent<DragAndDropController>();
-        }
-
-        private void OnEnable()
-        {
-            if (dragController)
-            {
-                dragController.OnSuccessfulDrop += HandleLevel8Drop;
-            }
-        }
-
-        private void OnDisable()
-        {
-            if (dragController)
-            {
-                dragController.OnSuccessfulDrop -= HandleLevel8Drop;
-            }
         }
 
         protected override void Start()
@@ -168,7 +143,6 @@ namespace Level8
                 WinBobbles.instance?.OnItemPlaced();
             }
 
-            if (hint) hint.waitHint = 1;
             InitializeHint();
         }
 
@@ -193,7 +167,7 @@ namespace Level8
         /// <summary>
         /// Обрабатывает успешное перетаскивание для Уровня 8.
         /// </summary>
-        private void HandleLevel8Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
+        protected override void OnSuccessfulDrop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
         {
             AudioManager.instance?.PlayClickSound();
             SpawnSuccessEffect(draggedObject.transform);

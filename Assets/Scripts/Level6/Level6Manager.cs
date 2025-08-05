@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Core;
-using InputController;
 using UnityEngine;
 
 namespace Level6
@@ -15,11 +14,6 @@ namespace Level6
         [Header("Настройки уровня 6")]
         [Tooltip("Спаунер для этого уровня.")]
         [SerializeField] private Level6Spawner level6Spawner;
-
-        [Header("Контроллеры ввода")]
-        [Tooltip("Контроллер для перетаскивания. Необходим для уровней с Drag & Drop.")]
-        [SerializeField] private DragAndDropController dragController;
-
         [HideInInspector] public List<GameObject> collectedStars = new();
         private bool _isVictoryTriggered;
 
@@ -27,21 +21,6 @@ namespace Level6
         {
             base.Awake();
             if (!level6Spawner) level6Spawner = GetComponent<Level6Spawner>();
-            if (!dragController) dragController = GetComponent<DragAndDropController>();
-        }
-
-        private void OnEnable()
-        {
-            if (!dragController) return;
-            dragController.OnSuccessfulDrop += HandleLevel6Drop;
-            dragController.OnDropFailed += HandleFailedDrop;
-        }
-
-        private void OnDisable()
-        {
-            if (!dragController) return;
-            dragController.OnSuccessfulDrop -= HandleLevel6Drop;
-            dragController.OnDropFailed -= HandleFailedDrop;
         }
 
         protected override void Start()
@@ -52,7 +31,7 @@ namespace Level6
 
         private void Update()
         {
-            if (_isVictoryTriggered || !WinBobbles.instance || WinBobbles.instance.victoryCondition != 0) return;
+            if (_isVictoryTriggered || WinBobbles.instance.victoryCondition != 0) return;
             _isVictoryTriggered = true;
             StartCoroutine(WinAnimation());
         }
@@ -116,7 +95,7 @@ namespace Level6
         /// <summary>
         /// Обрабатывает неудачный бросок для Уровня 6.
         /// </summary>
-        private void HandleFailedDrop(GameObject draggedObject)
+        protected override void OnFailedDrop(GameObject draggedObject)
         {
             if (!draggedObject.TryGetComponent<MoveItem>(out var moveItem)) return;
             moveItem.state = 1;
@@ -126,7 +105,7 @@ namespace Level6
         /// <summary>
         /// Обрабатывает успешное перетаскивание для Уровня 6.
         /// </summary>
-        private void HandleLevel6Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
+        protected override void OnSuccessfulDrop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
         {
             var chest = targetCollider.GetComponent<Level6Chest>();
             if (!chest || chest.busyPlaces >= chest.starPlaceholders.Count)
@@ -136,7 +115,6 @@ namespace Level6
                 if (moveItem.state != 0) return;
                 moveItem.state = 1;
                 StartCoroutine(moveItem.Rotation());
-
                 return;
             }
 
