@@ -17,9 +17,10 @@ public class Hint : MonoBehaviour
     [Tooltip("Метод, используемый для поиска совпадений в подсказке (ByName или ByTag).")]
     public HintComparisonType comparisonType = HintComparisonType.ByName;
     public GameObject finger;
-
+    [Tooltip("Если true, подсказка будет ждать, пока IsHintingActive не станет true.")]
+    public bool requireManualActivation;
     [HideInInspector] public int waitHint;
-
+    public bool isHintingActive { get; set; }
     private List<GameObject> _itemPositions;
     private List<GameObject> _emptyItemPositions;
     private GameObject _targetObject;
@@ -47,7 +48,6 @@ public class Hint : MonoBehaviour
         _itemPositions = newItemPositions;
         _targetObject = targetObject;
         _targetName = targetObject.name;
-
         _emptyItemPositions = null;
     }
 
@@ -56,28 +56,51 @@ public class Hint : MonoBehaviour
     /// </summary>
     public IEnumerator StartHint()
     {
-        while (Application.isPlaying && WinBobbles.instance.victory != 0)
+        if (!requireManualActivation)
         {
+            isHintingActive = true;
+        }
+
+        while (Application.isPlaying)
+        {
+            if (requireManualActivation)
+            {
+                yield return new WaitUntil(() => isHintingActive);
+            }
+
+            if (!isHintingActive)
+            {
+                yield return null;
+                continue;
+            }
+
             _hintTime = 0;
             while (_hintTime < 4)
             {
-                yield return new WaitForSeconds(1.0f);
+                if (!isHintingActive)
+                {
+                    break;
+                }
+
                 if (waitHint == 1)
                 {
                     _hintTime = 0;
                     waitHint = 0;
-                    break;
                 }
 
+                yield return new WaitForSeconds(1.0f);
                 _hintTime++;
             }
 
-            if (_hintTime >= 4)
+            if (_hintTime >= 4 && isHintingActive)
             {
                 ShowHint();
             }
 
-            yield return new WaitForSeconds(1.0f);
+            if (!requireManualActivation)
+            {
+                yield return new WaitForSeconds(1.0f);
+            }
         }
     }
 
@@ -139,7 +162,7 @@ public class Hint : MonoBehaviour
         var adjustedTarget = targetObject.transform.position;
         while (Vector3.Distance(finger.transform.position, adjustedTarget) > 0.01f)
         {
-            if (!startObject.activeSelf || !targetObject.activeSelf)
+            if (!isHintingActive || !startObject.activeSelf || !targetObject.activeSelf)
             {
                 break;
             }

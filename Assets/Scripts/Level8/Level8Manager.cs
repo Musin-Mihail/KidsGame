@@ -55,6 +55,11 @@ namespace Level8
                 WinBobbles.instance.victory = puzzles.Count;
             }
 
+            if (hint)
+            {
+                StartCoroutine(hint.StartHint());
+            }
+
             StartCoroutine(RunAllPuzzlesSequentially());
         }
 
@@ -68,7 +73,10 @@ namespace Level8
                 _currentPuzzle = puzzle;
                 _currentPuzzle.puzzleObject.SetActive(true);
                 yield return StartCoroutine(LevelFlowCoroutine(_currentPuzzle));
-                _currentPuzzle.puzzleObject.SetActive(false);
+                if (_currentPuzzle.puzzleObject)
+                {
+                    _currentPuzzle.puzzleObject.SetActive(false);
+                }
             }
         }
 
@@ -96,18 +104,25 @@ namespace Level8
             puzzleRenderer.sprite = currentPuzzle.baseSprite;
             yield return new WaitForSeconds(0.5f);
             puzzleRenderer.color = new Color(1, 1, 1, 0.5f);
+
             InitializeSpawner();
             InitializeHint();
-            StartCoroutine(hint.StartHint());
+
+            if (hint) hint.isHintingActive = true;
+
             while (_itemsToPlaceCount > 0)
             {
                 yield return null;
             }
 
+            // ИЗМЕНЕНО: Пазл собран, деактивируем систему подсказок.
             if (hint)
             {
-                hint.StopAllCoroutines();
-                if (hint.finger) hint.finger.SetActive(false);
+                hint.isHintingActive = false;
+                if (hint.finger && hint.finger.activeSelf)
+                {
+                    hint.finger.SetActive(false);
+                }
             }
 
             foreach (var item in level8Spawner.activeItem.Where(item => item))
@@ -142,7 +157,7 @@ namespace Level8
                 }
             }
 
-            hint.waitHint = 1;
+            if (hint) hint.waitHint = 1;
             InitializeHint();
         }
 

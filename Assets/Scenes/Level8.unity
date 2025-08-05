@@ -5600,6 +5600,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comparisonType: 0
   finger: {fileID: 1470343624}
+  requireManualActivation: 1
   waitHint: 0
 --- !u!114 &1949496706
 MonoBehaviour:
@@ -5614,6 +5615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragController: {fileID: 1949496707}
+  clickController: {fileID: 0}
   currentLevel: 7
 --- !u!114 &1949496707
 MonoBehaviour:
