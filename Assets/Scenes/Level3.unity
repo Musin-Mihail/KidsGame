@@ -220,7 +220,6 @@ GameObject:
   - component: {fileID: 142792126}
   - component: {fileID: 142792123}
   - component: {fileID: 142792125}
-  - component: {fileID: 142792124}
   m_Layer: 12
   m_Name: Game
   m_TagString: Game
@@ -259,21 +258,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comparisonType: 0
   finger: {fileID: 1931205458}
+  requireManualActivation: 0
   waitHint: 0
---- !u!114 &142792124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142792115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 455d975413694210be0933042bc84200, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dragController: {fileID: 142792125}
-  currentLevel: 2
 --- !u!114 &142792125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +354,7 @@ MonoBehaviour:
   - {fileID: 8037833678072505899}
   task: {fileID: 567383517}
   figure: {fileID: 45130656}
+  dragController: {fileID: 142792125}
   animalCenter: {fileID: 0}
   stageMove: 0
   threeFiguresComplete: 0

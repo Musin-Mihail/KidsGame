@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Core;
+using InputController;
 using UnityEngine;
 
 namespace Level10
@@ -19,10 +20,37 @@ namespace Level10
         public List<float> allScales = new();
         [Tooltip("Список тегов размеров, соответствующих масштабам (например, Small, Medium, Big)")]
         public List<string> allSizes = new();
-        private readonly int itemsPerRound = 3;
+
+        [Header("Контроллеры ввода")]
+        [Tooltip("Контроллер для перетаскивания. Необходим для уровней с Drag & Drop.")]
+        [SerializeField] private DragAndDropController dragController;
+
+        private const int ItemsPerRound = 3;
         private readonly List<GameObject> _placedTargetObjects = new();
         private int _currentItemIndex;
         private int _placedThisRound;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            if (!dragController) dragController = GetComponent<DragAndDropController>();
+        }
+
+        private void OnEnable()
+        {
+            if (dragController)
+            {
+                dragController.OnSuccessfulDrop += HandleLevel10Drop;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (dragController)
+            {
+                dragController.OnSuccessfulDrop -= HandleLevel10Drop;
+            }
+        }
 
         protected override void Start()
         {
@@ -44,7 +72,7 @@ namespace Level10
             for (_currentItemIndex = 0; _currentItemIndex < allItems.Count; _currentItemIndex++)
             {
                 SetupNewRound();
-                while (_placedThisRound < itemsPerRound)
+                while (_placedThisRound < ItemsPerRound)
                 {
                     yield return null;
                 }
@@ -96,10 +124,10 @@ namespace Level10
         }
 
         /// <summary>
-        /// Вызывается из LevelDropHandler при успешном размещении предмета.
+        /// Вызывается при успешном размещении предмета.
         /// </summary>
         /// <param name="targetContainer">Родительский объект (цель), куда был перетащен предмет.</param>
-        public void OnItemPlaced(GameObject targetContainer)
+        private void OnItemPlaced(GameObject targetContainer)
         {
             _placedThisRound++;
             foreach (Transform child in targetContainer.transform)
@@ -142,6 +170,16 @@ namespace Level10
         {
             if (!hint || !level10Spawner) return;
             hint.Initialization(allTargets, level10Spawner.activeItem);
+        }
+
+        /// <summary>
+        /// Обрабатывает успешное перетаскивание для Уровня 10.
+        /// </summary>
+        private void HandleLevel10Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
+        {
+            AudioManager.instance.PlayClickSound();
+            OnItemPlaced(targetCollider.gameObject);
+            draggedObject.SetActive(false);
         }
     }
 }

@@ -3637,7 +3637,6 @@ GameObject:
   - component: {fileID: 1385257633}
   - component: {fileID: 1385257632}
   - component: {fileID: 1385257631}
-  - component: {fileID: 1385257630}
   m_Layer: 0
   m_Name: Game
   m_TagString: Game
@@ -3662,21 +3661,6 @@ Transform:
   - {fileID: 1182192375}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1385257630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1385257623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 455d975413694210be0933042bc84200, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dragController: {fileID: 0}
-  clickController: {fileID: 1385257631}
-  currentLevel: 11
 --- !u!114 &1385257631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3706,6 +3690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comparisonType: 0
   finger: {fileID: 153409084}
+  requireManualActivation: 0
   waitHint: 0
 --- !u!114 &1385257633
 MonoBehaviour:
@@ -3739,6 +3724,7 @@ MonoBehaviour:
   - {fileID: 1889638084}
   - {fileID: 1853855020}
   targetContainer: {fileID: 1558433145}
+  clickController: {fileID: 1385257631}
 --- !u!1 &1411980844
 GameObject:
   m_ObjectHideFlags: 0

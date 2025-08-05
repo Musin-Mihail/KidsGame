@@ -1298,7 +1298,6 @@ GameObject:
   - component: {fileID: 638857300}
   - component: {fileID: 638857299}
   - component: {fileID: 638857298}
-  - component: {fileID: 638857297}
   m_Layer: 0
   m_Name: Game
   m_TagString: Game
@@ -1323,20 +1322,6 @@ Transform:
   - {fileID: 2001274451}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &638857297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 638857287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 455d975413694210be0933042bc84200, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dragController: {fileID: 638857298}
-  currentLevel: 8
 --- !u!114 &638857298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1370,6 +1355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comparisonType: 1
   finger: {fileID: 2055870819}
+  requireManualActivation: 0
   waitHint: 0
 --- !u!114 &638857300
 MonoBehaviour:
@@ -1424,6 +1410,7 @@ MonoBehaviour:
   - {fileID: 522538548}
   - {fileID: 2104102937}
   level9Spawner: {fileID: 638857300}
+  dragController: {fileID: 638857298}
 --- !u!4 &1072360139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3325852922143331956, guid: 70d7d97c3d2f75744b9671d73f38956f,

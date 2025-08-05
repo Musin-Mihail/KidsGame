@@ -7,6 +7,13 @@ public class BurstingBubble : MonoBehaviour
     public List<Sprite> spriteBubble = new();
     private SpriteRenderer _spriteRenderer;
     private AudioSource _audioSource;
+    private bool _isBursting;
+
+    private void Awake()
+    {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     private void Start()
     {
@@ -15,28 +22,36 @@ public class BurstingBubble : MonoBehaviour
 
     private void OnMouseUp()
     {
-        _audioSource = GetComponent<AudioSource>();
+        if (_isBursting) return;
+        _isBursting = true;
         Destroy(GetComponent<CircleCollider2D>());
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         StartCoroutine(Bursting());
     }
 
+    /// <summary>
+    /// Корутина для анимации лопающегося пузыря.
+    /// </summary>
     private IEnumerator Bursting()
     {
         _audioSource.Play();
-        _spriteRenderer.sprite = spriteBubble[0];
-        yield return new WaitForSeconds(0.1f);
-        _spriteRenderer.sprite = spriteBubble[1];
-        yield return new WaitForSeconds(0.1f);
-        _spriteRenderer.sprite = spriteBubble[2];
-        yield return new WaitForSeconds(0.1f);
+        foreach (var sprite in spriteBubble)
+        {
+            _spriteRenderer.sprite = sprite;
+            yield return new WaitForSeconds(0.1f);
+        }
+
         WinBobbles.instance.count--;
         Destroy(gameObject);
     }
 
+    /// <summary>
+    /// Корутина для самоуничтожения пузыря по таймеру.
+    /// </summary>
     private IEnumerator DestroyBubble()
     {
         yield return new WaitForSeconds(10);
+        if (_isBursting) yield break;
+        _isBursting = true;
         WinBobbles.instance.count--;
         Destroy(gameObject);
     }

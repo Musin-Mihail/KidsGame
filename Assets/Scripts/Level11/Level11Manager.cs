@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Core;
+using InputController;
 using UnityEngine;
 
 namespace Level11
@@ -24,9 +25,13 @@ namespace Level11
         [SerializeField] private int fishChestCount = 8;
         [Tooltip("Общее количество сундуков")]
         [SerializeField] private int totalChestCount = 32;
+
         [Header("Ссылки на компоненты")]
         [Tooltip("Спаунер для этого уровня")]
         public Level11Spawner level11Spawner;
+        [Tooltip("Контроллер для кликов. Необходим для уровней с механикой клика.")]
+        [SerializeField] private ClickController clickController;
+
         [HideInInspector] public List<GameObject> spawnedChests = new();
         [HideInInspector] public List<GameObject> emptyChestsForDeletion = new();
         [HideInInspector] public List<GameObject> foundFishObjects = new();
@@ -36,6 +41,8 @@ namespace Level11
         {
             base.Awake();
             if (!level11Spawner) level11Spawner = GetComponent<Level11Spawner>();
+            if (!clickController) clickController = GetComponent<ClickController>();
+
             _hintStartObject = new GameObject("HintStartObject")
             {
                 tag = "FishChest",
@@ -44,6 +51,22 @@ namespace Level11
                     position = new Vector3(0, -8, 0)
                 }
             };
+        }
+
+        private void OnEnable()
+        {
+            if (clickController)
+            {
+                clickController.OnObjectClicked += HandleLevel11Click;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (clickController)
+            {
+                clickController.OnObjectClicked -= HandleLevel11Click;
+            }
         }
 
         protected override void Start()
@@ -115,7 +138,7 @@ namespace Level11
         }
 
         /// <summary>
-        /// Обрабатывает клик по сундуку. Вызывается из LevelDropHandler.
+        /// Обрабатывает клик по сундуку.
         /// </summary>
         public void OnChestClicked(GameObject chest)
         {
@@ -134,7 +157,7 @@ namespace Level11
         /// <summary>
         /// Уведомляет менеджер о том, что произошло взаимодействие, чтобы сбросить таймер подсказки.
         /// </summary>
-        public void NotifyInteraction()
+        private void NotifyInteraction()
         {
             if (hint)
             {
@@ -220,6 +243,15 @@ namespace Level11
 
                 yield return new WaitForSeconds(0.02f);
             }
+        }
+
+        /// <summary>
+        /// Обрабатывает клик для 11-го уровня.
+        /// </summary>
+        private void HandleLevel11Click(GameObject clickedObject)
+        {
+            OnChestClicked(clickedObject);
+            NotifyInteraction();
         }
     }
 }

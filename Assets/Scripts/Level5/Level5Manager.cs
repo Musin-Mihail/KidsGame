@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Core;
+using InputController;
 using UnityEngine;
 
 namespace Level5
@@ -16,7 +17,34 @@ namespace Level5
         public GameObject chest;
         [Tooltip("Префаб открытого сундука.")]
         public GameObject openChest;
+
+        [Header("Контроллеры ввода")]
+        [Tooltip("Контроллер для перетаскивания. Необходим для уровней с Drag & Drop.")]
+        [SerializeField] private DragAndDropController dragController;
+
         private bool _isVictoryTriggered;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            if (!dragController) dragController = GetComponent<DragAndDropController>();
+        }
+
+        private void OnEnable()
+        {
+            if (dragController)
+            {
+                dragController.OnSuccessfulDrop += HandleLevel5Drop;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (dragController)
+            {
+                dragController.OnSuccessfulDrop -= HandleLevel5Drop;
+            }
+        }
 
         protected override void Start()
         {
@@ -102,6 +130,28 @@ namespace Level5
             {
                 openChest.SetActive(true);
             }
+        }
+
+        /// <summary>
+        /// Обрабатывает успешное перетаскивание для Уровня 5.
+        /// </summary>
+        private void HandleLevel5Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
+        {
+            AudioManager.instance.PlayClickSound();
+            var particlePosition = targetCollider.transform.position;
+            Instantiate(Resources.Load<ParticleSystem>("Bubbles"), particlePosition, Quaternion.Euler(-90, -40, 0));
+            targetCollider.GetComponent<SpriteRenderer>().sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
+            targetCollider.tag = "Untagged";
+            if (WinBobbles.instance) WinBobbles.instance.victory--;
+            var oyster = draggedObject.GetComponentInParent<Level5SpawnOyster>();
+            if (oyster) StartCoroutine(oyster.SpawnNextFigure());
+            var spawner = GetComponent<Level5Spawner>();
+            if (spawner && spawner.activeItem.Contains(draggedObject))
+            {
+                spawner.activeItem.Remove(draggedObject);
+            }
+
+            draggedObject.SetActive(false);
         }
     }
 }

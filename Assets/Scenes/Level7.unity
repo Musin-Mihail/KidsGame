@@ -439,12 +439,9 @@ GameObject:
   m_Component:
   - component: {fileID: 426928718}
   - component: {fileID: 426928724}
-  - component: {fileID: 426928719}
-  - component: {fileID: 426928712}
   - component: {fileID: 426928723}
   - component: {fileID: 426928722}
   - component: {fileID: 426928721}
-  - component: {fileID: 426928720}
   m_Layer: 0
   m_Name: Game
   m_TagString: Game
@@ -452,32 +449,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &426928712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 426928711}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aba1dbf451afa447aa8f38a49f7fff8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnPositionVector:
-  - {fileID: 755592150}
-  - {fileID: 314786555}
-  - {fileID: 1531809097}
-  SpawnPosition:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  TargetPosition:
-  - {fileID: 148590296}
-  - {fileID: 598869900}
-  - {fileID: 624005802}
-  - {fileID: 1223168878}
-  - {fileID: 732561783}
 --- !u!4 &426928718
 Transform:
   m_ObjectHideFlags: 0
@@ -495,40 +466,6 @@ Transform:
   - {fileID: 148233226}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &426928719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 426928711}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c4c265dd14bb314e9e642d909686af8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AllItem:
-  - {fileID: 2597236363905667354, guid: fb6dd39bc34493b44860da27da130d85, type: 3}
-  - {fileID: 1524383360485733535, guid: 674796164b49c054583251682771bdfb, type: 3}
-  - {fileID: 7469242908342035886, guid: 88dc58a13019cb042bc5eae83cf1e091, type: 3}
-  - {fileID: 4404504801778204316, guid: cc2687d7910d0f041b2eb0f57e1d5807, type: 3}
-  - {fileID: 6283665790687820250, guid: 251e0da7e26d2b74d99f76ecc38e11a8, type: 3}
-  - {fileID: 2131078168091226118, guid: 112247249cf42b747b99c21937af8b1d, type: 3}
-  Finger: {fileID: 508899576}
---- !u!114 &426928720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 426928711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 455d975413694210be0933042bc84200, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dragController: {fileID: 426928721}
-  currentLevel: 6
 --- !u!114 &426928721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,6 +499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comparisonType: 0
   finger: {fileID: 508899576}
+  requireManualActivation: 0
   waitHint: 0
 --- !u!114 &426928723
 MonoBehaviour:
@@ -619,7 +557,7 @@ MonoBehaviour:
   - {fileID: 2131078168091226118, guid: 112247249cf42b747b99c21937af8b1d, type: 3}
   allTargets: []
   level7Spawner: {fileID: 426928723}
-  canProceed: 0
+  dragController: {fileID: 426928721}
 --- !u!1 &434705630
 GameObject:
   m_ObjectHideFlags: 0

@@ -646,9 +646,8 @@ GameObject:
   - component: {fileID: 330060708}
   - component: {fileID: 330060710}
   - component: {fileID: 330060713}
-  - component: {fileID: 330060712}
-  - component: {fileID: 330060711}
   - component: {fileID: 330060709}
+  - component: {fileID: 330060712}
   m_Layer: 0
   m_Name: Game
   m_TagString: Game
@@ -687,6 +686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comparisonType: 1
   finger: {fileID: 758749386}
+  requireManualActivation: 0
   waitHint: 0
 --- !u!114 &330060710
 MonoBehaviour:
@@ -737,20 +737,7 @@ MonoBehaviour:
   - {fileID: 4039524767104596964, guid: 6ffd18f94b5fd6445887261b03590b49, type: 3}
   chest: {fileID: 550031574}
   openChest: {fileID: 628304003}
---- !u!114 &330060711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330060701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 455d975413694210be0933042bc84200, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   dragController: {fileID: 330060712}
-  currentLevel: 4
 --- !u!114 &330060712
 MonoBehaviour:
   m_ObjectHideFlags: 0

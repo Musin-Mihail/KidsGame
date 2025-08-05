@@ -750,7 +750,6 @@ GameObject:
   - component: {fileID: 285091697}
   - component: {fileID: 285091694}
   - component: {fileID: 285091696}
-  - component: {fileID: 285091695}
   m_Layer: 0
   m_Name: Game
   m_TagString: Game
@@ -789,21 +788,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comparisonType: 0
   finger: {fileID: 1072118361}
+  requireManualActivation: 0
   waitHint: 0
---- !u!114 &285091695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 285091686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 455d975413694210be0933042bc84200, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dragController: {fileID: 285091696}
-  currentLevel: 1
 --- !u!114 &285091696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -887,6 +873,7 @@ MonoBehaviour:
   - {fileID: 23709229}
   - {fileID: 83434215}
   boat: {fileID: 54426302}
+  dragController: {fileID: 285091696}
 --- !u!1 &300495486
 GameObject:
   m_ObjectHideFlags: 0

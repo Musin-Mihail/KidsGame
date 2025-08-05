@@ -1403,7 +1403,6 @@ GameObject:
   - component: {fileID: 1066311950}
   - component: {fileID: 1066311947}
   - component: {fileID: 1066311949}
-  - component: {fileID: 1066311948}
   m_Layer: 0
   m_Name: Game
   m_TagString: Game
@@ -1442,21 +1441,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comparisonType: 1
   finger: {fileID: 1170274516}
+  requireManualActivation: 0
   waitHint: 0
---- !u!114 &1066311948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1066311939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 455d975413694210be0933042bc84200, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dragController: {fileID: 1066311949}
-  currentLevel: 3
 --- !u!114 &1066311949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1525,7 +1511,8 @@ MonoBehaviour:
   allTargets:
   - {fileID: 82215676}
   - {fileID: 172623946}
-  level4Spawn: {fileID: 0}
+  level4Spawn: {fileID: 1066311950}
+  dragController: {fileID: 1066311949}
   collectedItems:
   - {fileID: 6048782940882608905}
   - {fileID: 6560876109330745188}

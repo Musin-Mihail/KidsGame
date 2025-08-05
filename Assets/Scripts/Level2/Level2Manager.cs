@@ -1,5 +1,6 @@
 using System.Collections;
 using Core;
+using InputController;
 using UnityEngine;
 
 namespace Level2
@@ -9,6 +10,10 @@ namespace Level2
         [Header("Настройки уровня 2")]
         public GameObject boat;
 
+        [Header("Контроллеры ввода")]
+        [Tooltip("Контроллер для перетаскивания. Необходим для уровней с Drag & Drop.")]
+        [SerializeField] private DragAndDropController dragController;
+
         private Vector3 _targetBoat;
         private int _win;
         private Level2Spawner _level2Spawn;
@@ -17,6 +22,23 @@ namespace Level2
         {
             base.Awake();
             _level2Spawn = GetComponent<Level2Spawner>();
+            if (!dragController) dragController = GetComponent<DragAndDropController>();
+        }
+
+        private void OnEnable()
+        {
+            if (dragController)
+            {
+                dragController.OnSuccessfulDrop += HandleLevel2Drop;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (dragController)
+            {
+                dragController.OnSuccessfulDrop -= HandleLevel2Drop;
+            }
         }
 
         protected override void Start()
@@ -59,6 +81,25 @@ namespace Level2
             if (!hint || !_level2Spawn) return;
             hint.Initialization(allTargets, _level2Spawn.activeItem);
             StartCoroutine(hint.StartHint());
+        }
+
+        /// <summary>
+        /// Обрабатывает успешное перетаскивание для Уровня 2.
+        /// </summary>
+        private void HandleLevel2Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
+        {
+            if (WinBobbles.instance) WinBobbles.instance.victory--;
+            if (targetCollider.name == "Flag")
+            {
+                targetCollider.GetComponent<Animator>().enabled = true;
+            }
+            else
+            {
+                targetCollider.GetComponent<SpriteRenderer>().sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
+            }
+
+            AudioManager.instance.PlayClickSound();
+            draggedObject.gameObject.SetActive(false);
         }
     }
 }

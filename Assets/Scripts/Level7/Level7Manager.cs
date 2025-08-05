@@ -1,5 +1,6 @@
 using System.Collections;
 using Core;
+using InputController;
 using UnityEngine;
 
 namespace Level7
@@ -15,10 +16,31 @@ namespace Level7
         [Tooltip("Ссылка на спаунер этого уровня")]
         public Level7Spawner level7Spawner;
 
+        [Header("Контроллеры ввода")]
+        [Tooltip("Контроллер для перетаскивания. Необходим для уровней с Drag & Drop.")]
+        [SerializeField] private DragAndDropController dragController;
+
         protected override void Awake()
         {
             base.Awake();
             if (!level7Spawner) level7Spawner = GetComponent<Level7Spawner>();
+            if (!dragController) dragController = GetComponent<DragAndDropController>();
+        }
+
+        private void OnEnable()
+        {
+            if (dragController)
+            {
+                dragController.OnSuccessfulDrop += HandleLevel7Drop;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (dragController)
+            {
+                dragController.OnSuccessfulDrop -= HandleLevel7Drop;
+            }
         }
 
         protected override void Start()
@@ -106,6 +128,23 @@ namespace Level7
             {
                 Debug.LogError("Компонент Hint или Level7Spawner не настроен!");
             }
+        }
+
+        /// <summary>
+        /// Обрабатывает успешное перетаскивание для Уровня 7.
+        /// </summary>
+        private void HandleLevel7Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
+        {
+            AudioManager.instance.PlayClickSound();
+            var targetSpriteRenderer = targetCollider.GetComponent<SpriteRenderer>();
+            if (targetSpriteRenderer)
+            {
+                targetSpriteRenderer.sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
+                targetCollider.transform.localScale = draggedObject.transform.localScale;
+            }
+
+            draggedObject.SetActive(false);
+            OnTaskCompleted();
         }
     }
 }

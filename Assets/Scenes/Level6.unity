@@ -3235,9 +3235,8 @@ GameObject:
   - component: {fileID: 1474776348}
   - component: {fileID: 1474776356}
   - component: {fileID: 1474776355}
-  - component: {fileID: 1474776354}
-  - component: {fileID: 1474776353}
   - component: {fileID: 1474776352}
+  - component: {fileID: 1474776354}
   m_Layer: 0
   m_Name: Game
   m_TagString: Game
@@ -3276,21 +3275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comparisonType: 0
   finger: {fileID: 411789298}
+  requireManualActivation: 0
   waitHint: 0
---- !u!114 &1474776353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1474776347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 455d975413694210be0933042bc84200, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dragController: {fileID: 1474776354}
-  currentLevel: 5
 --- !u!114 &1474776354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3372,6 +3358,7 @@ MonoBehaviour:
   - {fileID: 423643581}
   - {fileID: 514461786}
   level6Spawner: {fileID: 1474776355}
+  dragController: {fileID: 1474776354}
   collectedStars: []
 --- !u!1 &1479318639
 GameObject:

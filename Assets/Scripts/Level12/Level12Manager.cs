@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Core;
+using InputController;
 using UnityEngine;
 
 namespace Level12
@@ -15,6 +16,11 @@ namespace Level12
         [Header("Настройки уровня 12")]
         [Tooltip("Главный объект-контейнер для целей, который анимируется в начале")]
         [SerializeField] private GameObject targetContainer;
+
+        [Header("Контроллеры ввода")]
+        [Tooltip("Контроллер для кликов. Необходим для уровней с механикой клика.")]
+        [SerializeField] private ClickController clickController;
+
         private int _currentTaskIndex;
         private GameObject _hintStartObject;
         private readonly Dictionary<GameObject, Vector3> _initialScales = new();
@@ -22,10 +28,28 @@ namespace Level12
         protected override void Awake()
         {
             base.Awake();
+            if (!clickController) clickController = GetComponent<ClickController>();
+
             _hintStartObject = new GameObject("HintStartObject_Permanent")
             {
                 transform = { position = new Vector3(0, -6, 0) }
             };
+        }
+
+        private void OnEnable()
+        {
+            if (clickController)
+            {
+                clickController.OnObjectClicked += ProcessClick;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (clickController)
+            {
+                clickController.OnObjectClicked -= ProcessClick;
+            }
         }
 
         protected override void Start()
@@ -69,9 +93,9 @@ namespace Level12
         }
 
         /// <summary>
-        /// Обрабатывает клик по предмету. Вызывается из LevelDropHandler.
+        /// Обрабатывает клик по предмету.
         /// </summary>
-        public void ProcessClick(GameObject clickedItem)
+        private void ProcessClick(GameObject clickedItem)
         {
             if (_currentTaskIndex >= allTargets.Count) return;
             var currentTarget = allTargets[_currentTaskIndex];
@@ -85,13 +109,12 @@ namespace Level12
         /// </summary>
         private void OnCorrectItemClicked(GameObject clickedItem)
         {
-            var currentTarget = allTargets[_currentTaskIndex];
             if (clickedItem.TryGetComponent<Collider2D>(out var collider))
             {
                 collider.enabled = false;
             }
 
-            StartCoroutine(MoveAndScaleItem(clickedItem, currentTarget));
+            StartCoroutine(MoveAndScaleItem(clickedItem, allTargets[_currentTaskIndex]));
         }
 
         /// <summary>

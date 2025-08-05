@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Core;
+using InputController;
 using UnityEngine;
 
 namespace Level3
@@ -13,6 +14,10 @@ namespace Level3
         public List<GameObject> allAnimals = new();
         public GameObject task;
         public GameObject figure;
+
+        [Header("Контроллеры ввода")]
+        [Tooltip("Контроллер для перетаскивания. Необходим для уровней с Drag & Drop.")]
+        [SerializeField] private DragAndDropController dragController;
 
         [HideInInspector] public GameObject animalCenter;
         [HideInInspector] public int stageMove;
@@ -27,6 +32,23 @@ namespace Level3
         {
             base.Awake();
             _level3Spawn = GetComponent<Level3Spawner>();
+            if (!dragController) dragController = GetComponent<DragAndDropController>();
+        }
+
+        private void OnEnable()
+        {
+            if (dragController)
+            {
+                dragController.OnSuccessfulDrop += HandleLevel3Drop;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (dragController)
+            {
+                dragController.OnSuccessfulDrop -= HandleLevel3Drop;
+            }
         }
 
         protected override void Start()
@@ -140,6 +162,19 @@ namespace Level3
         protected override void InitializeHint()
         {
             /* Управляется вручную */
+        }
+
+        /// <summary>
+        /// Обрабатывает успешное перетаскивание для Уровня 3.
+        /// </summary>
+        private void HandleLevel3Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
+        {
+            if (WinBobbles.instance) WinBobbles.instance.victory--;
+            draggedObject.gameObject.SetActive(false);
+
+            ChangeFigure();
+
+            AudioManager.instance.PlayClickSound();
         }
     }
 }

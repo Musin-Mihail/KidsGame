@@ -2254,7 +2254,6 @@ GameObject:
   - component: {fileID: 1731143651}
   - component: {fileID: 1731143655}
   - component: {fileID: 1731143654}
-  - component: {fileID: 1731143653}
   m_Layer: 0
   m_Name: Game
   m_TagString: Respawn
@@ -2332,24 +2331,10 @@ MonoBehaviour:
   fishChestCount: 8
   totalChestCount: 32
   level11Spawner: {fileID: 1731143651}
+  clickController: {fileID: 1731143654}
   spawnedChests: []
   emptyChestsForDeletion: []
   foundFishObjects: []
---- !u!114 &1731143653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1731143644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 455d975413694210be0933042bc84200, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dragController: {fileID: 0}
-  clickController: {fileID: 1731143654}
-  currentLevel: 10
 --- !u!114 &1731143654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2379,6 +2364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comparisonType: 1
   finger: {fileID: 790335858}
+  requireManualActivation: 0
   waitHint: 0
 --- !u!1001 &1818728935
 PrefabInstance:

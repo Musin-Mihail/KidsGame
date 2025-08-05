@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Core;
+using InputController;
 using UnityEngine;
 
 namespace Level8
@@ -38,6 +39,8 @@ namespace Level8
         [Header("Компоненты")]
         [Tooltip("Спаунер для этого уровня")]
         [SerializeField] private Level8Spawner level8Spawner;
+        [Tooltip("Контроллер для перетаскивания. Необходим для уровней с Drag & Drop.")]
+        [SerializeField] private DragAndDropController dragController;
 
         private PuzzleInfo _currentPuzzle;
         private int _itemsToPlaceCount;
@@ -46,6 +49,23 @@ namespace Level8
         {
             base.Awake();
             if (!level8Spawner) level8Spawner = GetComponent<Level8Spawner>();
+            if (!dragController) dragController = GetComponent<DragAndDropController>();
+        }
+
+        private void OnEnable()
+        {
+            if (dragController)
+            {
+                dragController.OnSuccessfulDrop += HandleLevel8Drop;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (dragController)
+            {
+                dragController.OnSuccessfulDrop -= HandleLevel8Drop;
+            }
         }
 
         protected override void Start()
@@ -115,7 +135,6 @@ namespace Level8
                 yield return null;
             }
 
-            // ИЗМЕНЕНО: Пазл собран, деактивируем систему подсказок.
             if (hint)
             {
                 hint.isHintingActive = false;
@@ -183,6 +202,20 @@ namespace Level8
             }
 
             hint.Initialization(_currentPuzzle.pieceTargets, activeDraggableItems);
+        }
+
+        /// <summary>
+        /// Обрабатывает успешное перетаскивание для Уровня 8.
+        /// </summary>
+        private void HandleLevel8Drop(GameObject draggedObject, Collider2D targetCollider, Vector3 startPosition)
+        {
+            AudioManager.instance.PlayClickSound();
+            draggedObject.transform.position = targetCollider.transform.position;
+            draggedObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
+            var col = draggedObject.GetComponent<Collider2D>();
+            if (col) col.enabled = false;
+            OnItemPlaced();
+            Instantiate(Resources.Load<ParticleSystem>("Bubbles"), draggedObject.transform.position, Quaternion.identity);
         }
     }
 }
