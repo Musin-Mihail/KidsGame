@@ -35,7 +35,7 @@ namespace Level12
                 WinBobbles.instance.victory = allTargets.Count;
             }
 
-            foreach (var target in allTargets)
+            foreach (var target in allTargets.Where(target => target))
             {
                 _initialScales[target] = target.transform.localScale;
             }
@@ -191,11 +191,11 @@ namespace Level12
         /// </summary>
         private IEnumerator AnimateWinItem(GameObject item)
         {
-            if (!_initialScales.TryGetValue(item, out var originalScale)) yield break;
+            var originalScale = item.transform.localScale;
             var bigScale = originalScale * 1.2f;
             const float duration = 0.2f;
-            yield return AnimateScale(item, item.transform.localScale, bigScale, duration);
-            yield return AnimateScale(item, item.transform.localScale, originalScale, duration);
+            yield return AnimateScale(item, originalScale, bigScale, duration);
+            yield return AnimateScale(item, bigScale, originalScale, duration);
         }
 
         private IEnumerator AnimateScale(GameObject item, Vector3 from, Vector3 to, float duration)
@@ -203,12 +203,16 @@ namespace Level12
             float elapsedTime = 0;
             while (elapsedTime < duration)
             {
+                if (!item) yield break;
                 item.transform.localScale = Vector3.Lerp(from, to, elapsedTime / duration);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
 
-            item.transform.localScale = to;
+            if (item)
+            {
+                item.transform.localScale = to;
+            }
         }
 
         /// <summary>
