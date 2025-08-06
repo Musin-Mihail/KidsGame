@@ -12,11 +12,20 @@ namespace Core.Purchase
         {
             PurchaseManager.OnPurchaseStateChanged += UpdateState;
             button.onClick.AddListener(OnButtonClick);
+
+            if (PurchaseManager.instance != null && PurchaseManager.instance.isInitialized)
+            {
+                UpdateState();
+            }
         }
 
         private void OnDisable()
         {
-            PurchaseManager.OnPurchaseStateChanged -= UpdateState;
+            if (PurchaseManager.instance)
+            {
+                PurchaseManager.OnPurchaseStateChanged -= UpdateState;
+            }
+
             button.onClick.RemoveListener(OnButtonClick);
         }
 
@@ -26,7 +35,9 @@ namespace Core.Purchase
         /// </summary>
         private void UpdateState()
         {
-            var areLevelsPurchased = PurchaseManager.instance && PurchaseManager.instance.AreAllLevelsPurchased();
+            Debug.Log("UpdateState");
+            if (!PurchaseManager.instance) return;
+            var areLevelsPurchased = PurchaseManager.instance.AreAllLevelsPurchased();
             locks.SetActive(!areLevelsPurchased);
         }
 

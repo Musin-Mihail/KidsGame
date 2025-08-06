@@ -9,6 +9,11 @@ namespace Core.Purchase
         public static PurchaseManager instance { get; private set; }
         public static event Action OnPurchaseStateChanged;
 
+        /// <summary>
+        /// Показывает, была ли завершена первоначальная инициализация менеджера.
+        /// </summary>
+        public bool isInitialized { get; private set; }
+
         private void Awake()
         {
             if (!instance)
@@ -26,6 +31,11 @@ namespace Core.Purchase
         {
             YG2.onPurchaseSuccess += OnPurchaseSuccess;
             YG2.onGetSDKData += OnYandexSDKInitialized;
+
+            if (YG2.isSDKEnabled)
+            {
+                OnYandexSDKInitialized();
+            }
         }
 
         private void OnDisable()
@@ -39,7 +49,9 @@ namespace Core.Purchase
         /// </summary>
         private void OnYandexSDKInitialized()
         {
+            YG2.onGetSDKData -= OnYandexSDKInitialized;
             Debug.Log("Yandex SDK инициализирован. Обновление UI...");
+            isInitialized = true;
             OnPurchaseStateChanged?.Invoke();
         }
 
@@ -60,13 +72,11 @@ namespace Core.Purchase
         private void OnPurchaseSuccess(string purchaseId)
         {
             Debug.Log($"Успешная покупка: {purchaseId}");
-            if (purchaseId == "all_levels")
-            {
-                YG2.saves.allLevelsPurchased = true;
-                YG2.SaveProgress();
-                Debug.Log("Факт покупки сохранен.");
-                OnPurchaseStateChanged?.Invoke();
-            }
+            if (purchaseId != "all_levels") return;
+            YG2.saves.allLevelsPurchased = true;
+            YG2.SaveProgress();
+            Debug.Log("Факт покупки сохранен.");
+            OnPurchaseStateChanged?.Invoke();
         }
 
         /// <summary>
