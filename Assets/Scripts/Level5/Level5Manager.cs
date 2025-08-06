@@ -24,13 +24,6 @@ namespace Level5
             base.Start();
         }
 
-        private void Update()
-        {
-            if (_isVictoryTriggered || WinBobbles.instance.victoryCondition != 0) return;
-            _isVictoryTriggered = true;
-            StartCoroutine(WinAnimation());
-        }
-
         protected override void InitializeSpawner()
         {
             foreach (var oyster in oysters)
@@ -120,6 +113,10 @@ namespace Level5
             {
                 spawner.activeItem.Remove(draggedObject);
             }
+
+            if (_isVictoryTriggered || WinBobbles.instance.victoryCondition != 0) return;
+            _isVictoryTriggered = true;
+            StartCoroutine(WinAnimation());
         }
     }
 }

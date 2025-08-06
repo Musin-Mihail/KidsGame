@@ -61,7 +61,11 @@ namespace Level8
             foreach (var puzzle in puzzles)
             {
                 _currentPuzzle = puzzle;
-                _currentPuzzle.puzzleObject.SetActive(true);
+                if (_currentPuzzle.puzzleObject)
+                {
+                    _currentPuzzle.puzzleObject.SetActive(true);
+                }
+
                 yield return StartCoroutine(LevelFlowCoroutine(_currentPuzzle));
                 if (_currentPuzzle.puzzleObject)
                 {
@@ -128,7 +132,7 @@ namespace Level8
         }
 
         /// <summary>
-        /// Вызывается из LevelDropHandler, когда предмет успешно размещен.
+        /// Вызывается, когда предмет успешно размещен.
         /// </summary>
         private void OnItemPlaced()
         {
@@ -172,10 +176,6 @@ namespace Level8
             var col = draggedObject.GetComponent<Collider2D>();
             if (col) col.enabled = false;
             OnItemPlaced();
-            if (WinBobbles.instance?.victoryCondition == 0 && hint)
-            {
-                hint.StopHint();
-            }
         }
     }
 }
