@@ -5,9 +5,8 @@ namespace Core.Purchase
 {
     public class BuyLevelsButton : MonoBehaviour
     {
-        [Tooltip("Уникальный идентификатор покупки (должен совпадать с ID в Yandex Console).")]
-        public string productId = "all_levels";
         public Button button;
+        public GameObject locks;
 
         private void OnEnable()
         {
@@ -28,7 +27,7 @@ namespace Core.Purchase
         private void UpdateState()
         {
             var areLevelsPurchased = PurchaseManager.instance && PurchaseManager.instance.AreAllLevelsPurchased();
-            gameObject.SetActive(!areLevelsPurchased);
+            locks.SetActive(!areLevelsPurchased);
         }
 
         private void OnButtonClick()

@@ -77,5 +77,17 @@ namespace Core.Purchase
         {
             return YG2.saves.allLevelsPurchased;
         }
+
+        /// <summary>
+        /// Сбрасывает статус покупки всех уровней. Только для отладки.
+        /// </summary>
+        public void ResetPurchase()
+        {
+            Debug.Log("Сброс статуса покупки...");
+            YG2.saves.allLevelsPurchased = false;
+            YG2.SaveProgress();
+            Debug.Log("Статус покупки сброшен и сохранен.");
+            OnPurchaseStateChanged?.Invoke();
+        }
     }
 }

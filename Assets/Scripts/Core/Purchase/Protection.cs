@@ -17,7 +17,6 @@ namespace Core.Purchase
             if (!instance)
             {
                 instance = this;
-                DontDestroyOnLoad(gameObject);
             }
             else
             {
@@ -33,16 +32,16 @@ namespace Core.Purchase
         public void OpenQuestion()
         {
             question.SetActive(true);
-            if (Application.systemLanguage.ToString() == "Russian")
-            {
-                eng.SetActive(false);
-                rus.SetActive(true);
-            }
-            else
-            {
-                eng.SetActive(true);
-                rus.SetActive(false);
-            }
+            // if (Application.systemLanguage.ToString() == "Russian")
+            // {
+            eng.SetActive(false);
+            rus.SetActive(true);
+            // }
+            // else
+            // {
+            // eng.SetActive(true);
+            // rus.SetActive(false);
+            // }
         }
 
         public void ExitQuestion()
