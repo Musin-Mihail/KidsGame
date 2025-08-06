@@ -117,6 +117,10 @@ namespace Level7
 
             draggedObject.SetActive(false);
             OnTaskCompleted();
+            if (WinBobbles.instance?.victoryCondition == 0 && hint)
+            {
+                hint.StopHint();
+            }
         }
     }
 }

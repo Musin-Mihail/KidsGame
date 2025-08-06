@@ -130,6 +130,10 @@ namespace Level3
         {
             ProcessSuccessfulPlacement(draggedObject, targetCollider.gameObject);
             ChangeFigure();
+            if (WinBobbles.instance?.victoryCondition == 0 && hint)
+            {
+                hint.StopHint();
+            }
         }
     }
 }

@@ -107,11 +107,7 @@ namespace Level8
 
             if (hint)
             {
-                hint.isHintingActive = false;
-                if (hint.finger && hint.finger.activeSelf)
-                {
-                    hint.finger.SetActive(false);
-                }
+                hint.StopHint();
             }
 
             foreach (var item in level8Spawner.activeItem.Where(item => item))
@@ -176,6 +172,10 @@ namespace Level8
             var col = draggedObject.GetComponent<Collider2D>();
             if (col) col.enabled = false;
             OnItemPlaced();
+            if (WinBobbles.instance?.victoryCondition == 0 && hint)
+            {
+                hint.StopHint();
+            }
         }
     }
 }

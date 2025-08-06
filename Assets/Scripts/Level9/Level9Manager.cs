@@ -75,6 +75,10 @@ namespace Level9
             ProcessSuccessfulPlacement(draggedObject, targetCollider.gameObject);
             level9Spawner.RespawnItem(draggedObject);
             UpdateHintAfterPlacement();
+            if (WinBobbles.instance?.victoryCondition == 0 && hint)
+            {
+                hint.StopHint();
+            }
         }
     }
 }

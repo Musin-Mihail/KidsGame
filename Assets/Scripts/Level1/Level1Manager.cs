@@ -49,6 +49,11 @@ namespace Level1
                 level1Spawn.SpawnAnimal(i);
                 break;
             }
+
+            if (WinBobbles.instance?.victoryCondition == 0 && hint)
+            {
+                hint.StopHint();
+            }
         }
     }
 }

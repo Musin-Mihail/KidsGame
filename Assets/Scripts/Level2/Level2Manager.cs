@@ -63,9 +63,11 @@ namespace Level2
                 targetCollider.GetComponent<SpriteRenderer>().sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
             }
 
-            if (WinBobbles.instance.victoryCondition == 0)
+            if (WinBobbles.instance.victoryCondition != 0) return;
+            StartCoroutine(Win());
+            if (hint)
             {
-                StartCoroutine(Win());
+                hint.StopHint();
             }
         }
     }

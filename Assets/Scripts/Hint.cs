@@ -106,6 +106,27 @@ public class Hint : MonoBehaviour
     }
 
     /// <summary>
+    /// Полностью и безопасно останавливает все процессы подсказки.
+    /// </summary>
+    public void StopHint()
+    {
+        isHintingActive = false;
+        if (_currentHintCoroutine != null)
+        {
+            StopCoroutine(_currentHintCoroutine);
+            _currentHintCoroutine = null;
+        }
+
+        if (finger && finger.activeSelf)
+        {
+            finger.SetActive(false);
+        }
+
+        StopAllCoroutines();
+    }
+
+
+    /// <summary>
     /// Публичный метод для принудительного запуска подсказки.
     /// </summary>
     private void ShowHint()
@@ -163,7 +184,7 @@ public class Hint : MonoBehaviour
         var adjustedTarget = targetObject.transform.position;
         while (Vector3.Distance(finger.transform.position, adjustedTarget) > 0.01f)
         {
-            if (!isHintingActive || !startObject.activeSelf || !targetObject.activeSelf)
+            if (!isHintingActive || !startObject || !startObject.activeSelf || !targetObject || !targetObject.activeSelf)
             {
                 break;
             }

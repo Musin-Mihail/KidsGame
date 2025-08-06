@@ -25,7 +25,7 @@ namespace Level10
 
         protected override void Start()
         {
-            WinBobbles.instance?.SetVictoryCondition(0);
+            WinBobbles.instance?.SetVictoryCondition(1);
             Shuffle(allItems);
             StartCoroutine(GameFlow());
             StartCoroutine(hint.StartHint());
@@ -47,8 +47,8 @@ namespace Level10
                 yield return new WaitForSeconds(1.0f);
             }
 
-            yield return StartCoroutine(WinAnimation());
             WinBobbles.instance?.OnItemPlaced();
+            yield return StartCoroutine(WinAnimation());
         }
 
         /// <summary>
@@ -73,8 +73,7 @@ namespace Level10
         {
             if (hint)
             {
-                hint.StopAllCoroutines();
-                if (hint.finger) hint.finger.SetActive(false);
+                hint.StopHint();
             }
 
             foreach (var item in _placedTargetObjects)

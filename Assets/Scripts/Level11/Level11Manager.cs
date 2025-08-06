@@ -181,8 +181,7 @@ namespace Level11
         {
             if (hint)
             {
-                hint.StopAllCoroutines();
-                if (hint.finger) hint.finger.SetActive(false);
+                hint.StopHint();
             }
 
             foreach (var item in emptyChestsForDeletion)

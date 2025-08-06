@@ -70,11 +70,7 @@ namespace Level6
         {
             if (hint)
             {
-                hint.StopAllCoroutines();
-                if (hint.finger)
-                {
-                    hint.finger.SetActive(false);
-                }
+                hint.StopHint();
             }
 
             yield return _winAnimDelay;

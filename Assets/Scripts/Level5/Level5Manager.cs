@@ -71,6 +71,11 @@ namespace Level5
         /// </summary>
         private IEnumerator WinAnimation()
         {
+            if (hint)
+            {
+                hint.StopHint();
+            }
+
             var spawner = GetComponent<Level5Spawner>();
             if (spawner)
             {

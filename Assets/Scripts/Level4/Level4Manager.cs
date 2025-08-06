@@ -60,7 +60,7 @@ namespace Level4
         {
             if (hint)
             {
-                hint.StopAllCoroutines();
+                hint.StopHint();
             }
 
             yield return new WaitForSeconds(0.5f);

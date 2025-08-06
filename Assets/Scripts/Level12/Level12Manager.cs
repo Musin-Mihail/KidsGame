@@ -155,13 +155,12 @@ namespace Level12
         /// </summary>
         private IEnumerator WinAnimation()
         {
-            yield return new WaitForSeconds(0.5f);
             if (hint)
             {
-                hint.StopAllCoroutines();
-                if (hint.finger) hint.finger.SetActive(false);
+                hint.StopHint();
             }
 
+            yield return new WaitForSeconds(0.5f);
             foreach (var item in allItems.Where(i => i && i.activeSelf))
             {
                 StartCoroutine(AnimateWinItem(item));
