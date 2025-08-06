@@ -1,16 +1,23 @@
+using Core.Purchase;
 using UnityEngine;
 
 namespace Menu
 {
     public class MenuMouse : MonoBehaviour
     {
-        public GameObject _protection;
-
         private void OnMouseDown()
         {
             if (gameObject.name == "Answer")
             {
-                _protection.GetComponent<Protection>().Payment();
+                if (PurchaseManager.instance)
+                {
+                    PurchaseManager.instance.BuyAllLevels("all_levels");
+                }
+                else
+                {
+                    Debug.LogError("Не удалось найти PurchaseManager для совершения покупки.");
+                }
+
                 Debug.Log("Оплата");
             }
             else
@@ -23,7 +30,7 @@ namespace Menu
 
         private void Exit()
         {
-            GetComponent<Protection>().Exit();
+            Protection.instance.Exit();
         }
     }
 }
