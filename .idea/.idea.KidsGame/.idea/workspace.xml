@@ -17,6 +17,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2c271b216ff84328b73d1d7f2333e7ab1eac00/44/dec525f0/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2c271b216ff84328b73d1d7f2333e7ab1eac00/99/3a5ee688/GameObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2c271b216ff84328b73d1d7f2333e7ab1eac00/ba/9da4ff20/Transform.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2c271b216ff84328b73d1d7f2333e7ab1eac00/d7/477df17b/Behaviour.cs" root0="FORCE_HIGHLIGHTING" />
@@ -159,7 +160,7 @@
       <workItem from="1754048018125" duration="20811000" />
       <workItem from="1754226022963" duration="15337000" />
       <workItem from="1754396471335" duration="754000" />
-      <workItem from="1754401090245" duration="8176000" />
+      <workItem from="1754401090245" duration="24517000" />
     </task>
     <servers />
   </component>
@@ -192,19 +193,6 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Hint.cs</url>
-          <line>34</line>
-          <properties documentPath="D:\Repositories\KidsGame\Assets\Scripts\Hint.cs" containingFunctionPresentation="Method 'Initialization'">
-            <startOffsets>
-              <option value="996" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1040" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

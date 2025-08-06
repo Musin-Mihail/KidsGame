@@ -1,18 +1,10 @@
-using UnityEngine;
+using Core;
 
-public class Music : MonoBehaviour
+public class Music : Singleton<Music>
 {
-    public static Music instance { get; private set; }
-
-    public void Awake()
+    protected override void Awake()
     {
-        if (instance && instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        instance = this;
+        base.Awake();
         DontDestroyOnLoad(gameObject);
     }
 }

@@ -31,13 +31,6 @@ namespace Level6
             base.Start();
         }
 
-        private void Update()
-        {
-            if (_isVictoryTriggered || WinBobbles.instance.victoryCondition != 0) return;
-            _isVictoryTriggered = true;
-            StartCoroutine(WinAnimation());
-        }
-
         /// <summary>
         /// Инициализирует спаунер.
         /// </summary>
@@ -132,6 +125,10 @@ namespace Level6
             {
                 level6Spawner.RespawnStar(draggedObject);
             }
+
+            if (WinBobbles.instance.victoryCondition != 0 || _isVictoryTriggered) return;
+            _isVictoryTriggered = true;
+            StartCoroutine(WinAnimation());
         }
     }
 }

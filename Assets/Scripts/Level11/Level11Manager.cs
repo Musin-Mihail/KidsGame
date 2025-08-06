@@ -41,6 +41,14 @@ namespace Level11
             };
         }
 
+        private void OnDestroy()
+        {
+            if (_hintStartObject)
+            {
+                Destroy(_hintStartObject);
+            }
+        }
+
         protected override void Start()
         {
             WinBobbles.instance?.SetVictoryCondition(fishChestCount);

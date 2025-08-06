@@ -9,7 +9,6 @@ namespace Level2
         [Header("Настройки уровня 2")]
         public GameObject boat;
         private Vector3 _targetBoat;
-        private int _isVictoryTriggered;
         private Level2Spawner _level2Spawn;
 
         protected override void Awake()
@@ -23,13 +22,6 @@ namespace Level2
             WinBobbles.instance?.SetVictoryCondition(8);
             _targetBoat = new Vector3(-15, 1.1f, 2.89f);
             base.Start();
-        }
-
-        private void Update()
-        {
-            if (WinBobbles.instance.victoryCondition != 0 || _isVictoryTriggered != 0) return;
-            _isVictoryTriggered = 1;
-            StartCoroutine(Win());
         }
 
         private IEnumerator Win()
@@ -69,6 +61,11 @@ namespace Level2
             else
             {
                 targetCollider.GetComponent<SpriteRenderer>().sprite = draggedObject.GetComponent<SpriteRenderer>().sprite;
+            }
+
+            if (WinBobbles.instance.victoryCondition == 0)
+            {
+                StartCoroutine(Win());
             }
         }
     }

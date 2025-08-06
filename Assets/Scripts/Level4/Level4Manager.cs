@@ -28,13 +28,6 @@ namespace Level4
             base.Start();
         }
 
-        private void Update()
-        {
-            if (_isVictoryTriggered || WinBobbles.instance.victoryCondition != 0) return;
-            _isVictoryTriggered = true;
-            StartCoroutine(WinAnimation());
-        }
-
         protected override void InitializeSpawner()
         {
             if (level4Spawn)
@@ -97,6 +90,10 @@ namespace Level4
             {
                 draggedObject.SetActive(false);
             }
+
+            if (WinBobbles.instance?.victoryCondition != 0 || _isVictoryTriggered) return;
+            _isVictoryTriggered = true;
+            StartCoroutine(WinAnimation());
         }
 
         private IEnumerator MoveAndActivate(GameObject objectToMove, GameObject childToActivate, bool water)

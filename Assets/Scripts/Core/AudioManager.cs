@@ -6,10 +6,8 @@ namespace Core
     /// Управляет воспроизведением звука в игре.
     /// Реализован как синглтон, чтобы обеспечить единственный экземпляр.
     /// </summary>
-    public class AudioManager : MonoBehaviour
+    public class AudioManager : Singleton<AudioManager>
     {
-        public static AudioManager instance { get; private set; }
-
         [Tooltip("Звуковой эффект для клика или успешного перетаскивания предмета.")]
         [SerializeField] private AudioClip clickSound;
 
@@ -18,15 +16,9 @@ namespace Core
 
         private AudioSource _audioSource;
 
-        private void Awake()
+        protected override void Awake()
         {
-            if (instance && instance != this)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            instance = this;
+            base.Awake();
             _audioSource = GetComponent<AudioSource>();
         }
 
