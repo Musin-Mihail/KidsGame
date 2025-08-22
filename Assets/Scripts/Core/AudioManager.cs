@@ -10,10 +10,7 @@ namespace Core
     {
         [Tooltip("Звуковой эффект для клика или успешного перетаскивания предмета.")]
         [SerializeField] private AudioClip clickSound;
-
-        [Tooltip("Громкость звука клика.")]
-        [SerializeField] [Range(0f, 1f)] private float clickVolume = 0.3f;
-
+        private const float ClickVolume = 0.4f;
         private AudioSource _audioSource;
 
         protected override void Awake()
@@ -29,7 +26,7 @@ namespace Core
         {
             if (clickSound)
             {
-                _audioSource.PlayOneShot(clickSound, clickVolume);
+                _audioSource.PlayOneShot(clickSound, ClickVolume);
             }
             else
             {
