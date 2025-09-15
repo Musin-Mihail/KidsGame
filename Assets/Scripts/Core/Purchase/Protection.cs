@@ -6,6 +6,7 @@ namespace Core.Purchase
     public class Protection : MonoBehaviour
     {
         public static Protection instance { get; private set; }
+        public GameObject blockerPanel;
         public GameObject question;
         public GameObject protection;
         public GameObject rus;
@@ -31,21 +32,23 @@ namespace Core.Purchase
 
         public void OpenQuestion()
         {
+            blockerPanel.SetActive(true);
             question.SetActive(true);
-            // if (Application.systemLanguage.ToString() == "Russian")
-            // {
-            eng.SetActive(false);
-            rus.SetActive(true);
-            // }
-            // else
-            // {
-            // eng.SetActive(true);
-            // rus.SetActive(false);
-            // }
+            if (Application.systemLanguage.ToString() == "Russian")
+            {
+                eng.SetActive(false);
+                rus.SetActive(true);
+            }
+            else
+            {
+                eng.SetActive(true);
+                rus.SetActive(false);
+            }
         }
 
         public void ExitQuestion()
         {
+            blockerPanel.SetActive(false);
             question.SetActive(false);
         }
 

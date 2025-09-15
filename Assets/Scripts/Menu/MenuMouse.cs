@@ -5,13 +5,13 @@ namespace Menu
 {
     public class MenuMouse : MonoBehaviour
     {
-        private void OnMouseDown()
+        public void HandleClick()
         {
             if (gameObject.name == "Answer")
             {
                 if (PurchaseManager.instance)
                 {
-                    PurchaseManager.instance.BuyAllLevels("all_levels");
+                    PurchaseManager.instance.BuyAllLevels();
                 }
                 else
                 {
@@ -25,11 +25,6 @@ namespace Menu
                 Debug.Log("Не угадал");
             }
 
-            Invoke("Exit", 0.5f);
-        }
-
-        private void Exit()
-        {
             Protection.instance.Exit();
         }
     }

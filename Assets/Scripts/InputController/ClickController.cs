@@ -1,4 +1,5 @@
 using System;
+using Menu;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -45,7 +46,14 @@ namespace InputController
             if (!_camera) return;
             var screenPosition = _playerControls.Gameplay.PointerPosition.ReadValue<Vector2>();
             var hit = Physics2D.Raycast(_camera.ScreenToWorldPoint(screenPosition), _camera.transform.forward, Mathf.Infinity, clickableLayerMask);
+
             if (!hit.collider) return;
+            if (hit.collider.TryGetComponent<MenuMouse>(out var menuMouse))
+            {
+                menuMouse.HandleClick();
+                return;
+            }
+
             OnObjectClicked?.Invoke(hit.collider.gameObject);
             if (_hint)
             {

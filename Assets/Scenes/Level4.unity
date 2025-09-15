@@ -442,7 +442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 316785833}
   - component: {fileID: 316785832}
-  - component: {fileID: 316785831}
+  - component: {fileID: 316785834}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -450,26 +450,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &316785831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 316785830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &316785832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,6 +480,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &316785834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316785830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 6
 --- !u!1 &332814288
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,6 +623,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25ec547517aef5498381da5b4e92caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 2
+  jumpHeight: 1
 --- !u!1 &378640972
 GameObject:
   m_ObjectHideFlags: 0
@@ -1497,9 +1521,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hint: {fileID: 1066311947}
+  dragController: {fileID: 1066311949}
+  clickController: {fileID: 0}
   successEffectPrefab: {fileID: 5981370303694277390, guid: 3710ee0e1031c274fb0abe08a0db1858,
     type: 3}
   successEffectLayer: 0
+  secondaryEffectPrefab: {fileID: 0}
+  secondaryEffectLayer: 5
   allItems:
   - {fileID: 1937004295028797795, guid: 084e4a50d8677d9459c629d9fc96fd37, type: 3}
   - {fileID: 7547282802031887376, guid: 640719826c3b37746be61da3ae7334ea, type: 3}
@@ -1515,7 +1543,6 @@ MonoBehaviour:
   - {fileID: 82215676}
   - {fileID: 172623946}
   level4Spawn: {fileID: 1066311950}
-  dragController: {fileID: 1066311949}
   collectedItems:
   - {fileID: 6048782940882608905}
   - {fileID: 6560876109330745188}
@@ -2931,7 +2958,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickSound: {fileID: 8300000, guid: 96e7cc73854eaf64cb97b40cc53b3d48, type: 3}
-  clickVolume: 0.3
 --- !u!82 &2075515046
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3060,6 +3086,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25ec547517aef5498381da5b4e92caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 2
+  jumpHeight: 1
 --- !u!212 &1300365157365830482
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3341,6 +3369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25ec547517aef5498381da5b4e92caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 2
+  jumpHeight: 1
 --- !u!1 &3209633756632852121
 GameObject:
   m_ObjectHideFlags: 0
@@ -3372,6 +3402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25ec547517aef5498381da5b4e92caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 2
+  jumpHeight: 1
 --- !u!4 &4067968392875439722
 Transform:
   m_ObjectHideFlags: 0
@@ -3418,6 +3450,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25ec547517aef5498381da5b4e92caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 2
+  jumpHeight: 1
 --- !u!212 &4649941881420323547
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3504,6 +3538,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25ec547517aef5498381da5b4e92caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 2
+  jumpHeight: 1
 --- !u!4 &5021749882067504700
 Transform:
   m_ObjectHideFlags: 0
@@ -3605,6 +3641,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25ec547517aef5498381da5b4e92caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 2
+  jumpHeight: 1
 --- !u!1 &5523665974830933383
 GameObject:
   m_ObjectHideFlags: 0
@@ -3636,6 +3674,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25ec547517aef5498381da5b4e92caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 2
+  jumpHeight: 1
 --- !u!212 &5784496205538539635
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3722,6 +3762,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25ec547517aef5498381da5b4e92caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 2
+  jumpHeight: 1
 --- !u!4 &6513502467013676483
 Transform:
   m_ObjectHideFlags: 0
@@ -3768,6 +3810,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25ec547517aef5498381da5b4e92caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 2
+  jumpHeight: 1
 --- !u!95 &6560876109330745191
 Animator:
   serializedVersion: 7
