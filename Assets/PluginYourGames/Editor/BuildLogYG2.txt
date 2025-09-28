@@ -1,3 +1,3 @@
 Build path: D:/Разработка игр/Сборки/KidGame/v1.12_bundle18_android16_api36.aab
-Build number: 2
+Build number: 4
 PluginYG version: 2.005

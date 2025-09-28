@@ -23,7 +23,6 @@ namespace Core.Purchase
     {
         public static PurchaseManager instance { get; private set; }
         public static event Action OnPurchaseStateChanged;
-        public GameObject blockerPanel;
 
         [Header("Настройки Биллинга")]
         [Tooltip("Выберите сервис, который будет использоваться для покупок.")]
@@ -45,6 +44,7 @@ namespace Core.Purchase
             if (!instance)
             {
                 instance = this;
+                DontDestroyOnLoad(gameObject);
             }
             else
             {
@@ -253,7 +253,6 @@ namespace Core.Purchase
             PlayerPrefs.Save();
             Debug.Log("Факт покупки Google Play сохранен.");
             OnPurchaseStateChanged?.Invoke();
-            blockerPanel.SetActive(false);
             return PurchaseProcessingResult.Complete;
         }
 
@@ -262,8 +261,8 @@ namespace Core.Purchase
         /// </summary>
         public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)
         {
-            blockerPanel.SetActive(false);
             Debug.LogError($"Ошибка покупки продукта '{product.definition.id}': {failureReason}");
+            OnPurchaseStateChanged?.Invoke();
         }
 
         #endregion

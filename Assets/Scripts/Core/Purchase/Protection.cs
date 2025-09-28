@@ -50,6 +50,7 @@ namespace Core.Purchase
         {
             blockerPanel.SetActive(false);
             question.SetActive(false);
+            protection.SetActive(false);
         }
 
         public void OpenProtection()

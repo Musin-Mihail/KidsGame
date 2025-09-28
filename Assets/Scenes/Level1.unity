@@ -1445,7 +1445,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 1
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -2411,7 +2411,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 35, y: 0}
+  m_AnchoredPosition: {x: 34.999878, y: 0}
   m_SizeDelta: {x: 350, y: 0}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1465071339
@@ -3010,6 +3010,7 @@ GameObject:
   - component: {fileID: 2039308205}
   - component: {fileID: 2039308203}
   - component: {fileID: 2039308204}
+  - component: {fileID: 2039308206}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3044,9 +3045,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.11600003
     y: 0
-    width: 1
+    width: 0.76799995
     height: 1
   near clip plane: -3
   far clip plane: 3
@@ -3091,6 +3092,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2039308206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039308202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e0c9bf3b144e1b9cb628f8ee595028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2065350453
 GameObject:
   m_ObjectHideFlags: 0
