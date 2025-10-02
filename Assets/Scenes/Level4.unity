@@ -1427,6 +1427,7 @@ GameObject:
   - component: {fileID: 1066311950}
   - component: {fileID: 1066311947}
   - component: {fileID: 1066311949}
+  - component: {fileID: 1066311952}
   m_Layer: 0
   m_Name: Game
   m_TagString: Game
@@ -1554,6 +1555,21 @@ MonoBehaviour:
   - {fileID: 2615259784898498359}
   - {fileID: 4490405126341818978}
   - {fileID: 3209633756632852121}
+--- !u!114 &1066311952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066311939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00929249163b4a3cb856ecddcbaf8c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickableLayerMask:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!1 &1075170752
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,23 +7,7 @@
     <list default="true" id="7313cf86-6b92-4f5e-b60f-6a57ae13d2c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KidsGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KidsGame/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/PluginYourGames/Editor/BuildLogYG2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PluginYourGames/Editor/BuildLogYG2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level10.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level10.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level11.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level11.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level12.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level12.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level4.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level5.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level6.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level6.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level7.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level7.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level8.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level8.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level9.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level9.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SelectScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SelectScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Purchase/PurchaseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Purchase/PurchaseManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BurstingBubble.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BurstingBubble.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
@@ -186,7 +170,9 @@
       <workItem from="1755772469934" duration="177000" />
       <workItem from="1755820887916" duration="481000" />
       <workItem from="1757954720295" duration="6613000" />
-      <workItem from="1759015899320" duration="2574000" />
+      <workItem from="1759015899320" duration="2915000" />
+      <workItem from="1759417208109" duration="329000" />
+      <workItem from="1759418675106" duration="2000" />
     </task>
     <servers />
   </component>

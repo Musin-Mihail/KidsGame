@@ -22,7 +22,7 @@ public class BurstingBubble : MonoBehaviour
         StartCoroutine(DestroyBubble());
     }
 
-    private void OnMouseUp()
+    public void Burst()
     {
         if (_isBursting) return;
         _isBursting = true;

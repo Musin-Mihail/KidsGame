@@ -1333,6 +1333,7 @@ GameObject:
   - component: {fileID: 638857300}
   - component: {fileID: 638857299}
   - component: {fileID: 638857298}
+  - component: {fileID: 638857302}
   m_Layer: 0
   m_Name: Game
   m_TagString: Game
@@ -1451,6 +1452,21 @@ MonoBehaviour:
   - {fileID: 522538548}
   - {fileID: 2104102937}
   level9Spawner: {fileID: 638857300}
+--- !u!114 &638857302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638857287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00929249163b4a3cb856ecddcbaf8c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickableLayerMask:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!4 &1072360139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3325852922143331956, guid: 70d7d97c3d2f75744b9671d73f38956f,

@@ -14,7 +14,7 @@ namespace InputController
         public event Action<GameObject> OnObjectClicked;
         [Header("Настройки слоев")]
         [Tooltip("Слой, на котором находятся объекты, по которым можно кликать.")]
-        [SerializeField] private LayerMask clickableLayerMask = 1 << 13;
+        [SerializeField] private LayerMask clickableLayerMask = 1 << 12;
         private Camera _camera;
         private PlayerControls _playerControls;
         private Hint _hint;
@@ -48,6 +48,12 @@ namespace InputController
             var hit = Physics2D.Raycast(_camera.ScreenToWorldPoint(screenPosition), _camera.transform.forward, Mathf.Infinity, clickableLayerMask);
 
             if (!hit.collider) return;
+            Debug.Log(hit.collider.name);
+            if (hit.collider.TryGetComponent<BurstingBubble>(out var bubble))
+            {
+                bubble.Burst();
+                return;
+            }
             if (hit.collider.TryGetComponent<MenuMouse>(out var menuMouse))
             {
                 menuMouse.HandleClick();

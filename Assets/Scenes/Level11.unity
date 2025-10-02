@@ -2388,7 +2388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickableLayerMask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 6144
 --- !u!114 &1731143655
 MonoBehaviour:
   m_ObjectHideFlags: 0
